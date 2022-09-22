@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { User } from "./features/user/User";
+import { setId } from "./features/user/userSlice";
+import { useDispatch } from "react-redux";
+
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
+  const dispatch = useDispatch();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <User />
+      <input
+        type="string"
+        placeholder="Enter user id"
+        onInput={(e) => {
+          dispatch(setId(e.target.value));
+        }}
+      />
+      ;
+    </>
   );
 }
 
