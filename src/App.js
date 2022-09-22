@@ -1,11 +1,13 @@
 import React from "react";
-
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
 import { useSelector } from "react-redux";
 
 import "bootstrap/dist/css/bootstrap.min.css";
+
+import About from "./components/About";
 import MainNav from "./components/MainNav";
+
+import "./App.css";
 
 function App() {
   const user = useSelector((state) => state.user);
@@ -23,22 +25,8 @@ function App() {
               </>
             }
           />
-          <Route
-            path="/about"
-            element={
-              <>
-                <h1>About</h1>
-              </>
-            }
-          />
-          <Route
-            path="/contact"
-            element={
-              <>
-                <h1>Contatc</h1>
-              </>
-            }
-          />
+          <Route path="/about" element={<About />} />
+
           <Route
             path="/price-plan"
             element={
