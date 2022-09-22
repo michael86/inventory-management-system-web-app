@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   id: "",
+  authenticated: false,
 };
 
 export const userSlice = createSlice({
@@ -9,13 +10,15 @@ export const userSlice = createSlice({
   initialState,
   reducers: {
     setId: (state, action) => {
-      console.log(action);
       state.id = action.payload;
+    },
+    setAuthenticated: (state) => {
+      state.authenticated = !state.authenticated;
     },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { setId } = userSlice.actions;
+export const { setId, setAuthenticated } = userSlice.actions;
 
 export default userSlice.reducer;
