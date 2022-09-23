@@ -10,7 +10,7 @@ import MainNav from "./components/MainNav";
 import "./App.css";
 
 function App() {
-  const user = useSelector((state) => state.user);
+  // const user = useSelector((state) => state.user);
 
   return (
     <>
