@@ -1,11 +1,11 @@
-import Button from "react-bootstrap/Button";
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
+import { NavDropdown, Navbar, Nav, Container, Button } from "react-bootstrap";
 
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 import "../styles/Nav.css";
 
@@ -34,16 +34,37 @@ const MainNav = () => {
               <Link to="/about" className="me-2">
                 About
               </Link>
-              <Link to="/price-plane">Price Plan</Link>
-            </Nav>
-
-            {!authenticated ? (
-              <Link to="login">
-                <Button className="btn-sm">Sign In</Button>
+              <Link to="/price-plane" className="me-2">
+                Price Plan
               </Link>
-            ) : (
-              <p>user profile image</p>
-            )}
+
+              {!authenticated ? (
+                <Link to="login">
+                  <Button className="btn-sm">Sign In</Button>
+                </Link>
+              ) : (
+                <NavDropdown
+                  title={<FontAwesomeIcon icon={faUser} />}
+                  id="basic-nav-dropdown"
+                >
+                  <Link to="/account" className="dropdown-item">
+                    Account
+                  </Link>
+
+                  <NavDropdown.Divider />
+
+                  <Link to="/settings" className="dropdown-item">
+                    Settings
+                  </Link>
+
+                  <NavDropdown.Divider />
+
+                  <Link to="stock" className="dropdown-item">
+                    Stock
+                  </Link>
+                </NavDropdown>
+              )}
+            </Nav>
           </Offcanvas.Body>
         </Navbar.Offcanvas>
       </Container>
