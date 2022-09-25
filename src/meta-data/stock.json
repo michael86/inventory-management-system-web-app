@@ -1,0 +1,232 @@
+{
+  "sku_54437857": {
+    "min_required": 220,
+    "current_stock": 4563453156,
+    "picture": "path/to/img",
+    "cost_per_unit": 9990,
+    "free_issue": false,
+    "location": {
+      "aisle": "B",
+      "shelf": "2"
+    },
+    "history": {
+      "01548753185": {
+        "date_checked_in": 13151234541,
+        "staff_member": "Paul Lewington",
+        "staff_id": "SD342",
+        "qty_checked_in": 1548
+      }
+    },
+    "supplier_info": {
+      "company": "Some company",
+      "address": "123 fake street"
+    }
+  },
+  "sku_54437855427": {
+    "min_required": 220,
+    "current_stock": 4563453156,
+    "picture": "path/to/img",
+    "cost_per_unit": 9990,
+    "free_issue": false,
+    "location": {
+      "aisle": "B",
+      "shelf": "2"
+    },
+    "history": {
+      "01548753185": {
+        "date_checked_in": 13151234541,
+        "staff_member": "Paul Lewington",
+        "staff_id": "SD342",
+        "qty_checked_in": 1548
+      }
+    },
+    "supplier_info": {
+      "company": "Some company",
+      "address": "123 fake street"
+    }
+  },
+  "sku_54437825257": {
+    "min_required": 220,
+    "current_stock": 4563453156,
+    "picture": "path/to/img",
+    "cost_per_unit": 9990,
+    "free_issue": false,
+    "location": {
+      "aisle": "B",
+      "shelf": "2"
+    },
+    "history": {
+      "01548753185": {
+        "date_checked_in": 13151234541,
+        "staff_member": "Paul Lewington",
+        "staff_id": "SD342",
+        "qty_checked_in": 1548
+      }
+    },
+    "supplier_info": {
+      "company": "Some company",
+      "address": "123 fake street"
+    }
+  },
+  "sku_54432527857": {
+    "min_required": 220,
+    "current_stock": 4563453156,
+    "picture": "path/to/img",
+    "cost_per_unit": 9990,
+    "free_issue": false,
+    "location": {
+      "aisle": "B",
+      "shelf": "2"
+    },
+    "history": {
+      "01548753185": {
+        "date_checked_in": 13151234541,
+        "staff_member": "Paul Lewington",
+        "staff_id": "SD342",
+        "qty_checked_in": 1548
+      }
+    },
+    "supplier_info": {
+      "company": "Some company",
+      "address": "123 fake street"
+    }
+  },
+  "sku_5443725257": {
+    "min_required": 220,
+    "current_stock": 4563453156,
+    "picture": "path/to/img",
+    "cost_per_unit": 9990,
+    "free_issue": false,
+    "location": {
+      "aisle": "B",
+      "shelf": "2"
+    },
+    "history": {
+      "01548753185": {
+        "date_checked_in": 13151234541,
+        "staff_member": "Paul Lewington",
+        "staff_id": "SD342",
+        "qty_checked_in": 1548
+      }
+    },
+    "supplier_info": {
+      "company": "Some company",
+      "address": "123 fake street"
+    }
+  },
+  "sku_5443257857": {
+    "min_required": 220,
+    "current_stock": 4563453156,
+    "picture": "path/to/img",
+    "cost_per_unit": 9990,
+    "free_issue": false,
+    "location": {
+      "aisle": "B",
+      "shelf": "2"
+    },
+    "history": {
+      "01548753185": {
+        "date_checked_in": 13151234541,
+        "staff_member": "Paul Lewington",
+        "staff_id": "SD342",
+        "qty_checked_in": 1548
+      }
+    },
+    "supplier_info": {
+      "company": "Some company",
+      "address": "123 fake street"
+    }
+  },
+  "sku_5443724857": {
+    "min_required": 220,
+    "current_stock": 4563453156,
+    "picture": "path/to/img",
+    "cost_per_unit": 9990,
+    "free_issue": false,
+    "location": {
+      "aisle": "B",
+      "shelf": "2"
+    },
+    "history": {
+      "01548753185": {
+        "date_checked_in": 13151234541,
+        "staff_member": "Paul Lewington",
+        "staff_id": "SD342",
+        "qty_checked_in": 1548
+      }
+    },
+    "supplier_info": {
+      "company": "Some company",
+      "address": "123 fake street"
+    }
+  },
+  "sku_5443744857": {
+    "min_required": 220,
+    "current_stock": 4563453156,
+    "picture": "path/to/img",
+    "cost_per_unit": 9990,
+    "free_issue": false,
+    "location": {
+      "aisle": "B",
+      "shelf": "2"
+    },
+    "history": {
+      "01548753185": {
+        "date_checked_in": 13151234541,
+        "staff_member": "Paul Lewington",
+        "staff_id": "SD342",
+        "qty_checked_in": 1548
+      }
+    },
+    "supplier_info": {
+      "company": "Some company",
+      "address": "123 fake street"
+    }
+  },
+  "sku_544375857": {
+    "min_required": 220,
+    "current_stock": 4563453156,
+    "picture": "path/to/img",
+    "cost_per_unit": 9990,
+    "free_issue": false,
+    "location": {
+      "aisle": "B",
+      "shelf": "2"
+    },
+    "history": {
+      "01548753185": {
+        "date_checked_in": 13151234541,
+        "staff_member": "Paul Lewington",
+        "staff_id": "SD342",
+        "qty_checked_in": 1548
+      }
+    },
+    "supplier_info": {
+      "company": "Some company",
+      "address": "123 fake street"
+    }
+  },
+  "sku_544378571": {
+    "min_required": 220,
+    "current_stock": 4563453156,
+    "picture": "path/to/img",
+    "cost_per_unit": 9990,
+    "free_issue": false,
+    "location": {
+      "aisle": "B",
+      "shelf": "2"
+    },
+    "history": {
+      "01548753185": {
+        "date_checked_in": 13151234541,
+        "staff_member": "Paul Lewington",
+        "staff_id": "SD342",
+        "qty_checked_in": 1548
+      }
+    },
+    "supplier_info": {
+      "company": "Some company",
+      "address": "123 fake street"
+    }
+  }
+}

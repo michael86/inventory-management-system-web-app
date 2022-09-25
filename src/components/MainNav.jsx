@@ -7,27 +7,30 @@ import {
   Offcanvas,
 } from "react-bootstrap";
 
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 
-import Popup from "../features/Popup/Popup";
+import Popup from "../features/popups/LoginRegister/Login-Register";
+import { togglePopup } from "../features/popups/LoginRegister/Login-RegisterSlice";
+import { setAuthenticated } from "../features/user/userSlice";
 
 import "../styles/Nav.css";
 
 function MainNav() {
-  const state = useSelector((state) => state);
-  console.log(state);
+  const dispatch = useDispatch();
+
   const { authenticated } = useSelector((state) => state.user);
-  const { togglePopup } = useSelector((state) => state.popup);
 
   return (
     <>
       <Navbar key="md" bg="light" expand="md" className="mb-3">
         <Container fluid>
-          <Navbar.Brand href="#">CIMS</Navbar.Brand>
+          <Link to="/" className="navbar-brand">
+            CIMS
+          </Link>
 
           <Navbar.Toggle aria-controls="offcanvasNavbar-expand-md" />
 
@@ -49,23 +52,26 @@ function MainNav() {
                     id="offcanvasNavbarDropdown-expand-md"
                     className="order-md-3 "
                   >
-                    //Make these account settings and shit
-                    <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-                    <NavDropdown.Item href="#action4">
-                      Another action
-                    </NavDropdown.Item>
+                    <Link to="account-settings" className="dropdown-item">
+                      Settings
+                    </Link>
                     <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action5">
-                      Something else here
-                    </NavDropdown.Item>
+                    <Link to="account-profile" className="dropdown-item">
+                      Profile
+                    </Link>
+                    <NavDropdown.Divider />
+                    <Link
+                      to="/"
+                      className="dropdown-item"
+                      onClick={() => {
+                        dispatch(setAuthenticated());
+                      }}
+                    >
+                      Log out
+                    </Link>
                   </NavDropdown>
                 )}
 
-                <Nav.Item>
-                  <Link to="/" className="nav-link">
-                    Home
-                  </Link>
-                </Nav.Item>
                 <Nav.Item>
                   <Link to="/about" className="nav-link">
                     About
@@ -77,11 +83,17 @@ function MainNav() {
                   </Link>
                 </Nav.Item>
 
+                <Nav.Item>
+                  <Link to="/price-plans" className="nav-link">
+                    Price Plans
+                  </Link>
+                </Nav.Item>
+
                 {!authenticated && (
                   <Nav.Item className="ms-auto">
                     <Button
                       onClick={() => {
-                        <Popup />;
+                        dispatch(togglePopup());
                       }}
                     >
                       Register/Login
@@ -93,6 +105,7 @@ function MainNav() {
           </Navbar.Offcanvas>
         </Container>
       </Navbar>
+      <Popup />;
     </>
   );
 }
