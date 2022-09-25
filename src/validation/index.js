@@ -4,8 +4,7 @@ import { email, login, register } from "./schema/schemas";
 export const validate = (type, payload) => {
   switch (type) {
     case "login":
-      const valid = jValidate(login, payload);
-      return valid;
+      return jValidate(login, payload);
     case "register":
       return jValidate(register, payload);
     case "email":

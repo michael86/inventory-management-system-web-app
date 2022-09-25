@@ -105,7 +105,7 @@ function MainNav() {
           </Navbar.Offcanvas>
         </Container>
       </Navbar>
-      <Popup />;
+      <Popup />
     </>
   );
 }

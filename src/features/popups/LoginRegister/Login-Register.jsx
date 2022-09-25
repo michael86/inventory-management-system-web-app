@@ -5,12 +5,36 @@ import { useDispatch, useSelector } from "react-redux";
 import { togglePopup, setScreen, setErrors } from "./Login-RegisterSlice";
 import { validate } from "../../../validation";
 
+import { setAuthenticated } from "../../user/userSlice";
+
 function Popup() {
   const { show, screen, errors } = useSelector(
     (state) => state.loginRegisterPopup
   );
 
   const dispatch = useDispatch();
+
+  const handleLogin = () => {
+    if (screen === 0) {
+      const form = document.getElementById("home-form");
+      const { email, password, remember } = form.elements;
+      const payload = {
+        email: email.value,
+        password: password.value,
+        // remember: remember.checked, not needed as validating
+      };
+
+      const valid = validate("login", payload);
+      dispatch(setErrors(valid.invalid ? valid : {}));
+
+      if (!valid.invalid) {
+        dispatch(setAuthenticated());
+        dispatch(togglePopup());
+      }
+    } else {
+      dispatch(setScreen(0));
+    }
+  };
 
   return (
     <>
@@ -103,22 +127,7 @@ function Popup() {
               variant="primary"
               className="me-2"
               onClick={() => {
-                {
-                  if (screen === 0) {
-                    const form = document.getElementById("home-form");
-                    const { email, password, remember } = form.elements;
-                    const payload = {
-                      email: email.value,
-                      password: password.value,
-                      // remember: remember.checked, not needed as validating
-                    };
-
-                    const valid = validate("login", payload);
-                    dispatch(setErrors(valid.invalid ? valid : {}));
-                  } else {
-                    dispatch(setScreen(0));
-                  }
-                }
+                handleLogin();
               }}
             >
               Login
