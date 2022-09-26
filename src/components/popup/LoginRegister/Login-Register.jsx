@@ -5,9 +5,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { togglePopup, setScreen, setErrors } from "./Login-RegisterSlice";
 import { validate } from "../../../validation";
 
-import { setAuthenticated } from "../../user/userSlice";
+import { registerUser, setAuthenticated } from "../../user/userSlice";
+import { setStore } from "../../../localStorage";
 
 function Popup() {
+  const user = useSelector((state) => state.user);
+
   const { show, screen, errors } = useSelector(
     (state) => state.loginRegisterPopup
   );
@@ -30,6 +33,7 @@ function Popup() {
       if (!valid.invalid) {
         dispatch(setAuthenticated());
         dispatch(togglePopup());
+        setStore(user);
       }
     } else {
       dispatch(setScreen(0));
@@ -146,9 +150,17 @@ function Popup() {
                     company: company.value,
                   };
 
-                  const valid = validate("register", payload);
+                  const data = validate("register", payload);
 
-                  dispatch(setErrors(valid.invalid ? valid : {}));
+                  dispatch(setErrors(data.invalid ? data : {}));
+
+                  if (!data.invalid) {
+                    dispatch(registerUser(data.value));
+                    dispatch(togglePopup());
+
+                    data.value.authenticated = true; //
+                    setStore(data.value);
+                  }
                 } else {
                   dispatch(setScreen(1));
                 }

@@ -1,7 +1,7 @@
-import React from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-import "bootstrap/dist/css/bootstrap.min.css";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 //components are heavily state based.
 import MainNav from "./components/MainNav";
@@ -15,12 +15,23 @@ import Contact from "./pages/Contact";
 import PricePlans from "./pages/PricePlans";
 import Home from "./pages/Home";
 
+//local storage
+import { getStore } from "./localStorage";
+
 //css
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import { useSelector } from "react-redux";
+import { registerUser } from "./features/user/userSlice";
 
 function App() {
   const { authenticated } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+
+  //Once rendered, if we have local storage, set user state to current local state
+  useEffect(() => {
+    const data = getStore();
+    data && data.authenticated && dispatch(registerUser(data));
+  }, []);
 
   return (
     <>

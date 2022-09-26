@@ -18,6 +18,7 @@ import { togglePopup } from "../features/popups/LoginRegister/Login-RegisterSlic
 import { setAuthenticated } from "../features/user/userSlice";
 
 import "../styles/Nav.css";
+import { setStoreLogout } from "../localStorage";
 
 function MainNav() {
   const dispatch = useDispatch();
@@ -65,6 +66,7 @@ function MainNav() {
                       className="dropdown-item"
                       onClick={() => {
                         dispatch(setAuthenticated());
+                        setStoreLogout();
                       }}
                     >
                       Log out
