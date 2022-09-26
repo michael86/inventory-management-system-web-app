@@ -1,3 +1,5 @@
+import React, { useState } from "react";
+
 import {
   NavDropdown,
   Navbar,
@@ -13,16 +15,15 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 
-import Popup from "./popup/LoginRegister/Login-Register";
-import { togglePopup } from "./popup/LoginRegister/Login-RegisterSlice";
+import Popup from "./popup/Popup";
 import { setAuthenticated } from "../reducers/userSlice";
 
-import "../styles/Nav.css";
+import { togglePopup, setPopupScreen } from "../reducers/popupSlice";
+
 import { setStoreLogout } from "../localStorage";
 
 function MainNav() {
   const dispatch = useDispatch();
-
   const { authenticated } = useSelector((state) => state.user);
 
   return (
@@ -65,8 +66,8 @@ function MainNav() {
                       to="/"
                       className="dropdown-item"
                       onClick={() => {
-                        dispatch(setAuthenticated());
-                        setStoreLogout();
+                        // dispatch(setAuthenticated());
+                        // setStoreLogout();
                       }}
                     >
                       Log out
@@ -95,6 +96,7 @@ function MainNav() {
                   <Nav.Item className="ms-auto">
                     <Button
                       onClick={() => {
+                        dispatch(setPopupScreen(0));
                         dispatch(togglePopup());
                       }}
                     >
@@ -107,6 +109,7 @@ function MainNav() {
           </Navbar.Offcanvas>
         </Container>
       </Navbar>
+
       <Popup />
     </>
   );
