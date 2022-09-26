@@ -1,11 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import userReducer from "../features/user/userSlice";
-import loginRegisterReducer from "../features/popups/LoginRegister/Login-RegisterSlice";
+import userReducer from "../reducers/userSlice";
 
 //create a redux store.
 export const store = configureStore({
   reducer: {
     user: userReducer,
-    loginRegisterPopup: loginRegisterReducer,
   },
 });

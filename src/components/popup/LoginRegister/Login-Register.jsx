@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { togglePopup, setScreen, setErrors } from "./Login-RegisterSlice";
 import { validate } from "../../../validation";
 
-import { registerUser, setAuthenticated } from "../../user/userSlice";
+import { registerUser, setAuthenticated } from "../../../reducers/userSlice";
 import { setStore } from "../../../localStorage";
 
 function Popup() {

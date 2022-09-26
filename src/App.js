@@ -3,17 +3,14 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
-//components are heavily state based.
 import MainNav from "./components/MainNav";
 import Dashboard from "./components/Dashboard";
 import AccountSettings from "./components/AccountSettings";
 import AccountProfile from "./components/AccountProfile";
-
-//Pages are pretty much static and don't utilize state
-import About from "./pages/About";
-import Contact from "./pages/Contact";
-import PricePlans from "./pages/PricePlans";
-import Home from "./pages/Home";
+import About from "./components/About";
+import Contact from "./components/Contact";
+import PricePlans from "./components/PricePlans";
+import Home from "./components/Home";
 
 //local storage
 import { getStore } from "./localStorage";
@@ -21,7 +18,7 @@ import { getStore } from "./localStorage";
 //css
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import { registerUser } from "./features/user/userSlice";
+import { registerUser } from "./reducers/userSlice";
 
 function App() {
   const { authenticated } = useSelector((state) => state.user);

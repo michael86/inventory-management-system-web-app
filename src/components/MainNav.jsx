@@ -13,9 +13,9 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 
-import Popup from "../features/popups/LoginRegister/Login-Register";
-import { togglePopup } from "../features/popups/LoginRegister/Login-RegisterSlice";
-import { setAuthenticated } from "../features/user/userSlice";
+import Popup from "./popup/LoginRegister/Login-Register";
+import { togglePopup } from "./popup/LoginRegister/Login-RegisterSlice";
+import { setAuthenticated } from "../reducers/userSlice";
 
 import "../styles/Nav.css";
 import { setStoreLogout } from "../localStorage";
