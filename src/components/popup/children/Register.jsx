@@ -6,10 +6,15 @@ import { Modal, Form } from "react-bootstrap";
 
 import Footer from "../Footer";
 import Header from "../Header";
+
 import { togglePopup } from "../../../reducers/popupSlice";
+import { validate } from "../../../validation";
+import { useState } from "react";
 
 const Register = () => {
   const dispatch = useDispatch();
+
+  const [emailError, setEmailError] = useState(false);
 
   return (
     <>
@@ -18,10 +23,24 @@ const Register = () => {
         <Form>
           <Form.Group className="mb-3" controlId="email">
             <Form.Label>Email address</Form.Label>
-            <Form.Control type="email" placeholder="Enter email" />
+
+            <Form.Control
+              type="email"
+              placeholder="Enter email"
+              onInput={(e) => {
+                const valid = validate("email", { email: e.target.value });
+                valid.value ? setEmailError(false) : setEmailError(valid.email);
+                e.target.value.length === 0 && setEmailError(false);
+              }}
+            />
+
             <Form.Text className="text-muted">
               We'll never share your email with anyone else.
             </Form.Text>
+
+            {emailError && (
+              <Form.Text className="text-muted">{emailError}</Form.Text>
+            )}
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="password">

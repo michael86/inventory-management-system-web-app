@@ -1,6 +1,6 @@
 export const setStore = (payload) => {
-  const data = JSON.stringify(payload);
-  localStorage.setItem("data", data);
+  const { key, data } = payload;
+  localStorage.setItem(key, JSON.stringify(data));
 };
 
 export const setStoreLogout = () => {
@@ -9,4 +9,5 @@ export const setStoreLogout = () => {
   setStore(data);
 };
 
-export const getStore = () => JSON.parse(localStorage.getItem("data"));
+export const getStore = (payload) =>
+  JSON.parse(localStorage.getItem(payload.key));
