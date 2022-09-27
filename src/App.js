@@ -26,8 +26,8 @@ function App() {
 
   //Once rendered, if we have local storage, set user state to current local state
   useEffect(() => {
-    const data = getStore();
-    data && data.authenticated && dispatch(registerUser(data));
+    // const data = getStore();
+    // data && data.authenticated && dispatch(registerUser(data));
   }, []);
 
   return (

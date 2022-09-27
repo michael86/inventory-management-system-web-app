@@ -14,7 +14,19 @@ import { useState } from "react";
 const Register = () => {
   const dispatch = useDispatch();
 
-  const [emailError, setEmailError] = useState(false);
+  const [errors, setErrors] = useState(false);
+
+  const onInput = (target) => {
+    const valid = validate(target.name, { [target.name]: target.value });
+    console.log(valid);
+    const copy = { ...errors };
+
+    target.value.length === 0 || valid.value
+      ? (copy[target.name] = false)
+      : (copy[target.name] = valid[target.name]);
+
+    setErrors(copy);
+  };
 
   return (
     <>
@@ -27,25 +39,36 @@ const Register = () => {
             <Form.Control
               type="email"
               placeholder="Enter email"
-              onInput={(e) => {
-                const valid = validate("email", { email: e.target.value });
-                valid.value ? setEmailError(false) : setEmailError(valid.email);
-                e.target.value.length === 0 && setEmailError(false);
-              }}
+              name="email"
+              onInput={(e) => onInput(e.target)}
             />
+
+            {errors.email && (
+              <>
+                <Form.Text className="text-danger">{errors.email}</Form.Text>
+                <br />
+              </>
+            )}
 
             <Form.Text className="text-muted">
               We'll never share your email with anyone else.
             </Form.Text>
-
-            {emailError && (
-              <Form.Text className="text-muted">{emailError}</Form.Text>
-            )}
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="password">
             <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" />
+            <Form.Control
+              type="password"
+              placeholder="Password"
+              name="password"
+              onInput={(e) => onInput(e.target)}
+            />
+            {errors.password && (
+              <>
+                <Form.Text className="text-danger">{errors.password}</Form.Text>
+                <br />
+              </>
+            )}
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="company">
