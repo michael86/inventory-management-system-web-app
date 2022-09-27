@@ -4,10 +4,10 @@ import { useDispatch } from "react-redux";
 
 import { Modal, Form } from "react-bootstrap";
 
-import Footer from "../Footer";
-import Header from "../Header";
+import Header from "../components/Header";
+import Buttons from "../components/Buttons";
 
-import { togglePopup } from "../../../reducers/popupSlice";
+import { setPopupScreen, togglePopup } from "../../../reducers/popupSlice";
 import { validate } from "../../../validation";
 import { useState } from "react";
 
@@ -18,7 +18,7 @@ const Register = () => {
 
   const onInput = (target) => {
     const valid = validate(target.name, { [target.name]: target.value });
-    console.log(valid);
+
     const copy = { ...errors };
 
     target.value.length === 0 || valid.value
@@ -28,11 +28,15 @@ const Register = () => {
     setErrors(copy);
   };
 
+  const onSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <>
       <Header label={"Register"} />
       <Modal.Body>
-        <Form>
+        <Form onSubmit={onSubmit}>
           <Form.Group className="mb-3" controlId="email">
             <Form.Label>Email address</Form.Label>
 
@@ -65,7 +69,11 @@ const Register = () => {
             />
             {errors.password && (
               <>
-                <Form.Text className="text-danger">{errors.password}</Form.Text>
+                <Form.Text className="text-danger">
+                  {
+                    "Password must contain 1 lowercase, 1 uppercase, 1 number, 1 special character and be between 8 - 25 characters"
+                  }
+                </Form.Text>
                 <br />
               </>
             )}
@@ -73,12 +81,16 @@ const Register = () => {
 
           <Form.Group className="mb-3" controlId="company">
             <Form.Label>Company Name</Form.Label>
-            <Form.Control type="text" placeholder="company name" />
+            <Form.Control
+              type="text"
+              placeholder="company name"
+              name="company"
+            />
           </Form.Group>
 
           <Form.Group className="mb-3">
             <Form.Label htmlFor="price-plan">Price Plan</Form.Label>
-            <Form.Select id="price-plan">
+            <Form.Select id="price-plan" name="price-plan">
               <option>Free</option>
               <option>Basic</option>
               <option>Advanced</option>
@@ -93,9 +105,17 @@ const Register = () => {
               View Price Plans
             </Link>
           </Form.Group>
+
+          <Buttons
+            variant="primary"
+            type="submit"
+            label="Submit"
+            secondaryVariant="warning"
+            secondaryOnClick={() => dispatch(setPopupScreen(0))}
+            secondaryLabel="Login"
+          />
         </Form>
       </Modal.Body>
-      <Footer screen={0} label={"Login"} />
     </>
   );
 };
