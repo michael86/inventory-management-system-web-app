@@ -6,27 +6,12 @@ import { Modal, Form } from "react-bootstrap";
 
 import Header from "../components/Header";
 import Buttons from "../components/Buttons";
+import Input from "../components/Input";
 
 import { setPopupScreen, togglePopup } from "../../../reducers/popupSlice";
-import { validate } from "../../../validation";
-import { useState } from "react";
 
 const Register = () => {
   const dispatch = useDispatch();
-
-  const [errors, setErrors] = useState(false);
-
-  const onInput = (target) => {
-    const valid = validate(target.name, { [target.name]: target.value });
-
-    const copy = { ...errors };
-
-    target.value.length === 0 || valid.value
-      ? (copy[target.name] = false)
-      : (copy[target.name] = valid[target.name]);
-
-    setErrors(copy);
-  };
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -37,56 +22,33 @@ const Register = () => {
       <Header label={"Register"} />
       <Modal.Body>
         <Form onSubmit={onSubmit}>
-          <Form.Group className="mb-3" controlId="email">
-            <Form.Label>Email address</Form.Label>
+          <Input
+            type="email"
+            controlId="email"
+            label="Email Address"
+            classNames={{ group: ["mb-3"], formText: ["text-muted"] }}
+            placeholder="Enter Email"
+            formText="We'll never share your email with anyone else."
+          />
 
-            <Form.Control
-              type="email"
-              placeholder="Enter email"
-              name="email"
-              onInput={(e) => onInput(e.target)}
-            />
+          <Input
+            type="password"
+            controlId="password"
+            label="Password"
+            classNames={{ group: ["mb-3"] }}
+            placeholder="Password"
+            custError="Password must contain 1 lowercase, 1 uppercase, 1 number, 1 special character and be between 8 - 25 chars"
+            required
+          />
 
-            {errors.email && (
-              <>
-                <Form.Text className="text-danger">{errors.email}</Form.Text>
-                <br />
-              </>
-            )}
-
-            <Form.Text className="text-muted">
-              We'll never share your email with anyone else.
-            </Form.Text>
-          </Form.Group>
-
-          <Form.Group className="mb-3" controlId="password">
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              type="password"
-              placeholder="Password"
-              name="password"
-              onInput={(e) => onInput(e.target)}
-            />
-            {errors.password && (
-              <>
-                <Form.Text className="text-danger">
-                  {
-                    "Password must contain 1 lowercase, 1 uppercase, 1 number, 1 special character and be between 8 - 25 characters"
-                  }
-                </Form.Text>
-                <br />
-              </>
-            )}
-          </Form.Group>
-
-          <Form.Group className="mb-3" controlId="company">
-            <Form.Label>Company Name</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="company name"
-              name="company"
-            />
-          </Form.Group>
+          <Input
+            type="text"
+            controlId="company"
+            label="Company Name"
+            classNames={{ group: ["mb-3"] }}
+            placeholder="company name"
+            required
+          />
 
           <Form.Group className="mb-3">
             <Form.Label htmlFor="price-plan">Price Plan</Form.Label>

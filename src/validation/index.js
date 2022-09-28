@@ -1,5 +1,5 @@
 import { jValidate } from "./joi";
-import { email, login, register, password } from "./schema/schemas";
+import { email, login, register, password, company } from "./schema/schemas";
 
 export const validate = (type, payload) => {
   switch (type) {
@@ -11,6 +11,8 @@ export const validate = (type, payload) => {
       return jValidate(email, payload);
     case "password":
       return jValidate(password, payload);
+    case "company":
+      return jValidate(company, payload);
     default:
       console.log("Something broke! Type was", type);
       break;

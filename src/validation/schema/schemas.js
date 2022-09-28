@@ -36,3 +36,7 @@ export const password = {
     .regex(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/)
     .required(),
 };
+
+export const company = {
+  password: Joi.string().min(1).required(),
+};

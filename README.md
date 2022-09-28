@@ -16,7 +16,7 @@ This is a full stack project for the jump bootcamp. The aim is to create a full 
 ### Popup
 
 - [x] Refactor buttons to be dynamically generated, this will allow me to call them within forms, as well as place in footer at later date.
-- [] Refactor form to use child components that will allow me to dynamically generate each input.
+- [x] Refactor form to use child components that will allow me to dynamically generate each input.
 - [] hook up form submit to local storage (This will be replaced by apis at later date)
 
 ### general

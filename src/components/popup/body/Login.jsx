@@ -7,6 +7,7 @@ import { setPopupScreen } from "../../../reducers/popupSlice";
 
 import Buttons from "../components/Buttons";
 import Header from "../components/Header";
+import Input from "../components/Input";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -22,22 +23,25 @@ const Login = () => {
 
       <Modal.Body>
         <Form onSubmit={onSubmit}>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
-            <Form.Control type="email" placeholder="Enter email" name="email" />
-            <Form.Text className="text-muted">
-              We'll never share your email with anyone else.
-            </Form.Text>
-          </Form.Group>
+          <Input
+            type="email"
+            controlId="email"
+            label="Email Address"
+            classNames={{ group: ["mb-3"], formText: ["text-muted"] }}
+            placeholder="Enter Email"
+            formText="We'll never share your email with anyone else."
+            required
+          />
 
-          <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              type="password"
-              placeholder="Password"
-              name="password"
-            />
-          </Form.Group>
+          <Input
+            type="password"
+            controlId="password"
+            label="Password"
+            classNames={{ group: ["mb-3"] }}
+            placeholder="Password"
+            custError="Password must contain 1 lowercase, 1 uppercase, 1 number, 1 special character and be between 8 - 25 chars"
+            required
+          />
 
           <Form.Group className="mb-3" controlId="formBasicCheckbox">
             <Form.Check type="checkbox" label="remember me" />
