@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
@@ -9,13 +10,19 @@ import Buttons from "../components/Buttons";
 import Input from "../components/Input";
 
 import { setPopupScreen, togglePopup } from "../../../reducers/popupSlice";
+import { validateForm } from "../utils";
 
 const Register = () => {
   const dispatch = useDispatch();
 
   const onSubmit = (e) => {
     e.preventDefault();
+    const data = Object.fromEntries(new FormData(e.target));
+    // console.log(data);
   };
+
+  const [errors, setErrors] = useState(false);
+  const onInput = (e) => setErrors(validateForm(e));
 
   return (
     <>
@@ -29,6 +36,9 @@ const Register = () => {
             classNames={{ group: ["mb-3"], formText: ["text-muted"] }}
             placeholder="Enter Email"
             formText="We'll never share your email with anyone else."
+            onInput={onInput}
+            errors={errors}
+            required
           />
 
           <Input
@@ -38,6 +48,8 @@ const Register = () => {
             classNames={{ group: ["mb-3"] }}
             placeholder="Password"
             custError="Password must contain 1 lowercase, 1 uppercase, 1 number, 1 special character and be between 8 - 25 chars"
+            onInput={onInput}
+            errors={errors}
             required
           />
 
@@ -47,6 +59,9 @@ const Register = () => {
             label="Company Name"
             classNames={{ group: ["mb-3"] }}
             placeholder="company name"
+            custError="Company name can't contain numbers or special characters"
+            onInput={onInput}
+            errors={errors}
             required
           />
 

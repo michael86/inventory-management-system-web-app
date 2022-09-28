@@ -38,5 +38,8 @@ export const password = {
 };
 
 export const company = {
-  password: Joi.string().min(1).required(),
+  company: Joi.string()
+    .min(1)
+    .pattern(/^[a-z A-Z]+$/)
+    .required(),
 };

@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 
 import { Form, Modal } from "react-bootstrap";
 
 import { setPopupScreen } from "../../../reducers/popupSlice";
+import { validateForm } from "../utils";
 
 import Buttons from "../components/Buttons";
 import Header from "../components/Header";
@@ -16,6 +17,9 @@ const Login = () => {
     e.preventDefault();
     const data = Object.fromEntries(new FormData(e.target));
   };
+
+  const [errors, setErrors] = useState(false);
+  const onInput = (e) => setErrors(validateForm(e));
 
   return (
     <>
@@ -30,6 +34,8 @@ const Login = () => {
             classNames={{ group: ["mb-3"], formText: ["text-muted"] }}
             placeholder="Enter Email"
             formText="We'll never share your email with anyone else."
+            onInput={onInput}
+            errors={errors}
             required
           />
 
@@ -40,9 +46,10 @@ const Login = () => {
             classNames={{ group: ["mb-3"] }}
             placeholder="Password"
             custError="Password must contain 1 lowercase, 1 uppercase, 1 number, 1 special character and be between 8 - 25 chars"
+            onInput={onInput}
+            errors={errors}
             required
           />
-
           <Form.Group className="mb-3" controlId="formBasicCheckbox">
             <Form.Check type="checkbox" label="remember me" />
           </Form.Group>
@@ -54,6 +61,7 @@ const Login = () => {
             secondaryVariant="warning"
             secondaryOnClick={() => dispatch(setPopupScreen(1))}
             secondaryLabel="Register"
+            errors={errors}
           />
         </Form>
       </Modal.Body>

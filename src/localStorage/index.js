@@ -3,11 +3,11 @@ export const setStore = (payload) => {
   localStorage.setItem(key, JSON.stringify(data));
 };
 
-export const setStoreLogout = () => {
-  const data = JSON.parse(localStorage.getItem("data"));
-  data.authenticated = false;
-  setStore(data);
-};
-
 export const getStore = (payload) =>
   JSON.parse(localStorage.getItem(payload.key));
+
+export const toggleStoreLogout = () => {
+  const data = JSON.parse(localStorage.getItem("user"));
+  data.authenticated = !data.authenticated;
+  setStore(JSON.stringify(data));
+};

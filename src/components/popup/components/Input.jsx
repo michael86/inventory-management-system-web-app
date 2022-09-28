@@ -2,17 +2,14 @@ import React from "react";
 
 import { Form } from "react-bootstrap";
 
-import { validate } from "../../../validation";
-import { useState } from "react";
-
 const Input = (props) => {
   /**
-   * Dynamically generates a form group to be used within a form aswell as validate the form.
+   * Dynamically generates a form group to be used within a form aswell as validate the form if a cb is passed down.
    *
    * @Required
    * @param {props} I mean... Props :P !
    * @param {props.type} Type of input we require
-   * @param {props.controlId} Sets the id 'for' and 'id' to link label to input, also used for validation and error messages
+   * @param {props.controlId} Sets the id 'for' and 'id' to link label to input
    * @param {props.label} The label text
    *
    * @Optional
@@ -20,7 +17,7 @@ const Input = (props) => {
    * @param {props.placeholder} param that will set the placeholder text
    * @param {props.formText} if extra text is required, will add a formText componet with the value of prop
    * @param {props.required} Set input to required
-   * @param {props.custError} A custom error message
+   * @param {props.onInput} A callback, generally going to be used to elevate state to parent and display an error message
    *
    * @return {component} bootstrap input component
    */
@@ -33,24 +30,10 @@ const Input = (props) => {
     placeholder,
     formText,
     required,
+    onInput,
+    errors,
     custError,
   } = props;
-
-  const [errors, setErrors] = useState(false);
-
-  const onInput = (e) => {
-    const { target } = e;
-
-    const valid = validate(target.name, { [target.name]: target.value });
-
-    const copy = { ...errors };
-
-    target.value.length === 0 || valid.value
-      ? (copy[target.name] = false)
-      : (copy[target.name] = valid[target.name]);
-
-    setErrors(copy);
-  };
 
   return (
     <Form.Group
@@ -74,7 +57,7 @@ const Input = (props) => {
         </Form.Text>
       )}
 
-      {errors[controlId] && (
+      {errors && errors[controlId] && (
         <>
           {formText && <br />}
           <Form.Text className="text-danger">

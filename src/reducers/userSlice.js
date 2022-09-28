@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { setStore } from "../localStorage";
 
 const initialState = {
   id: "",
@@ -42,6 +43,8 @@ export const userSlice = createSlice({
       state.companyName = action.payload.company;
       state.stock = action.payload.stock || [];
       state.sales = action.payload.sales || [];
+
+      setStore({ key: "user", data: state });
     },
   },
 });
