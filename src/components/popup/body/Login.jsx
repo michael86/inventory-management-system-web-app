@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { Form, Modal } from "react-bootstrap";
 
 import { setPopupScreen } from "../../../reducers/popupSlice";
-import { validateForm } from "../utils";
+import { validateForm, validateInput } from "../utils";
 
 import Buttons from "../components/Buttons";
 import Header from "../components/Header";
@@ -19,7 +19,7 @@ const Login = () => {
   };
 
   const [errors, setErrors] = useState(false);
-  const onInput = (e) => setErrors(validateForm(e));
+  const onInput = (e) => setErrors(validateInput(e));
 
   return (
     <>

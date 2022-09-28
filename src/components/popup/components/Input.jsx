@@ -4,7 +4,7 @@ import { Form } from "react-bootstrap";
 
 const Input = (props) => {
   /**
-   * Dynamically generates a form group to be used within a form aswell as validate the form if a cb is passed down.
+   * Dynamically generates a form group to be used within a form. Also accepts a cb on input, this can be used to elevate back to parent. I.E to validate a form .
    *
    * @Required
    * @param {props} I mean... Props :P !
@@ -70,5 +70,3 @@ const Input = (props) => {
 };
 
 export default Input;
-
-//Work on this when not so tired.

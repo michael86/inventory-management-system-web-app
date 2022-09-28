@@ -10,19 +10,31 @@ import Buttons from "../components/Buttons";
 import Input from "../components/Input";
 
 import { setPopupScreen, togglePopup } from "../../../reducers/popupSlice";
-import { validateForm } from "../utils";
+import { validateInput } from "../utils";
+import { registerUser } from "../../../reducers/userSlice";
 
 const Register = () => {
+  /**
+   * Registration form
+   * @param {state: local} state simply holds errors which are passed down to the children to show error messages
+   * @return {state} calls userSlice and registers user
+   */
+
   const dispatch = useDispatch();
+  const [errors, setErrors] = useState(false);
 
   const onSubmit = (e) => {
     e.preventDefault();
     const data = Object.fromEntries(new FormData(e.target));
-    // console.log(data);
+
+    //check if length of keys is 0. This means no errors. Could poss convert obj to arr
+    if (Object.keys(errors).length === 0) {
+      dispatch(registerUser(data));
+      dispatch(togglePopup());
+    }
   };
 
-  const [errors, setErrors] = useState(false);
-  const onInput = (e) => setErrors(validateForm(e));
+  const onInput = (e) => setErrors(validateInput(e, errors));
 
   return (
     <>

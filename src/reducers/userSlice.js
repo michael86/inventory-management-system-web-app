@@ -36,14 +36,16 @@ export const userSlice = createSlice({
       state.sales = action.sales;
     },
     registerUser: (state, action) => {
+      console.log("#####");
       state.id = action.payload.id;
       state.authenticated = true;
       state.email = action.payload.email;
       state.password = action.payload.password;
       state.companyName = action.payload.company;
-      state.stock = action.payload.stock || [];
-      state.sales = action.payload.sales || [];
+      // state.stock = action.payload.stock || [];
+      // state.sales = action.payload.sales || [];
 
+      console.log("setting store");
       setStore({ key: "user", data: state });
     },
   },
