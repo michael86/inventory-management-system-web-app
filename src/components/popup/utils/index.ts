@@ -1,8 +1,11 @@
 import { validate } from "../../../validation";
 
-export const validateInput = (e, errors) => {
-  const { target } = e;
+interface Target {
+  name: String;
+  value: String;
+}
 
+export const validateInput = (target: Target, errors) => {
   const valid = validate(target.name, { [target.name]: target.value });
 
   const copy = { ...errors };

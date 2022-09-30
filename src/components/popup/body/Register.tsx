@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, ReactElement } from "react";
 
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -10,10 +10,10 @@ import Buttons from "../components/Buttons";
 import Input from "../components/Input";
 
 import { setPopupScreen, togglePopup } from "../../../reducers/popupSlice";
-import { validateInput } from "../utils";
+import { validateInput } from "../utils/index.ts";
 import { registerUser } from "../../../reducers/userSlice";
 
-const Register = () => {
+const Register = (): ReactElement => {
   /**
    * Registration form
    * @param {state: local} state simply holds errors which are passed down to the children to show error messages
@@ -23,9 +23,9 @@ const Register = () => {
   const dispatch = useDispatch();
   const [errors, setErrors] = useState(false);
 
-  const onSubmit = (e) => {
+  const onSubmit = (e: any): void => {
     e.preventDefault();
-    const data = Object.fromEntries(new FormData(e.target));
+    const data: Object = Object.fromEntries(new FormData(e.target));
 
     //check if length of keys is 0. This means no errors. Could poss convert obj to arr
     if (Object.keys(errors).length === 0) {
@@ -48,7 +48,7 @@ const Register = () => {
             classNames={{ group: ["mb-3"], formText: ["text-muted"] }}
             placeholder="Enter Email"
             formText="We'll never share your email with anyone else."
-            onInput={onInput}
+            onInput={(e): void => onInput(e.target)}
             errors={errors}
             required
           />
@@ -60,7 +60,7 @@ const Register = () => {
             classNames={{ group: ["mb-3"] }}
             placeholder="Password"
             custError="Password must contain 1 lowercase, 1 uppercase, 1 number, 1 special character and be between 8 - 25 chars"
-            onInput={onInput}
+            onInput={(e): void => onInput(e.target)}
             errors={errors}
             required
           />
@@ -72,7 +72,7 @@ const Register = () => {
             classNames={{ group: ["mb-3"] }}
             placeholder="company name"
             custError="Company name can't contain numbers or special characters"
-            onInput={onInput}
+            onInput={(e): void => onInput(e.target)}
             errors={errors}
             required
           />

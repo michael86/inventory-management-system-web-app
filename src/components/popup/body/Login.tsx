@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { Form, Modal } from "react-bootstrap";
 
 import { setPopupScreen } from "../../../reducers/popupSlice";
-import { validateForm, validateInput } from "../utils";
+import { validateInput } from "../utils/index.ts";
 
 import Buttons from "../components/Buttons";
 import Header from "../components/Header";
