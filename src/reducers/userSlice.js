@@ -1,12 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { setStore } from "../localStorage";
+import { setStore, updateStore } from "../localStorage";
 
 const initialState = {
   id: "",
   email: "",
-  companyName: "",
-  stock: [],
-  sales: [],
+  company: "",
   authenticated: false,
 };
 
@@ -14,38 +12,35 @@ export const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    setId: (state, action) => {
+    setUserId: (state, action) => {
       state.id = action.payload;
     },
-    setAuthenticated: (state) => {
+    setUserAuthenticated: (state) => {
       state.authenticated = !state.authenticated;
+
+      updateStore({
+        key: "user",
+        data: { authenticated: state.authenticated },
+      });
     },
-    setEmail: (state, action) => {
+    setUserEmail: (state, action) => {
       state.email = action.payload;
     },
-    setPassword: (state, action) => {
+    setUserPassword: (state, action) => {
       state.setPassword = action.payload;
     },
-    setCompanyName: (state, action) => {
-      state.companyName = action.payload;
+    setUserCompany: (state, action) => {
+      state.company = action.payload;
     },
-    setStock: (state, action) => {
-      state.stock = action.stock;
-    },
-    setSales: (state, action) => {
-      state.sales = action.sales;
-    },
-    registerUser: (state, action) => {
-      console.log("#####");
+
+    setUser: (state, action) => {
+      //This would call an api to register the user
       state.id = action.payload.id;
-      state.authenticated = true;
+      state.authenticated = action.payload.id || true;
       state.email = action.payload.email;
       state.password = action.payload.password;
-      state.companyName = action.payload.company;
-      // state.stock = action.payload.stock || [];
-      // state.sales = action.payload.sales || [];
+      state.company = action.payload.company;
 
-      console.log("setting store");
       setStore({ key: "user", data: state });
     },
   },
@@ -53,14 +48,12 @@ export const userSlice = createSlice({
 
 // Action creators are generated for each case reducer function
 export const {
-  setId,
-  setAuthenticated,
-  setEmail,
-  setPassword,
-  setCompanyName,
-  setStock,
-  setSales,
-  registerUser,
+  setUserId,
+  setUserAuthenticated,
+  setUserEmail,
+  setUserPassword,
+  setUserCompany,
+  setUser,
 } = userSlice.actions;
 
 export default userSlice.reducer;

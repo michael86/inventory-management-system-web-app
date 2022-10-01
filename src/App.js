@@ -18,7 +18,7 @@ import { getStore } from "./localStorage";
 //css
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import { registerUser } from "./reducers/userSlice";
+import { setUser } from "./reducers/userSlice";
 
 function App() {
   const { authenticated } = useSelector((state) => state.user);
@@ -26,8 +26,8 @@ function App() {
 
   //Once rendered, if we have local storage, set user state to current local state
   useEffect(() => {
-    // const data = getStore();
-    // data && data.authenticated && dispatch(registerUser(data));
+    const data = getStore("user");
+    data && data.authenticated && dispatch(setUser(data));
   }, []);
 
   return (

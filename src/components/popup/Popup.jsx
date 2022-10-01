@@ -5,8 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { togglePopup } from "../../reducers/popupSlice";
 
-import Login from "./body/Login.tsx";
-import Register from "./body/Register.tsx";
+import Login from "./body/Login";
+import Register from "./body/Register";
 
 const Popup = () => {
   const dispatch = useDispatch();

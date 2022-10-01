@@ -3,19 +3,38 @@ import { useDispatch } from "react-redux";
 
 import { Form, Modal } from "react-bootstrap";
 
-import { setPopupScreen } from "../../../reducers/popupSlice";
-import { validateInput } from "../utils/index.ts";
+import { setPopupScreen, togglePopup } from "../../../reducers/popupSlice";
+import { validateInput } from "../utils";
 
 import Buttons from "../components/Buttons";
 import Header from "../components/Header";
 import Input from "../components/Input";
+import { getStore } from "../../../localStorage";
+import { setUserAuthenticated } from "../../../reducers/userSlice";
 
 const Login = () => {
   const dispatch = useDispatch();
+  const [accountFound, setAccountFound] = useState(true);
+  const [loginAuthed, setLoginAuthed] = useState(true);
 
   const onSubmit = (e) => {
     e.preventDefault();
     const data = Object.fromEntries(new FormData(e.target));
+    const user = getStore("user");
+
+    if (!user) {
+      setAccountFound(false);
+      return;
+    }
+
+    user.email !== data.email ||
+      (user.password !== data.password && setLoginAuthed(false));
+
+    if (user.email === data.email && user.password === data.password) {
+      console.log("erm?");
+      dispatch(togglePopup());
+      dispatch(setUserAuthenticated());
+    }
   };
 
   const [errors, setErrors] = useState(false);
@@ -50,9 +69,23 @@ const Login = () => {
             errors={errors}
             required
           />
-          <Form.Group className="mb-3" controlId="formBasicCheckbox">
+          <Form.Group className="mb-3" controlId="cookies">
             <Form.Check type="checkbox" label="remember me" />
           </Form.Group>
+
+          {!accountFound && (
+            <Form.Group className="mb-3">
+              <Form.Text className="text-danger">Account not found</Form.Text>
+            </Form.Group>
+          )}
+
+          {!loginAuthed && (
+            <Form.Group className="mb-3">
+              <Form.Text className="text-danger">
+                Incorrect email or password
+              </Form.Text>
+            </Form.Group>
+          )}
 
           <Buttons
             variant="primary"

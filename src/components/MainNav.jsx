@@ -1,29 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 
-import {
-  NavDropdown,
-  Navbar,
-  Nav,
-  Container,
-  Button,
-  Offcanvas,
-} from "react-bootstrap";
+import { Navbar, Nav, Container, Offcanvas } from "react-bootstrap";
 
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser } from "@fortawesome/free-solid-svg-icons";
-
 import Popup from "./popup/Popup";
-import { setAuthenticated } from "../reducers/userSlice";
-
-import { togglePopup, setPopupScreen } from "../reducers/popupSlice";
-
-import { setStoreLogout } from "../localStorage";
+import LoggedOut from "./MainNav/LoggedOut";
+import LoggedIn from "./MainNav/LoggedIn";
+import Buttons from "./MainNav/Buttons";
 
 function MainNav() {
-  const dispatch = useDispatch();
   const { authenticated } = useSelector((state) => state.user);
 
   return (
@@ -48,62 +35,17 @@ function MainNav() {
 
             <Offcanvas.Body>
               <Nav className=" flex-grow-1 pe-3">
-                {authenticated && (
-                  <NavDropdown
-                    title={<FontAwesomeIcon icon={faUser} />}
-                    id="offcanvasNavbarDropdown-expand-md"
-                    className="order-md-3 "
-                  >
-                    <Link to="account-settings" className="dropdown-item">
-                      Settings
-                    </Link>
-                    <NavDropdown.Divider />
-                    <Link to="account-profile" className="dropdown-item">
-                      Profile
-                    </Link>
-                    <NavDropdown.Divider />
-                    <Link
-                      to="/"
-                      className="dropdown-item"
-                      onClick={() => {
-                        // dispatch(setAuthenticated());
-                        // setStoreLogout();
-                      }}
-                    >
-                      Log out
-                    </Link>
-                  </NavDropdown>
-                )}
+                {authenticated && <LoggedIn />}
 
-                <Nav.Item>
-                  <Link to="/about" className="nav-link">
-                    About
-                  </Link>
-                </Nav.Item>
+                {!authenticated && <LoggedOut />}
+
                 <Nav.Item>
                   <Link to="/contact" className="nav-link">
                     Contact
                   </Link>
                 </Nav.Item>
 
-                <Nav.Item>
-                  <Link to="/price-plans" className="nav-link">
-                    Price Plans
-                  </Link>
-                </Nav.Item>
-
-                {!authenticated && (
-                  <Nav.Item className="ms-auto">
-                    <Button
-                      onClick={() => {
-                        dispatch(setPopupScreen(0));
-                        dispatch(togglePopup());
-                      }}
-                    >
-                      Register/Login
-                    </Button>
-                  </Nav.Item>
-                )}
+                {!authenticated && <Buttons />}
               </Nav>
             </Offcanvas.Body>
           </Navbar.Offcanvas>
