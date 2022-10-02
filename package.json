@@ -17,6 +17,7 @@
     "bootstrap": "^5.2.1",
     "chart.js": "^3.9.1",
     "joi": "^17.6.1",
+    "nice-invoice": "^1.1.8",
     "react": "^18.2.0",
     "react-bootstrap": "^2.5.0",
     "react-dom": "^18.2.0",

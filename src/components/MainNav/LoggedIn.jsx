@@ -40,11 +40,11 @@ const LoggedIn = () => {
         id="offcanvasNavbarDropdown-expand-md"
         className="order-md-3 "
       >
-        <Link to="account-settings" className="dropdown-item">
+        <Link to="generate-invoice" className="dropdown-item">
           Generate
         </Link>
         <NavDropdown.Divider />
-        <Link to="account-profile" className="dropdown-item">
+        <Link to="view-invoices" className="dropdown-item">
           View
         </Link>
       </NavDropdown>

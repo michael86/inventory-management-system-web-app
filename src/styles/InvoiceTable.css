@@ -1,0 +1,15 @@
+table thead th:last-of-type {
+  text-align: center;
+}
+
+table tr > td {
+  width: 25%;
+}
+
+table tr > td:last-of-type {
+  text-align: center;
+}
+
+select {
+  width: 30%;
+}

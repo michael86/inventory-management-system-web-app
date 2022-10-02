@@ -11,6 +11,7 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import PricePlans from "./components/PricePlans";
 import Home from "./components/Home";
+import ViewInvoices from "./components/ViewInvoices";
 
 //local storage
 import { getStore } from "./localStorage";
@@ -48,6 +49,10 @@ function App() {
           />
           <Route path="/account-settings" element={<AccountSettings />} />
           <Route path="/account-profile" element={<AccountProfile />} />
+          <Route
+            path="/view-invoices"
+            element={authenticated ? <ViewInvoices /> : <Navigate to="/" />}
+          />
         </Routes>
       </BrowserRouter>
     </>
