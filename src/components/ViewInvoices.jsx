@@ -1,10 +1,10 @@
-import React from "react";
-import { Container, Table } from "react-bootstrap";
+import React, { useState } from "react";
+import { Container, FormLabel, Table } from "react-bootstrap";
 import { useSelector } from "react-redux";
 
 import { Form, Button } from "react-bootstrap";
 
-import { sortAscending } from "./Invoices/Utils/Index";
+import { sortAscending, sortDescending } from "./Invoices/Utils/Index";
 
 import ViewInvoiceButton from "./Invoices/ViewInvoiceButton";
 
@@ -12,6 +12,7 @@ import "../styles/InvoiceTable.css";
 
 const ViewInvoices = () => {
   const { invoices } = useSelector((state) => state.invoices);
+  const [filteredInvoices, setFilteredInvoices] = useState();
 
   const formatDate = (unix) => {
     let date = new Date(unix);
@@ -19,34 +20,42 @@ const ViewInvoices = () => {
     return date;
   };
 
+  const filterDate = (e) =>
+    setFilteredInvoices(
+      e.target.value === "0"
+        ? sortAscending(invoices)
+        : sortDescending(invoices)
+    );
+
   let counter;
   const genRow = () => {};
+
+  const data = filteredInvoices ? filteredInvoices : invoices;
 
   return (
     <>
       <h1 className="text-center">Invoices</h1>
       <Container>
         <div className="d-flex justify-content-between">
-          <Form.Group className="mb-3 w-50 ">
-            <Form.Select size="sm" p>
-              <option value="">Sort By</option>
-              <option value="">Date: Ascending</option>
-              <option value="">Date: Descending</option>
-              <option value="">Sort By</option>
+          <Form.Group className="mb-3 w-50 " controlId="filter-date">
+            <Form.Label>Filter by Date</Form.Label>
+            <Form.Select size="sm" name="filter-date" onChange={filterDate}>
+              <option value="0">Date: Ascending</option>
+              <option value="1">Date: Descending</option>
             </Form.Select>
           </Form.Group>
 
-          <Form.Group>
-            <Form className="d-flex">
+          <Form.Group className="mb-3" controlId="search=invoices">
+            <Form.Label>Search</Form.Label>
+            <div className="d-flex">
               <Form.Control
                 type="search"
                 placeholder="Search"
                 className="me-2"
                 aria-label="Search"
               />
-
               <Button variant="outline-success">Search</Button>
-            </Form>
+            </div>
           </Form.Group>
         </div>
 
@@ -60,7 +69,7 @@ const ViewInvoices = () => {
             </tr>
           </thead>
           <tbody>
-            {sortAscending(invoices).map((invoice, index) => {
+            {data.map((invoice, index) => {
               return (
                 <tr key={index}>
                   {/*Gen a unique key at some point*/}
