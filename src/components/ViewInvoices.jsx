@@ -1,11 +1,13 @@
-import React, { useState } from "react";
-import { Container, FormLabel, Table } from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+import { Container, Table } from "react-bootstrap";
 import { useSelector } from "react-redux";
 
 import { Form, Button } from "react-bootstrap";
+import TablePagination from "./Invoices/TablePagination";
 
 import {
   filterInvoices,
+  genPages,
   sortAscending,
   sortDescending,
 } from "./Invoices/Utils/Index";
@@ -16,7 +18,10 @@ import "../styles/InvoiceTable.css";
 
 const ViewInvoices = () => {
   const { invoices } = useSelector((state) => state.invoices);
-  const [filteredInvoices, setFilteredInvoices] = useState();
+
+  const [pages, setPages] = useState(genPages(invoices)); // 2d array, each child will be a sepearate table page
+  const [filteredInvoices, setFilteredInvoices] = useState([]);
+  const [pageIndex, setPageIndex] = useState(0);
 
   const formatDate = (unix) => {
     let date = new Date(unix);
@@ -25,23 +30,38 @@ const ViewInvoices = () => {
   };
 
   const filterDate = (e) =>
-    setFilteredInvoices(
+    setPages(
       e.target.value === "0"
-        ? sortAscending(filteredInvoices || invoices)
-        : sortDescending(filteredInvoices || invoices)
+        ? genPages(
+            sortAscending(
+              filteredInvoices.length > 0 ? filteredInvoices : invoices
+            )
+          )
+        : genPages(
+            sortDescending(
+              filteredInvoices.length > 0 ? filteredInvoices : invoices
+            )
+          )
     );
+
+  useEffect(() => {
+    const newPages = genPages(
+      filteredInvoices.length > 0 ? filteredInvoices : invoices
+    );
+
+    setPages(newPages);
+
+    // !pages[pageIndex] && setPageIndex(0); //This isn't working
+    setPageIndex(0);
+  }, [filteredInvoices]);
 
   const onInput = (e) =>
     setFilteredInvoices(filterInvoices({ invoices, filter: e.target.value }));
 
-  let counter;
-  const genRow = () => {};
-
-  const data = filteredInvoices ? filteredInvoices : invoices;
-
   return (
     <>
       <h1 className="text-center">Invoices</h1>
+
       <Container>
         <div className="d-flex justify-content-between">
           <Form.Group className="mb-3 w-50 " controlId="filter-date">
@@ -77,7 +97,7 @@ const ViewInvoices = () => {
             </tr>
           </thead>
           <tbody>
-            {data.map((invoice, index) => {
+            {pages[pageIndex].map((invoice, index) => {
               return (
                 <tr key={index}>
                   {/*Gen a unique key at some point*/}
@@ -89,14 +109,14 @@ const ViewInvoices = () => {
                 </tr>
               );
             })}
-
-            {/* <tr>
-              <td>3</td>
-              <td>Larry the Bird</td>
-              <td>@twitter</td>
-            </tr> */}
           </tbody>
         </Table>
+
+        <TablePagination
+          count={pages.length}
+          active={pageIndex + 1}
+          setPageIndex={setPageIndex}
+        />
       </Container>
     </>
   );
