@@ -13,3 +13,7 @@ table tr > td:last-of-type {
 select {
   width: 30%;
 }
+
+/* .table-row-count {
+  width: 2rem;
+} */

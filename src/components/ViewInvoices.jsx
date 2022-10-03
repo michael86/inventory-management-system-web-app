@@ -58,6 +58,10 @@ const ViewInvoices = () => {
   const onInput = (e) =>
     setFilteredInvoices(filterInvoices({ invoices, filter: e.target.value }));
 
+  const setRowCount = (e) => {
+    console.log(e.target.value);
+  };
+
   return (
     <>
       <h1 className="text-center">Invoices</h1>
@@ -112,11 +116,25 @@ const ViewInvoices = () => {
           </tbody>
         </Table>
 
-        <TablePagination
-          count={pages.length}
-          active={pageIndex + 1}
-          setPageIndex={setPageIndex}
-        />
+        <Container className="d-flex">
+          <div className="mx-auto">
+            <TablePagination
+              count={pages.length}
+              active={pageIndex + 1}
+              setPageIndex={setPageIndex}
+            />
+          </div>
+
+          <Form.Group className="d-flex" controlId="table-row-count">
+            <Form.Label>Rows per page:</Form.Label>
+            <Form.Select aria-label="table-row-count" onChange={setRowCount}>
+              <option value="5">5</option>
+              <option value="10">10</option>
+              <option value="15">15</option>
+              <option value="20">20</option>
+            </Form.Select>
+          </Form.Group>
+        </Container>
       </Container>
     </>
   );
