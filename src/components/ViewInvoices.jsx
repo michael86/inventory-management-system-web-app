@@ -4,7 +4,11 @@ import { useSelector } from "react-redux";
 
 import { Form, Button } from "react-bootstrap";
 
-import { sortAscending, sortDescending } from "./Invoices/Utils/Index";
+import {
+  filterInvoices,
+  sortAscending,
+  sortDescending,
+} from "./Invoices/Utils/Index";
 
 import ViewInvoiceButton from "./Invoices/ViewInvoiceButton";
 
@@ -23,9 +27,12 @@ const ViewInvoices = () => {
   const filterDate = (e) =>
     setFilteredInvoices(
       e.target.value === "0"
-        ? sortAscending(invoices)
-        : sortDescending(invoices)
+        ? sortAscending(filteredInvoices || invoices)
+        : sortDescending(filteredInvoices || invoices)
     );
+
+  const onInput = (e) =>
+    setFilteredInvoices(filterInvoices({ invoices, filter: e.target.value }));
 
   let counter;
   const genRow = () => {};
@@ -53,6 +60,7 @@ const ViewInvoices = () => {
                 placeholder="Search"
                 className="me-2"
                 aria-label="Search"
+                onInput={onInput}
               />
               <Button variant="outline-success">Search</Button>
             </div>

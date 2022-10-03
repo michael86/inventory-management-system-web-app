@@ -5,7 +5,7 @@ const initialState = {
   invoices: [
     {
       date_generated: 1654527109 * 1000,
-      from: "me",
+      from: "Creekview",
       to: "you",
       shipping: {
         name: "Micheal",
@@ -59,7 +59,7 @@ const initialState = {
     {
       date_generated: 1665067909 * 1000,
       from: "me",
-      to: "you",
+      to: "Creekview",
       shipping: {
         name: "Micheal",
         address: "1234 Main Street",
@@ -112,7 +112,7 @@ const initialState = {
     {
       date_generated: 1601995909 * 1000,
       from: "me",
-      to: "you",
+      to: "Photomechanical",
       shipping: {
         name: "Micheal",
         address: "1234 Main Street",
@@ -165,7 +165,7 @@ const initialState = {
     {
       date_generated: 1601995909 * 1000,
       from: "me",
-      to: "you",
+      to: "creekvieew",
       shipping: {
         name: "Micheal",
         address: "1234 Main Street",
@@ -217,7 +217,7 @@ const initialState = {
     },
     {
       date_generated: 1607788309 * 1000,
-      from: "me",
+      from: "photomechanical",
       to: "you",
       shipping: {
         name: "Micheal",
@@ -270,7 +270,7 @@ const initialState = {
     },
     {
       date_generated: 1657810309 * 1000,
-      from: "me",
+      from: "photomechanical",
       to: "you",
       shipping: {
         name: "Micheal",
@@ -323,7 +323,7 @@ const initialState = {
     },
     {
       date_generated: 1655218309 * 1000,
-      from: "me",
+      from: "creekview",
       to: "you",
       shipping: {
         name: "Micheal",
@@ -376,7 +376,7 @@ const initialState = {
     },
     {
       date_generated: 1660488709 * 1000,
-      from: "me",
+      from: "photomechanical",
       to: "you",
       shipping: {
         name: "Micheal",
@@ -429,7 +429,7 @@ const initialState = {
     },
     {
       date_generated: 1663167109 * 1000,
-      from: "me",
+      from: "creekview",
       to: "you",
       shipping: {
         name: "Micheal",
@@ -482,7 +482,7 @@ const initialState = {
     },
     {
       date_generated: 1694703109 * 1000,
-      from: "me",
+      from: "photomechanical",
       to: "you",
       shipping: {
         name: "Micheal",

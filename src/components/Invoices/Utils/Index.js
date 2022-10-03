@@ -5,3 +5,10 @@ export const sortAscending = (payload) =>
 
 export const sortDescending = (payload) =>
   [...payload].sort((a, b) => b.date_generated - a.date_generated);
+
+export const filterInvoices = (payload) =>
+  [...payload.invoices].filter(
+    (invoice) =>
+      invoice.from.toLowerCase().includes(payload.filter) ||
+      invoice.to.toLowerCase().includes(payload.filter)
+  );
