@@ -22,8 +22,10 @@ const TablePagination = ({ count, active, setPageIndex }) => {
 
   return (
     <>
-      <div className="d-flex justify-content-center">
-        <Pagination>{items}</Pagination>
+      <div className="d-flex justify-content-center align-content-center">
+        <Pagination className="mb-0 flex-wrap d-flex justify-content-center">
+          {items}
+        </Pagination>
       </div>
     </>
   );

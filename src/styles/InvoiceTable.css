@@ -14,6 +14,14 @@ select {
   width: 30%;
 }
 
-/* .table-row-count {
-  width: 2rem;
-} */
+@media screen and (min-width: 992px) {
+  .position-lg-absolute {
+    position: absolute;
+  }
+
+  .row-count-container select {
+    width: 25% !important;
+    margin-left: 0.5rem;
+    z-index: 1;
+  }
+}

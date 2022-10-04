@@ -66,9 +66,9 @@ const ViewInvoices = () => {
     <>
       <h1 className="text-center">Invoices</h1>
 
-      <Container>
-        <div className="d-flex justify-content-between">
-          <Form.Group className="mb-3 w-50 " controlId="filter-date">
+      <Container className="position-relative">
+        <div className="d-flex justify-content-between flex-column flex-lg-row ">
+          <Form.Group className="mb-3 w-lg-50 " controlId="filter-date">
             <Form.Label>Filter by Date</Form.Label>
             <Form.Select size="sm" name="filter-date" onChange={filterDate}>
               <option value="0">Date: Ascending</option>
@@ -116,8 +116,8 @@ const ViewInvoices = () => {
           </tbody>
         </Table>
 
-        <Container className="d-flex">
-          <div className="mx-auto">
+        <Container className="d-flex flex-column flex-lg-row row">
+          <div className="mx-auto position-lg-absolute bottom-0 start-0 end-0 col-12">
             <TablePagination
               count={pages.length}
               active={pageIndex + 1}
@@ -125,9 +125,15 @@ const ViewInvoices = () => {
             />
           </div>
 
-          <Form.Group className="d-flex" controlId="table-row-count">
+          <Form.Group
+            className="text-center col-12 col-lg-3 d-lg-flex row-count-container"
+            controlId="table-row-count"
+          >
             <Form.Label>Rows per page:</Form.Label>
-            <Form.Select aria-label="table-row-count" onChange={setRowCount}>
+            <Form.Select
+              aria-label="table-row-count row-count-select"
+              onChange={setRowCount}
+            >
               <option value="5">5</option>
               <option value="10">10</option>
               <option value="15">15</option>
