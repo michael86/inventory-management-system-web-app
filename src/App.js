@@ -12,6 +12,7 @@ import Contact from "./components/Contact";
 import PricePlans from "./components/PricePlans";
 import Home from "./components/Home";
 import ViewInvoices from "./components/ViewInvoices";
+import GenerateInvoice from "./components/GenerateInvoice";
 
 //local storage
 import { getStore } from "./localStorage";
@@ -52,6 +53,10 @@ function App() {
           <Route
             path="/view-invoices"
             element={authenticated ? <ViewInvoices /> : <Navigate to="/" />}
+          />
+          <Route
+            path="/generate-invoice"
+            element={authenticated ? <GenerateInvoice /> : <Navigate to="/" />}
           />
         </Routes>
       </BrowserRouter>
