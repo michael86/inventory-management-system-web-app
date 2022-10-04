@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { Container, Table } from "react-bootstrap";
 import { useSelector } from "react-redux";
 
-import { Form } from "react-bootstrap";
-
 import {
   filterInvoices,
   genPages,
@@ -24,7 +22,7 @@ const ViewInvoices = () => {
   const [pages, setPages] = useState(genPages(invoices)); // 2d array, each child will be a sepearate table page
   const [filteredInvoices, setFilteredInvoices] = useState([]);
   const [pageIndex, setPageIndex] = useState(0);
-  const [rowcount, setRowCount] = useState(5);
+  const [rowCount, setRowCount] = useState(5);
 
   const formatDate = (unix) => {
     let date = new Date(unix);
@@ -41,7 +39,8 @@ const ViewInvoices = () => {
             )
           : sortDescending(
               filteredInvoices.length > 0 ? filteredInvoices : invoices
-            )
+            ),
+        rowCount
       )
     );
 
@@ -49,7 +48,7 @@ const ViewInvoices = () => {
     const copy = filterInvoices({ invoices, filter: e.target.value });
     setFilteredInvoices(copy);
 
-    const newPages = genPages(copy.length > 0 ? copy : invoices, rowcount);
+    const newPages = genPages(copy.length > 0 ? copy : invoices, rowCount);
 
     setPages(newPages);
 
