@@ -1,10 +1,14 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 
-const ViewInvoiceButton = (props) => {
+const ViewInvoiceButton = ({ id }) => {
+  // const
+
+  const showInvoice = (id) => {};
+
   return (
     <>
-      <Button>View Invoice</Button>
+      <Button onClick={() => showInvoice(id)}>View Invoice</Button>
     </>
   );
 };

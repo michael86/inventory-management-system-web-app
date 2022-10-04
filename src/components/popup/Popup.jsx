@@ -7,6 +7,7 @@ import { togglePopup } from "../../reducers/popupSlice";
 
 import Login from "./body/Login";
 import Register from "./body/Register";
+import Invoice from "./body/Invoice";
 
 const Popup = () => {
   const dispatch = useDispatch();
@@ -17,6 +18,7 @@ const Popup = () => {
       <Modal show={show} centered onHide={() => dispatch(togglePopup())}>
         {screen === 0 && <Login />}
         {screen === 1 && <Register />}
+        {screen === 2 && <Invoice />}
       </Modal>
     </>
   );

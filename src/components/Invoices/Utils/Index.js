@@ -19,9 +19,18 @@ export const genPages = (invoices, count = 5, pages = []) => {
   /**
    * This will generate a 2d array. Each child will contain the target count of invoices (count)
    * [
+   *    [{invoice}, {invoice}, {invoice}, {invoice}, {invoice}],
+   *    [{invoice}, {invoice}, {invoice}, {invoice}, {invoice}],
    *    [{invoice}, {invoice}, {invoice}, {invoice}, {invoice}]
    * ]
    */
+
+  if (
+    typeof count !== "number" ||
+    !Array.isArray(invoices) ||
+    !Array.isArray(pages)
+  )
+    return;
 
   let i = 0;
   invoices.forEach((invoice) => {

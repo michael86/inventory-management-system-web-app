@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Container, Table } from "react-bootstrap";
 import { useSelector } from "react-redux";
 
-import { Form, Button } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import TablePagination from "./Invoices/TablePagination";
 
 import {
@@ -22,7 +22,7 @@ const ViewInvoices = () => {
   const [pages, setPages] = useState(genPages(invoices)); // 2d array, each child will be a sepearate table page
   const [filteredInvoices, setFilteredInvoices] = useState([]);
   const [pageIndex, setPageIndex] = useState(0);
-  const [rowCount, setRowCount] = useState(5);
+  const [rowcount, setRowCount] = useState(5);
 
   const formatDate = (unix) => {
     let date = new Date(unix);
@@ -32,40 +32,37 @@ const ViewInvoices = () => {
 
   const filterDate = (e) =>
     setPages(
-      e.target.value === "0"
-        ? genPages(
-            sortAscending(
+      genPages(
+        e.target.value === "0"
+          ? sortAscending(
               filteredInvoices.length > 0 ? filteredInvoices : invoices
             )
-          )
-        : genPages(
-            sortDescending(
+          : sortDescending(
               filteredInvoices.length > 0 ? filteredInvoices : invoices
             )
-          )
+      )
     );
 
-  useEffect(() => {
-    const newPages = genPages(
-      filteredInvoices.length > 0 ? filteredInvoices : invoices
-    );
+  const onInput = (e) => {
+    const copy = filterInvoices({ invoices, filter: e.target.value });
+    setFilteredInvoices(copy);
+
+    const newPages = genPages(copy.length > 0 ? copy : invoices, rowcount);
 
     setPages(newPages);
 
-    // !pages[pageIndex] && setPageIndex(0); //This isn't working
     setPageIndex(0);
-  }, [filteredInvoices]);
+  };
 
-  const onInput = (e) =>
-    setFilteredInvoices(filterInvoices({ invoices, filter: e.target.value }));
-
-  const setPageCount = (e) =>
+  const setPageCount = (e) => {
+    setPageIndex(0);
+    const count = Number(e.target.value);
     setPages(
-      genPages(
-        filteredInvoices.length > 0 ? filteredInvoices : invoices,
-        Number(e.target.value)
-      )
+      genPages(filteredInvoices.length > 0 ? filteredInvoices : invoices, count)
     );
+
+    setRowCount(count);
+  };
 
   return (
     <>
@@ -113,7 +110,7 @@ const ViewInvoices = () => {
                   <td>{formatDate(invoice.date_generated)}</td>
                   <td>{invoice.from}</td>
                   <td>{invoice.to}</td>
-                  <td>{<ViewInvoiceButton id={index} />}</td>
+                  <td>{<ViewInvoiceButton id={invoice.id} />}</td>
                 </tr>
               );
             })}
