@@ -1,13 +1,20 @@
 import React, { useState } from "react";
 import { Container, Table } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import {
   filterInvoices,
   genPages,
   sortAscending,
   sortDescending,
+  findInvoiceById,
 } from "./Invoices/Utils/Index";
+
+import {
+  togglePopup,
+  setPopupScreen,
+  setPopupInvoice,
+} from "../reducers/popupSlice";
 
 import Footer from "./Invoices/Footer";
 
@@ -18,6 +25,7 @@ import Header from "./Invoices/Header";
 
 const ViewInvoices = () => {
   const { invoices } = useSelector((state) => state.invoices);
+  const dispatch = useDispatch();
 
   const [pages, setPages] = useState(genPages(invoices)); // 2d array, each child will be a sepearate table page
   const [filteredInvoices, setFilteredInvoices] = useState([]);
@@ -65,6 +73,12 @@ const ViewInvoices = () => {
     setRowCount(count);
   };
 
+  const onClick = (id) => {
+    dispatch(setPopupScreen(2));
+    dispatch(setPopupInvoice(findInvoiceById(id, invoices)));
+    dispatch(togglePopup());
+  };
+
   return (
     <>
       <h1 className="text-center">Invoices</h1>
@@ -90,7 +104,9 @@ const ViewInvoices = () => {
                   <td>{formatDate(invoice.date_generated)}</td>
                   <td>{invoice.from}</td>
                   <td>{invoice.to}</td>
-                  <td>{<ViewInvoiceButton id={invoice.id} />}</td>
+                  <td>
+                    {<ViewInvoiceButton onClick={() => onClick(invoice.id)} />}
+                  </td>
                 </tr>
               );
             })}

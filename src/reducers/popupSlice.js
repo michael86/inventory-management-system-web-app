@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   screen: 0,
   show: false,
+  invoice: {},
 };
 
 export const popupSlice = createSlice({
@@ -15,9 +16,13 @@ export const popupSlice = createSlice({
     togglePopup: (state) => {
       state.show = !state.show;
     },
+    setPopupInvoice: (state, action) => {
+      state.invoice = action.payload;
+    },
   },
 });
 
-export const { setPopupScreen, togglePopup } = popupSlice.actions;
+export const { setPopupScreen, togglePopup, setPopupInvoice } =
+  popupSlice.actions;
 
 export default popupSlice.reducer;

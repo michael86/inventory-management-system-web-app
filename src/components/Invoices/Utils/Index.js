@@ -41,3 +41,6 @@ export const genPages = (invoices, count = 5, pages = []) => {
 
   return pages;
 };
+
+export const findInvoiceById = (id, invoices) =>
+  invoices.find((invoice) => invoice.id === id);
