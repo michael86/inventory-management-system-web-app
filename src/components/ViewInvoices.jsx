@@ -3,7 +3,6 @@ import { Container, Table } from "react-bootstrap";
 import { useSelector } from "react-redux";
 
 import { Form } from "react-bootstrap";
-import TablePagination from "./Invoices/TablePagination";
 
 import {
   filterInvoices,
@@ -12,9 +11,12 @@ import {
   sortDescending,
 } from "./Invoices/Utils/Index";
 
+import Footer from "./Invoices/Footer";
+
 import ViewInvoiceButton from "./Invoices/ViewInvoiceButton";
 
 import "../styles/InvoiceTable.css";
+import Header from "./Invoices/Header";
 
 const ViewInvoices = () => {
   const { invoices } = useSelector((state) => state.invoices);
@@ -69,28 +71,7 @@ const ViewInvoices = () => {
       <h1 className="text-center">Invoices</h1>
 
       <Container className="position-relative">
-        <div className="d-flex justify-content-between flex-column flex-lg-row ">
-          <Form.Group className="mb-3 w-lg-50 " controlId="filter-date">
-            <Form.Label>Filter by Date</Form.Label>
-            <Form.Select size="sm" name="filter-date" onChange={filterDate}>
-              <option value="0">Date: Ascending</option>
-              <option value="1">Date: Descending</option>
-            </Form.Select>
-          </Form.Group>
-
-          <Form.Group className="mb-3" controlId="search=invoices">
-            <Form.Label>Search</Form.Label>
-            <div className="d-flex">
-              <Form.Control
-                type="search"
-                placeholder="Search"
-                className="me-2"
-                aria-label="Search"
-                onInput={onInput}
-              />
-            </div>
-          </Form.Group>
-        </div>
+        <Header filterDate={filterDate} onInput={onInput} />
 
         <Table striped bordered hover responsive size="sm">
           <thead>
@@ -117,31 +98,12 @@ const ViewInvoices = () => {
           </tbody>
         </Table>
 
-        <Container className="d-flex flex-column flex-lg-row row">
-          <div className="mx-auto position-lg-absolute bottom-0 start-0 end-0 col-12">
-            <TablePagination
-              count={pages.length}
-              active={pageIndex + 1}
-              setPageIndex={setPageIndex}
-            />
-          </div>
-
-          <Form.Group
-            className="text-center col-12 col-lg-3 d-lg-flex row-count-container"
-            controlId="table-row-count"
-          >
-            <Form.Label>Rows per page:</Form.Label>
-            <Form.Select
-              aria-label="table-row-count row-count-select"
-              onChange={setPageCount}
-            >
-              <option value="5">5</option>
-              <option value="10">10</option>
-              <option value="15">15</option>
-              <option value="20">20</option>
-            </Form.Select>
-          </Form.Group>
-        </Container>
+        <Footer
+          pages={pages}
+          pageIndex={pageIndex}
+          setPageIndex={setPageIndex}
+          setPageCount={setPageCount}
+        />
       </Container>
     </>
   );
