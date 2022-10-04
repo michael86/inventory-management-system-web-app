@@ -22,6 +22,7 @@ const ViewInvoices = () => {
   const [pages, setPages] = useState(genPages(invoices)); // 2d array, each child will be a sepearate table page
   const [filteredInvoices, setFilteredInvoices] = useState([]);
   const [pageIndex, setPageIndex] = useState(0);
+  const [rowCount, setRowCount] = useState(5);
 
   const formatDate = (unix) => {
     let date = new Date(unix);
@@ -58,9 +59,13 @@ const ViewInvoices = () => {
   const onInput = (e) =>
     setFilteredInvoices(filterInvoices({ invoices, filter: e.target.value }));
 
-  const setRowCount = (e) => {
-    console.log(e.target.value);
-  };
+  const setPageCount = (e) =>
+    setPages(
+      genPages(
+        filteredInvoices.length > 0 ? filteredInvoices : invoices,
+        Number(e.target.value)
+      )
+    );
 
   return (
     <>
@@ -86,7 +91,6 @@ const ViewInvoices = () => {
                 aria-label="Search"
                 onInput={onInput}
               />
-              <Button variant="outline-success">Search</Button>
             </div>
           </Form.Group>
         </div>
@@ -132,7 +136,7 @@ const ViewInvoices = () => {
             <Form.Label>Rows per page:</Form.Label>
             <Form.Select
               aria-label="table-row-count row-count-select"
-              onChange={setRowCount}
+              onChange={setPageCount}
             >
               <option value="5">5</option>
               <option value="10">10</option>
