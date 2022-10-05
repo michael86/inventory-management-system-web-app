@@ -25,3 +25,12 @@ select {
     z-index: 1;
   }
 }
+
+.card {
+  min-height: 573px;
+  max-height: 573px;
+}
+
+.card-footer {
+  overflow: scroll;
+}

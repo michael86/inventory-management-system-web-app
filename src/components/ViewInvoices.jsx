@@ -20,7 +20,7 @@ import Footer from "./Invoices/Footer";
 
 import ViewInvoiceButton from "./Invoices/ViewInvoiceButton";
 
-import "../styles/InvoiceTable.css";
+import "../styles/Invoice.css";
 import Header from "./Invoices/Header";
 
 const ViewInvoices = () => {
