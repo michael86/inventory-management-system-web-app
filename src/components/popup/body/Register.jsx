@@ -7,7 +7,7 @@ import { Modal, Form } from "react-bootstrap";
 
 import Header from "../components/Header";
 import Buttons from "../components/Buttons";
-import Input from "../components/Input";
+import Input from "../../Utils/Input";
 
 import { setPopupScreen, togglePopup } from "../../../reducers/popupSlice";
 import { validateInput } from "../utils";

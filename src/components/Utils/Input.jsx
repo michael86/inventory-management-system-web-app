@@ -36,10 +36,7 @@ const Input = (props) => {
   } = props;
 
   return (
-    <Form.Group
-      className={classNames?.group?.map((className) => className)}
-      controlId={controlId}
-    >
+    <Form.Group className={[...classNames.group]} controlId={controlId}>
       <Form.Label>{label}</Form.Label>
       <Form.Control
         type={type}
@@ -50,11 +47,7 @@ const Input = (props) => {
       />
 
       {formText && (
-        <Form.Text
-          className={classNames?.formText?.map((className) => className)}
-        >
-          {formText}
-        </Form.Text>
+        <Form.Text className={[...classNames.formText]}>{formText}</Form.Text>
       )}
 
       {errors && errors[controlId] && (

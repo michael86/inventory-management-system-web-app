@@ -8,7 +8,7 @@ import { validateInput } from "../utils";
 
 import Buttons from "../components/Buttons";
 import Header from "../components/Header";
-import Input from "../components/Input";
+import Input from "../../Utils/Input";
 import { getStore } from "../../../localStorage";
 import { setUserAuthenticated } from "../../../reducers/userSlice";
 
@@ -31,7 +31,6 @@ const Login = () => {
       (user.password !== data.password && setLoginAuthed(false));
 
     if (user.email === data.email && user.password === data.password) {
-      console.log("erm?");
       dispatch(togglePopup());
       dispatch(setUserAuthenticated());
     }
