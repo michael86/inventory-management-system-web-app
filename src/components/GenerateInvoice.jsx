@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./../styles/Forms.css";
 
 import uniqid from "uniqid";
-import { Container, Form, Row, Col } from "react-bootstrap";
+import { Container, Form, Row, Col, Table } from "react-bootstrap";
 import GenInvoiceCard from "./Invoices/GenInvoiceCard";
 import { toCompany, item } from "./Invoices/schema/genInvoiceInputs";
 
@@ -69,6 +69,36 @@ const GenerateInvoice = () => {
               />
             </Col>
           </Row>
+
+          <Table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Username</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td colSpan={2}>Larry the Bird</td>
+                <td>@twitter</td>
+              </tr>
+            </tbody>
+          </Table>
         </Form>
       </Container>
     </>
@@ -80,16 +110,6 @@ export default GenerateInvoice;
 // id: "fkldasfk24324jdhkj",
 
 //     date_generated: 1633902855 * 1000,
-//
-//     items: [
-//     {
-//         item: "Water Glass Set",
-//         description: "Water glass set for office",
-//         quantity: 1,
-//         price: 35.0,
-//         tax: "",
-//       },
-//     ],
 //     subtotal: 156,
 //     total: 156,
 //     order_number: 1234222,
