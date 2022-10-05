@@ -36,14 +36,22 @@ const Input = (props) => {
   } = props;
 
   return (
-    <Form.Group className={[...classNames.group]} controlId={controlId}>
-      <Form.Label>{label}</Form.Label>
+    <Form.Group
+      className={classNames?.group && [...classNames.group].join(" ")}
+      controlId={controlId}
+    >
+      <Form.Label
+        className={classNames?.label && [...classNames.label].join(" ")}
+      >
+        {label}
+      </Form.Label>
       <Form.Control
         type={type}
         placeholder={placeholder && placeholder}
         required={required}
         onInput={onInput}
         name={controlId}
+        className={classNames?.control && [...classNames.control].join(" ")}
       />
 
       {formText && (

@@ -1,18 +1,61 @@
-import React from "react";
+import React, { useState } from "react";
 import "./../styles/Forms.css";
 
-import { Container, Form, Button, Fieldset, Row, Card } from "react-bootstrap";
+import { Container, Form, Row, Col } from "react-bootstrap";
 import GenInvoiceCard from "./Invoices/GenInvoiceCard";
+import { toCompany, item } from "./Invoices/schema/genInvoiceInputs";
 
 const GenerateInvoice = () => {
+  const [items, setItems] = useState([]);
+
+  const onBubble = (e) => {
+    //We have to bubble up to allow us to get the item entries and add to state
+    const targetType = e.target.type;
+
+    if (targetType !== "button") return;
+    const { children } = e.currentTarget.children[1]; //Get card body children
+
+    //Get inputs from children
+    let inputs = [...children]
+      .map((child) =>
+        [...child.children].filter((child) => child.tagName === "INPUT")
+      )
+      .flat();
+
+    const inputObect = {};
+    inputs.forEach((input) => (inputObect[input.name] = input.value));
+    const copy = [...items];
+    copy.push(inputObect);
+    setItems(copy);
+  };
+
   return (
     <>
       <h1 className="text-center">Generate new invoice</h1>
 
       <Container className="pe-5 ps-5 pe-lg-0 ps-lg-0">
-        <Form>
+        <Form name="shipToForm">
           <Row>
-            <GenInvoiceCard headerText="To" />
+            <Col xs={12} lg={6} className="mb-4 mb-lg-0">
+              <GenInvoiceCard
+                headerText="To"
+                inputs={toCompany}
+                className="w-100"
+              />
+            </Col>
+
+            <Col xs={12} lg={6} className="mb-4 mb-lg-0">
+              <GenInvoiceCard
+                className="w-100"
+                headerText="items"
+                inputs={item}
+                onClick={onBubble}
+                footer={{
+                  text: "Add",
+                  items,
+                }}
+              />
+            </Col>
           </Row>
         </Form>
       </Container>
@@ -25,32 +68,9 @@ export default GenerateInvoice;
 // id: "fkldasfk24324jdhkj",
 
 //     date_generated: 1633902855 * 1000,
-//     from: "photomechanical",
-//     to: "you",
-//     shipping: {
-//       name: "Micheal",
-//       address: "1234 Main Street",
-//       city: "Dubai",
-//       state: "Dubai",
-//       country: "UAE",
-//       postal_code: 94111,
-//     },
+//
 //     items: [
-//       {
-//         item: "Chair",
-//         description: "Wooden chair",
-//         quantity: 1,
-//         price: 50.0,
-//         tax: "10%",
-//       },
-//       {
-//         item: "Watch",
-//         description: "Wall watch for office",
-//         quantity: 2,
-//         price: 30.0,
-//         tax: "10%",
-//       },
-//       {
+//     {
 //         item: "Water Glass Set",
 //         description: "Water glass set for office",
 //         quantity: 1,
