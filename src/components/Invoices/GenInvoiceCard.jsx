@@ -1,8 +1,17 @@
 import React from "react";
 import { Card, Button, Badge, Row, Col } from "react-bootstrap";
 import Input from "../Utils/Input";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 
-const GenInvoiceCard = ({ headerText, onClick, inputs, footer, className }) => {
+const GenInvoiceCard = ({
+  headerText,
+  onClick,
+  inputs,
+  footer,
+  className,
+  onDelete,
+}) => {
   return (
     <Card className={`shadow ${className}`} onClick={onClick}>
       <Card.Header className="text-center bg-primary text-light fs-4 ">
@@ -30,25 +39,26 @@ const GenInvoiceCard = ({ headerText, onClick, inputs, footer, className }) => {
       {footer && (
         <Card.Footer>
           <Row>
-            <Col xs>
-              <Button onClick={footer.onClick}> {footer.text}</Button>
+            <Col xs={2}>
+              <Button onClick={footer.onClick} className="mb-2">
+                {footer.text}
+              </Button>
             </Col>
-            <Col xs={10}>
-              {footer.items.map((item) => {
-                return (
-                  <Badge pill bg="primary me-2 fs-6">
-                    {`${item.item} x ${item.quantity}`}
-                    {/* <Button
-                      variant="outline-warning"
-                      className="ms-2 border-circle"
-                    >
-                      x
-                    </Button>  
-                    add font awesome here for closing
-                    */}
-                  </Badge>
-                );
-              })}
+            <Col xs={12}>
+              <div className="d-flex flex-row flex-wrap justify-content-center">
+                {footer.items.map((item) => {
+                  return (
+                    <Badge pill bg="primary me-2 mb-2 fs-6" key={item.id}>
+                      {`${item.item}: qty ${item.quantity}`}
+                      <FontAwesomeIcon
+                        icon={faCircleXmark}
+                        onClick={() => onDelete(item.id)}
+                        className="ms-2"
+                      />
+                    </Badge>
+                  );
+                })}
+              </div>
             </Col>
           </Row>
         </Card.Footer>

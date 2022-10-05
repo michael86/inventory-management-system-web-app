@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./../styles/Forms.css";
 
+import uniqid from "uniqid";
 import { Container, Form, Row, Col } from "react-bootstrap";
 import GenInvoiceCard from "./Invoices/GenInvoiceCard";
 import { toCompany, item } from "./Invoices/schema/genInvoiceInputs";
@@ -22,13 +23,23 @@ const GenerateInvoice = () => {
       )
       .flat();
 
-    const inputObect = {};
-    inputs.forEach((input) => (inputObect[input.name] = input.value));
+    const inputObject = {};
+    inputs.forEach((input) => {
+      inputObject[input.name] = input.value;
+      inputObject.id = uniqid();
+    });
+
     const copy = [...items];
-    copy.push(inputObect);
+    copy.push(inputObject);
     setItems(copy);
   };
 
+  const onDelete = (id) => {
+    const copy = [...items];
+    const index = copy.findIndex((item) => item.id === id);
+    copy.splice(index, 1);
+    setItems(copy);
+  };
   return (
     <>
       <h1 className="text-center">Generate new invoice</h1>
@@ -50,6 +61,7 @@ const GenerateInvoice = () => {
                 headerText="items"
                 inputs={item}
                 onClick={onBubble}
+                onDelete={onDelete}
                 footer={{
                   text: "Add",
                   items,
