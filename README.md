@@ -15,13 +15,31 @@ This is a full stack project for the jump bootcamp. The aim is to create a full 
 
 ### Popup
 
+Seems complete so far. May refactor stuff at later date if new funcitonality is required
+
 - [x] Refactor buttons to be dynamically generated, this will allow me to call them within forms, as well as place in footer at later date.
 - [x] Refactor form to use child components that will allow me to dynamically generate each input.
-- [] hook up form submit to local storage (This will be replaced by apis at later date)
+- [x] hook up form submit to local storage (This will be replaced by apis at later date)
+
+### View Invoices
+
+- [x] Create view invoice table
+- [x] Add row count drop down
+- [x] Add filter by date
+- [x] Add filter by input
+- [ ] Hook up 'View Invoice' buttons. This can't be done untill back is done
+
+### Gen invoice
+
+- [x] Create the To card. (who we are sending the invoice to)
+- [ ] Create the Items card.
+- [ ] Create tally card.
 
 ### general
 
 - [ ] Create static pages
-- [ ] Create local storage wrapper
+- [x] Create local storage wrapper (May be updated with more functionality in future)
 - [ ] Create charts
+- [ ] Add Charts to Dashboard
+- [ ] Overall restyle design
 - [ ] Stuff I've no doubt missed.
