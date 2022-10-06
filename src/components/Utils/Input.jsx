@@ -61,7 +61,11 @@ const Input = (props) => {
       {errors && errors[controlId] && (
         <>
           {formText && <br />}
-          <Form.Text className="text-danger">
+          <Form.Text
+            className={`text-danger ${
+              classNames?.error && [...classNames.error].join(" ")
+            }`}
+          >
             {custError ? custError : errors[controlId]}
           </Form.Text>
         </>

@@ -4,7 +4,7 @@ export const validateInput = (e, errors) => {
   const { target } = e;
 
   const valid = validate(target.name, { [target.name]: target.value });
-  console.log(valid);
+
   const copy = { ...errors };
 
   target.value.length === 0 || valid.value

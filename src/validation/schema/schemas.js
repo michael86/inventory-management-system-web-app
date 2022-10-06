@@ -15,6 +15,11 @@ const basicString = Joi.string()
   .pattern(/^[a-z A-Z]+$/)
   .required();
 
+const stringWithNumbers = Joi.string()
+  .min(1)
+  .pattern(/^[a-z A-Z 0-9]+$/)
+  .required();
+
 const anyString = Joi.string().required();
 
 export const schema = {
@@ -41,7 +46,25 @@ export const schema = {
     company: basicString,
   },
 
-  companyName: {
-    company: basicString,
+  invoiceCompanyName: {
+    invoiceCompanyName: basicString,
+  },
+  invoiceContactName: {
+    invoiceContactName: basicString,
+  },
+  invoiceCompanyAddress: {
+    invoiceCompanyAddress: stringWithNumbers,
+  },
+  invoiceCompanyCity: {
+    invoiceCompanyCity: basicString,
+  },
+  invoiceCompanyState: {
+    invoiceCompanyState: basicString,
+  },
+  invoiceCompanyCountry: {
+    invoiceCompanyCountry: basicString,
+  },
+  invoiceCompanyPostcode: {
+    invoiceCompanyPostcode: stringWithNumbers,
   },
 };

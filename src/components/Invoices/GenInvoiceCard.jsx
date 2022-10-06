@@ -12,9 +12,7 @@ const GenInvoiceCard = (props) => {
 
   const [errors, setErrors] = useState();
 
-  const onInput = (e) => {
-    const newErrors = setErrors(validateInput(e, errors));
-  };
+  const onInput = (e) => setErrors(validateInput(e, errors));
 
   return (
     <Card className={`shadow ${className}`} onClick={onClick}>
@@ -33,6 +31,7 @@ const GenInvoiceCard = (props) => {
               formText={input.formText}
               onInput={onInput}
               errors={errors}
+              custError={input.custError}
               required={input.required}
               key={index}
             />

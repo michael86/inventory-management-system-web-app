@@ -1,11 +1,11 @@
 const classes = {
-  group: ["d-flex", "flex-column", "flex-lg-row", "mb-2"],
+  group: ["d-flex", "flex-column", "flex-lg-row", "mb-2", "flex-wrap"],
   label: ["me-2", "mb-0"],
 };
 
 export const toCompany = [
   {
-    controlId: "companyName",
+    controlId: "invoiceCompanyName",
     classNames: {
       group: classes.group,
       label: classes.label,
@@ -14,9 +14,10 @@ export const toCompany = [
     type: "text",
     placeholder: "Company Name",
     required: true,
+    custError: "Company Name can not contain numbers or special characters",
   },
   {
-    controlId: "contactName",
+    controlId: "invoiceContactName",
     classNames: {
       group: classes.group,
       label: classes.label,
@@ -25,9 +26,10 @@ export const toCompany = [
     type: "text",
     placeholder: "Name",
     required: true,
+    custError: "Contact Name can not contain numbers or special characters",
   },
   {
-    controlId: "companyAddress",
+    controlId: "invoiceCompanyAddress",
     classNames: {
       group: classes.group,
       label: classes.label,
@@ -36,9 +38,10 @@ export const toCompany = [
     type: "text",
     placeholder: "Address",
     required: true,
+    custError: "Company Address can not contain special characters",
   },
   {
-    controlId: "companyCity",
+    controlId: "invoiceCompanyCity",
     classNames: {
       group: classes.group,
       label: classes.label,
@@ -47,9 +50,10 @@ export const toCompany = [
     type: "text",
     placeholder: "City",
     required: true,
+    custError: "Company City can not contain numbers or special characters",
   },
   {
-    controlId: "companyState",
+    controlId: "invoiceCompanyState",
     classNames: {
       group: classes.group,
       label: classes.label,
@@ -58,9 +62,10 @@ export const toCompany = [
     type: "text",
     placeholder: "State",
     required: true,
+    custError: "Company State can not contain numbers or special characters",
   },
   {
-    controlId: "companyCountry",
+    controlId: "invoiceCompanyCountry",
     classNames: {
       group: classes.group,
       label: classes.label,
@@ -69,9 +74,10 @@ export const toCompany = [
     type: "text",
     placeholder: "Country",
     required: true,
+    custError: "Company Country can not contain numbers or special characters",
   },
   {
-    controlId: "companyPostcode",
+    controlId: "invoiceCompanyPostcode",
     classNames: {
       group: classes.group,
       label: classes.label,
@@ -80,6 +86,7 @@ export const toCompany = [
     type: "text",
     placeholder: "Postcode",
     required: true,
+    custError: "Company post code can not contain special characters",
   },
 ];
 
