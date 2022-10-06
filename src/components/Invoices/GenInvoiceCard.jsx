@@ -7,16 +7,15 @@ import { validateInput } from "../Utils";
 
 import "./../../styles/Invoice.css";
 
-const GenInvoiceCard = ({
-  headerText,
-  onClick,
-  inputs,
-  footer,
-  className,
-  onDelete,
-}) => {
+const GenInvoiceCard = (props) => {
+  const { headerText, onClick, inputs, footer, className, onDelete } = props;
+
   const [errors, setErrors] = useState();
-  const onInput = (e) => setErrors(validateInput(e, errors));
+
+  const onInput = (e) => {
+    const newErrors = setErrors(validateInput(e, errors));
+  };
+
   return (
     <Card className={`shadow ${className}`} onClick={onClick}>
       <Card.Header className="text-center bg-primary text-light fs-4 ">
