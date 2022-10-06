@@ -17,7 +17,9 @@ const Input = (props) => {
    * @param {props.placeholder} param that will set the placeholder text
    * @param {props.formText} if extra text is required, will add a formText componet with the value of prop
    * @param {props.required} Set input to required
-   * @param {props.onInput} A callback, generally going to be used to elevate state to parent and display an error message
+   * @param {props.onInput}  generally going to be used to elevate state to parent and display an error message
+   * @param {props.onKeyDown}  generally going to be used to check for illegal keys on number inputs (e - + )
+   * @param {props.value}  Set pre field input
    *
    * @return {component} bootstrap input component
    */
@@ -31,8 +33,10 @@ const Input = (props) => {
     formText,
     required,
     onInput,
+    onKeyDown,
     errors,
     custError,
+    value,
   } = props;
 
   return (
@@ -50,8 +54,10 @@ const Input = (props) => {
         placeholder={placeholder && placeholder}
         required={required}
         onInput={onInput}
+        onKeyDown={(e) => onKeyDown(e, type)}
         name={controlId}
         className={classNames?.control && [...classNames.control].join(" ")}
+        value={value}
       />
 
       {formText && (

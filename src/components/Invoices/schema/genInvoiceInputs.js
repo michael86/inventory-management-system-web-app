@@ -90,6 +90,20 @@ export const toCompany = [
   },
 ];
 
+export const specifics = [
+  {
+    controlId: "date",
+    classNames: {
+      group: classes.group,
+      label: classes.label,
+    },
+    label: "Date Generated:",
+    type: "date",
+    placeholder: "Date",
+    value: Date.now(),
+  },
+];
+
 export const item = [
   {
     controlId: "item",

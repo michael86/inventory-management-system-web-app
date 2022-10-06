@@ -9,16 +9,22 @@ import "./../../styles/Invoice.css";
 
 const GenInvoiceCard = (props) => {
   const { headerText, onClick, inputs, footer, className, onDelete } = props;
-
   const [errors, setErrors] = useState();
 
   const onInput = (e) => setErrors(validateInput(e, errors));
+
+  const onKeyDown = (e, type) => {
+    if (type !== "number") return;
+    const { key } = e;
+    if (key === "e" || key === "-" || key === "+") e.preventDefault();
+  };
 
   return (
     <Card className={`shadow ${className}`} onClick={onClick}>
       <Card.Header className="text-center bg-primary text-light fs-4 ">
         {headerText}
       </Card.Header>
+
       <Card.Body className="bg-light">
         {inputs.map((input, index) => {
           return (
@@ -30,10 +36,12 @@ const GenInvoiceCard = (props) => {
               placeholder={input.placeholder}
               formText={input.formText}
               onInput={onInput}
+              onKeyDown={onKeyDown}
               errors={errors}
               custError={input.custError}
               required={input.required}
               key={index}
+              value={input.value}
             />
           );
         })}

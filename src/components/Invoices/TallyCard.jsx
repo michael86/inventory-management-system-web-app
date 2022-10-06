@@ -3,7 +3,7 @@ import { Card, Table } from "react-bootstrap";
 import { calculateCombinedCost } from "./Utils/Index";
 
 const TallyCard = (props) => {
-  const { items } = props;
+  const { items, currency } = props;
 
   const combinedCost = calculateCombinedCost(items);
 
@@ -31,7 +31,10 @@ const TallyCard = (props) => {
                   <td>{item.quantity}</td>
                   <td>{item.price}</td>
                   <td>{item.tax}</td>
-                  <td>{`£${(item.quantity * item.price).toFixed(2)}`}</td>
+                  <td>
+                    {currency}
+                    {(item.quantity * item.price).toFixed(2)}
+                  </td>
                 </tr>
               );
             })}

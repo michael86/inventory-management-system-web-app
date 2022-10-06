@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import "./../styles/Forms.css";
 
 import uniqid from "uniqid";
-import { Container, Form, Row, Col, Table } from "react-bootstrap";
+import { Container, Form, Row, Col } from "react-bootstrap";
 import GenInvoiceCard from "./Invoices/GenInvoiceCard";
 import TallyCard from "./Invoices/TallyCard";
-import { toCompany, item } from "./Invoices/schema/genInvoiceInputs";
+import { toCompany, item, specifics } from "./Invoices/schema/genInvoiceInputs";
 
 const GenerateInvoice = () => {
   const [items, setItems] = useState([]);
-  const [tally, setTally] = useState([]);
+  const [currency, setCurrency] = useState("£");
 
   const onBubble = (e) => {
     //We have to bubble up to allow us to get the item entries and add to state
@@ -42,14 +42,25 @@ const GenerateInvoice = () => {
     copy.splice(index, 1);
     setItems(copy);
   };
+
+  const now = new Date();
+  let day = ("0" + now.getDate()).slice(-2);
+  let month = ("0" + (now.getMonth() + 1)).slice(-2);
+  let today = now.getFullYear() + "-" + month + "-" + day;
+
+  specifics.forEach((item) => {
+    if (item.controlId === "date") item.value = today;
+  });
+
   return (
     <>
       <h1 className="text-center">Generate new invoice</h1>
 
-      <Container className="pe-5 ps-5 pe-lg-0 ps-lg-0">
+      <Container fluid className="pe-5 ps-5">
         <Form name="shipToForm">
           <Row>
-            <Col xs={12} lg={6} className="mb-4 ">
+            {/*To Company*/}
+            <Col xs={12} lg={6} xxl={4} className="mb-4 ">
               <GenInvoiceCard
                 headerText="To"
                 inputs={toCompany}
@@ -57,7 +68,18 @@ const GenerateInvoice = () => {
               />
             </Col>
 
-            <Col xs={12} lg={6} className="mb-4 ">
+            {/*Invoice specifics*/}
+            <Col xs={12} lg={6} xxl={4} className="mb-4 ">
+              <GenInvoiceCard
+                className="w-100"
+                headerText="Specifics"
+                inputs={specifics}
+                onDelete={onDelete}
+              />
+            </Col>
+
+            {/*Item card*/}
+            <Col xs={12} lg={6} xxl={4} className="mb-4 ">
               <GenInvoiceCard
                 className="w-100"
                 headerText="items"
@@ -70,8 +92,10 @@ const GenerateInvoice = () => {
                 }}
               />
             </Col>
-            <Col xs={12} lg={6} className="mb-4 mb-lg-0">
-              <TallyCard items={items} />
+
+            {/*Tally table card*/}
+            <Col xs={12} lg={6} xxl={12} className="mb-4 mb-lg-0">
+              <TallyCard items={items} currency />
             </Col>
           </Row>
         </Form>
