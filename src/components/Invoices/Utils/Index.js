@@ -47,7 +47,7 @@ export const findInvoiceById = (id, invoices) =>
 
 export const calculateCombinedCost = (arr) => {
   let tally = 0;
-  arr.forEach((item) => (tally += Number(item.price)));
+  arr.forEach((item) => (tally += Number(item.price) * Number(item.quantity)));
 
   return tally.toFixed(2);
 };
