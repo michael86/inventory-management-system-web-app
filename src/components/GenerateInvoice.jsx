@@ -4,10 +4,12 @@ import "./../styles/Forms.css";
 import uniqid from "uniqid";
 import { Container, Form, Row, Col, Table } from "react-bootstrap";
 import GenInvoiceCard from "./Invoices/GenInvoiceCard";
+import TallyCard from "./Invoices/TallyCard";
 import { toCompany, item } from "./Invoices/schema/genInvoiceInputs";
 
 const GenerateInvoice = () => {
   const [items, setItems] = useState([]);
+  const [tally, setTally] = useState([]);
 
   const onBubble = (e) => {
     //We have to bubble up to allow us to get the item entries and add to state
@@ -47,7 +49,7 @@ const GenerateInvoice = () => {
       <Container className="pe-5 ps-5 pe-lg-0 ps-lg-0">
         <Form name="shipToForm">
           <Row>
-            <Col xs={12} lg={6} className="mb-4 mb-lg-0">
+            <Col xs={12} lg={6} className="mb-4 ">
               <GenInvoiceCard
                 headerText="To"
                 inputs={toCompany}
@@ -55,7 +57,7 @@ const GenerateInvoice = () => {
               />
             </Col>
 
-            <Col xs={12} lg={6} className="mb-4 mb-lg-0">
+            <Col xs={12} lg={6} className="mb-4 ">
               <GenInvoiceCard
                 className="w-100"
                 headerText="items"
@@ -68,37 +70,10 @@ const GenerateInvoice = () => {
                 }}
               />
             </Col>
+            <Col xs={12} lg={6} className="mb-4 mb-lg-0">
+              <TallyCard items={items} />
+            </Col>
           </Row>
-
-          <Table>
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Username</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td colSpan={2}>Larry the Bird</td>
-                <td>@twitter</td>
-              </tr>
-            </tbody>
-          </Table>
         </Form>
       </Container>
     </>

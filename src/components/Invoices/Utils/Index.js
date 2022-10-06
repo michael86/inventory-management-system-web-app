@@ -44,3 +44,10 @@ export const genPages = (invoices, count = 5, pages = []) => {
 
 export const findInvoiceById = (id, invoices) =>
   invoices.find((invoice) => invoice.id === id);
+
+export const calculateCombinedCost = (arr) => {
+  let tally = 0;
+  arr.forEach((item) => (tally += Number(item.price)));
+
+  return tally.toFixed(2);
+};

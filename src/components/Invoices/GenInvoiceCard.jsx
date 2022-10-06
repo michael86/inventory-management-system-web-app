@@ -3,7 +3,7 @@ import { Card, Button, Badge, Row, Col } from "react-bootstrap";
 import Input from "../Utils/Input";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
-import { validateInput } from "../Utils";
+import { validateInput } from "../../validation/Utils";
 
 import "./../../styles/Invoice.css";
 

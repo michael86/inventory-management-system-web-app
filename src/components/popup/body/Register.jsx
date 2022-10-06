@@ -10,27 +10,15 @@ import Buttons from "../components/Buttons";
 import Input from "../../Utils/Input";
 
 import { setPopupScreen, togglePopup } from "../../../reducers/popupSlice";
-import { validateInput } from "../../Utils";
+import { validateInput } from "../../../validation/Utils";
+
 import { setUser } from "../../../reducers/userSlice";
 
 const Register = () => {
-  /**
-   * Registration form
-   * @param {state: local} state simply holds errors which are passed down to the children to show error messages
-   * @return {state} calls userSlice and registers user
-   */
-
   const dispatch = useDispatch();
   const [errors, setErrors] = useState(false);
 
   const onSubmit = (e) => {
-    // interface User {
-    //   email: String;
-    //   password: String;
-    //   company: String;
-    //   pricePlan: String;
-    // }
-
     e.preventDefault();
     const data = Object.fromEntries(new FormData(e.target));
 
