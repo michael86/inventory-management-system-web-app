@@ -10,7 +10,7 @@ import Buttons from "../components/Buttons";
 import Input from "../../Utils/Input";
 
 import { setPopupScreen, togglePopup } from "../../../reducers/popupSlice";
-import { validateInput } from "../utils";
+import { validateInput } from "../../Utils";
 import { setUser } from "../../../reducers/userSlice";
 
 const Register = () => {

@@ -1,4 +1,4 @@
-import { validate } from "../../../validation";
+import { validate } from "../../validation";
 
 export const validateInput = (e, errors) => {
   const { target } = e;

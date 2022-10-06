@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card, Button, Badge, Row, Col } from "react-bootstrap";
 import Input from "../Utils/Input";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
+import { validateInput } from "../Utils";
+
 import "./../../styles/Invoice.css";
 
 const GenInvoiceCard = ({
@@ -13,6 +15,8 @@ const GenInvoiceCard = ({
   className,
   onDelete,
 }) => {
+  const [errors, setErrors] = useState();
+  const onInput = (e) => setErrors(validateInput(e, errors));
   return (
     <Card className={`shadow ${className}`} onClick={onClick}>
       <Card.Header className="text-center bg-primary text-light fs-4 ">
@@ -28,8 +32,8 @@ const GenInvoiceCard = ({
               classNames={input.classNames}
               placeholder={input.placeholder}
               formText={input.formText}
-              onInput={input.onInput}
-              errors={input.errors}
+              onInput={onInput}
+              errors={errors}
               required={input.required}
               key={index}
             />

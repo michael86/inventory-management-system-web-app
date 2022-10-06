@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
@@ -9,20 +9,10 @@ import { setUserAuthenticated } from "../../reducers/userSlice";
 const LoggedIn = () => {
   const dispatch = useDispatch();
 
-  //   const [show, setShow] = useState(false);
-  //   const showDropDown = (e) => {
-  //     setShow(!show);
-  //   };
-  //   const hideDropDown = (e) => {
-  //     setShow(false);
-  //   };
   return (
     <>
       <NavDropdown
         title="Stock"
-        // show={show}
-        // onMouseEnter={showDropDown}
-        // onMouseLeave={hideDropDown}
         id="offcanvasNavbarDropdown-expand-md"
         className="order-md-3"
       >

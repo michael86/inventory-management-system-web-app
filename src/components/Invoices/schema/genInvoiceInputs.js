@@ -5,7 +5,7 @@ const classes = {
 
 export const toCompany = [
   {
-    controlId: "company-name",
+    controlId: "companyName",
     classNames: {
       group: classes.group,
       label: classes.label,
@@ -16,7 +16,7 @@ export const toCompany = [
     required: true,
   },
   {
-    controlId: "name",
+    controlId: "contactName",
     classNames: {
       group: classes.group,
       label: classes.label,
@@ -27,7 +27,7 @@ export const toCompany = [
     required: true,
   },
   {
-    controlId: "address",
+    controlId: "companyAddress",
     classNames: {
       group: classes.group,
       label: classes.label,
@@ -38,7 +38,7 @@ export const toCompany = [
     required: true,
   },
   {
-    controlId: "city",
+    controlId: "companyCity",
     classNames: {
       group: classes.group,
       label: classes.label,
@@ -49,7 +49,7 @@ export const toCompany = [
     required: true,
   },
   {
-    controlId: "state",
+    controlId: "companyState",
     classNames: {
       group: classes.group,
       label: classes.label,
@@ -60,7 +60,7 @@ export const toCompany = [
     required: true,
   },
   {
-    controlId: "country",
+    controlId: "companyCountry",
     classNames: {
       group: classes.group,
       label: classes.label,
@@ -71,7 +71,7 @@ export const toCompany = [
     required: true,
   },
   {
-    controlId: "postcode",
+    controlId: "companyPostcode",
     classNames: {
       group: classes.group,
       label: classes.label,
@@ -93,7 +93,6 @@ export const item = [
     label: "Item:",
     type: "text",
     placeholder: "Item",
-    required: true,
   },
   {
     controlId: "description",
@@ -104,7 +103,6 @@ export const item = [
     label: "Description:",
     type: "text",
     placeholder: "Description",
-    required: true,
   },
   {
     controlId: "quantity",
@@ -115,7 +113,6 @@ export const item = [
     label: "Quantity:",
     type: "number",
     placeholder: "Quantity",
-    required: true,
   },
   {
     controlId: "price",
@@ -126,7 +123,6 @@ export const item = [
     label: "Price:",
     type: "number",
     placeholder: "Price",
-    required: true,
   },
   {
     controlId: "tax",
@@ -137,6 +133,5 @@ export const item = [
     label: "Tax:",
     type: "number",
     placeholder: "%0",
-    required: true,
   },
 ];
