@@ -1,3 +1,5 @@
+import uniqid from "uniqid";
+
 const classes = {
   group: ["d-flex", "flex-column", "flex-lg-row", "mb-2", "flex-wrap"],
   label: ["me-2", "mb-0"],
@@ -101,6 +103,49 @@ export const specifics = [
     type: "date",
     placeholder: "Date",
     value: Date.now(),
+  },
+  {
+    controlId: "billingDate",
+    classNames: {
+      group: classes.group,
+      label: classes.label,
+    },
+    label: "Billing Date:",
+    type: "date",
+    placeholder: "Billing Date",
+    value: Date.now(),
+  },
+  {
+    controlId: "dueDate",
+    classNames: {
+      group: classes.group,
+      label: classes.label,
+    },
+    label: "Due Date:",
+    type: "date",
+    placeholder: "Due Date",
+    value: Date.now(),
+  },
+  {
+    controlId: "invoiceId",
+    classNames: {
+      group: classes.group,
+      label: classes.label,
+    },
+    label: "Invoice Id:",
+    type: "text",
+    placeholder: "Invoice Id",
+    value: uniqid(),
+  },
+  {
+    controlId: "Footer",
+    classNames: {
+      group: classes.group,
+      label: classes.label,
+    },
+    label: "Notes:",
+    type: "text",
+    placeholder: "footer",
   },
 ];
 

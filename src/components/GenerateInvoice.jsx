@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./../styles/Forms.css";
 
 import uniqid from "uniqid";
-import { Container, Form, Row, Col } from "react-bootstrap";
+import { Container, Form, Row, Col, Button } from "react-bootstrap";
 import GenInvoiceCard from "./Invoices/GenInvoiceCard";
 import TallyCard from "./Invoices/TallyCard";
 import { toCompany, item, specifics } from "./Invoices/schema/genInvoiceInputs";
@@ -49,7 +49,7 @@ const GenerateInvoice = () => {
   let today = now.getFullYear() + "-" + month + "-" + day;
 
   specifics.forEach((item) => {
-    if (item.controlId === "date") item.value = today;
+    if (item.type === "date") item.value = today;
   });
 
   return (
@@ -98,6 +98,11 @@ const GenerateInvoice = () => {
               <TallyCard items={items} currency />
             </Col>
           </Row>
+
+          <Button type="submit">Submit</Button>
+          <Button type="reset" onClick={() => setItems([])}>
+            Reset
+          </Button>
         </Form>
       </Container>
     </>
