@@ -22,6 +22,9 @@ const stringWithNumbers = Joi.string()
 
 const anyString = Joi.string().required();
 
+const greaterThanMinusZero = Joi.number().greater(-1);
+const mustBeInt = Joi.number().greater(-1).integer();
+
 export const schema = {
   login: {
     email,
@@ -66,5 +69,14 @@ export const schema = {
   },
   invoiceCompanyPostcode: {
     invoiceCompanyPostcode: stringWithNumbers,
+  },
+  quantity: {
+    quantity: mustBeInt,
+  },
+  price: {
+    price: greaterThanMinusZero,
+  },
+  tax: {
+    tax: greaterThanMinusZero,
   },
 };

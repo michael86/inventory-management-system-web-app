@@ -20,6 +20,7 @@ const GenInvoiceCard = (props) => {
   } = props;
 
   const onInput = (e) => {
+    console.log("input");
     const res = validateInput(e, errors);
     res && setErrors(res);
   };
@@ -38,6 +39,7 @@ const GenInvoiceCard = (props) => {
 
       <Card.Body className="bg-light">
         {inputs.map((input, index) => {
+          // console.log(input);
           return (
             <Input
               type={input.type}

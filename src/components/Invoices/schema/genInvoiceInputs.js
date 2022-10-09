@@ -102,7 +102,6 @@ export const specifics = [
     label: "Date Generated:",
     type: "date",
     placeholder: "Date",
-    value: Date.now(),
   },
   {
     controlId: "billingDate",
@@ -113,7 +112,6 @@ export const specifics = [
     label: "Billing Date:",
     type: "date",
     placeholder: "Billing Date",
-    value: Date.now(),
   },
   {
     controlId: "dueDate",
@@ -124,7 +122,6 @@ export const specifics = [
     label: "Due Date:",
     type: "date",
     placeholder: "Due Date",
-    value: Date.now(),
   },
   {
     controlId: "invoiceId",
@@ -179,6 +176,7 @@ export const item = [
     label: "Quantity:",
     type: "number",
     placeholder: "Quantity",
+    custError: "Qty can not be less than 0 and must be a whole number",
   },
   {
     controlId: "price",
@@ -189,6 +187,7 @@ export const item = [
     label: "Price:",
     type: "number",
     placeholder: "Price",
+    custError: "Price can not be less than 0",
   },
   {
     controlId: "tax",
@@ -199,5 +198,6 @@ export const item = [
     label: "Tax:",
     type: "number",
     placeholder: "%0",
+    custError: "Tax can not be less than 0",
   },
 ];

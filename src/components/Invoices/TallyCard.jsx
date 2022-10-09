@@ -33,7 +33,10 @@ const TallyCard = (props) => {
                   <td>{item.tax}</td>
                   <td>
                     {currency}
-                    {(item.quantity * item.price).toFixed(2)}
+                    {item.tax > 0
+                      ? (item.tax / 100) *
+                        (item.quantity * item.price).toFixed(2)
+                      : (item.quantity * item.price).toFixed(2)}
                   </td>
                 </tr>
               );

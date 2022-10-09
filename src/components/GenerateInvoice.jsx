@@ -47,26 +47,11 @@ const GenerateInvoice = () => {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    console.log(Object.keys(errors).length);
-    console.log(errors);
-
     if (Object.keys(errors).length > 0) return;
+
     const formData = Object.fromEntries(new FormData(e.target));
     formData.items = items;
-    console.log(formData);
-    // const invoice = genInvoice()
   };
-
-  console.log("render");
-
-  const now = new Date();
-  let day = ("0" + now.getDate()).slice(-2);
-  let month = ("0" + (now.getMonth() + 1)).slice(-2);
-  let today = now.getFullYear() + "-" + month + "-" + day;
-
-  specifics.forEach((item) => {
-    if (item.type === "date") item.value = today;
-  });
 
   return (
     <>
@@ -92,7 +77,6 @@ const GenerateInvoice = () => {
                 className="w-100"
                 headerText="Specifics"
                 inputs={specifics}
-                onDelete={onDelete}
                 errors={errors}
                 setErrors={setErrors}
               />
