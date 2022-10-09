@@ -5,6 +5,8 @@ export const validateInput = (e, errors) => {
 
   const valid = validate(target.name, { [target.name]: target.value });
 
+  if (!valid) return; // Type wasn't in schema (no validation required)
+
   const copy = { ...errors };
 
   target.value.length === 0 || valid.value
@@ -13,12 +15,3 @@ export const validateInput = (e, errors) => {
 
   return copy;
 };
-
-// export const validateForm = (payload) => {
-//   //Temp solution. Will
-//   const email = validate("email", { email: payload.email });
-//   const password = validate("password", { password: payload.password });
-//   const company = validate("company", { company: payload.company });
-
-//   return email.value && password.value && company.value ? true : false;
-// };

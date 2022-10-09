@@ -8,10 +8,21 @@ import { validateInput } from "../../validation/Utils";
 import "./../../styles/Invoice.css";
 
 const GenInvoiceCard = (props) => {
-  const { headerText, onClick, inputs, footer, className, onDelete } = props;
-  const [errors, setErrors] = useState();
+  const {
+    headerText,
+    onClick,
+    inputs,
+    footer,
+    className,
+    onDelete,
+    errors,
+    setErrors,
+  } = props;
 
-  const onInput = (e) => setErrors(validateInput(e, errors));
+  const onInput = (e) => {
+    const res = validateInput(e, errors);
+    res && setErrors(res);
+  };
 
   const onKeyDown = (e, type) => {
     if (type !== "number") return;

@@ -10,6 +10,7 @@ import { toCompany, item, specifics } from "./Invoices/schema/genInvoiceInputs";
 const GenerateInvoice = () => {
   const [items, setItems] = useState([]);
   const [currency, setCurrency] = useState("£");
+  const [errors, setErrors] = useState();
 
   const onBubble = (e) => {
     //We have to bubble up to allow us to get the item entries and add to state
@@ -43,6 +44,21 @@ const GenerateInvoice = () => {
     setItems(copy);
   };
 
+  const onSubmit = (e) => {
+    e.preventDefault();
+
+    console.log(Object.keys(errors).length);
+    console.log(errors);
+
+    if (Object.keys(errors).length > 0) return;
+    const formData = Object.fromEntries(new FormData(e.target));
+    formData.items = items;
+    console.log(formData);
+    // const invoice = genInvoice()
+  };
+
+  console.log("render");
+
   const now = new Date();
   let day = ("0" + now.getDate()).slice(-2);
   let month = ("0" + (now.getMonth() + 1)).slice(-2);
@@ -57,7 +73,7 @@ const GenerateInvoice = () => {
       <h1 className="text-center">Generate new invoice</h1>
 
       <Container fluid className="pe-5 ps-5">
-        <Form name="shipToForm">
+        <Form name="shipToForm" onSubmit={onSubmit}>
           <Row>
             {/*To Company*/}
             <Col xs={12} lg={6} xxl={4} className="mb-4 ">
@@ -65,6 +81,8 @@ const GenerateInvoice = () => {
                 headerText="To"
                 inputs={toCompany}
                 className="w-100"
+                errors={errors}
+                setErrors={setErrors}
               />
             </Col>
 
@@ -75,6 +93,8 @@ const GenerateInvoice = () => {
                 headerText="Specifics"
                 inputs={specifics}
                 onDelete={onDelete}
+                errors={errors}
+                setErrors={setErrors}
               />
             </Col>
 
@@ -90,6 +110,8 @@ const GenerateInvoice = () => {
                   text: "Add",
                   items,
                 }}
+                errors={errors}
+                setErrors={setErrors}
               />
             </Col>
 
