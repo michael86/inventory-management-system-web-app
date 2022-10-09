@@ -26,7 +26,7 @@ const TallyCard = (props) => {
           <tbody>
             {items.map((item) => {
               return (
-                <tr key={item.key}>
+                <tr key={item.id}>
                   <td>{item.item}</td>
                   <td>{item.quantity}</td>
                   <td>{item.price}</td>
