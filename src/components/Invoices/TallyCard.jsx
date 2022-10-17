@@ -5,8 +5,6 @@ import { calculateCombinedCost, calculateCombinedItemTax } from "./Utils/Index";
 const TallyCard = (props) => {
   const { items, currency } = props;
 
-  const combinedCost = calculateCombinedCost(items);
-
   return (
     <Card className="shadow">
       <Card.Header className="text-center bg-primary text-light fs-4 ">
@@ -32,14 +30,12 @@ const TallyCard = (props) => {
                   <td>{item.price}</td>
                   <td>{item.tax}</td>
                   <td>
-                    {currency}
-                    {item.tax > 0
-                      ? calculateCombinedItemTax(
-                          item.quantity,
-                          item.price,
-                          item.tax
-                        )
-                      : item.quantity * item.price}
+                    £
+                    {calculateCombinedItemTax(
+                      item.quantity,
+                      item.price,
+                      item.tax
+                    )}
                   </td>
                 </tr>
               );
@@ -48,7 +44,7 @@ const TallyCard = (props) => {
         </Table>
       </Card.Body>
 
-      <Card.Footer>Total Cost: £{combinedCost}</Card.Footer>
+      <Card.Footer>Total Cost: £{calculateCombinedCost(items)}</Card.Footer>
     </Card>
   );
 };
