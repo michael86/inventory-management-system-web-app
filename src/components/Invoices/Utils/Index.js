@@ -51,3 +51,9 @@ export const calculateCombinedCost = (arr) => {
 
   return tally.toFixed(2);
 };
+
+export const calculateCombinedItemTax = (qty, price, tax) => {
+  const combinedCost = qty * price;
+  const itemTax = ((combinedCost / 100) * tax).toFixed(2);
+  return (Number(combinedCost) + Number(itemTax)).toFixed(2);
+};

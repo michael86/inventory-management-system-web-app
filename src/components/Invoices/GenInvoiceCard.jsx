@@ -20,7 +20,6 @@ const GenInvoiceCard = (props) => {
   } = props;
 
   const onInput = (e) => {
-    console.log("input");
     const res = validateInput(e, errors);
     res && setErrors(res);
   };

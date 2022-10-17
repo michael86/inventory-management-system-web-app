@@ -12,7 +12,7 @@ const GenerateInvoice = () => {
   const [errors, setErrors] = useState();
 
   const onBubble = (e) => {
-    //We have to bubble up to allow us to get the item entries and add to state
+    //This is passed down to the items card, and used to catch when items are added. As items state needs to be in this component, not ideal, but... meh....
     const targetType = e.target.type;
 
     if (targetType !== "button") return;
@@ -53,7 +53,9 @@ const GenerateInvoice = () => {
     if (Object.keys(errors).length > 0) return;
 
     const formData = Object.fromEntries(new FormData(e.target));
-    formData.items = items;
+    formData.items = items; //Add state items to formData
+
+    console.log(formData);
   };
 
   return (

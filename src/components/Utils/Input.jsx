@@ -40,8 +40,6 @@ const Input = (props) => {
     max,
   } = props;
 
-  console.log("min", min);
-
   return (
     <Form.Group
       className={classNames?.group && [...classNames.group].join(" ")}

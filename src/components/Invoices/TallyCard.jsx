@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, Table } from "react-bootstrap";
-import { calculateCombinedCost } from "./Utils/Index";
+import { calculateCombinedCost, calculateCombinedItemTax } from "./Utils/Index";
 
 const TallyCard = (props) => {
   const { items, currency } = props;
@@ -34,9 +34,12 @@ const TallyCard = (props) => {
                   <td>
                     {currency}
                     {item.tax > 0
-                      ? (item.tax / 100) *
-                        (item.quantity * item.price).toFixed(2)
-                      : (item.quantity * item.price).toFixed(2)}
+                      ? calculateCombinedItemTax(
+                          item.quantity,
+                          item.price,
+                          item.tax
+                        )
+                      : item.quantity * item.price}
                   </td>
                 </tr>
               );
