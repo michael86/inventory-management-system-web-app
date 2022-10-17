@@ -6,10 +6,14 @@ import { Container, Form, Row, Col, Button } from "react-bootstrap";
 import GenInvoiceCard from "./Invoices/GenInvoiceCard";
 import TallyCard from "./Invoices/TallyCard";
 import { toCompany, item, specifics } from "./Invoices/schema/genInvoiceInputs";
+import { addInvoice } from "../reducers/invoicesSlice";
+import { useDispatch } from "react-redux";
 
 const GenerateInvoice = () => {
   const [items, setItems] = useState([]);
   const [errors, setErrors] = useState();
+
+  const dispatch = useDispatch();
 
   const onBubble = (e) => {
     //This is passed down to the items card, and used to catch when items are added. As items state needs to be in this component, not ideal, but... meh....
@@ -52,10 +56,10 @@ const GenerateInvoice = () => {
 
     if (Object.keys(errors).length > 0) return;
 
-    const formData = Object.fromEntries(new FormData(e.target));
-    formData.items = items; //Add state items to formData
+    const invoice = Object.fromEntries(new FormData(e.target));
+    invoice.items = items; //Add state items to formData
 
-    console.log(formData);
+    dispatch(addInvoice(invoice));
   };
 
   return (

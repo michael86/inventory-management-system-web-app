@@ -44,7 +44,9 @@ const TallyCard = (props) => {
         </Table>
       </Card.Body>
 
-      <Card.Footer>Total Cost: £{calculateCombinedCost(items)}</Card.Footer>
+      <Card.Footer>
+        Total Cost: £{items.length > 0 && calculateCombinedCost(items)}
+      </Card.Footer>
     </Card>
   );
 };
