@@ -9,7 +9,6 @@ import { toCompany, item, specifics } from "./Invoices/schema/genInvoiceInputs";
 
 const GenerateInvoice = () => {
   const [items, setItems] = useState([]);
-  const [currency, setCurrency] = useState("£");
   const [errors, setErrors] = useState();
 
   const onBubble = (e) => {
@@ -27,10 +26,14 @@ const GenerateInvoice = () => {
       .flat();
 
     const inputObject = {};
-    inputs.forEach((input) => {
+    let valid = inputs.every((input) => {
+      if (input.value === "") return false;
       inputObject[input.name] = input.value;
       inputObject.id = uniqid();
+      return true;
     });
+
+    if (!valid) return;
 
     const copy = [...items];
     copy.push(inputObject);
