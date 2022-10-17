@@ -54,6 +54,8 @@ const GenInvoiceCard = (props) => {
               custError={input.custError}
               required={input.required}
               key={index}
+              min={input.min}
+              max={input.max}
               value={input.value}
             />
           );

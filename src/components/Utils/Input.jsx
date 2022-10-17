@@ -36,8 +36,11 @@ const Input = (props) => {
     onKeyDown,
     errors,
     custError,
-    value,
+    min,
+    max,
   } = props;
+
+  console.log("min", min);
 
   return (
     <Form.Group
@@ -51,13 +54,14 @@ const Input = (props) => {
       </Form.Label>
       <Form.Control
         type={type}
+        min={min} //If type is number
+        max={max}
         placeholder={placeholder && placeholder}
         required={required}
         onInput={onInput}
         onKeyDown={(e) => onKeyDown(e, type)}
         name={controlId}
         className={classNames?.control && [...classNames.control].join(" ")}
-        value={value}
       />
 
       {formText && (

@@ -175,6 +175,7 @@ export const item = [
     },
     label: "Quantity:",
     type: "number",
+    min: 0,
     placeholder: "Quantity",
     custError: "Qty can not be less than 0 and must be a whole number",
   },
@@ -187,6 +188,7 @@ export const item = [
     label: "Price:",
     type: "number",
     placeholder: "Price",
+    min: 0,
     custError: "Price can not be less than 0",
   },
   {
@@ -198,6 +200,7 @@ export const item = [
     label: "Tax:",
     type: "number",
     placeholder: "%0",
+    min: 0,
     custError: "Tax can not be less than 0",
   },
 ];

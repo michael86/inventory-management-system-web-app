@@ -105,10 +105,14 @@ const GenerateInvoice = () => {
             </Col>
           </Row>
 
-          <Button type="submit">Submit</Button>
-          <Button type="reset" onClick={() => setItems([])}>
-            Reset
-          </Button>
+          <div className="mt-2">
+            <Button type="submit" className="me-2">
+              Submit
+            </Button>
+            <Button type="reset" onClick={() => setItems([])}>
+              Reset
+            </Button>
+          </div>
         </Form>
       </Container>
     </>
