@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from "uuid";
 // export const filterByDate
 
 export const sortAscending = (payload) =>
@@ -62,4 +63,41 @@ export const calculateCombinedItemTax = (qty, price, tax) => {
   const combinedCost = qty * price;
   const itemTax = ((combinedCost / 100) * tax).toFixed(2);
   return (Number(combinedCost) + Number(itemTax)).toFixed(2);
+};
+
+export const genInvoice = (payload) => {
+  const newInvoice = {
+    from: payload.userCompany,
+    to: payload.invoiceCompanyName,
+    date_generated: new Date(payload.dateGenerated).getTime(),
+    id: uuidv4(),
+    shipping: {
+      name: payload.invoiceContactName,
+      address: payload.invoiceCompanyAddress,
+      city: payload.invoiceCompanyCity,
+      state: payload.invoiceCompanyState,
+      country: payload.invoiceCompanyCountry,
+      postal_code: payload.invoiceCompanyPostcode,
+    },
+    items: payload.items,
+    subtotal: 156,
+    total: 156,
+    order_number: payload.invoiceId,
+    header: {
+      company_name: "Nice Invoice",
+      company_logo: "logo.png",
+      company_address:
+        "Nice Invoice. 123 William Street 1th Floor New York, NY 123456",
+    },
+    footer: {
+      text: payload.Footer,
+    },
+    currency_symbol: "£",
+    date: {
+      billing_date: new Date(payload.billingDate).getTime(),
+      due_date: new Date(payload.dueDate).getTime(),
+    },
+  };
+
+  return newInvoice;
 };

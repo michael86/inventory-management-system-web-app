@@ -72,39 +72,10 @@ export const invoiceSlice = createSlice({
     getInvoices: (state) => {
       return state.invoices;
     },
-    addInvoice: (state, { payload }) => {
+    addInvoice: (state, { invoice }) => {
       //Gen new invoice. Items left as default will be updated once user settings are complete
-      const newInvoice = {
-        id: uuidv4(),
-        shipping: {
-          name: payload.invoiceContactName,
-          address: payload.invoiceCompanyAddress,
-          city: payload.invoiceCompanyCity,
-          state: payload.companyInvoiceState,
-          country: payload.companyInvoiceCountry,
-          postal_code: payload.companyInvoicePostcode,
-        },
-        items: payload.items,
-        subtotal: 156,
-        total: 156,
-        order_number: payload.invoiceId,
-        header: {
-          company_name: "Nice Invoice",
-          company_logo: "logo.png",
-          company_address:
-            "Nice Invoice. 123 William Street 1th Floor New York, NY 123456",
-        },
-        footer: {
-          text: payload.Footer,
-        },
-        currency_symbol: "£",
-        date: {
-          billing_date: payload.billingDate,
-          due_date: payload.dueDate,
-        },
-      };
 
-      state.invoices.push(newInvoice);
+      state.invoices.push(invoice);
       updateStore({ key: "invoices", data: state.invoices });
     },
   },

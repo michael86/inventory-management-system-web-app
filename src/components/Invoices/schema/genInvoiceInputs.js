@@ -127,14 +127,14 @@ export const specifics = [
     required: true,
   },
   {
-    controlId: "invoiceId",
+    controlId: "orderNumber",
     classNames: {
       group: classes.group,
       label: classes.label,
     },
-    label: "Invoice Id:",
+    label: "Order #:",
     type: "text",
-    placeholder: "Invoice Id",
+    placeholder: "Order #",
     required: true,
   },
   {

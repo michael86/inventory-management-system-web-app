@@ -7,11 +7,13 @@ import GenInvoiceCard from "./Invoices/GenInvoiceCard";
 import TallyCard from "./Invoices/TallyCard";
 import { toCompany, item, specifics } from "./Invoices/schema/genInvoiceInputs";
 import { addInvoice } from "../reducers/invoicesSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { genInvoice } from "./Invoices/Utils/Index";
 
 const GenerateInvoice = () => {
   const [items, setItems] = useState([]);
   const [errors, setErrors] = useState();
+  const { company } = useSelector((state) => state.user); //Used to add 'from' parameter in the invoice
 
   const dispatch = useDispatch();
 
@@ -58,8 +60,9 @@ const GenerateInvoice = () => {
 
     const invoice = Object.fromEntries(new FormData(e.target));
     invoice.items = items; //Add state items to formData
+    invoice.userCompany = company;
 
-    dispatch(addInvoice(invoice));
+    dispatch(addInvoice(genInvoice(invoice)));
   };
 
   return (
