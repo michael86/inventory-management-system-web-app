@@ -47,8 +47,6 @@ export const findInvoiceById = (id, invoices) =>
   invoices.find((invoice) => invoice.id === id);
 
 export const calculateCombinedCost = (arr) => {
-  let tally = 0;
-
   const combinedCosts = arr.map((item) =>
     calculateCombinedItemTax(item.quantity, item.price, item.tax)
   );

@@ -1,5 +1,3 @@
-import uniqid from "uniqid";
-
 const classes = {
   group: ["d-flex", "flex-column", "flex-lg-row", "mb-2", "flex-wrap"],
   label: ["me-2", "mb-0"],

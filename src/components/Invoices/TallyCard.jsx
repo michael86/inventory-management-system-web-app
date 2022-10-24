@@ -3,7 +3,7 @@ import { Card, Table } from "react-bootstrap";
 import { calculateCombinedCost, calculateCombinedItemTax } from "./Utils/Index";
 
 const TallyCard = (props) => {
-  const { items, currency } = props;
+  const { items } = props; //Get currency from here
 
   return (
     <Card className="shadow">

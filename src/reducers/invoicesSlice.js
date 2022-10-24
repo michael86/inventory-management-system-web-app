@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { v4 as uuidv4 } from "uuid";
-import { setStore, updateStore } from "../localStorage";
+import { setStore } from "../localStorage";
 
 const initialState = {
   invoices: [
@@ -76,7 +75,7 @@ export const invoiceSlice = createSlice({
       //Gen new invoice. Items left as default will be updated once user settings are complete
 
       state.invoices.push(invoice);
-      updateStore({ key: "invoices", data: state.invoices });
+      setStore({ key: "invoices", data: state.invoices });
     },
   },
 });
