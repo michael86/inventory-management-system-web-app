@@ -15,7 +15,12 @@ const Popup = () => {
 
   return (
     <>
-      <Modal show={show} centered onHide={() => dispatch(togglePopup())}>
+      <Modal
+        show={show}
+        className="max-vh-75 overflow-auto"
+        centered
+        onHide={() => dispatch(togglePopup())}
+      >
         {screen === 0 && <Login />}
         {screen === 1 && <Register />}
         {screen === 2 && <Invoice />}

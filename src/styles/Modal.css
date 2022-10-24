@@ -1,0 +1,21 @@
+.modal-body {
+  max-height: 50vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+  max-width: 0;
+  background-color: transparent;
+  color: transparent;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+  color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  color: transparent;
+}

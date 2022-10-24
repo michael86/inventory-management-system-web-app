@@ -14,6 +14,10 @@ import { validateInput } from "../../../validation/Utils";
 
 import { setUser } from "../../../reducers/userSlice";
 
+import { registerInputs } from "../schema/genRegisterInputs";
+
+import "../../../styles/Modal.css";
+
 const Register = () => {
   const dispatch = useDispatch();
   const [errors, setErrors] = useState(false);
@@ -36,41 +40,23 @@ const Register = () => {
       <Header label={"Register"} />
       <Modal.Body>
         <Form onSubmit={onSubmit}>
-          <Input
-            type="email"
-            controlId="email"
-            label="Email Address"
-            classNames={{ group: ["mb-3"], formText: ["text-muted"] }}
-            placeholder="Enter Email"
-            formText="We'll never share your email with anyone else."
-            onInput={onInput}
-            errors={errors}
-            required
-          />
-
-          <Input
-            type="password"
-            controlId="password"
-            label="Password"
-            classNames={{ group: ["mb-3"] }}
-            placeholder="Password"
-            custError="Password must contain 1 lowercase, 1 uppercase, 1 number, 1 special character and be between 8 - 25 chars"
-            onInput={onInput}
-            errors={errors}
-            required
-          />
-
-          <Input
-            type="text"
-            controlId="company"
-            label="Company Name"
-            classNames={{ group: ["mb-3"] }}
-            placeholder="company name"
-            custError="Company name can't contain numbers or special characters"
-            onInput={onInput}
-            errors={errors}
-            required
-          />
+          {registerInputs.map((input, index) => {
+            return (
+              <Input
+                type={input.type}
+                controlId={input.controlId}
+                label={input.label}
+                classNames={input.classNames}
+                placeholder={input.placeholder}
+                formText={input.formText}
+                onInput={onInput}
+                custError={input.custError}
+                errors={errors}
+                required={input.required}
+                key={index}
+              />
+            );
+          })}
 
           <Form.Group className="mb-3">
             <Form.Label htmlFor="price-plan">Price Plan</Form.Label>

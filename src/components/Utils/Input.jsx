@@ -57,13 +57,15 @@ const Input = (props) => {
         placeholder={placeholder && placeholder}
         required={required}
         onInput={onInput}
-        onKeyDown={(e) => onKeyDown(e, type)}
+        onKeyDown={(e) => onKeyDown && onKeyDown(e, type)}
         name={controlId}
         className={classNames?.control && [...classNames.control].join(" ")}
       />
 
       {formText && (
-        <Form.Text className={[...classNames.formText]}>{formText}</Form.Text>
+        <Form.Text className={classNames?.formText && [...classNames.formText]}>
+          {formText}
+        </Form.Text>
       )}
 
       {errors && errors[controlId] && (
