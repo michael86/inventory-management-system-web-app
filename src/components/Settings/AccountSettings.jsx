@@ -1,17 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
+import { validateInput } from "../../validation/Utils";
 
 import { Form, Row, Col, Button, Container } from "react-bootstrap";
+import Input from "../Utils/Input";
+
+import { accountSchema } from "./schema/companySettings";
 
 const AccountSettings = () => {
+  const [errors, setErrors] = useState(false);
+
+  const onInput = (e) => setErrors(validateInput(e, errors));
+
   return (
     <Container className="bg-light p-4 border rounded">
       <Form>
         <h3 className="text-center">Account Settings</h3>
         <Row>
           <Col xs={12} className="mt-4 mt-lg-0">
-            <Form.Label className="m-auto" htmlFor="styleMode">
-              Dark Mode
-            </Form.Label>
             <Form.Check
               type="switch"
               id="styleMode"
@@ -19,6 +24,24 @@ const AccountSettings = () => {
               className="m-auto"
             />
           </Col>
+
+          {accountSchema.map((input, index) => {
+            return (
+              <Input
+                type={input.type}
+                controlId={input.controlId}
+                label={input.label}
+                classNames={input.classNames}
+                placeholder={input.placeholder}
+                formText={input.formText}
+                onInput={onInput}
+                custError={input.custError}
+                errors={errors}
+                required={input.required}
+                key={index}
+              />
+            );
+          })}
           <Col xs={12} className="mt-4 mt-lg-0">
             <Form.Label htmlFor="currencySelect" className="m-auto">
               Currency

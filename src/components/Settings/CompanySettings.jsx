@@ -3,7 +3,7 @@ import { Container, Form, Button } from "react-bootstrap";
 import { validateInput } from "../../validation/Utils";
 import Input from "../Utils/Input";
 
-import { companySettings } from "./schema/companySettings";
+import { companySchema } from "./schema/companySettings";
 
 const CompanySettings = () => {
   const [errors, setErrors] = useState(false);
@@ -15,7 +15,7 @@ const CompanySettings = () => {
       <Form>
         <h3 className="text-center">Company Settings</h3>
         <Form.Group>
-          {companySettings.map((input, index) => {
+          {companySchema.map((input, index) => {
             return (
               <Input
                 type={input.type}

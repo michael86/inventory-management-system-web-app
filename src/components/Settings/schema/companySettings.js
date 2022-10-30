@@ -2,7 +2,36 @@ const classes = {
   group: ["mb-3"],
 };
 
-export const companySettings = [
+export const accountSchema = [
+  {
+    controlId: "email",
+    classNames: {
+      group: classes.group,
+      //   label: classes.label,
+    },
+    label: "Email:",
+    type: "email",
+    placeholder: "Email",
+    required: true,
+    formText: "We'll never share your email with anyone else.",
+  },
+
+  {
+    controlId: "password",
+    classNames: {
+      group: classes.group,
+      //   label: classes.label,
+    },
+    label: "Password:",
+    type: "password",
+    placeholder: "Password",
+    required: true,
+    custError:
+      "Password must contain 1 lowercase, 1 uppercase, 1 number, 1 special character and be between 8 - 25 chars",
+  },
+];
+
+export const companySchema = [
   {
     controlId: "company",
     classNames: {
