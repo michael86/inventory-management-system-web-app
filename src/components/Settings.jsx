@@ -7,10 +7,10 @@ import CompanySettings from "./Settings/CompanySettings";
 const Settings = () => {
   return (
     <Row>
-      <Col xs={12} lg={6}>
+      <Col xs={12}>
         <AccountSettings />
       </Col>
-      <Col xs={12} lg={6}>
+      <Col xs={12}>
         <CompanySettings />
       </Col>
     </Row>

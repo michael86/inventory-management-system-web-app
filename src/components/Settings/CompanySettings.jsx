@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form } from "react-bootstrap";
+import { Container, Form, Button } from "react-bootstrap";
 import { validateInput } from "../../validation/Utils";
 import Input from "../Utils/Input";
 
@@ -11,28 +11,33 @@ const CompanySettings = () => {
   const onInput = (e) => setErrors(validateInput(e, errors));
 
   return (
-    <Form>
-      <Form.Group>
-        <Form.Label htmlFor="companyName">Company Name</Form.Label>
-        {companySettings.map((input, index) => {
-          return (
-            <Input
-              type={input.type}
-              controlId={input.controlId}
-              label={input.label}
-              classNames={input.classNames}
-              placeholder={input.placeholder}
-              formText={input.formText}
-              onInput={onInput}
-              custError={input.custError}
-              errors={errors}
-              required={input.required}
-              key={index}
-            />
-          );
-        })}
-      </Form.Group>
-    </Form>
+    <Container className="mt-2 p-4 bg-light border rounded">
+      <Form>
+        <h3 className="text-center">Company Settings</h3>
+        <Form.Group>
+          {companySettings.map((input, index) => {
+            return (
+              <Input
+                type={input.type}
+                controlId={input.controlId}
+                label={input.label}
+                classNames={input.classNames}
+                placeholder={input.placeholder}
+                formText={input.formText}
+                onInput={onInput}
+                custError={input.custError}
+                errors={errors}
+                required={input.required}
+                key={index}
+              />
+            );
+          })}
+        </Form.Group>
+        <Button type="submit" className="mx-auto ">
+          Save
+        </Button>
+      </Form>
+    </Container>
   );
 };
 
