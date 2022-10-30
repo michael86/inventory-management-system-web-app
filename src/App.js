@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import MainNav from "./components/MainNav";
 import Dashboard from "./components/Dashboard";
-import AccountSettings from "./components/AccountSettings";
+import Settings from "./components/Settings";
 import AccountProfile from "./components/AccountProfile";
 import About from "./components/About";
 import Contact from "./components/Contact";
@@ -48,7 +48,7 @@ function App() {
             path="/dashboard"
             element={!authenticated ? <Navigate to="/" /> : <Dashboard />}
           />
-          <Route path="/account-settings" element={<AccountSettings />} />
+          <Route path="/account-settings" element={<Settings />} />
           <Route path="/account-profile" element={<AccountProfile />} />
           <Route
             path="/view-invoices"

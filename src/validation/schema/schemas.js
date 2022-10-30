@@ -49,6 +49,18 @@ export const schema = {
     company: basicString,
   },
 
+  companyStreet: {
+    companyStreet: stringWithNumbers,
+  },
+  City: {
+    City: basicString,
+  },
+  County: {
+    County: basicString,
+  },
+  postcode: {
+    postcode: basicString,
+  },
   invoiceCompanyName: {
     invoiceCompanyName: basicString,
   },
