@@ -38,6 +38,16 @@ Seems complete so far. May refactor stuff at later date if new funcitonality is 
 - [x] Need to get user company address on registration for invoice header
 - [] refactor item bubbling
 
+### Settings component
+
+Certain state will only be local storage (enabling dark mode and such)
+
+- [x] Set layout
+- [x] Add validation schema
+- [] Add local state
+- [] Add local storage
+- [] Load certain settings from local storage
+
 ### general
 
 - [ ] Create static pages
