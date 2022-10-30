@@ -38,6 +38,8 @@ const GenerateInvoice = () => {
       inputObject.id = uniqid();
       return true;
     });
+    inputObject.quantity = Number(inputObject.quantity);
+    inputObject.price = Number(inputObject.price);
 
     if (!valid) return;
 

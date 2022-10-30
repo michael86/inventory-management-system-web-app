@@ -35,7 +35,7 @@ Seems complete so far. May refactor stuff at later date if new funcitonality is 
 - [x] Create the Items card.
 - [x] Create tally card.
 - [] Need to convert each items qty and price to a number for invoice items array
-- [] Need to get user company address on registration for invoice header
+- [x] Need to get user company address on registration for invoice header
 
 ### general
 
