@@ -44,8 +44,8 @@ Certain state will only be local storage (enabling dark mode and such)
 
 - [x] Set layout
 - [x] Add validation schema
-- [] Add local state
-- [] Add local storage
+- [x] Add local state
+- [x] Add local storage
 - [] Load certain settings from local storage
 
 ### general
