@@ -47,6 +47,7 @@ export const userSlice = createSlice({
       state.companyCounty = payload.County;
       state.companyCountry = payload.Country;
       state.companyPostcode = payload.postcode;
+      state.darkMode = false;
 
       setStore({ key: "user", data: state });
     },
