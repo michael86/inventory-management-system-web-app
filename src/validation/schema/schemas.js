@@ -59,7 +59,7 @@ export const schema = {
     County: basicString,
   },
   postcode: {
-    postcode: basicString,
+    postcode: stringWithNumbers,
   },
   invoiceCompanyName: {
     invoiceCompanyName: basicString,
