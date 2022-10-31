@@ -46,8 +46,9 @@ Certain state will only be local storage (enabling dark mode and such)
 - [x] Add validation schema
 - [x] Add local state
 - [x] Add local storage
-- [] Load certain settings from local storage
-- [] Add modal for confirmation settings have been saved
+- [x] Load certain settings from local storage
+- [x] Add success message for confirmation settings have been saved
+- [] Bug when setting company address, sets darkMode to false.
 
 ### general
 
