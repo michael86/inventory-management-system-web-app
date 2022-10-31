@@ -48,7 +48,7 @@ Certain state will only be local storage (enabling dark mode and such)
 - [x] Add local storage
 - [x] Load certain settings from local storage
 - [x] Add success message for confirmation settings have been saved
-- [ ] Bug when setting company address, sets darkMode to false.
+- [x] Bug when setting company address, sets darkMode to false.
 
 ### general
 

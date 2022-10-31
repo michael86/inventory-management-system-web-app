@@ -21,28 +21,26 @@ const AccountSettings = () => {
 
   const onInput = (e) => setErrors(validateInput(e, errors));
 
+  const onSubmit = (e) => {
+    e.preventDefault();
+
+    const data = Object.fromEntries(new FormData(e.target));
+
+    data.darkMode = data.darkMode ? true : false;
+
+    const newUser = onSaveSettings(data, { ...user }, () => {
+      setSaved(true);
+      setTimeout(() => setSaved(false), 3000);
+    });
+
+    dispatch(setUser(newUser));
+  };
+
   useEffect(() => setDarkMode(user.darkMode), [user]);
 
   return (
     <Container className="bg-light p-4 border rounded">
-      <Form
-        onSubmit={(e) => {
-          //Sorry whoever marks this...
-          e.preventDefault();
-          dispatch(
-            setUser(
-              onSaveSettings(
-                Object.fromEntries(new FormData(e.target)),
-                { ...user },
-                () => {
-                  setSaved(true);
-                  setTimeout(() => setSaved(false), 3000);
-                }
-              )
-            )
-          );
-        }}
-      >
+      <Form onSubmit={onSubmit}>
         <h3 className="text-center">Account Settings</h3>
         <Row>
           <Col xs={12} className="mt-4 mt-lg-0">
