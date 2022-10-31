@@ -17,9 +17,8 @@ export const invoiceSlice = createSlice({
     },
     addInvoice: (state, { payload }) => {
       //Gen new invoice. Items left as default will be updated once user settings are complete
-      console.log("add invoice", payload);
+
       state.invoices.push(payload);
-      console.log("state", state.invoices);
 
       setStore({ key: "invoices", data: state.invoices });
     },

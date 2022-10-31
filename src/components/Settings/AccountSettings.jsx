@@ -1,27 +1,46 @@
 import React, { useState } from "react";
-import { validateInput } from "../../validation/Utils";
-
+import { useDispatch, useSelector } from "react-redux";
 import { Form, Row, Col, Button, Container } from "react-bootstrap";
+
+import { validateInput } from "../../validation/Utils";
 import Input from "../Utils/Input";
+
+import { setUser } from "../../reducers/userSlice";
+import { onSaveSettings } from "./Utils/index";
 
 import { accountSchema } from "./schema/companySettings";
 
 const AccountSettings = () => {
   const [errors, setErrors] = useState(false);
+  const user = useSelector((state) => state.user);
 
+  const dispatch = useDispatch();
+  console.log("onSaveSettings", onSaveSettings);
   const onInput = (e) => setErrors(validateInput(e, errors));
 
   return (
     <Container className="bg-light p-4 border rounded">
-      <Form>
+      <Form
+        onSubmit={(e) => {
+          e.preventDefault();
+          dispatch(
+            setUser(
+              onSaveSettings(Object.fromEntries(new FormData(e.target)), {
+                ...user,
+              })
+            )
+          );
+        }}
+      >
         <h3 className="text-center">Account Settings</h3>
         <Row>
           <Col xs={12} className="mt-4 mt-lg-0">
             <Form.Check
               type="switch"
-              id="styleMode"
+              id="darkMode"
               label="Enable dark mode"
               className="m-auto"
+              name="darkMode"
             />
           </Col>
 
@@ -50,6 +69,7 @@ const AccountSettings = () => {
               type="switch"
               aria-label="Currency Select"
               id="currencySelect"
+              name="currency"
             >
               <option value="£">&#163; pound </option>
               <option value="$">&#36; dollar </option>
@@ -74,10 +94,10 @@ const AccountSettings = () => {
               <option value="₫">&#8363; dong </option>
             </Form.Select>
           </Col>
-          <Col xs={12} className="mt-4 mt-lg-0">
+          {/* <Col xs={12} className="mt-4 mt-lg-0">
             <Form.Label htmlFor="styleMode">Dark Mode</Form.Label>
             <Form.Check type="switch" id="styleMode" label="Enable dark mode" />
-          </Col>
+          </Col> */}
         </Row>
         <Button type="submit" className=" mt-3">
           Save

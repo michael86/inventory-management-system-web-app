@@ -55,7 +55,7 @@ export const registerInputs = [
     custError: "Company address can't contain special characters",
   },
   {
-    controlId: "City",
+    controlId: "companyCity",
     classNames: {
       group: classes.group,
       //   label: classes.label,
@@ -67,7 +67,7 @@ export const registerInputs = [
     custError: "City name can't contain numbers or special characters",
   },
   {
-    controlId: "County",
+    controlId: "companyCounty",
     classNames: {
       group: classes.group,
       //   label: classes.label,
@@ -79,7 +79,7 @@ export const registerInputs = [
     custError: "County can't contain numbers or special characters",
   },
   {
-    controlId: "Country",
+    controlId: "companyCountry",
     classNames: {
       group: classes.group,
       //   label: classes.label,
@@ -91,7 +91,7 @@ export const registerInputs = [
     custError: "Country can't contain numbers or special characters",
   },
   {
-    controlId: "postcode",
+    controlId: "companyPostcode",
     classNames: {
       group: classes.group,
       //   label: classes.label,

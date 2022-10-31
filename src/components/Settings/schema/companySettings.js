@@ -12,7 +12,7 @@ export const accountSchema = [
     label: "Email:",
     type: "email",
     placeholder: "Email",
-    required: true,
+
     formText: "We'll never share your email with anyone else.",
   },
 
@@ -25,7 +25,7 @@ export const accountSchema = [
     label: "Password:",
     type: "password",
     placeholder: "Password",
-    required: true,
+
     custError:
       "Password must contain 1 lowercase, 1 uppercase, 1 number, 1 special character and be between 8 - 25 chars",
   },
@@ -57,7 +57,7 @@ export const companySchema = [
     custError: "Company address can't contain special characters",
   },
   {
-    controlId: "City",
+    controlId: "companyCity",
     classNames: {
       group: classes.group,
       //   label: classes.label,
@@ -69,7 +69,7 @@ export const companySchema = [
     custError: "City name can't contain numbers or special characters",
   },
   {
-    controlId: "County",
+    controlId: "companyCounty",
     classNames: {
       group: classes.group,
       //   label: classes.label,
@@ -81,7 +81,7 @@ export const companySchema = [
     custError: "County can't contain numbers or special characters",
   },
   {
-    controlId: "postcode",
+    controlId: "companyPostcode",
     classNames: {
       group: classes.group,
       //   label: classes.label,

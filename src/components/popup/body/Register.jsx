@@ -25,7 +25,7 @@ const Register = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     const data = Object.fromEntries(new FormData(e.target));
-    console.log(errors);
+
     //check if length of keys is 0. This means no errors. Could poss convert obj to arr
     if (!errors || Object.keys(errors).length === 0) {
       dispatch(setUser(data));

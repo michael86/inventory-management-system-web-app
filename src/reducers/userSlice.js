@@ -36,18 +36,17 @@ export const userSlice = createSlice({
     setUser: (state, { payload }) => {
       //This would call an api to register the user
 
-      console.log(payload);
       state.id = payload.id;
       state.authenticated = payload.id || true;
       state.email = payload.email;
       state.password = payload.password;
       state.company = payload.company;
       state.companyStreet = payload.companyStreet;
-      state.companyCity = payload.City;
-      state.companyCounty = payload.County;
-      state.companyCountry = payload.Country;
-      state.companyPostcode = payload.postcode;
-      state.darkMode = false;
+      state.companyCity = payload.companyCity;
+      state.companyCounty = payload.companyCounty;
+      state.companyCountry = payload.companyCountry;
+      state.companyPostcode = payload.companyPostcode;
+      state.currency = payload.currency || state.curreny || "£";
 
       setStore({ key: "user", data: state });
     },
