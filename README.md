@@ -36,7 +36,7 @@ Seems complete so far. May refactor stuff at later date if new funcitonality is 
 - [x] Create tally card.
 - [x] Need to convert each items qty and price to a number for invoice items array
 - [x] Need to get user company address on registration for invoice header
-- [] refactor item bubbling
+- [ ] refactor item bubbling
 
 ### Settings component
 
@@ -48,7 +48,7 @@ Certain state will only be local storage (enabling dark mode and such)
 - [x] Add local storage
 - [x] Load certain settings from local storage
 - [x] Add success message for confirmation settings have been saved
-- [] Bug when setting company address, sets darkMode to false.
+- [ ] Bug when setting company address, sets darkMode to false.
 
 ### general
 
