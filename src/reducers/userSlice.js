@@ -47,7 +47,7 @@ export const userSlice = createSlice({
       state.companyCountry = payload.companyCountry;
       state.companyPostcode = payload.companyPostcode;
       state.currency = payload.currency || state.curreny || "£";
-
+      state.darkMode = payload.darkMode || false;
       setStore({ key: "user", data: state });
     },
   },

@@ -9,25 +9,36 @@ import { setUser } from "../../reducers/userSlice";
 import { onSaveSettings } from "./Utils/index";
 
 import { accountSchema } from "./schema/companySettings";
+import { useEffect } from "react";
 
 const AccountSettings = () => {
   const [errors, setErrors] = useState(false);
+  const [saved, setSaved] = useState(false);
   const user = useSelector((state) => state.user);
 
+  const [darkMode, setDarkMode] = useState();
   const dispatch = useDispatch();
-  console.log("onSaveSettings", onSaveSettings);
+
   const onInput = (e) => setErrors(validateInput(e, errors));
+
+  useEffect(() => setDarkMode(user.darkMode), [user]);
 
   return (
     <Container className="bg-light p-4 border rounded">
       <Form
         onSubmit={(e) => {
+          //Sorry whoever marks this...
           e.preventDefault();
           dispatch(
             setUser(
-              onSaveSettings(Object.fromEntries(new FormData(e.target)), {
-                ...user,
-              })
+              onSaveSettings(
+                Object.fromEntries(new FormData(e.target)),
+                { ...user },
+                () => {
+                  setSaved(true);
+                  setTimeout(() => setSaved(false), 3000);
+                }
+              )
             )
           );
         }}
@@ -41,6 +52,8 @@ const AccountSettings = () => {
               label="Enable dark mode"
               className="m-auto"
               name="darkMode"
+              onChange={() => setDarkMode(!darkMode)}
+              checked={darkMode}
             />
           </Col>
 
@@ -99,9 +112,12 @@ const AccountSettings = () => {
             <Form.Check type="switch" id="styleMode" label="Enable dark mode" />
           </Col> */}
         </Row>
-        <Button type="submit" className=" mt-3">
-          Save
-        </Button>
+        <div className="d-flex align-content-center">
+          <Button type="submit" className=" mt-3">
+            Save
+          </Button>
+          {saved && <p className="text-success mx-auto fs-4">Settings saved</p>}
+        </div>
       </Form>
     </Container>
   );

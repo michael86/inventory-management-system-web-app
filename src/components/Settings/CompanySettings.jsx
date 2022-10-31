@@ -10,9 +10,10 @@ import { setUser } from "../../reducers/userSlice";
 
 const CompanySettings = () => {
   const [errors, setErrors] = useState(false);
+  const [saved, setSaved] = useState(false);
 
   const user = useSelector((state) => state.user);
-  console.log("onSaveSettings", onSaveSettings);
+
   const dispatch = useDispatch();
 
   const onInput = (e) => setErrors(validateInput(e, errors));
@@ -24,9 +25,14 @@ const CompanySettings = () => {
           e.preventDefault();
           dispatch(
             setUser(
-              onSaveSettings(Object.fromEntries(new FormData(e.target)), {
-                ...user,
-              })
+              onSaveSettings(
+                Object.fromEntries(new FormData(e.target)),
+                { ...user },
+                () => {
+                  setSaved(true);
+                  setTimeout(() => setSaved(false), 3000);
+                }
+              )
             )
           );
         }}
@@ -51,9 +57,12 @@ const CompanySettings = () => {
             );
           })}
         </Form.Group>
-        <Button type="submit" className="mx-auto ">
-          Save
-        </Button>
+        <div className="d-flex align-content-center">
+          <Button type="submit" className=" mt-3">
+            Save
+          </Button>
+          {saved && <p className="text-success mx-auto fs-4">Settings saved</p>}
+        </div>
       </Form>
     </Container>
   );

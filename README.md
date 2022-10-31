@@ -47,6 +47,7 @@ Certain state will only be local storage (enabling dark mode and such)
 - [x] Add local state
 - [x] Add local storage
 - [] Load certain settings from local storage
+- [] Add modal for confirmation settings have been saved
 
 ### general
 

@@ -41,7 +41,6 @@ export const companySchema = [
     label: "Company Name:",
     type: "text",
     placeholder: "Company Name",
-    required: true,
     custError: "Company name can't contain numbers or special characters",
   },
   {
@@ -53,7 +52,6 @@ export const companySchema = [
     label: "Address:",
     type: "text",
     placeholder: "Address",
-    required: true,
     custError: "Company address can't contain special characters",
   },
   {
@@ -65,7 +63,6 @@ export const companySchema = [
     label: "City:",
     type: "text",
     placeholder: "City",
-    required: true,
     custError: "City name can't contain numbers or special characters",
   },
   {
@@ -77,7 +74,6 @@ export const companySchema = [
     label: "county:",
     type: "text",
     placeholder: "County",
-    required: true,
     custError: "County can't contain numbers or special characters",
   },
   {
@@ -89,7 +85,6 @@ export const companySchema = [
     label: "Postcode:",
     type: "text",
     placeholder: "Post Code",
-    required: true,
     custError: "Post Code can't contain special characters",
   },
 ];
