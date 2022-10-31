@@ -79,6 +79,18 @@ export const registerInputs = [
     custError: "County can't contain numbers or special characters",
   },
   {
+    controlId: "Country",
+    classNames: {
+      group: classes.group,
+      //   label: classes.label,
+    },
+    label: "country:",
+    type: "text",
+    placeholder: "Country",
+    required: true,
+    custError: "Country can't contain numbers or special characters",
+  },
+  {
     controlId: "postcode",
     classNames: {
       group: classes.group,

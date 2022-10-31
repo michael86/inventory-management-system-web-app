@@ -58,6 +58,9 @@ export const schema = {
   County: {
     County: basicString,
   },
+  Country: {
+    Country: basicString,
+  },
   postcode: {
     postcode: stringWithNumbers,
   },
