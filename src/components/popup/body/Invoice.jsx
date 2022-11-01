@@ -1,6 +1,5 @@
 import React from "react";
 import { useSelector } from "react-redux";
-// import { setPopupScreen, togglePopup } from "../../../reducers/popupSlice";
 
 const Invoice = () => {
   const { invoice } = useSelector((state) => state.popup);

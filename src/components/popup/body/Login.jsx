@@ -8,7 +8,7 @@ import { validateInput } from "../../../validation/Utils";
 
 import Buttons from "../components/Buttons";
 import Header from "../components/Header";
-import Input from "../../Utils/Input";
+import Input from "../../Generic/Input";
 import { getStore } from "../../../localStorage";
 import { setUserAuthenticated } from "../../../reducers/userSlice";
 

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Card, Button, Badge, Row, Col } from "react-bootstrap";
-import Input from "../Utils/Input";
+import Input from "../Generic/Input";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import { validateInput } from "../../validation/Utils";
@@ -38,7 +38,6 @@ const GenInvoiceCard = (props) => {
 
       <Card.Body className="bg-light">
         {inputs.map((input, index) => {
-          // console.log(input);
           return (
             <Input
               type={input.type}

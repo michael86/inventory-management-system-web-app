@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Container, Form, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { validateInput } from "../../validation/Utils";
-import Input from "../Utils/Input";
+import Input from "../Generic/Input";
 import { onSaveSettings } from "./Utils/index";
 
 import { companySchema } from "./schema/companySettings";

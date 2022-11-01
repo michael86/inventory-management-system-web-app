@@ -7,7 +7,7 @@ import { Modal, Form } from "react-bootstrap";
 
 import Header from "../components/Header";
 import Buttons from "../components/Buttons";
-import Input from "../../Utils/Input";
+import Input from "../../Generic/Input";
 
 import { setPopupScreen, togglePopup } from "../../../reducers/popupSlice";
 import { validateInput } from "../../../validation/Utils";
@@ -25,6 +25,8 @@ const Register = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     const data = Object.fromEntries(new FormData(e.target));
+
+    data.pricePlan = Number(data.pricePlan);
 
     //check if length of keys is 0. This means no errors. Could poss convert obj to arr
     if (!errors || Object.keys(errors).length === 0) {
@@ -59,12 +61,12 @@ const Register = () => {
           })}
 
           <Form.Group className="mb-3">
-            <Form.Label htmlFor="price-plan">Price Plan</Form.Label>
-            <Form.Select id="price-plan" name="price-plan">
-              <option>Free</option>
-              <option>Basic</option>
-              <option>Advanced</option>
-              <option>Pro</option>
+            <Form.Label htmlFor="pricePlan">Price Plan</Form.Label>
+            <Form.Select id="pricePlan" name="pricePlan">
+              <option value="0">Free</option>
+              <option value="1">Basic</option>
+              <option value="2">Advanced</option>
+              <option value="3">Pro</option>
             </Form.Select>
 
             <Link
