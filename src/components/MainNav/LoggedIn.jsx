@@ -16,11 +16,11 @@ const LoggedIn = () => {
         id="offcanvasNavbarDropdown-expand-md"
         className="order-md-3"
       >
-        <Link to="account-settings" className="dropdown-item">
+        <Link to="manage-stock" className="dropdown-item">
           Manage
         </Link>
         <NavDropdown.Divider />
-        <Link to="account-profile" className="dropdown-item">
+        <Link to="view-stock" className="dropdown-item">
           View
         </Link>
       </NavDropdown>
