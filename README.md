@@ -50,6 +50,10 @@ Certain state will only be local storage (enabling dark mode and such)
 - [x] Add success message for confirmation settings have been saved
 - [x] Bug when setting company address, sets darkMode to false.
 
+### profile component
+
+- [ ] styling
+
 ### general
 
 - [ ] Create static pages
