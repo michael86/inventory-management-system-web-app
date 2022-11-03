@@ -21,6 +21,7 @@ import { getStore } from "./localStorage";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { setUser } from "./reducers/userSlice";
+import AddStock from "./components/AddStock";
 
 function App() {
   const { authenticated } = useSelector((state) => state.user);
@@ -57,6 +58,18 @@ function App() {
           <Route
             path="/generate-invoice"
             element={authenticated ? <GenerateInvoice /> : <Navigate to="/" />}
+          />
+          <Route
+            path="/manage-stock"
+            element={authenticated ? <GenerateInvoice /> : <Navigate to="/" />}
+          />
+          <Route
+            path="/view-stock"
+            element={authenticated ? <GenerateInvoice /> : <Navigate to="/" />}
+          />
+          <Route
+            path="/add-stock"
+            element={authenticated ? <AddStock /> : <Navigate to="/" />}
           />
         </Routes>
       </BrowserRouter>

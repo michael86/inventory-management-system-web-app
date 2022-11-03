@@ -23,6 +23,10 @@ const LoggedIn = () => {
         <Link to="view-stock" className="dropdown-item">
           View
         </Link>
+        <NavDropdown.Divider />
+        <Link to="add-stock" className="dropdown-item">
+          Add
+        </Link>
       </NavDropdown>
 
       <NavDropdown
