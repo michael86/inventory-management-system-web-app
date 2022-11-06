@@ -22,7 +22,8 @@ const stringWithNumbers = Joi.string()
 
 const anyString = Joi.string().required();
 
-const greaterThanMinusZero = Joi.number().greater(-1);
+const greaterThanZero = Joi.number().greater(0);
+const greaterThanMinus = Joi.number().greater(-1);
 const mustBeInt = Joi.number().greater(-1).integer();
 
 export const schema = {
@@ -52,6 +53,18 @@ export const schema = {
   companyStreet: {
     companyStreet: stringWithNumbers,
   },
+  companyCity: {
+    City: basicString,
+  },
+  companyCounty: {
+    County: basicString,
+  },
+  companyCountry: {
+    Country: basicString,
+  },
+  companyPostcode: {
+    postcode: stringWithNumbers,
+  },
   City: {
     City: basicString,
   },
@@ -65,7 +78,7 @@ export const schema = {
     postcode: stringWithNumbers,
   },
   invoiceCompanyName: {
-    invoiceCompanyName: basicString,
+    invoiceCompanyName: basicString, //refactor these to be companyCase
   },
   invoiceContactName: {
     invoiceContactName: basicString,
@@ -89,9 +102,15 @@ export const schema = {
     quantity: mustBeInt,
   },
   price: {
-    price: greaterThanMinusZero,
+    price: greaterThanZero,
   },
   tax: {
-    tax: greaterThanMinusZero,
+    tax: greaterThanMinus,
+  },
+  sku: {
+    sku: stringWithNumbers,
+  },
+  intake: {
+    intake: greaterThanMinus,
   },
 };

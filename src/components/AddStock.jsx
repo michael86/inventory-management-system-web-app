@@ -1,91 +1,40 @@
 import React from "react";
-import { Form } from "react-bootstrap";
+import { Button, Col, Container, Form, Row } from "react-bootstrap";
+
+import ItemCard from "./Stock/ItemCard";
+import CompanyCard from "./Stock/CompanyCard";
+import { useState } from "react";
+import { validateInput } from "../validation/Utils";
 
 const AddStock = () => {
-  const genId = () => {
-    return Math.floor(Math.random() * 999999999 + Date.now());
+  const [errors, setErrors] = useState();
+
+  const onInput = (e) => {
+    const res = validateInput(e, errors);
+    res && setErrors(res);
   };
 
+  const onSubmit = (e) => {
+    e.preventDefault();
+  };
+
+  console.log(errors);
   return (
-    <Form>
-      <Form.Group className="mb-3" controlId="stockId">
-        <Form.Label>ID (SKU)</Form.Label>
-        <Form.Control type="text" placeholder="Enter stock ID" />
-      </Form.Group>
-
-      <Form.Group className="mb-3" controlId="stockQty">
-        <Form.Label>Stock intake</Form.Label>
-        <Form.Control
-          type="number"
-          min={1}
-          placeholder="Enter stock taken in"
-        />
-      </Form.Group>
-
-      <Form.Group className="mb-3" controlId="costPerUnit">
-        <Form.Label>Cost per unit</Form.Label>
-        <Form.Control type="number" min={1} placeholder="Enter stock price" />
-      </Form.Group>
-
-      <Form.Group className="mb-3" controlId="minStockReq">
-        <Form.Label>
-          Min required stock (leave blank if not required)
-        </Form.Label>
-        <Form.Control
-          type="number"
-          min={1}
-          placeholder="Enter min required stock" // hook up a prevent default to prevent going below 1 (Could possibly, show at end of form when building code.)
-        />
-      </Form.Group>
-
-      <Form.Group className="mb-3" controlId="stockImg">
-        <Form.Label>img (leave blank if not required)</Form.Label>
-        <Form.Control type="file" />
-      </Form.Group>
-
-      <Form.Group className="mb-3" controlId="freeIssue">
-        <Form.Check type="checkbox" id="freeIssue" label="Free Issue" />
-      </Form.Group>
-
-      <Form.Group className="mb-3" id="stockLocation">
-        <Form.Text>location</Form.Text>
-        <Form.Group controlId={`location-key-${genId()}`}>
-          <Form.Label>key</Form.Label>
-          <Form.Control type="text" placeholder="Enter location key" />
-        </Form.Group>
-        <Form.Group controlId={`location-value-${genId()}`}>
-          <Form.Label>value</Form.Label>
-          <Form.Control type="text" placeholder="Enter locattion value" />
-        </Form.Group>
-      </Form.Group>
-
-      <Form.Group className="mb-3" id="companyFrom">
-        <Form.Group controlId={`location-value-${genId()}`}>
-          <Form.Label>name</Form.Label>
-          <Form.Control type="text" placeholder="Enter locattion value" />
-        </Form.Group>
-        <Form.Group controlId={`location-value-${genId()}`}>
-          <Form.Label>street</Form.Label>
-          <Form.Control type="text" placeholder="Enter locattion value" />
-        </Form.Group>
-        <Form.Group controlId={`location-value-${genId()}`}>
-          <Form.Label>town</Form.Label>
-          <Form.Control type="text" placeholder="Enter locattion value" />
-        </Form.Group>
-        <Form.Group controlId={`location-value-${genId()}`}>
-          <Form.Label>county</Form.Label>
-          <Form.Control type="text" placeholder="Enter locattion value" />
-        </Form.Group>
-        <Form.Group controlId={`location-value-${genId()}`}>
-          <Form.Label>postcode</Form.Label>
-          <Form.Control type="text" placeholder="Enter locattion value" />
-        </Form.Group>
-        <Form.Group controlId={`location-value-${genId()}`}>
-          <Form.Label>country</Form.Label>
-          <Form.Control type="text" placeholder="Enter locattion value" />
-        </Form.Group>
-      </Form.Group>
-    </Form>
+    <Container>
+      <Form onSubmit={onSubmit}>
+        <Row>
+          <Col xs={12} lg={6}>
+            <ItemCard onInput={onInput} errors={errors} />
+          </Col>
+          <Col xs={12} lg={6}>
+            <CompanyCard onInput={onInput} errors={errors} />
+          </Col>
+        </Row>
+        <Button className="mt-2" type="submit">
+          Submit
+        </Button>
+      </Form>
+    </Container>
   );
 };
 
