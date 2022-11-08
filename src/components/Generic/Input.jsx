@@ -38,6 +38,8 @@ const Input = (props) => {
     custError,
     min,
     max,
+    disabled,
+    value,
   } = props;
 
   return (
@@ -60,6 +62,8 @@ const Input = (props) => {
         onKeyDown={(e) => onKeyDown && onKeyDown(e, type)}
         name={controlId}
         className={classNames?.control && [...classNames.control].join(" ")}
+        disabled={disabled}
+        value={value}
       />
 
       {formText && (
