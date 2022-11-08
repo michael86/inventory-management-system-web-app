@@ -54,16 +54,16 @@ export const schema = {
     companyStreet: stringWithNumbers,
   },
   companyCity: {
-    City: basicString,
+    companyCity: basicString,
   },
   companyCounty: {
-    County: basicString,
+    companyCounty: basicString,
   },
   companyCountry: {
-    Country: basicString,
+    companyCountry: basicString,
   },
   companyPostcode: {
-    postcode: stringWithNumbers,
+    companyPostcode: stringWithNumbers,
   },
   City: {
     City: basicString,
