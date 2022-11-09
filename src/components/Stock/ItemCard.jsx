@@ -30,8 +30,6 @@ const ItemCard = ({ onInput, errors }) => {
           priceDisabled={priceDisabled}
         />
 
-        <Location />
-
         <Form.Group>
           <Form.Check
             type="switch"
@@ -47,6 +45,8 @@ const ItemCard = ({ onInput, errors }) => {
             setPriceDisabled={setPriceDisabled}
           />
         )}
+
+        <Location />
       </Card.Body>
     </Card>
   );

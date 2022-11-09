@@ -35,7 +35,7 @@ export const userSlice = createSlice({
 
     setUser: (state, { payload }) => {
       //This would call an api to register the user
-      console.log("payload", payload);
+
       state.id = payload.id;
       state.authenticated = payload.id || true;
       state.email = payload.email;

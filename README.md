@@ -10,6 +10,7 @@ This is a full stack project for the jump bootcamp. The aim is to create a full 
 4. React
 5. React-Redux
 6. React-router-Dom
+7. FontAwesome
 
 ## To do:
 
