@@ -41,14 +41,15 @@
       "aisle": "B",
       "shelf": "2"
     },
-    "history": {
-      "01548753185": {
+    "history": [
+      {
         "date_checked_in": 13151234541,
         "staff_member": "Paul Lewington",
         "staff_id": "SD342",
         "qty_checked_in": 1548
       }
-    },
+    ],
+
     "supplier_info": {
       "company": "Some company",
       "address": "123 fake street"

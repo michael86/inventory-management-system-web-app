@@ -13,6 +13,7 @@ const ItemDetails = ({ onInput, errors, priceDisabled }) => {
           placeholder="SKU"
           onInput={onInput}
           name="sku"
+          required
         />
         <Form.Text className="text-muted">
           Unique identifier for your company
@@ -35,6 +36,7 @@ const ItemDetails = ({ onInput, errors, priceDisabled }) => {
           name="intake"
           onInput={onInput}
           onKeyDown={(e) => onKeyDown(e)}
+          required
         />
         <Form.Text className="text-muted">
           How much stock do you currently have. Can be 0
@@ -58,6 +60,7 @@ const ItemDetails = ({ onInput, errors, priceDisabled }) => {
           name="price"
           onInput={onInput}
           onKeyDown={(e) => onKeyDown(e)}
+          required
         />
         <Form.Text className="text-muted">
           cost per individual component

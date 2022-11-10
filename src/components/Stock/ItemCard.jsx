@@ -9,7 +9,8 @@ import ItemDetails from "./ItemDetails";
 
 //Would have used the Input component for this form, however, we manipulate the form layout (disabling/hiding/showing) to much.
 
-const ItemCard = ({ onInput, errors }) => {
+const ItemCard = (props) => {
+  const { onInput, errors, locations, submitLocation, deleteLocation } = props;
   const [showOptional, setShowOptional] = useState(false);
   const [priceDisabled, setPriceDisabled] = useState(false);
 
@@ -46,7 +47,11 @@ const ItemCard = ({ onInput, errors }) => {
           />
         )}
 
-        <Location />
+        <Location
+          locations={locations}
+          submitLocation={submitLocation}
+          deleteLocation={deleteLocation}
+        />
       </Card.Body>
     </Card>
   );

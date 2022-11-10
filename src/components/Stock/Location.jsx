@@ -6,41 +6,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import "../../styles/Locations.css";
 
-const Location = () => {
+const Location = (props) => {
+  const { locations, submitLocation, deleteLocation } = props;
   const genId = () => {
     return Math.floor(Math.random() * 999999999 + Date.now());
   };
 
   const id = genId();
-  const [locations, setLocations] = useState([]);
 
-  const submitLocation = (id) => {
-    const elements = document.forms[0].elements;
-    const name = elements[`location-name`].value;
-    const value = elements[`location-value`].value;
-
-    if (!name || !value) return;
-
-    const location = {
-      name,
-      value,
-      id,
-    };
-
-    const copy = [...locations];
-    copy.push(location);
-    setLocations(copy);
-  };
-
-  const deleteLocation = (id) => {
-    const copy = [...locations];
-    const index = copy.findIndex((location) => location.id === id);
-    if (index === -1) return;
-    copy.splice(index, 1);
-    setLocations(copy);
-  };
-
-  console.log(locations);
   return (
     <Form.Group className="mb-3" id="stockLocation">
       <p className="fs-4 mb-0 pb-0">location</p>

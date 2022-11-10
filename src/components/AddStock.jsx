@@ -8,6 +8,33 @@ import { validateInput } from "../validation/Utils";
 
 const AddStock = () => {
   const [errors, setErrors] = useState();
+  const [locations, setLocations] = useState([]);
+
+  const submitLocation = (id) => {
+    const elements = document.forms[0].elements;
+    const name = elements[`location-name`].value;
+    const value = elements[`location-value`].value;
+
+    if (!name || !value) return;
+
+    const location = {
+      name,
+      value,
+      id,
+    };
+
+    const copy = [...locations];
+    copy.push(location);
+    setLocations(copy);
+  };
+
+  const deleteLocation = (id) => {
+    const copy = [...locations];
+    const index = copy.findIndex((location) => location.id === id);
+    if (index === -1) return;
+    copy.splice(index, 1);
+    setLocations(copy);
+  };
 
   const onInput = (e) => {
     const res = validateInput(e, errors);
@@ -16,15 +43,31 @@ const AddStock = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
+
+    if (Object.keys(errors).length > 0) return;
+
+    if (!locations.length) {
+      // showLocation error
+      return;
+    }
+
+    console.log("pass");
+    const data = Object.fromEntries(new FormData(e.target));
+    console.log(data);
   };
 
-  console.log(errors);
   return (
     <Container>
       <Form onSubmit={onSubmit}>
         <Row>
           <Col xs={12} lg={6}>
-            <ItemCard onInput={onInput} errors={errors} />
+            <ItemCard
+              onInput={onInput}
+              errors={errors}
+              locations={locations}
+              submitLocation={submitLocation}
+              deleteLocation={deleteLocation}
+            />
           </Col>
           <Col xs={12} lg={6}>
             <CompanyCard onInput={onInput} errors={errors} />
