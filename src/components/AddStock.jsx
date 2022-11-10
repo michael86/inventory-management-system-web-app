@@ -9,6 +9,7 @@ import { validateInput } from "../validation/Utils";
 const AddStock = () => {
   const [errors, setErrors] = useState();
   const [locations, setLocations] = useState([]);
+  const [locationsValid, setLocationsValid] = useState(true);
 
   const submitLocation = (id) => {
     const elements = document.forms[0].elements;
@@ -26,6 +27,7 @@ const AddStock = () => {
     const copy = [...locations];
     copy.push(location);
     setLocations(copy);
+    setLocationsValid(true);
   };
 
   const deleteLocation = (id) => {
@@ -47,7 +49,7 @@ const AddStock = () => {
     if (Object.keys(errors).length > 0) return;
 
     if (!locations.length) {
-      // showLocation error
+      setLocationsValid(false);
       return;
     }
 
@@ -67,6 +69,7 @@ const AddStock = () => {
               locations={locations}
               submitLocation={submitLocation}
               deleteLocation={deleteLocation}
+              locationsValid={locationsValid}
             />
           </Col>
           <Col xs={12} lg={6}>

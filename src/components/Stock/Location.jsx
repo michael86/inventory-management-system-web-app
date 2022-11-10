@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 import { Form, Row, Col, Badge, Button } from "react-bootstrap";
 import Input from "../Generic/Input";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -7,7 +6,7 @@ import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import "../../styles/Locations.css";
 
 const Location = (props) => {
-  const { locations, submitLocation, deleteLocation } = props;
+  const { locations, submitLocation, deleteLocation, locationsValid } = props;
   const genId = () => {
     return Math.floor(Math.random() * 999999999 + Date.now());
   };
@@ -45,6 +44,13 @@ const Location = (props) => {
       <Row>
         <Col xs={12} className="d-flex flex-column text-center">
           <Form.Text>Enter the aisle name and number</Form.Text>
+
+          {!locationsValid && (
+            <Form.Text className="text-danger">
+              Location must contain at least 1 entry
+            </Form.Text>
+          )}
+
           <Button
             className="mt-3 w-50 mx-auto"
             onClick={() => submitLocation(id)}
