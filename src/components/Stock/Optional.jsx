@@ -5,7 +5,7 @@ const OptionalAddStock = ({ priceDisabled, setPriceDisabled }) => {
   return (
     <>
       <Form.Group className="mb-3 mt-3" controlId="stockImg">
-        <Form.Control type="file" />
+        <Form.Control type="file" accept=".png,.jpg.webp" />
         <Form.Text>
           Upload image of item, valid file formats: PNG, JPG, WEBP
         </Form.Text>

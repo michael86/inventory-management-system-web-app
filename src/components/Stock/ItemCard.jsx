@@ -17,6 +17,8 @@ const ItemCard = (props) => {
     submitLocation,
     deleteLocation,
     locationsValid,
+    skuValid,
+    validateSku,
   } = props;
 
   const [showOptional, setShowOptional] = useState(false);
@@ -37,6 +39,8 @@ const ItemCard = (props) => {
           onInput={onInput}
           errors={errors}
           priceDisabled={priceDisabled}
+          skuValid={skuValid}
+          validateSku={validateSku}
         />
 
         <Form.Group>

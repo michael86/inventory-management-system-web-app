@@ -37,10 +37,12 @@
     "picture": "path/to/img",
     "cost_per_unit": 9990,
     "free_issue": false,
+
     "location": {
       "aisle": "B",
       "shelf": "2"
     },
+
     "history": [
       {
         "date_checked_in": 13151234541,

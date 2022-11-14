@@ -1,6 +1,10 @@
 import React from "react";
+
 import { Form } from "react-bootstrap";
-const ItemDetails = ({ onInput, errors, priceDisabled }) => {
+
+const ItemDetails = (props) => {
+  const { onInput, errors, priceDisabled, skuValid, validateSku } = props;
+
   const onKeyDown = (e) =>
     (e.key === "-" || e.key === "e") && e.preventDefault();
 
@@ -11,13 +15,21 @@ const ItemDetails = ({ onInput, errors, priceDisabled }) => {
         <Form.Control
           type="text"
           placeholder="SKU"
-          onInput={onInput}
+          onInput={(e) => {
+            onInput(e);
+            validateSku(e);
+          }}
           name="sku"
           required
         />
         <Form.Text className="text-muted">
-          Unique identifier for your company
+          {skuValid ? (
+            "Unique identifier for your company"
+          ) : (
+            <span className="text-danger">'Sku has already been used'</span>
+          )}
         </Form.Text>
+
         {errors?.sku && (
           <>
             <br />

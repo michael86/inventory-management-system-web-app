@@ -5,11 +5,21 @@ import ItemCard from "./Stock/ItemCard";
 import CompanyCard from "./Stock/CompanyCard";
 import { useState } from "react";
 import { validateInput } from "../validation/Utils";
+import { useDispatch, useSelector } from "react-redux";
+import { setStock } from "../reducers/stockSlice";
 
 const AddStock = () => {
   const [errors, setErrors] = useState();
   const [locations, setLocations] = useState([]);
   const [locationsValid, setLocationsValid] = useState(true);
+  const [skuValid, setSkuValid] = useState(true);
+  const stock = useSelector((state) => state.stock);
+  const dispatch = useDispatch();
+
+  const validateSku = (e) => {
+    const valid = stock.some((item) => item.sku === e.target.value);
+    valid ? setSkuValid(false) : setSkuValid(true);
+  };
 
   const submitLocation = (id) => {
     const elements = document.forms[0].elements;
@@ -43,7 +53,7 @@ const AddStock = () => {
     res && setErrors(res);
   };
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
 
     if (Object.keys(errors).length > 0) return;
@@ -53,9 +63,8 @@ const AddStock = () => {
       return;
     }
 
-    console.log("pass");
     const data = Object.fromEntries(new FormData(e.target));
-    console.log(data);
+    dispatch(setStock(data));
   };
 
   return (
@@ -70,6 +79,8 @@ const AddStock = () => {
               submitLocation={submitLocation}
               deleteLocation={deleteLocation}
               locationsValid={locationsValid}
+              skuValid={skuValid}
+              validateSku={validateSku}
             />
           </Col>
           <Col xs={12} lg={6}>
