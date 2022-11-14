@@ -53,10 +53,18 @@ const AddStock = () => {
     res && setErrors(res);
   };
 
+  const resetState = (e) => {
+    e.target.reset();
+    setErrors();
+    setLocations([]);
+    setLocationsValid(true);
+    setSkuValid(true);
+  };
+
   const onSubmit = async (e) => {
     e.preventDefault();
 
-    if (Object.keys(errors).length > 0) return;
+    if (Object.keys(errors).length > 0 || !skuValid) return;
 
     if (!locations.length) {
       setLocationsValid(false);
@@ -65,6 +73,7 @@ const AddStock = () => {
 
     const data = Object.fromEntries(new FormData(e.target));
     dispatch(setStock(data));
+    resetState(e);
   };
 
   return (
