@@ -39,13 +39,13 @@ const ItemDetails = (props) => {
           </>
         )}
       </Form.Group>
-      <Form.Group className="mb-3" controlId="intake">
+      <Form.Group className="mb-3" controlId="qty">
         <Form.Label>starting qty</Form.Label>
         <Form.Control
           type="number"
           min="0"
           placeholder="starting quantity"
-          name="intake"
+          name="qty"
           onInput={onInput}
           onKeyDown={(e) => onKeyDown(e)}
           required
@@ -53,7 +53,7 @@ const ItemDetails = (props) => {
         <Form.Text className="text-muted">
           How much stock do you currently have. Can be 0
         </Form.Text>
-        {errors?.intake && (
+        {errors?.qty && (
           <>
             <br />
             <Form.Text className="text-danger">

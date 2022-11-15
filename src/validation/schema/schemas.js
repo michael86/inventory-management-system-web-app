@@ -110,7 +110,7 @@ export const schema = {
   sku: {
     sku: stringWithNumbers,
   },
-  intake: {
-    intake: greaterThanMinus,
+  qty: {
+    qty: greaterThanMinus,
   },
 };
