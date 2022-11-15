@@ -4,14 +4,19 @@ import Input from "../Generic/Input";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import "../../styles/Locations.css";
+import { useState } from "react";
 
 const Location = (props) => {
   const { locations, submitLocation, deleteLocation, locationsValid } = props;
+
   const genId = () => {
     return Math.floor(Math.random() * 999999999 + Date.now());
   };
 
   const id = genId();
+
+  const [locationName, setLocationName] = useState("");
+  const [locationValue, setLocationValue] = useState("");
 
   return (
     <Form.Group className="mb-3" id="stockLocation">
@@ -36,8 +41,20 @@ const Location = (props) => {
 
       <Row>
         <Col xs={12} className="mb-2">
-          <Input type="text" controlId={`location-name`} label="Name" />
-          <Input type="text" controlId={`location-value`} label="Value" />
+          <Input
+            type="text"
+            controlId="location-name"
+            label="Name"
+            value={locationName}
+            onInput={(e) => setLocationName(e.target.value)}
+          />
+          <Input
+            type="text"
+            controlId="location-value"
+            label="Value"
+            value={locationValue}
+            onInput={(e) => setLocationValue(e.target.value)}
+          />
         </Col>
       </Row>
 
@@ -53,7 +70,11 @@ const Location = (props) => {
 
           <Button
             className="mt-3 w-50 mx-auto"
-            onClick={() => submitLocation(id)}
+            onClick={() => {
+              submitLocation(id);
+              setLocationName("");
+              setLocationValue("");
+            }}
           >
             save
           </Button>

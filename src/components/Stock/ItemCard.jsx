@@ -19,10 +19,11 @@ const ItemCard = (props) => {
     locationsValid,
     skuValid,
     validateSku,
+    priceDisabled,
+    setPriceDisabled,
   } = props;
 
   const [showOptional, setShowOptional] = useState(false);
-  const [priceDisabled, setPriceDisabled] = useState(false);
 
   return (
     <Card className="shadow">

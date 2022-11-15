@@ -13,6 +13,8 @@ const AddStock = () => {
   const [locations, setLocations] = useState([]);
   const [locationsValid, setLocationsValid] = useState(true);
   const [skuValid, setSkuValid] = useState(true);
+  const [priceDisabled, setPriceDisabled] = useState(false);
+
   const stock = useSelector((state) => state.stock);
   const dispatch = useDispatch();
 
@@ -59,6 +61,7 @@ const AddStock = () => {
     setLocations([]);
     setLocationsValid(true);
     setSkuValid(true);
+    setPriceDisabled(false);
   };
 
   const onSubmit = async (e) => {
@@ -72,6 +75,12 @@ const AddStock = () => {
     }
 
     const data = Object.fromEntries(new FormData(e.target));
+
+    delete data["location-name"]; //clean up inputs not required
+    delete data["location-value"];
+
+    data.locations = locations;
+
     dispatch(setStock(data));
     resetState(e);
   };
@@ -90,6 +99,8 @@ const AddStock = () => {
               locationsValid={locationsValid}
               skuValid={skuValid}
               validateSku={validateSku}
+              priceDisabled={priceDisabled}
+              setPriceDisabled={setPriceDisabled}
             />
           </Col>
           <Col xs={12} lg={6}>
