@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { setStore } from "../localStorage";
+import { getStore } from "../localStorage";
 
-const initialState = [];
+const initialState = getStore("stock") || [];
 
 export const stockSlice = createSlice({
   name: "stock",

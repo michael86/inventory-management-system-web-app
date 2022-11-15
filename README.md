@@ -57,9 +57,11 @@ Certain state will only be local storage (enabling dark mode and such)
 
 ### AddStock Component
 
+## Poss complete
+
 - [x] fix schema for company card (Joi validaiton not working correctly)
-- [ ] load local state to validate if sku has been used
-- [ ] handle form submit and store to local state (send to back end when complete)
+- [x] load local state to validate if sku has been used
+- [x] handle form submit and store to local state (send to back end when complete)
 
 ### general
 
