@@ -15,7 +15,7 @@ const AddStock = () => {
   const [skuValid, setSkuValid] = useState(true);
   const [priceDisabled, setPriceDisabled] = useState(false);
 
-  const stock = useSelector((state) => state.stock);
+  const stock = useSelector((state) => state.stock.stock);
   const dispatch = useDispatch();
 
   const validateSku = (e) => {
@@ -74,14 +74,16 @@ const AddStock = () => {
       return;
     }
 
+    const copy = [...stock];
+
     const data = Object.fromEntries(new FormData(e.target));
 
     delete data["location-name"]; //clean up inputs not required
     delete data["location-value"];
 
     data.locations = locations;
-
-    dispatch(setStock(data));
+    copy.push(data);
+    dispatch(setStock(copy));
     resetState(e);
   };
 

@@ -1,12 +1,28 @@
 import React from "react";
-import { Card, Row, Col, Button, Badge } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { Row } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { setStock } from "../reducers/stockSlice";
+
+import ManageStockCard from "./Stock/ManageStockCard";
+
 import "../styles/ManageStock.css";
 
 const ManageStock = () => {
-  const stock = useSelector((state) => state.stock);
-  console.log(stock);
+  const stock = useSelector((state) => state.stock.stock);
+  const dispatch = useDispatch();
+
+  const onDelete = (sku) => {
+    let copy = [...stock];
+
+    copy.splice(
+      copy.findIndex((item) => item.sku === sku),
+      1
+    );
+
+    dispatch(setStock(copy));
+  };
+
   return (
     <>
       <h1 className="text-center">Manage stock</h1>
@@ -20,38 +36,7 @@ const ManageStock = () => {
         <Row>
           {stock.map((item) => {
             return (
-              <Col xs={1} key={item.sku} className="fit-content">
-                <Card className="fit-content">
-                  <Card.Title className="text-center">{item.sku}</Card.Title>
-                  <Card.Body className="d-flex flex-column">
-                    <input type="text" value={item.qty} disabled />
-                    <input
-                      type="text"
-                      value={item.price || "free issue"}
-                      disabled
-                    />
-                    <div className="location-container mt-2">
-                      <Card.Text className="text-center">Location</Card.Text>
-                      <div className="d-flex flex-wrap justify-content-between ">
-                        {item.locations.map((location) => {
-                          return (
-                            <Badge bg="primary" key={location.id}>
-                              <span className="text-warning">
-                                {location.name}
-                              </span>
-                              : {location.value}
-                            </Badge>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  </Card.Body>
-                  <Card.Footer className="d-flex justify-content-between">
-                    <Button>Delete</Button>
-                    <Button>Edit</Button>
-                  </Card.Footer>
-                </Card>
-              </Col>
+              <ManageStockCard item={item} key={item.sku} onDelete={onDelete} />
             );
           })}
         </Row>

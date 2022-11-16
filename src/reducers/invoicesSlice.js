@@ -1,9 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getStore, setStore } from "../localStorage";
 
-const initialState = {
-  invoices: getStore("invoices") || [],
-};
+const initialState = getStore("invoices") || [];
 
 export const invoiceSlice = createSlice({
   name: "invoices",
