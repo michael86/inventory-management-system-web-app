@@ -1,7 +1,15 @@
 import React from "react";
 import { Col, Card, Badge, Button } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import {
+  setPopupScreen,
+  setPopupStock,
+  togglePopup,
+} from "../../reducers/popupSlice";
 
 const ManageStockCard = ({ item, onEdit, onDelete }) => {
+  const dispatch = useDispatch();
+
   return (
     <Col xs={1} key={item.sku} className="fit-content">
       <Card className="fit-content">
@@ -25,7 +33,15 @@ const ManageStockCard = ({ item, onEdit, onDelete }) => {
         </Card.Body>
         <Card.Footer className="d-flex justify-content-between">
           <Button onClick={() => onDelete(item.sku)}>Delete</Button>
-          <Button onClick={onEdit}>Edit</Button>
+          <Button
+            onClick={() => {
+              dispatch(setPopupScreen(3));
+              dispatch(setPopupStock(item));
+              dispatch(togglePopup());
+            }}
+          >
+            Edit
+          </Button>
         </Card.Footer>
       </Card>
     </Col>

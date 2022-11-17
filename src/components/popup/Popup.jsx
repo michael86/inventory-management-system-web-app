@@ -8,6 +8,7 @@ import { togglePopup } from "../../reducers/popupSlice";
 import Login from "./body/Login";
 import Register from "./body/Register";
 import Invoice from "./body/Invoice";
+import Stock from "./body/Stock";
 
 const Popup = () => {
   const dispatch = useDispatch();
@@ -24,6 +25,7 @@ const Popup = () => {
         {screen === 0 && <Login />}
         {screen === 1 && <Register />}
         {screen === 2 && <Invoice />}
+        {screen === 3 && <Stock />}
       </Modal>
     </>
   );
