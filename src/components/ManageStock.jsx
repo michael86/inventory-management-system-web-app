@@ -8,6 +8,7 @@ import ManageStockCard from "./Stock/ManageStockCard";
 
 import "../styles/ManageStock.css";
 
+
 const ManageStock = () => {
   const stock = useSelector((state) => state.stock.stock);
   const dispatch = useDispatch();
