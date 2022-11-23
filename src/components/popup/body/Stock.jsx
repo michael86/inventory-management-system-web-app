@@ -5,6 +5,8 @@ import { validateInput } from "../../../validation/Utils";
 
 import { setStock } from "../../../reducers/stockSlice";
 
+import { Form } from "react-bootstrap";
+
 //Need to set up the ItemCard props
 
 const Stock = () => {
@@ -124,18 +126,22 @@ const Stock = () => {
   // };
 
   return (
-    <ItemCard
-      onInput={onInput}
-      errors={errors}
-      locations={locations}
-      submitLocation={submitLocation}
-      deleteLocation={deleteLocation}
-      locationsValid={locationsValid}
-      skuValid={skuValid}
-      validateSku={validateSku}
-      priceDisabled={priceDisabled}
-      setPriceDisabled={setPriceDisabled}
-    />
+    <Form>
+      <ItemCard
+        onInput={onInput}
+        errors={errors}
+        locations={locations}
+        submitLocation={submitLocation}
+        deleteLocation={deleteLocation}
+        locationsValid={locationsValid}
+        skuValid={skuValid}
+        validateSku={validateSku}
+        priceDisabled={priceDisabled}
+        setPriceDisabled={setPriceDisabled}
+        title={`editing ${item.sku}`}
+        preLoadLocations
+      />
+    </Form>
   );
   // <>
   //   <h1 className="text-center">{stock[stockIndex].sku}</h1>
