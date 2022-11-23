@@ -1,12 +1,13 @@
 import React from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 
-import ItemCard from "./Stock/ItemCard";
+import ItemCard from "./Generic/ItemCard";
 import CompanyCard from "./Stock/CompanyCard";
 import { useState } from "react";
 import { validateInput } from "../validation/Utils";
 import { useDispatch, useSelector } from "react-redux";
 import { setStock } from "../reducers/stockSlice";
+import { Link } from "react-router-dom";
 
 const AddStock = () => {
   const [errors, setErrors] = useState();
@@ -103,6 +104,9 @@ const AddStock = () => {
               validateSku={validateSku}
               priceDisabled={priceDisabled}
               setPriceDisabled={setPriceDisabled}
+              title={"Add a new item"}
+              subtitle={"To update a SKU currently registered, visit the "}
+              subtitleLink={{ to: "/manage-stock", text: "manage stock" }}
             />
           </Col>
           <Col xs={12} lg={6}>

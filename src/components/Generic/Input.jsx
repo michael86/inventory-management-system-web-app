@@ -40,6 +40,7 @@ const Input = (props) => {
     max,
     disabled,
     value,
+    step,
   } = props;
 
   return (
@@ -56,6 +57,7 @@ const Input = (props) => {
         type={type}
         min={min} //If type is number
         max={max}
+        step={step}
         placeholder={placeholder && placeholder}
         required={required}
         onInput={onInput}

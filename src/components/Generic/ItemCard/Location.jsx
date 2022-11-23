@@ -1,9 +1,9 @@
 import React from "react";
 import { Form, Row, Col, Badge, Button } from "react-bootstrap";
-import Input from "../Generic/Input";
+import Input from "../Input";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
-import "../../styles/Locations.css";
+import "../../../styles/Locations.css";
 import { useState } from "react";
 
 const Location = (props) => {
