@@ -11,7 +11,6 @@ import ItemDetails from "./ItemCard/ItemDetails";
 
 const ItemCard = (props) => {
   const {
-    onInput,
     errors,
     locations,
     submitLocation,
@@ -30,7 +29,7 @@ const ItemCard = (props) => {
   return (
     <Card className="shadow">
       <Card.Title className="p-2 bg-primary rounded-top">
-        {prefill.title || title}
+        {prefill?.title || title}
       </Card.Title>
 
       {prefill?.subtitle && (
@@ -46,11 +45,11 @@ const ItemCard = (props) => {
 
       <Card.Body className="bg-light">
         <ItemDetails
-          onInput={onInput}
           errors={errors}
           priceDisabled={priceDisabled}
           skuValid={skuValid}
           validateSku={validateSku}
+          prefill={prefill}
         />
 
         <Form.Group>

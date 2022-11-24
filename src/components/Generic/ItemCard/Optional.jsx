@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 
 const OptionalAddStock = ({ priceDisabled, setPriceDisabled }) => {
+  const [freeIssue, setFreeIssue] = useState(priceDisabled);
+
   return (
     <>
       <Form.Group className="mb-3 mt-3" controlId="stockImg">
@@ -16,7 +18,11 @@ const OptionalAddStock = ({ priceDisabled, setPriceDisabled }) => {
           type="checkbox"
           id="freeIssue"
           label="Free Issue"
-          onClick={() => setPriceDisabled(!priceDisabled)}
+          onChange={() => {
+            setFreeIssue(!priceDisabled);
+            setPriceDisabled(!priceDisabled);
+          }}
+          checked={freeIssue}
         />
         <Form.Text>
           Check this if the stock was free issue, will disable price requirement

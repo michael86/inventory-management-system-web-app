@@ -18,11 +18,12 @@ const Stock = () => {
   const stockIndex = stock.findIndex((i) => i.sku === item.sku);
 
   const [skuValid, setSkuValid] = useState(true);
-
   const [locations, setLocations] = useState(item.locations);
   const [locationsValid, setLocationsValid] = useState(true);
-  const [priceDisabled, setPriceDisabled] = useState(false);
+  const [priceDisabled, setPriceDisabled] = useState(item.price ? false : true);
   const [errors, setErrors] = useState();
+
+  console.log("disabled", priceDisabled);
 
   const validateSku = (e) => {
     const valid = stock.some((item) => item.sku === e.target.value);
@@ -82,6 +83,13 @@ const Stock = () => {
     // dispatch(setStock(copy));
   };
 
+  const onPrice = () => {
+    return;
+  };
+  const onQty = () => {
+    return;
+  };
+
   return (
     <Form onSubmit={onSubmit}>
       <ItemCard
@@ -100,8 +108,11 @@ const Stock = () => {
           subtitle: {
             text: "To add a new item, navigate to ",
             link: { to: "/add-stock", text: "add stock" },
-            sku: item.sku,
           },
+          sku: { value: item.sku },
+          price: { value: item.price, onInput: onPrice },
+          qty: { value: item.qty, onInput: onQty },
+          freeIssue: item.price ? false : true,
         }}
       />
       <Button type="submit">Save</Button>
