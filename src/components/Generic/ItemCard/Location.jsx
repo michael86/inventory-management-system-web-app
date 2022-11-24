@@ -19,8 +19,8 @@ const Location = (props) => {
   const [locationValue, setLocationValue] = useState("");
 
   return (
-    <Form.Group className="mb-3" id="stockLocation">
-      <p className="fs-4 mb-0 pb-0">location</p>
+    <Form.Group className="mb-3 " id="stockLocation">
+      <p className="fs-4 mb-0 pb-0 text-center">location</p>
       <Row className="justify-content-between">
         {locations.map((location) => {
           return (
@@ -76,7 +76,7 @@ const Location = (props) => {
               setLocationValue("");
             }}
           >
-            save
+            Add Location
           </Button>
         </Col>
       </Row>

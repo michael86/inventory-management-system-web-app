@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-import { Card, Form } from "react-bootstrap";
+import { Badge, Card, Form } from "react-bootstrap";
 
 import Optional from "./ItemCard/Optional";
 import Location from "./ItemCard/Location";
@@ -22,21 +22,24 @@ const ItemCard = (props) => {
     priceDisabled,
     setPriceDisabled,
     title,
-    subtitle,
-    subtitleLink,
+    prefill,
   } = props;
 
   const [showOptional, setShowOptional] = useState(false);
 
   return (
     <Card className="shadow">
-      <Card.Title className="p-2 bg-primary rounded-top">{title}</Card.Title>
+      <Card.Title className="p-2 bg-primary rounded-top">
+        {prefill.title || title}
+      </Card.Title>
 
-      {subtitle && (
+      {prefill?.subtitle && (
         <Card.Subtitle className="px-2">
-          {subtitle}
-          {subtitleLink && (
-            <Link to={subtitleLink.to}>{subtitleLink.text}</Link>
+          {prefill.subtitle.text}
+          {prefill.subtitle.link && (
+            <Link to={prefill.subtitle.link.to}>
+              {prefill.subtitle.link.text}
+            </Link>
           )}
         </Card.Subtitle>
       )}
