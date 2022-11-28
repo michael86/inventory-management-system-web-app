@@ -6,9 +6,7 @@ import { validateInput } from "../../../validation/Utils";
 import { setStock } from "../../../reducers/stockSlice";
 
 import { Button, Form } from "react-bootstrap";
-import { validate } from "../../../validation";
-
-//Need to set up the ItemCard props
+import { setPopupStock } from "../../../reducers/popupSlice";
 
 const Stock = () => {
   const dispatch = useDispatch();
@@ -57,7 +55,6 @@ const Stock = () => {
   };
 
   const onInput = (e) => {
-    console.log(e);
     const res = validateInput(e, errors);
     res && setErrors(res);
     validateSku(e);
@@ -73,21 +70,24 @@ const Stock = () => {
       return;
     }
 
-    const copy = [...stock];
+    if (!skuValid) return;
+
+    const itemCopy = JSON.parse(JSON.stringify(stock[stockIndex]));
+    const stockCopy = [...stock];
 
     const data = Object.fromEntries(new FormData(e.target));
     delete data["location-name"]; //clean up inputs not required
     delete data["location-value"];
 
-    // copy.push(data);
-    // dispatch(setStock(copy));
-  };
+    Object.keys(itemCopy).forEach((item) => {
+      itemCopy[item] = data[item] || itemCopy[item];
+    });
 
-  const onPrice = () => {
-    return;
-  };
-  const onQty = () => {
-    return;
+    itemCopy.locations = locations;
+    stockCopy[stockIndex] = itemCopy;
+
+    dispatch(setPopupStock(itemCopy));
+    dispatch(setStock(stockCopy));
   };
 
   return (
@@ -110,8 +110,8 @@ const Stock = () => {
             link: { to: "/add-stock", text: "add stock" },
           },
           sku: { value: item.sku },
-          price: { value: item.price, onInput: onPrice },
-          qty: { value: item.qty, onInput: onQty },
+          price: { value: item.price },
+          qty: { value: item.qty },
           freeIssue: item.price ? false : true,
         }}
       />

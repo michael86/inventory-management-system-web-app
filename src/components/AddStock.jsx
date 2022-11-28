@@ -76,6 +76,8 @@ const AddStock = () => {
       return;
     }
 
+    if (!skuValid) return;
+
     const copy = [...stock];
 
     const data = Object.fromEntries(new FormData(e.target));
