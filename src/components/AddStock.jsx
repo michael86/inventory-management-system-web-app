@@ -54,6 +54,7 @@ const AddStock = () => {
   const onInput = (e) => {
     const res = validateInput(e, errors);
     res && setErrors(res);
+    validateSku(e);
   };
 
   const resetState = (e) => {

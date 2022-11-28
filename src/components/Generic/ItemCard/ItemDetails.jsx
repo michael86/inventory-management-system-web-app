@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 
 const ItemDetails = (props) => {
-  const { onInput, errors, priceDisabled, prefill } = props;
+  const { onInput, errors, priceDisabled, prefill, skuValid } = props;
 
   const onKeyDown = (e) =>
     (e.key === "-" || e.key === "e") && e.preventDefault();
@@ -31,10 +31,14 @@ const ItemDetails = (props) => {
         />
 
         <Form.Text className="text-muted">
-          {!errors?.sku ? (
-            "Unique identifier for your company"
+          {errors?.sku ? (
+            <span className="text-danger">
+              Sku can not contain special characters
+            </span>
+          ) : !skuValid ? (
+            <span className="text-danger">Sku has already been used</span>
           ) : (
-            <span className="text-danger">'Sku has already been used'</span>
+            "Unique identifier for your company"
           )}
         </Form.Text>
       </Form.Group>
@@ -74,6 +78,7 @@ const ItemDetails = (props) => {
         <Form.Control
           type="number"
           min="0.01"
+          step="0.01"
           placeholder="cost per item"
           disabled={priceDisabled}
           name="price"

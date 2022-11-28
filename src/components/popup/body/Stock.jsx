@@ -60,7 +60,7 @@ const Stock = () => {
     console.log(e);
     const res = validateInput(e, errors);
     res && setErrors(res);
-    // validate;
+    validateSku(e);
   };
 
   const onSubmit = async (e) => {
