@@ -22,6 +22,7 @@ const ItemCard = (props) => {
     setPriceDisabled,
     title,
     prefill,
+    onInput,
   } = props;
 
   const [showOptional, setShowOptional] = useState(false);
@@ -50,6 +51,7 @@ const ItemCard = (props) => {
           skuValid={skuValid}
           validateSku={validateSku}
           prefill={prefill}
+          onInput={onInput}
         />
 
         <Form.Group>

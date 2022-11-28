@@ -6,6 +6,7 @@ import { validateInput } from "../../../validation/Utils";
 import { setStock } from "../../../reducers/stockSlice";
 
 import { Button, Form } from "react-bootstrap";
+import { validate } from "../../../validation";
 
 //Need to set up the ItemCard props
 
@@ -22,8 +23,6 @@ const Stock = () => {
   const [locationsValid, setLocationsValid] = useState(true);
   const [priceDisabled, setPriceDisabled] = useState(item.price ? false : true);
   const [errors, setErrors] = useState();
-
-  console.log("disabled", priceDisabled);
 
   const validateSku = (e) => {
     const valid = stock.some((item) => item.sku === e.target.value);
@@ -58,12 +57,13 @@ const Stock = () => {
   };
 
   const onInput = (e) => {
+    console.log(e);
     const res = validateInput(e, errors);
     res && setErrors(res);
+    // validate;
   };
 
   const onSubmit = async (e) => {
-    console.log("correct submit");
     e.preventDefault();
 
     if (Object.keys(errors).length > 0 || !skuValid) return;
@@ -78,7 +78,7 @@ const Stock = () => {
     const data = Object.fromEntries(new FormData(e.target));
     delete data["location-name"]; //clean up inputs not required
     delete data["location-value"];
-    console.log(data);
+
     // copy.push(data);
     // dispatch(setStock(copy));
   };

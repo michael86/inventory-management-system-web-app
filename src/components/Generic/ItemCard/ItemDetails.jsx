@@ -8,16 +8,9 @@ const ItemDetails = (props) => {
   const onKeyDown = (e) =>
     (e.key === "-" || e.key === "e") && e.preventDefault();
 
-  console.log("prefill", prefill);
-
   const [sku, setSku] = useState(prefill?.sku?.value || "");
   const [qty, setQty] = useState(prefill?.qty?.value || 0);
   const [price, setPrice] = useState(prefill?.qty?.value || 0);
-
-  console.log("local sku", sku);
-  console.log("sku", prefill?.sku?.value);
-
-  console.log("itemCard", priceDisabled);
 
   return (
     <>
