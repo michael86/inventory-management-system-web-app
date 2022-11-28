@@ -63,21 +63,21 @@ const Stock = () => {
   const onSubmit = async (e) => {
     e.preventDefault();
 
-    if (Object.keys(errors).length > 0 || !skuValid) return;
+    if ((errors && Object.keys(errors).length > 0) || !skuValid) return;
 
     if (!locations.length) {
       setLocationsValid(false);
       return;
     }
 
-    if (!skuValid) return;
-
     const itemCopy = JSON.parse(JSON.stringify(stock[stockIndex]));
     const stockCopy = [...stock];
 
+    console.log("yeet");
     const data = Object.fromEntries(new FormData(e.target));
     delete data["location-name"]; //clean up inputs not required
     delete data["location-value"];
+    console.log("lol");
 
     Object.keys(itemCopy).forEach((item) => {
       itemCopy[item] = data[item] || itemCopy[item];

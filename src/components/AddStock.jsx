@@ -69,14 +69,12 @@ const AddStock = () => {
   const onSubmit = async (e) => {
     e.preventDefault();
 
-    if (Object.keys(errors).length > 0 || !skuValid) return;
+    if ((errors && Object.keys(errors).length > 0) || !skuValid) return;
 
     if (!locations.length) {
       setLocationsValid(false);
       return;
     }
-
-    if (!skuValid) return;
 
     const copy = [...stock];
 
