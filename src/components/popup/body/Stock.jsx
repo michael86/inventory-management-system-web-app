@@ -80,11 +80,13 @@ const Stock = () => {
     delete data["location-name"]; //clean up inputs not required
     delete data["location-value"];
 
-    Object.keys(itemCopy).forEach((item) => {
-      itemCopy[item] = data[item] || itemCopy[item];
-    });
+    Object.keys(itemCopy).forEach(
+      (item) => (itemCopy[item] = data[item] || itemCopy[item])
+    );
 
+    itemCopy.price = data.price || undefined; //Sometimes not required if free issue is checked.
     itemCopy.locations = locations;
+
     stockCopy[stockIndex] = itemCopy;
 
     dispatch(setPopupStock(itemCopy));

@@ -16,12 +16,13 @@ This is a full stack project for the jump bootcamp. The aim is to create a full 
 
 ### Popup
 
-Seems complete so far. May refactor stuff at later date if new funcitonality is required
+~~Seems complete so far. May refactor stuff at later date if new funcitonality is required~~ lol
 
 - [x] Refactor buttons to be dynamically generated, this will allow me to call them within forms, as well as place in footer at later date.
 - [x] Refactor form to use child components that will allow me to dynamically generate each input.
 - [x] hook up form submit to local storage (This will be replaced by apis at later date)
-- [ ] stock component will state invalid sku if changed (not saved) then set back to current sku
+- [x] ~~stock component will state invalid sku if changed (not saved) then set back to current sku~~ Fixed
+- [ ] Updating to and from free issue not working. Assume cause check box is either defined or undefined.
 
 ### View Invoices
 
