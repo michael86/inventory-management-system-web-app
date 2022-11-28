@@ -21,6 +21,7 @@ Seems complete so far. May refactor stuff at later date if new funcitonality is 
 - [x] Refactor buttons to be dynamically generated, this will allow me to call them within forms, as well as place in footer at later date.
 - [x] Refactor form to use child components that will allow me to dynamically generate each input.
 - [x] hook up form submit to local storage (This will be replaced by apis at later date)
+- [ ] stock component will state invalid sku if changed (not saved) then set back to current sku
 
 ### View Invoices
 
@@ -60,7 +61,7 @@ Certain state will only be local storage (enabling dark mode and such)
 - [x] fix schema for company card (Joi validaiton not working correctly)
 - [x] load local state to validate if sku has been used
 - [x] handle form submit and store to local state (send to back end when complete)
-- [ ] Refactor to support pre filling.
+- [x] Refactor to support pre filling.
 
 ### general
 
