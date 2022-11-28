@@ -22,7 +22,7 @@ This is a full stack project for the jump bootcamp. The aim is to create a full 
 - [x] Refactor form to use child components that will allow me to dynamically generate each input.
 - [x] hook up form submit to local storage (This will be replaced by apis at later date)
 - [x] ~~stock component will state invalid sku if changed (not saved) then set back to current sku~~ Fixed
-- [ ] Updating to and from free issue not working. Assume cause check box is either defined or undefined.
+- [x] ~~Updating to and from free issue not working. Assume cause check box is either defined or undefined.~~ fixed
 
 ### View Invoices
 
