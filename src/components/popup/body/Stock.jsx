@@ -23,7 +23,10 @@ const Stock = () => {
   const [errors, setErrors] = useState();
 
   const validateSku = (e) => {
-    const valid = stock.some((item) => item.sku === e.target.value);
+    const valid = stock.some(
+      (item, index) => item.sku === e.target.value && stockIndex !== index
+    );
+
     valid ? setSkuValid(false) : setSkuValid(true);
   };
 
@@ -73,11 +76,9 @@ const Stock = () => {
     const itemCopy = JSON.parse(JSON.stringify(stock[stockIndex]));
     const stockCopy = [...stock];
 
-    console.log("yeet");
     const data = Object.fromEntries(new FormData(e.target));
     delete data["location-name"]; //clean up inputs not required
     delete data["location-value"];
-    console.log("lol");
 
     Object.keys(itemCopy).forEach((item) => {
       itemCopy[item] = data[item] || itemCopy[item];
