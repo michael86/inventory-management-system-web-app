@@ -80,6 +80,13 @@ const Stock = () => {
     delete data["location-name"]; //clean up inputs not required
     delete data["location-value"];
 
+    const historyEntry = {
+      date: Date.now(),
+      qty: stockCopy[stockIndex].qty,
+      price: stockCopy[stockIndex].price,
+      locations: stockCopy[stockIndex].locations,
+    };
+
     Object.keys(itemCopy).forEach(
       (item) => (itemCopy[item] = data[item] || itemCopy[item])
     );
@@ -89,9 +96,12 @@ const Stock = () => {
 
     stockCopy[stockIndex] = itemCopy;
 
+    stockCopy[stockIndex].history = stockCopy[stockIndex].history || [];
+
+    stockCopy[stockIndex].history.push(historyEntry);
+
     dispatch(setPopupStock(itemCopy));
     dispatch(setStock(stockCopy));
-
     dispatch(togglePopup());
   };
 
@@ -126,3 +136,68 @@ const Stock = () => {
 };
 
 export default Stock;
+
+// [
+//   {
+//     sku: "Nappies again",
+//     qty: "120",
+//     price: "125.64",
+//     company: "creekview",
+//     companyStreet: "27 Wickhay",
+//     companyCity: "Basildon",
+//     companyCounty: "essex",
+//     companyCountry: "United Kingdom",
+//     companyPostcode: "ss15 5ae",
+//     locations: [
+//       { name: "1", value: "3", id: 1669798629239 },
+//       { name: "789", value: "858", id: 1669788018532 },
+//     ],
+//     history: [
+//       {
+//         date: 1669758155222,
+//         qty: "12356545564",
+//         price: "12356545564",
+//         locations: [
+//           { name: "1", value: "3", id: 1669798629239 },
+//           { name: "789", value: "858", id: 1669788018532 },
+//         ],
+//       },
+//       {
+//         date: 1669758526035,
+//         qty: "125",
+//         price: "45.99",
+//         locations: [
+//           { name: "1", value: "3", id: 1669798629239 },
+//           { name: "789", value: "858", id: 1669788018532 },
+//           { name: "new location", value: "stuff", id: 1670741049751 },
+//         ],
+//       },
+//     ],
+//   },
+//   {
+//     sku: "new sku",
+//     qty: "125",
+//     price: "12548",
+//     company: "creekview",
+//     companyStreet: "27 Wickhay",
+//     companyCity: "Basildon",
+//     companyCounty: "essex",
+//     companyCountry: "United Kingdom",
+//     companyPostcode: "ss15 5ae",
+//     locations: [
+//       { name: "aisle", value: "a", id: 1670721742043 },
+//       { name: "shelf", value: "3", id: 1670100716515 },
+//     ],
+//     history: [
+//       {
+//         date: 1669758571518,
+//         qty: "12548",
+//         price: "11.54",
+//         locations: [
+//           { name: "aisle", value: "a", id: 1670721742043 },
+//           { name: "shelf", value: "3", id: 1670100716515 },
+//         ],
+//       },
+//     ],
+//   },
+// ];
