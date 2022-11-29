@@ -6,7 +6,7 @@ import { validateInput } from "../../../validation/Utils";
 import { setStock } from "../../../reducers/stockSlice";
 
 import { Button, Form } from "react-bootstrap";
-import { setPopupStock } from "../../../reducers/popupSlice";
+import { setPopupStock, togglePopup } from "../../../reducers/popupSlice";
 
 const Stock = () => {
   const dispatch = useDispatch();
@@ -91,6 +91,8 @@ const Stock = () => {
 
     dispatch(setPopupStock(itemCopy));
     dispatch(setStock(stockCopy));
+
+    dispatch(togglePopup());
   };
 
   return (

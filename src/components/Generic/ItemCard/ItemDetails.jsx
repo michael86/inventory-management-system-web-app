@@ -45,7 +45,7 @@ const ItemDetails = (props) => {
 
       {/*start of qty*/}
       <Form.Group className="mb-3" controlId="qty">
-        <Form.Label>starting qty</Form.Label>
+        <Form.Label>Quantity</Form.Label>
         <Form.Control
           type="number"
           min="0"
@@ -74,7 +74,7 @@ const ItemDetails = (props) => {
 
       {/*start of price*/}
       <Form.Group className="mb-3" controlId="price">
-        <Form.Label>cost per item</Form.Label>
+        <Form.Label>Cost Per Item</Form.Label>
         <Form.Control
           type="number"
           min="0.01"
