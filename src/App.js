@@ -26,13 +26,13 @@ import ManageStock from "./components/ManageStock";
 
 function App() {
   const { authenticated } = useSelector((state) => state.user);
-  const dispatch = useDispatch();
 
+  const dispatch = useDispatch();
   //Once rendered, if we have local storage, set user state to current local state
   useEffect(() => {
     const data = getStore("user");
     data && data.authenticated && dispatch(setUser(data));
-  }, []);
+  }, [dispatch]);
 
   return (
     <>
