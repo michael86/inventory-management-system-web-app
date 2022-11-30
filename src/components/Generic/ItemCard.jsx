@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-import { Badge, Card, Form } from "react-bootstrap";
+import { Card, Form } from "react-bootstrap";
 
 import Optional from "./ItemCard/Optional";
 import Location from "./ItemCard/Location";

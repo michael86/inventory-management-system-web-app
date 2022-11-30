@@ -7,7 +7,6 @@ import { useState } from "react";
 import { validateInput } from "../validation/Utils";
 import { useDispatch, useSelector } from "react-redux";
 import { setStock } from "../reducers/stockSlice";
-import { Link } from "react-router-dom";
 
 const AddStock = () => {
   const [errors, setErrors] = useState();
