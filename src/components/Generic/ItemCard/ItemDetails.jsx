@@ -2,8 +2,18 @@ import React, { useState } from "react";
 
 import { Form } from "react-bootstrap";
 
+import EditQty from "./EditQty";
+
 const ItemDetails = (props) => {
-  const { onInput, errors, priceDisabled, prefill, skuValid } = props;
+  const {
+    onInput,
+    errors,
+    priceDisabled,
+    prefill,
+    skuValid,
+    showEditQty,
+    disableQty,
+  } = props;
 
   const onKeyDown = (e) =>
     (e.key === "-" || e.key === "e") && e.preventDefault();
@@ -11,6 +21,23 @@ const ItemDetails = (props) => {
   const [sku, setSku] = useState(prefill?.sku?.value || "");
   const [qty, setQty] = useState(prefill?.qty?.value || 0);
   const [price, setPrice] = useState(prefill?.qty?.value || 0);
+  const [qtyValid, setQtyValid] = useState(true);
+
+  const equateQty = (equate, amount, errors) => {
+    //Equate is a bool used to decide if adding or subtracting
+    if (!amount || errors) return;
+
+    const res = equate ? +qty + +amount : +qty - +amount;
+
+    if (res < 0) {
+      setQtyValid(false);
+      return;
+    }
+
+    setQtyValid(true); //Just incase amount wasn't valid, it now is.
+
+    setQty(equate ? +qty + +amount : +qty - +amount);
+  };
 
   return (
     <>
@@ -59,18 +86,28 @@ const ItemDetails = (props) => {
           onKeyDown={(e) => onKeyDown(e)}
           value={qty}
           required
+          readOnly={disableQty}
         />
 
-        {!errors?.qty ? (
+        {disableQty ? (
+          <Form.Text>Please use the buttons below to edit your qty</Form.Text>
+        ) : !errors?.qty && !errors?.editQty ? (
           <Form.Text className="text-muted">
             How much stock do you currently have. Can be 0
           </Form.Text>
         ) : (
           <Form.Text className="text-danger">
-            Quantity must be equal to or greater than 0
+            Quantity must be equal to or greater than 0 and a whole number
           </Form.Text>
         )}
       </Form.Group>
+
+      {showEditQty && <EditQty onClick={equateQty} />}
+      {!qtyValid && (
+        <Form.Text className="text-danger">
+          Subtracting this amount will put you in the minus. Quick math.
+        </Form.Text>
+      )}
 
       {/*start of price*/}
       <Form.Group className="mb-3" controlId="price">

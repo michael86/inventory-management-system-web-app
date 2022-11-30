@@ -23,6 +23,8 @@ const ItemCard = (props) => {
     title,
     prefill,
     onInput,
+    showEditQty,
+    disableQty,
   } = props;
 
   const [showOptional, setShowOptional] = useState(false);
@@ -52,6 +54,8 @@ const ItemCard = (props) => {
           validateSku={validateSku}
           prefill={prefill}
           onInput={onInput}
+          showEditQty={showEditQty}
+          disableQty={disableQty}
         />
 
         <Form.Group>

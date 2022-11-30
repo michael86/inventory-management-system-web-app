@@ -118,6 +118,8 @@ const Stock = () => {
         validateSku={validateSku}
         priceDisabled={priceDisabled}
         setPriceDisabled={setPriceDisabled}
+        showEditQty={true}
+        disableQty={true}
         prefill={{
           title: `editing ${item.sku}`,
           subtitle: {

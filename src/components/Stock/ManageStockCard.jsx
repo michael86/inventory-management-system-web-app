@@ -7,7 +7,7 @@ import {
   togglePopup,
 } from "../../reducers/popupSlice";
 
-const ManageStockCard = ({ item, onEdit, onDelete }) => {
+const ManageStockCard = ({ item, onDelete }) => {
   const dispatch = useDispatch();
 
   return (
