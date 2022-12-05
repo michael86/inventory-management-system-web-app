@@ -58,11 +58,15 @@ const Dashboard = () => {
       datasets: [
         {
           label: "Value of components",
-          data: stock.map(
-            (item) => item.qty * item.price > 0 && item.price * item.qty
-          ),
-          backgroundColor: stock.map((_, i) => genRandColor()),
-          borderColor: stock.map((_, i) => genRandColor()),
+          data: stock
+            .filter((item) => item.price * item.qty > 0)
+            .map((item) => item.qty * item.price > 0 && item.price * item.qty),
+          backgroundColor: stock
+            .filter((item) => item.price * item.qty > 0)
+            .map((_, i) => genRandColor()),
+          borderColor: stock
+            .filter((item) => item.price * item.qty > 0)
+            .map((_, i) => genRandColor()),
           borderWidth: 0,
         },
       ],
