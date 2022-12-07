@@ -45,6 +45,7 @@ const Dashboard = () => {
 
   const user = useSelector((state) => state.user);
   const stock = useSelector((state) => state.stock.stock);
+  const stockCopy = [...stock];
 
   const genRandColor = () => {
     const randNum = () => Math.floor(Math.random() * 255);
@@ -71,8 +72,8 @@ const Dashboard = () => {
     };
   };
 
-  const useageMonths = getHalfMonths(true).sort((a, b) => (a - b ? 1 : -1));
-  const useagePlugins = {
+  const mostStockMonths = getHalfMonths(true).sort((a, b) => (a - b ? 1 : -1));
+  const mostStockPlugins = {
     legend: {
       position: "top",
     },
@@ -82,18 +83,31 @@ const Dashboard = () => {
     },
   };
 
-  const useageData = [
-    {
-      label: "Dataset 1",
-      data: [1, 2, 3, 4, 5, 6],
-      backgroundColor: "rgba(255, 99, 132, 0.5)",
-    },
-    {
-      label: "Dataset 2",
-      data: [1, 2, 3, 4, 5, 6],
-      backgroundColor: "rgba(53, 162, 235, 0.5)",
-    },
-  ];
+  let mostStockDataHighest = stockCopy.sort((a, b) => +a.qty - +b.qty);
+
+  mostStockDataHighest = mostStockDataHighest.slice(
+    mostStockDataHighest.length - 5
+  );
+
+  const useageData = mostStockDataHighest.map((item) => {
+    return {
+      label: item.sku,
+      data: [1, 2, 3, 4, 5, 6], //Here we will need to sort by date, then map the resval tp data
+      backgroundColor: "rgba(255, 99, 132, 0.5)", //Gen rand color
+    };
+  });
+
+  // [
+  //   {
+  //     label: "Dataset 1",
+  //     data: [1, 2, 3, 4, 5, 6],
+  //     backgroundColor: "rgba(255, 99, 132, 0.5)",
+  //   },
+  //   {
+  //     label: "Dataset 2",
+  //     data: [1, 2, 3, 4, 5, 6],
+  //     backgroundColor: "rgba(53, 162, 235, 0.5)",
+  //   },
 
   return (
     <>
@@ -102,8 +116,8 @@ const Dashboard = () => {
       <Row className="mx-4">
         <Col xs={12} lg={6} className="d-flex justify-content-center">
           <UseageChart
-            plugins={useagePlugins}
-            labels={useageMonths}
+            plugins={mostStockPlugins}
+            labels={mostStockMonths}
             datasets={useageData}
           />
         </Col>
