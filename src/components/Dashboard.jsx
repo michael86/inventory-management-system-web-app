@@ -64,10 +64,6 @@ const Dashboard = () => {
           backgroundColor: stock
             .filter((item) => item.price * item.qty > 0)
             .map((_, i) => genRandColor()),
-          borderColor: stock
-            .filter((item) => item.price * item.qty > 0)
-            .map((_, i) => genRandColor()),
-          borderWidth: 0,
         },
       ],
     };
