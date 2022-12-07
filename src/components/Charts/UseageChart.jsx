@@ -9,9 +9,12 @@ import {
   Legend,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
-import { getHalfMonths } from "../../utils";
 
-const UseageChart = () => {
+const chartOptions = {
+  responsive: true,
+};
+
+const UseageChart = ({ plugins, labels, datasets }) => {
   ChartJS.register(
     CategoryScale,
     LinearScale,
@@ -21,38 +24,14 @@ const UseageChart = () => {
     Legend
   );
 
-  const options = {
-    responsive: true,
-    plugins: {
-      legend: {
-        position: "top",
-      },
-      title: {
-        display: true,
-        text: "Stock Usage",
-      },
-    },
-  };
-
-  const months = getHalfMonths(true).sort((a, b) => (a - b ? 1 : -1));
+  chartOptions.plugins = plugins;
 
   const data = {
-    months,
-    datasets: [
-      //   {
-      //     label: "Dataset 1",
-      //     data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
-      //     backgroundColor: "rgba(255, 99, 132, 0.5)",
-      //   },
-      //   {
-      //     label: "Dataset 2",
-      //     data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
-      //     backgroundColor: "rgba(53, 162, 235, 0.5)",
-      //   },
-    ],
+    labels,
+    datasets: datasets,
   };
 
-  return <Bar options={options} data={data} />;
+  return <Bar options={chartOptions} data={data} />;
 };
 
 export default UseageChart;

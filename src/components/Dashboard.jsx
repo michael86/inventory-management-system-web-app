@@ -15,6 +15,7 @@ import { Pie } from "react-chartjs-2";
 import { Row, Col } from "react-bootstrap";
 
 import UseageChart from "./Charts/UseageChart";
+import { getHalfMonths } from "../utils";
 
 const Dashboard = () => {
   ChartJS.register(
@@ -70,13 +71,41 @@ const Dashboard = () => {
     };
   };
 
+  const useageMonths = getHalfMonths(true).sort((a, b) => (a - b ? 1 : -1));
+  const useagePlugins = {
+    legend: {
+      position: "top",
+    },
+    title: {
+      display: true,
+      text: "Stock Usage",
+    },
+  };
+
+  const useageData = [
+    {
+      label: "Dataset 1",
+      data: [1, 2, 3, 4, 5, 6],
+      backgroundColor: "rgba(255, 99, 132, 0.5)",
+    },
+    {
+      label: "Dataset 2",
+      data: [1, 2, 3, 4, 5, 6],
+      backgroundColor: "rgba(53, 162, 235, 0.5)",
+    },
+  ];
+
   return (
     <>
       <h1 className="text-center">{user.company}</h1>
 
       <Row className="mx-4">
         <Col xs={12} lg={6} className="d-flex justify-content-center">
-          <UseageChart />
+          <UseageChart
+            plugins={useagePlugins}
+            labels={useageMonths}
+            datasets={useageData}
+          />
         </Col>
         <Col xs={12} lg={6} className="d-flex justify-content-center">
           <Pie data={generateCostDataSet()} />
