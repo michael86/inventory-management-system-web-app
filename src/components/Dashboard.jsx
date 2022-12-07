@@ -30,19 +30,6 @@ const Dashboard = () => {
     Legend
   );
 
-  const options = {
-    responsive: true,
-    plugins: {
-      legend: {
-        position: "top",
-      },
-      title: {
-        display: true,
-        text: "Chart.js Bar Chart",
-      },
-    },
-  };
-
   const user = useSelector((state) => state.user);
   const stock = useSelector((state) => state.stock.stock);
   const stockCopy = [...stock];
