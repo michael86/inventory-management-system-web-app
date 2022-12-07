@@ -10,10 +10,11 @@ import {
   Legend,
   ArcElement,
 } from "chart.js";
-import { Bar, Pie } from "react-chartjs-2";
+import { Pie } from "react-chartjs-2";
 
 import { Row, Col } from "react-bootstrap";
-import { collapseTextChangeRangesAcrossMultipleVersions } from "typescript";
+
+import UseageChart from "./Charts/UseageChart";
 
 const Dashboard = () => {
   ChartJS.register(
@@ -74,6 +75,9 @@ const Dashboard = () => {
       <h1 className="text-center">{user.company}</h1>
 
       <Row className="mx-4">
+        <Col xs={12} lg={6} className="d-flex justify-content-center">
+          <UseageChart />
+        </Col>
         <Col xs={12} lg={6} className="d-flex justify-content-center">
           <Pie data={generateCostDataSet()} />
         </Col>
