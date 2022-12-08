@@ -32,7 +32,7 @@ const Dashboard = () => {
 
   const user = useSelector((state) => state.user);
   const stock = useSelector((state) => state.stock.stock);
-  const stockCopy = [...stock];
+  const stockCopy = JSON.parse(JSON.stringify(stock));
 
   const genRandColor = () => {
     const randNum = () => Math.floor(Math.random() * 255);
@@ -73,28 +73,49 @@ const Dashboard = () => {
   let mostStockDataHighest = stockCopy.sort((a, b) => +a.qty - +b.qty);
 
   mostStockDataHighest = mostStockDataHighest.slice(
-    mostStockDataHighest.length - 5
+    //grab last 5
+    mostStockDataHighest.length - 6
   );
 
-  const useageData = mostStockDataHighest.map((item) => {
+  const data = mostStockDataHighest.map((item) => {
+    let obj = {}; //Object containing the month (int) as key and values that month stock []
+    const date = new Date();
+    const curMonth = date.getMonth();
+
+    if (item.history) {
+      item.history.sort((a, b) => a.date - b.date); //Sort history by date
+
+      item.history.forEach((his) => {
+        const date = new Date(his.date); // generate 2d array and push month stock to relevant child []
+        const month = date.getMonth();
+        obj[month] ? obj[month].push(his.qty) : (obj[month] = [his.qty]);
+      });
+    }
+
+    obj[curMonth] ? obj[curMonth].push(item.qty) : (obj[curMonth] = [item.qty]); //push the latest stock to last array or create it
+
+    obj = Object.values(obj); //turn obj to array
+    obj = obj.slice(obj.length - 6); // slice of the last 6 months
+
+    obj.forEach(
+      //sum up each child array
+      (item, index) =>
+        (obj[index] = item.reduce(
+          (accumulator, value) => accumulator + value,
+          0
+        ))
+    );
+
+    return obj;
+  });
+
+  const useageData = mostStockDataHighest.map((item, index) => {
     return {
       label: item.sku,
-      data: [1, 2, 3, 4, 5, 6], //Here we will need to sort by date, then map the resval tp data
+      data: data[index], //Here we will need to sort by date, then map the resval tp data
       backgroundColor: "rgba(255, 99, 132, 0.5)", //Gen rand color
     };
   });
-
-  // [
-  //   {
-  //     label: "Dataset 1",
-  //     data: [1, 2, 3, 4, 5, 6],
-  //     backgroundColor: "rgba(255, 99, 132, 0.5)",
-  //   },
-  //   {
-  //     label: "Dataset 2",
-  //     data: [1, 2, 3, 4, 5, 6],
-  //     backgroundColor: "rgba(53, 162, 235, 0.5)",
-  //   },
 
   return (
     <>
