@@ -1,3062 +1,3061 @@
 [
   {
-    "sku": "77456465449",
-    "qty": "4565656568",
-    "price": "111",
+    "sku": "testcrosses",
+    "qty": 155607,
+    "price": 44494,
     "company": "creekview",
     "companyStreet": "27 Wickhay",
     "companyCity": "Basildon",
     "companyCounty": "essex",
     "companyCountry": "United Kingdom",
     "companyPostcode": "ss15 5ae",
-    "locations": [{ "name": "1", "value": "1", "id": 1670673646293 }],
+    "locations": [{ "name": 61, "value": 77, "id": 75530095 }],
     "history": [
       {
         "date": 1652033465154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 127175,
+        "price": 28,
+        "locations": [{ "name": 27, "value": 17, "id": 58552396 }]
       },
       {
         "date": 1652033465879,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 750503,
+        "price": 178,
+        "locations": [{ "name": 20, "value": 6, "id": 57530864 }]
       },
       {
         "date": 1652033465458,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 705927,
+        "price": 42,
+        "locations": [{ "name": 91, "value": 48, "id": 37242016 }]
       },
       {
         "date": 1654711865485,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 298576,
+        "price": 12,
+        "locations": [{ "name": 59, "value": 75, "id": 23352150 }]
       },
       {
         "date": 1657303865458,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 509691,
+        "price": 112,
+        "locations": [{ "name": 11, "value": 58, "id": 5227119 }]
       },
       {
         "date": 1657303865647,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 524273,
+        "price": 94,
+        "locations": [{ "name": 75, "value": 61, "id": 24884598 }]
       },
       {
         "date": 1657303865154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 629462,
+        "price": 119,
+        "locations": [{ "name": 37, "value": 2, "id": 59241364 }]
       },
       {
         "date": 1659982265147,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 567534,
+        "price": 193,
+        "locations": [{ "name": 63, "value": 44, "id": 7452783 }]
       },
       {
         "date": 1659982265985,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 874721,
+        "price": 106,
+        "locations": [{ "name": 86, "value": 85, "id": 44590490 }]
       },
       {
         "date": 1659982265256,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 284745,
+        "price": 189,
+        "locations": [{ "name": 62, "value": 1, "id": 10621398 }]
       },
       {
         "date": 1659982265154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 917261,
+        "price": 55,
+        "locations": [{ "name": 24, "value": 60, "id": 41277942 }]
       },
       {
         "date": 1659982265684,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 90991,
+        "price": 122,
+        "locations": [{ "name": 83, "value": 48, "id": 85940998 }]
       },
       {
         "date": 1659982265215,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 348900,
+        "price": 138,
+        "locations": [{ "name": 26, "value": 63, "id": 59586781 }]
       },
       {
         "date": 1662660665121,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 690754,
+        "price": 132,
+        "locations": [{ "name": 39, "value": 65, "id": 12545000 }]
       },
       {
         "date": 1662660665845,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 707127,
+        "price": 178,
+        "locations": [{ "name": 88, "value": 85, "id": 40018491 }]
       },
       {
         "date": 1662660665198,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 214037,
+        "price": 63,
+        "locations": [{ "name": 33, "value": 36, "id": 19625881 }]
       },
       {
         "date": 1665252665456,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 94709,
+        "price": 98,
+        "locations": [{ "name": 54, "value": 62, "id": 66911572 }]
       },
       {
         "date": 1665252665484,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 361620,
+        "price": 112,
+        "locations": [{ "name": 89, "value": 59, "id": 65773044 }]
       },
       {
         "date": 1665252665111,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 723959,
+        "price": 65,
+        "locations": [{ "name": 48, "value": 74, "id": 20484732 }]
       },
       {
         "date": 1665252665556,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 929011,
+        "price": 52,
+        "locations": [{ "name": 19, "value": 54, "id": 46655104 }]
       },
       {
         "date": 1667934665454,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 694385,
+        "price": 147,
+        "locations": [{ "name": 95, "value": 53, "id": 19688967 }]
       },
       {
         "date": 1667934665456,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 759500,
+        "price": 94,
+        "locations": [{ "name": 44, "value": 59, "id": 3497611 }]
       },
       {
         "date": 1667934665854,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 878343,
+        "price": 87,
+        "locations": [{ "name": 1, "value": 98, "id": 7220696 }]
       },
       {
         "date": 1670526665154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 794759,
+        "price": 190,
+        "locations": [{ "name": 87, "value": 41, "id": 21442681 }]
       },
       {
         "date": 1670526665125,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 508353,
+        "price": 111,
+        "locations": [{ "name": 92, "value": 99, "id": 95981572 }]
       },
       {
         "date": 1670526665456,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 60950,
+        "price": 2,
+        "locations": [{ "name": 84, "value": 66, "id": 2431338 }]
       }
     ]
   },
   {
-    "sku": "77456465449",
-    "qty": "4565656568",
-    "price": "111",
+    "sku": "choreic",
+    "qty": 257984,
+    "price": 15314,
     "company": "creekview",
     "companyStreet": "27 Wickhay",
     "companyCity": "Basildon",
     "companyCounty": "essex",
     "companyCountry": "United Kingdom",
     "companyPostcode": "ss15 5ae",
-    "locations": [{ "name": "1", "value": "1", "id": 1670673646293 }],
+    "locations": [{ "name": 70, "value": 54, "id": 10237969 }],
     "history": [
       {
         "date": 1652033465154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 387563,
+        "price": 53,
+        "locations": [{ "name": 49, "value": 74, "id": 16873453 }]
       },
       {
         "date": 1652033465879,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 661689,
+        "price": 117,
+        "locations": [{ "name": 92, "value": 54, "id": 72429726 }]
       },
       {
         "date": 1652033465458,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 582861,
+        "price": 30,
+        "locations": [{ "name": 17, "value": 27, "id": 75194891 }]
       },
       {
         "date": 1654711865485,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 599578,
+        "price": 63,
+        "locations": [{ "name": 44, "value": 60, "id": 34379001 }]
       },
       {
         "date": 1657303865458,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 799969,
+        "price": 199,
+        "locations": [{ "name": 4, "value": 22, "id": 985469 }]
       },
       {
         "date": 1657303865647,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 22449,
+        "price": 165,
+        "locations": [{ "name": 31, "value": 90, "id": 64654268 }]
       },
       {
         "date": 1657303865154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 768191,
+        "price": 163,
+        "locations": [{ "name": 12, "value": 47, "id": 3586571 }]
       },
       {
         "date": 1659982265147,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 30914,
+        "price": 23,
+        "locations": [{ "name": 31, "value": 97, "id": 93065515 }]
       },
       {
         "date": 1659982265985,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 921525,
+        "price": 35,
+        "locations": [{ "name": 83, "value": 19, "id": 48748869 }]
       },
       {
         "date": 1659982265256,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 423305,
+        "price": 36,
+        "locations": [{ "name": 33, "value": 23, "id": 58757388 }]
       },
       {
         "date": 1659982265154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 306964,
+        "price": 42,
+        "locations": [{ "name": 97, "value": 52, "id": 67039678 }]
       },
       {
         "date": 1659982265684,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 974491,
+        "price": 48,
+        "locations": [{ "name": 0, "value": 0, "id": 50859791 }]
       },
       {
         "date": 1659982265215,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 788786,
+        "price": 125,
+        "locations": [{ "name": 13, "value": 98, "id": 28932423 }]
       },
       {
         "date": 1662660665121,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 106994,
+        "price": 145,
+        "locations": [{ "name": 8, "value": 73, "id": 17253154 }]
       },
       {
         "date": 1662660665845,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 352850,
+        "price": 107,
+        "locations": [{ "name": 74, "value": 1, "id": 39345668 }]
       },
       {
         "date": 1662660665198,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 981070,
+        "price": 142,
+        "locations": [{ "name": 33, "value": 93, "id": 4574521 }]
       },
       {
         "date": 1665252665456,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 720349,
+        "price": 118,
+        "locations": [{ "name": 94, "value": 99, "id": 68999573 }]
       },
       {
         "date": 1665252665484,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 662780,
+        "price": 127,
+        "locations": [{ "name": 88, "value": 11, "id": 49654573 }]
       },
       {
         "date": 1665252665111,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 371782,
+        "price": 110,
+        "locations": [{ "name": 64, "value": 23, "id": 7484680 }]
       },
       {
         "date": 1665252665556,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 465908,
+        "price": 76,
+        "locations": [{ "name": 29, "value": 22, "id": 67658815 }]
       },
       {
         "date": 1667934665454,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 556377,
+        "price": 125,
+        "locations": [{ "name": 35, "value": 50, "id": 95811083 }]
       },
       {
         "date": 1667934665456,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 592437,
+        "price": 114,
+        "locations": [{ "name": 29, "value": 72, "id": 79773893 }]
       },
       {
         "date": 1667934665854,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 846046,
+        "price": 48,
+        "locations": [{ "name": 94, "value": 32, "id": 28406548 }]
       },
       {
         "date": 1670526665154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 871265,
+        "price": 75,
+        "locations": [{ "name": 86, "value": 52, "id": 33251500 }]
       },
       {
         "date": 1670526665125,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 173928,
+        "price": 119,
+        "locations": [{ "name": 2, "value": 70, "id": 65272439 }]
       },
       {
         "date": 1670526665456,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 710850,
+        "price": 102,
+        "locations": [{ "name": 69, "value": 90, "id": 68378209 }]
       }
     ]
   },
   {
-    "sku": "77456465449",
-    "qty": "4565656568",
-    "price": "111",
+    "sku": "cyberspaces",
+    "qty": 695652,
+    "price": 18849,
     "company": "creekview",
     "companyStreet": "27 Wickhay",
     "companyCity": "Basildon",
     "companyCounty": "essex",
     "companyCountry": "United Kingdom",
     "companyPostcode": "ss15 5ae",
-    "locations": [{ "name": "1", "value": "1", "id": 1670673646293 }],
+    "locations": [{ "name": 85, "value": 44, "id": 5000944 }],
     "history": [
       {
         "date": 1652033465154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 962823,
+        "price": 166,
+        "locations": [{ "name": 33, "value": 22, "id": 40970111 }]
       },
       {
         "date": 1652033465879,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 439794,
+        "price": 106,
+        "locations": [{ "name": 9, "value": 32, "id": 91289623 }]
       },
       {
         "date": 1652033465458,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 146273,
+        "price": 117,
+        "locations": [{ "name": 96, "value": 20, "id": 26890904 }]
       },
       {
         "date": 1654711865485,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 763410,
+        "price": 144,
+        "locations": [{ "name": 4, "value": 45, "id": 12643281 }]
       },
       {
         "date": 1657303865458,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 66216,
+        "price": 15,
+        "locations": [{ "name": 5, "value": 9, "id": 11022893 }]
       },
       {
         "date": 1657303865647,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 713106,
+        "price": 18,
+        "locations": [{ "name": 29, "value": 28, "id": 31820503 }]
       },
       {
         "date": 1657303865154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 233065,
+        "price": 34,
+        "locations": [{ "name": 33, "value": 73, "id": 18855414 }]
       },
       {
         "date": 1659982265147,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 653965,
+        "price": 23,
+        "locations": [{ "name": 94, "value": 93, "id": 24932529 }]
       },
       {
         "date": 1659982265985,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 540173,
+        "price": 91,
+        "locations": [{ "name": 94, "value": 64, "id": 9424344 }]
       },
       {
         "date": 1659982265256,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 368418,
+        "price": 96,
+        "locations": [{ "name": 5, "value": 46, "id": 60853873 }]
       },
       {
         "date": 1659982265154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 556947,
+        "price": 38,
+        "locations": [{ "name": 38, "value": 83, "id": 40793882 }]
       },
       {
         "date": 1659982265684,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 945862,
+        "price": 104,
+        "locations": [{ "name": 40, "value": 56, "id": 28169710 }]
       },
       {
         "date": 1659982265215,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 241858,
+        "price": 20,
+        "locations": [{ "name": 12, "value": 30, "id": 7064050 }]
       },
       {
         "date": 1662660665121,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 558176,
+        "price": 133,
+        "locations": [{ "name": 65, "value": 12, "id": 98230233 }]
       },
       {
         "date": 1662660665845,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 82880,
+        "price": 92,
+        "locations": [{ "name": 13, "value": 61, "id": 75070398 }]
       },
       {
         "date": 1662660665198,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 897776,
+        "price": 110,
+        "locations": [{ "name": 9, "value": 15, "id": 76186454 }]
       },
       {
         "date": 1665252665456,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 302300,
+        "price": 109,
+        "locations": [{ "name": 57, "value": 78, "id": 22009544 }]
       },
       {
         "date": 1665252665484,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 15855,
+        "price": 90,
+        "locations": [{ "name": 50, "value": 74, "id": 89313553 }]
       },
       {
         "date": 1665252665111,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 92979,
+        "price": 180,
+        "locations": [{ "name": 34, "value": 57, "id": 56859032 }]
       },
       {
         "date": 1665252665556,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 601383,
+        "price": 39,
+        "locations": [{ "name": 59, "value": 37, "id": 82431580 }]
       },
       {
         "date": 1667934665454,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 576678,
+        "price": 42,
+        "locations": [{ "name": 97, "value": 88, "id": 46386071 }]
       },
       {
         "date": 1667934665456,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 140386,
+        "price": 131,
+        "locations": [{ "name": 79, "value": 8, "id": 50445143 }]
       },
       {
         "date": 1667934665854,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 991092,
+        "price": 44,
+        "locations": [{ "name": 70, "value": 35, "id": 83681991 }]
       },
       {
         "date": 1670526665154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 190864,
+        "price": 136,
+        "locations": [{ "name": 28, "value": 33, "id": 98033081 }]
       },
       {
         "date": 1670526665125,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 968999,
+        "price": 125,
+        "locations": [{ "name": 44, "value": 69, "id": 17349731 }]
       },
       {
         "date": 1670526665456,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 794326,
+        "price": 102,
+        "locations": [{ "name": 41, "value": 63, "id": 81139445 }]
       }
     ]
   },
   {
-    "sku": "77456465449",
-    "qty": "4565656568",
-    "price": "111",
+    "sku": "attractants",
+    "qty": 773053,
+    "price": 10103,
     "company": "creekview",
     "companyStreet": "27 Wickhay",
     "companyCity": "Basildon",
     "companyCounty": "essex",
     "companyCountry": "United Kingdom",
     "companyPostcode": "ss15 5ae",
-    "locations": [{ "name": "1", "value": "1", "id": 1670673646293 }],
+    "locations": [{ "name": 29, "value": 16, "id": 82709702 }],
     "history": [
       {
         "date": 1652033465154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 842117,
+        "price": 166,
+        "locations": [{ "name": 90, "value": 60, "id": 40045524 }]
       },
       {
         "date": 1652033465879,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 729271,
+        "price": 152,
+        "locations": [{ "name": 98, "value": 88, "id": 46257191 }]
       },
       {
         "date": 1652033465458,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 296334,
+        "price": 108,
+        "locations": [{ "name": 3, "value": 38, "id": 20811025 }]
       },
       {
         "date": 1654711865485,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 998558,
+        "price": 137,
+        "locations": [{ "name": 52, "value": 18, "id": 48284564 }]
       },
       {
         "date": 1657303865458,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 358733,
+        "price": 172,
+        "locations": [{ "name": 95, "value": 44, "id": 80881885 }]
       },
       {
         "date": 1657303865647,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 274464,
+        "price": 181,
+        "locations": [{ "name": 24, "value": 55, "id": 11557134 }]
       },
       {
         "date": 1657303865154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 45194,
+        "price": 29,
+        "locations": [{ "name": 4, "value": 84, "id": 3521702 }]
       },
       {
         "date": 1659982265147,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 64923,
+        "price": 68,
+        "locations": [{ "name": 53, "value": 17, "id": 75237112 }]
       },
       {
         "date": 1659982265985,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 961496,
+        "price": 51,
+        "locations": [{ "name": 22, "value": 82, "id": 19210634 }]
       },
       {
         "date": 1659982265256,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 167385,
+        "price": 22,
+        "locations": [{ "name": 23, "value": 0, "id": 22810650 }]
       },
       {
         "date": 1659982265154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 897533,
+        "price": 95,
+        "locations": [{ "name": 33, "value": 75, "id": 21719940 }]
       },
       {
         "date": 1659982265684,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 649098,
+        "price": 190,
+        "locations": [{ "name": 79, "value": 3, "id": 87272287 }]
       },
       {
         "date": 1659982265215,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 856331,
+        "price": 162,
+        "locations": [{ "name": 93, "value": 9, "id": 28942676 }]
       },
       {
         "date": 1662660665121,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 693346,
+        "price": 163,
+        "locations": [{ "name": 16, "value": 9, "id": 21232235 }]
       },
       {
         "date": 1662660665845,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 958114,
+        "price": 51,
+        "locations": [{ "name": 73, "value": 34, "id": 63445905 }]
       },
       {
         "date": 1662660665198,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 336735,
+        "price": 94,
+        "locations": [{ "name": 93, "value": 85, "id": 35308306 }]
       },
       {
         "date": 1665252665456,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 228912,
+        "price": 48,
+        "locations": [{ "name": 98, "value": 59, "id": 22050969 }]
       },
       {
         "date": 1665252665484,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 618576,
+        "price": 149,
+        "locations": [{ "name": 99, "value": 86, "id": 17796302 }]
       },
       {
         "date": 1665252665111,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 147032,
+        "price": 57,
+        "locations": [{ "name": 85, "value": 63, "id": 49547219 }]
       },
       {
         "date": 1665252665556,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 632255,
+        "price": 47,
+        "locations": [{ "name": 94, "value": 70, "id": 15692894 }]
       },
       {
         "date": 1667934665454,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 235998,
+        "price": 83,
+        "locations": [{ "name": 38, "value": 30, "id": 69739444 }]
       },
       {
         "date": 1667934665456,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 254837,
+        "price": 122,
+        "locations": [{ "name": 52, "value": 78, "id": 22024148 }]
       },
       {
         "date": 1667934665854,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 520690,
+        "price": 6,
+        "locations": [{ "name": 61, "value": 91, "id": 89715773 }]
       },
       {
         "date": 1670526665154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 873447,
+        "price": 137,
+        "locations": [{ "name": 3, "value": 9, "id": 17137816 }]
       },
       {
         "date": 1670526665125,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 849327,
+        "price": 166,
+        "locations": [{ "name": 32, "value": 68, "id": 25865372 }]
       },
       {
         "date": 1670526665456,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 245045,
+        "price": 167,
+        "locations": [{ "name": 43, "value": 15, "id": 12915711 }]
       }
     ]
   },
   {
-    "sku": "77456465449",
-    "qty": "4565656568",
-    "price": "111",
+    "sku": "sarapes",
+    "qty": 953168,
+    "price": 19716,
     "company": "creekview",
     "companyStreet": "27 Wickhay",
     "companyCity": "Basildon",
     "companyCounty": "essex",
     "companyCountry": "United Kingdom",
     "companyPostcode": "ss15 5ae",
-    "locations": [{ "name": "1", "value": "1", "id": 1670673646293 }],
+    "locations": [{ "name": 34, "value": 46, "id": 29079525 }],
     "history": [
       {
         "date": 1652033465154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 865739,
+        "price": 199,
+        "locations": [{ "name": 78, "value": 4, "id": 64954202 }]
       },
       {
         "date": 1652033465879,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 599379,
+        "price": 118,
+        "locations": [{ "name": 71, "value": 64, "id": 60687381 }]
       },
       {
         "date": 1652033465458,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 252210,
+        "price": 88,
+        "locations": [{ "name": 98, "value": 22, "id": 23867177 }]
       },
       {
         "date": 1654711865485,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 289369,
+        "price": 100,
+        "locations": [{ "name": 36, "value": 7, "id": 62965559 }]
       },
       {
         "date": 1657303865458,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 121865,
+        "price": 132,
+        "locations": [{ "name": 92, "value": 46, "id": 39353906 }]
       },
       {
         "date": 1657303865647,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 206402,
+        "price": 17,
+        "locations": [{ "name": 56, "value": 32, "id": 55098930 }]
       },
       {
         "date": 1657303865154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 745407,
+        "price": 99,
+        "locations": [{ "name": 50, "value": 14, "id": 3370769 }]
       },
       {
         "date": 1659982265147,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 56316,
+        "price": 167,
+        "locations": [{ "name": 49, "value": 65, "id": 66516261 }]
       },
       {
         "date": 1659982265985,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 634232,
+        "price": 138,
+        "locations": [{ "name": 40, "value": 30, "id": 33652073 }]
       },
       {
         "date": 1659982265256,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 729662,
+        "price": 88,
+        "locations": [{ "name": 4, "value": 35, "id": 13908975 }]
       },
       {
         "date": 1659982265154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 91687,
+        "price": 0,
+        "locations": [{ "name": 48, "value": 95, "id": 37280545 }]
       },
       {
         "date": 1659982265684,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 356915,
+        "price": 4,
+        "locations": [{ "name": 60, "value": 63, "id": 86296259 }]
       },
       {
         "date": 1659982265215,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 679888,
+        "price": 70,
+        "locations": [{ "name": 90, "value": 13, "id": 85691024 }]
       },
       {
         "date": 1662660665121,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 747061,
+        "price": 1,
+        "locations": [{ "name": 87, "value": 20, "id": 43172592 }]
       },
       {
         "date": 1662660665845,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 379649,
+        "price": 22,
+        "locations": [{ "name": 34, "value": 98, "id": 53669347 }]
       },
       {
         "date": 1662660665198,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 948334,
+        "price": 139,
+        "locations": [{ "name": 47, "value": 30, "id": 1672806 }]
       },
       {
         "date": 1665252665456,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 848310,
+        "price": 198,
+        "locations": [{ "name": 20, "value": 93, "id": 59355739 }]
       },
       {
         "date": 1665252665484,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 788735,
+        "price": 148,
+        "locations": [{ "name": 75, "value": 24, "id": 48128122 }]
       },
       {
         "date": 1665252665111,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 557613,
+        "price": 176,
+        "locations": [{ "name": 95, "value": 45, "id": 27918097 }]
       },
       {
         "date": 1665252665556,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 886607,
+        "price": 26,
+        "locations": [{ "name": 58, "value": 4, "id": 28343973 }]
       },
       {
         "date": 1667934665454,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 365390,
+        "price": 24,
+        "locations": [{ "name": 58, "value": 67, "id": 63678665 }]
       },
       {
         "date": 1667934665456,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 848023,
+        "price": 11,
+        "locations": [{ "name": 86, "value": 94, "id": 49367705 }]
       },
       {
         "date": 1667934665854,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 729702,
+        "price": 174,
+        "locations": [{ "name": 57, "value": 74, "id": 67293459 }]
       },
       {
         "date": 1670526665154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 442453,
+        "price": 198,
+        "locations": [{ "name": 81, "value": 37, "id": 8008738 }]
       },
       {
         "date": 1670526665125,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 729274,
+        "price": 131,
+        "locations": [{ "name": 50, "value": 15, "id": 32617043 }]
       },
       {
         "date": 1670526665456,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 244804,
+        "price": 165,
+        "locations": [{ "name": 33, "value": 17, "id": 61695240 }]
       }
     ]
   },
   {
-    "sku": "77456465449",
-    "qty": "4565656568",
-    "price": "111",
+    "sku": "wowed",
+    "qty": 684121,
+    "price": 36781,
     "company": "creekview",
     "companyStreet": "27 Wickhay",
     "companyCity": "Basildon",
     "companyCounty": "essex",
     "companyCountry": "United Kingdom",
     "companyPostcode": "ss15 5ae",
-    "locations": [{ "name": "1", "value": "1", "id": 1670673646293 }],
+    "locations": [{ "name": 62, "value": 73, "id": 78279235 }],
     "history": [
       {
         "date": 1652033465154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 693237,
+        "price": 103,
+        "locations": [{ "name": 17, "value": 73, "id": 21139367 }]
       },
       {
         "date": 1652033465879,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 788622,
+        "price": 75,
+        "locations": [{ "name": 8, "value": 1, "id": 18168392 }]
       },
       {
         "date": 1652033465458,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 398558,
+        "price": 140,
+        "locations": [{ "name": 81, "value": 71, "id": 51025867 }]
       },
       {
         "date": 1654711865485,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 985059,
+        "price": 85,
+        "locations": [{ "name": 97, "value": 98, "id": 5871844 }]
       },
       {
         "date": 1657303865458,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 70602,
+        "price": 29,
+        "locations": [{ "name": 10, "value": 76, "id": 24787114 }]
       },
       {
         "date": 1657303865647,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 53525,
+        "price": 88,
+        "locations": [{ "name": 30, "value": 33, "id": 92438995 }]
       },
       {
         "date": 1657303865154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 715427,
+        "price": 105,
+        "locations": [{ "name": 40, "value": 95, "id": 53920735 }]
       },
       {
         "date": 1659982265147,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 284323,
+        "price": 29,
+        "locations": [{ "name": 68, "value": 14, "id": 34673629 }]
       },
       {
         "date": 1659982265985,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 537866,
+        "price": 72,
+        "locations": [{ "name": 40, "value": 90, "id": 26933881 }]
       },
       {
         "date": 1659982265256,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 586988,
+        "price": 61,
+        "locations": [{ "name": 84, "value": 53, "id": 95368560 }]
       },
       {
         "date": 1659982265154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 905038,
+        "price": 122,
+        "locations": [{ "name": 51, "value": 14, "id": 96195332 }]
       },
       {
         "date": 1659982265684,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 431755,
+        "price": 42,
+        "locations": [{ "name": 23, "value": 93, "id": 31437534 }]
       },
       {
         "date": 1659982265215,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 158975,
+        "price": 29,
+        "locations": [{ "name": 9, "value": 33, "id": 10381213 }]
       },
       {
         "date": 1662660665121,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 711929,
+        "price": 55,
+        "locations": [{ "name": 13, "value": 79, "id": 55386106 }]
       },
       {
         "date": 1662660665845,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 968156,
+        "price": 118,
+        "locations": [{ "name": 26, "value": 61, "id": 74241594 }]
       },
       {
         "date": 1662660665198,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 421929,
+        "price": 75,
+        "locations": [{ "name": 95, "value": 85, "id": 83062747 }]
       },
       {
         "date": 1665252665456,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 871282,
+        "price": 126,
+        "locations": [{ "name": 4, "value": 74, "id": 41541240 }]
       },
       {
         "date": 1665252665484,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 936567,
+        "price": 181,
+        "locations": [{ "name": 87, "value": 59, "id": 45579579 }]
       },
       {
         "date": 1665252665111,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 166101,
+        "price": 30,
+        "locations": [{ "name": 50, "value": 18, "id": 39860663 }]
       },
       {
         "date": 1665252665556,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 70902,
+        "price": 158,
+        "locations": [{ "name": 30, "value": 50, "id": 1361641 }]
       },
       {
         "date": 1667934665454,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 527616,
+        "price": 185,
+        "locations": [{ "name": 75, "value": 49, "id": 79940205 }]
       },
       {
         "date": 1667934665456,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 216825,
+        "price": 82,
+        "locations": [{ "name": 14, "value": 97, "id": 81543398 }]
       },
       {
         "date": 1667934665854,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 172214,
+        "price": 127,
+        "locations": [{ "name": 14, "value": 69, "id": 86886624 }]
       },
       {
         "date": 1670526665154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 65570,
+        "price": 92,
+        "locations": [{ "name": 36, "value": 12, "id": 33084895 }]
       },
       {
         "date": 1670526665125,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 908953,
+        "price": 197,
+        "locations": [{ "name": 42, "value": 15, "id": 33942939 }]
       },
       {
         "date": 1670526665456,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 440369,
+        "price": 150,
+        "locations": [{ "name": 74, "value": 50, "id": 61511834 }]
       }
     ]
   },
   {
-    "sku": "77456465449",
-    "qty": "4565656568",
-    "price": "111",
+    "sku": "playoff",
+    "qty": 422207,
+    "price": 32407,
     "company": "creekview",
     "companyStreet": "27 Wickhay",
     "companyCity": "Basildon",
     "companyCounty": "essex",
     "companyCountry": "United Kingdom",
     "companyPostcode": "ss15 5ae",
-    "locations": [{ "name": "1", "value": "1", "id": 1670673646293 }],
+    "locations": [{ "name": 97, "value": 9, "id": 79334523 }],
     "history": [
       {
         "date": 1652033465154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 3493,
+        "price": 95,
+        "locations": [{ "name": 47, "value": 95, "id": 43011818 }]
       },
       {
         "date": 1652033465879,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 309772,
+        "price": 134,
+        "locations": [{ "name": 45, "value": 85, "id": 49261150 }]
       },
       {
         "date": 1652033465458,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 441681,
+        "price": 154,
+        "locations": [{ "name": 54, "value": 85, "id": 65307938 }]
       },
       {
         "date": 1654711865485,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 391498,
+        "price": 13,
+        "locations": [{ "name": 88, "value": 18, "id": 84495926 }]
       },
       {
         "date": 1657303865458,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 933153,
+        "price": 196,
+        "locations": [{ "name": 13, "value": 85, "id": 73793474 }]
       },
       {
         "date": 1657303865647,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 665341,
+        "price": 107,
+        "locations": [{ "name": 5, "value": 57, "id": 97499279 }]
       },
       {
         "date": 1657303865154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 482579,
+        "price": 160,
+        "locations": [{ "name": 81, "value": 18, "id": 52837793 }]
       },
       {
         "date": 1659982265147,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 679953,
+        "price": 140,
+        "locations": [{ "name": 90, "value": 30, "id": 59642675 }]
       },
       {
         "date": 1659982265985,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 583459,
+        "price": 109,
+        "locations": [{ "name": 76, "value": 55, "id": 22750537 }]
       },
       {
         "date": 1659982265256,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 254781,
+        "price": 71,
+        "locations": [{ "name": 18, "value": 31, "id": 61520324 }]
       },
       {
         "date": 1659982265154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 32427,
+        "price": 161,
+        "locations": [{ "name": 61, "value": 39, "id": 13032386 }]
       },
       {
         "date": 1659982265684,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 289404,
+        "price": 35,
+        "locations": [{ "name": 65, "value": 40, "id": 56874374 }]
       },
       {
         "date": 1659982265215,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 218863,
+        "price": 79,
+        "locations": [{ "name": 13, "value": 65, "id": 47880959 }]
       },
       {
         "date": 1662660665121,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 721871,
+        "price": 150,
+        "locations": [{ "name": 87, "value": 37, "id": 37534006 }]
       },
       {
         "date": 1662660665845,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 478890,
+        "price": 40,
+        "locations": [{ "name": 31, "value": 16, "id": 35842265 }]
       },
       {
         "date": 1662660665198,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 848679,
+        "price": 95,
+        "locations": [{ "name": 46, "value": 71, "id": 70806413 }]
       },
       {
         "date": 1665252665456,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 669786,
+        "price": 186,
+        "locations": [{ "name": 68, "value": 28, "id": 24685369 }]
       },
       {
         "date": 1665252665484,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 17969,
+        "price": 195,
+        "locations": [{ "name": 80, "value": 60, "id": 87971302 }]
       },
       {
         "date": 1665252665111,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 582413,
+        "price": 104,
+        "locations": [{ "name": 34, "value": 53, "id": 2495310 }]
       },
       {
         "date": 1665252665556,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 349243,
+        "price": 156,
+        "locations": [{ "name": 10, "value": 6, "id": 802148 }]
       },
       {
         "date": 1667934665454,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 420326,
+        "price": 175,
+        "locations": [{ "name": 30, "value": 25, "id": 26181498 }]
       },
       {
         "date": 1667934665456,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 19516,
+        "price": 168,
+        "locations": [{ "name": 38, "value": 57, "id": 69068172 }]
       },
       {
         "date": 1667934665854,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 769481,
+        "price": 59,
+        "locations": [{ "name": 47, "value": 37, "id": 57732471 }]
       },
       {
         "date": 1670526665154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 724892,
+        "price": 91,
+        "locations": [{ "name": 30, "value": 40, "id": 29993491 }]
       },
       {
         "date": 1670526665125,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 35855,
+        "price": 196,
+        "locations": [{ "name": 83, "value": 24, "id": 89053679 }]
       },
       {
         "date": 1670526665456,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 703314,
+        "price": 142,
+        "locations": [{ "name": 81, "value": 61, "id": 10561886 }]
       }
     ]
   },
   {
-    "sku": "77456465449",
-    "qty": "4565656568",
-    "price": "111",
+    "sku": "cragginesses",
+    "qty": 602,
+    "price": 37690,
     "company": "creekview",
     "companyStreet": "27 Wickhay",
     "companyCity": "Basildon",
     "companyCounty": "essex",
     "companyCountry": "United Kingdom",
     "companyPostcode": "ss15 5ae",
-    "locations": [{ "name": "1", "value": "1", "id": 1670673646293 }],
+    "locations": [{ "name": 0, "value": 73, "id": 42472193 }],
     "history": [
       {
         "date": 1652033465154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 302623,
+        "price": 195,
+        "locations": [{ "name": 57, "value": 80, "id": 19647245 }]
       },
       {
         "date": 1652033465879,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 1502,
+        "price": 194,
+        "locations": [{ "name": 34, "value": 97, "id": 66142142 }]
       },
       {
         "date": 1652033465458,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 533737,
+        "price": 1,
+        "locations": [{ "name": 71, "value": 85, "id": 89603513 }]
       },
       {
         "date": 1654711865485,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 963860,
+        "price": 6,
+        "locations": [{ "name": 73, "value": 68, "id": 70902545 }]
       },
       {
         "date": 1657303865458,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 847473,
+        "price": 194,
+        "locations": [{ "name": 49, "value": 25, "id": 58841808 }]
       },
       {
         "date": 1657303865647,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 951178,
+        "price": 150,
+        "locations": [{ "name": 74, "value": 96, "id": 54186520 }]
       },
       {
         "date": 1657303865154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 672191,
+        "price": 142,
+        "locations": [{ "name": 89, "value": 31, "id": 20505924 }]
       },
       {
         "date": 1659982265147,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 323188,
+        "price": 64,
+        "locations": [{ "name": 29, "value": 96, "id": 20140296 }]
       },
       {
         "date": 1659982265985,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 752820,
+        "price": 75,
+        "locations": [{ "name": 85, "value": 15, "id": 10352670 }]
       },
       {
         "date": 1659982265256,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 284691,
+        "price": 163,
+        "locations": [{ "name": 2, "value": 56, "id": 51507152 }]
       },
       {
         "date": 1659982265154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 899111,
+        "price": 43,
+        "locations": [{ "name": 93, "value": 78, "id": 2167405 }]
       },
       {
         "date": 1659982265684,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 703952,
+        "price": 151,
+        "locations": [{ "name": 49, "value": 13, "id": 93270012 }]
       },
       {
         "date": 1659982265215,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 258677,
+        "price": 193,
+        "locations": [{ "name": 40, "value": 50, "id": 1335989 }]
       },
       {
         "date": 1662660665121,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 607468,
+        "price": 29,
+        "locations": [{ "name": 11, "value": 89, "id": 68926194 }]
       },
       {
         "date": 1662660665845,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 907839,
+        "price": 71,
+        "locations": [{ "name": 38, "value": 29, "id": 55066330 }]
       },
       {
         "date": 1662660665198,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 229553,
+        "price": 170,
+        "locations": [{ "name": 96, "value": 71, "id": 74917160 }]
       },
       {
         "date": 1665252665456,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 788075,
+        "price": 51,
+        "locations": [{ "name": 44, "value": 38, "id": 52119214 }]
       },
       {
         "date": 1665252665484,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 638848,
+        "price": 83,
+        "locations": [{ "name": 75, "value": 92, "id": 83388971 }]
       },
       {
         "date": 1665252665111,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 738540,
+        "price": 146,
+        "locations": [{ "name": 37, "value": 80, "id": 65408756 }]
       },
       {
         "date": 1665252665556,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 851189,
+        "price": 72,
+        "locations": [{ "name": 16, "value": 91, "id": 59350315 }]
       },
       {
         "date": 1667934665454,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 742048,
+        "price": 62,
+        "locations": [{ "name": 28, "value": 61, "id": 80801333 }]
       },
       {
         "date": 1667934665456,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 397483,
+        "price": 134,
+        "locations": [{ "name": 91, "value": 87, "id": 11957051 }]
       },
       {
         "date": 1667934665854,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 271391,
+        "price": 199,
+        "locations": [{ "name": 70, "value": 14, "id": 24465461 }]
       },
       {
         "date": 1670526665154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 402981,
+        "price": 23,
+        "locations": [{ "name": 54, "value": 50, "id": 20555558 }]
       },
       {
         "date": 1670526665125,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 721177,
+        "price": 27,
+        "locations": [{ "name": 56, "value": 10, "id": 81353799 }]
       },
       {
         "date": 1670526665456,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 812473,
+        "price": 162,
+        "locations": [{ "name": 74, "value": 30, "id": 91041172 }]
       }
     ]
   },
   {
-    "sku": "77456465449",
-    "qty": "4565656568",
-    "price": "111",
+    "sku": "unsuitabilities",
+    "qty": 734211,
+    "price": 10930,
     "company": "creekview",
     "companyStreet": "27 Wickhay",
     "companyCity": "Basildon",
     "companyCounty": "essex",
     "companyCountry": "United Kingdom",
     "companyPostcode": "ss15 5ae",
-    "locations": [{ "name": "1", "value": "1", "id": 1670673646293 }],
+    "locations": [{ "name": 19, "value": 50, "id": 36644088 }],
     "history": [
       {
         "date": 1652033465154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 604096,
+        "price": 123,
+        "locations": [{ "name": 43, "value": 30, "id": 79612826 }]
       },
       {
         "date": 1652033465879,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 517801,
+        "price": 80,
+        "locations": [{ "name": 50, "value": 42, "id": 49562008 }]
       },
       {
         "date": 1652033465458,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 848688,
+        "price": 175,
+        "locations": [{ "name": 49, "value": 9, "id": 71725294 }]
       },
       {
         "date": 1654711865485,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 162718,
+        "price": 133,
+        "locations": [{ "name": 69, "value": 95, "id": 88297684 }]
       },
       {
         "date": 1657303865458,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 559014,
+        "price": 169,
+        "locations": [{ "name": 27, "value": 58, "id": 7134446 }]
       },
       {
         "date": 1657303865647,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 674580,
+        "price": 166,
+        "locations": [{ "name": 25, "value": 71, "id": 94027960 }]
       },
       {
         "date": 1657303865154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 983413,
+        "price": 42,
+        "locations": [{ "name": 21, "value": 97, "id": 7157276 }]
       },
       {
         "date": 1659982265147,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 96389,
+        "price": 99,
+        "locations": [{ "name": 9, "value": 86, "id": 1808486 }]
       },
       {
         "date": 1659982265985,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 886999,
+        "price": 156,
+        "locations": [{ "name": 89, "value": 26, "id": 85915964 }]
       },
       {
         "date": 1659982265256,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 39377,
+        "price": 91,
+        "locations": [{ "name": 36, "value": 72, "id": 69904092 }]
       },
       {
         "date": 1659982265154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 769998,
+        "price": 37,
+        "locations": [{ "name": 60, "value": 42, "id": 48414415 }]
       },
       {
         "date": 1659982265684,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 291528,
+        "price": 83,
+        "locations": [{ "name": 66, "value": 98, "id": 65932702 }]
       },
       {
         "date": 1659982265215,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 883501,
+        "price": 89,
+        "locations": [{ "name": 63, "value": 36, "id": 6163131 }]
       },
       {
         "date": 1662660665121,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 506995,
+        "price": 28,
+        "locations": [{ "name": 75, "value": 8, "id": 37268811 }]
       },
       {
         "date": 1662660665845,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 968867,
+        "price": 81,
+        "locations": [{ "name": 99, "value": 44, "id": 47595548 }]
       },
       {
         "date": 1662660665198,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 664207,
+        "price": 187,
+        "locations": [{ "name": 18, "value": 45, "id": 2238349 }]
       },
       {
         "date": 1665252665456,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 479109,
+        "price": 165,
+        "locations": [{ "name": 53, "value": 33, "id": 80958749 }]
       },
       {
         "date": 1665252665484,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 509686,
+        "price": 130,
+        "locations": [{ "name": 91, "value": 61, "id": 36980249 }]
       },
       {
         "date": 1665252665111,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 868503,
+        "price": 31,
+        "locations": [{ "name": 48, "value": 39, "id": 46804015 }]
       },
       {
         "date": 1665252665556,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 634460,
+        "price": 123,
+        "locations": [{ "name": 7, "value": 28, "id": 1437703 }]
       },
       {
         "date": 1667934665454,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 496935,
+        "price": 132,
+        "locations": [{ "name": 47, "value": 17, "id": 22577326 }]
       },
       {
         "date": 1667934665456,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 506247,
+        "price": 88,
+        "locations": [{ "name": 68, "value": 94, "id": 89460429 }]
       },
       {
         "date": 1667934665854,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 342390,
+        "price": 159,
+        "locations": [{ "name": 74, "value": 7, "id": 16834336 }]
       },
       {
         "date": 1670526665154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 706529,
+        "price": 82,
+        "locations": [{ "name": 38, "value": 64, "id": 87263466 }]
       },
       {
         "date": 1670526665125,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 329087,
+        "price": 196,
+        "locations": [{ "name": 37, "value": 65, "id": 37082882 }]
       },
       {
         "date": 1670526665456,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 348596,
+        "price": 147,
+        "locations": [{ "name": 7, "value": 19, "id": 7827403 }]
       }
     ]
   },
   {
-    "sku": "77456465449",
-    "qty": "4565656568",
-    "price": "111",
+    "sku": "venules",
+    "qty": 468761,
+    "price": 7837,
     "company": "creekview",
     "companyStreet": "27 Wickhay",
     "companyCity": "Basildon",
     "companyCounty": "essex",
     "companyCountry": "United Kingdom",
     "companyPostcode": "ss15 5ae",
-    "locations": [{ "name": "1", "value": "1", "id": 1670673646293 }],
+    "locations": [{ "name": 99, "value": 56, "id": 32511474 }],
     "history": [
       {
         "date": 1652033465154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 159978,
+        "price": 79,
+        "locations": [{ "name": 52, "value": 26, "id": 11675761 }]
       },
       {
         "date": 1652033465879,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 700956,
+        "price": 118,
+        "locations": [{ "name": 19, "value": 90, "id": 41060659 }]
       },
       {
         "date": 1652033465458,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 614570,
+        "price": 68,
+        "locations": [{ "name": 24, "value": 58, "id": 92643300 }]
       },
       {
         "date": 1654711865485,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 437186,
+        "price": 131,
+        "locations": [{ "name": 19, "value": 26, "id": 2385168 }]
       },
       {
         "date": 1657303865458,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 154565,
+        "price": 10,
+        "locations": [{ "name": 43, "value": 3, "id": 48012268 }]
       },
       {
         "date": 1657303865647,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 789636,
+        "price": 133,
+        "locations": [{ "name": 61, "value": 14, "id": 83315866 }]
       },
       {
         "date": 1657303865154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 532695,
+        "price": 45,
+        "locations": [{ "name": 74, "value": 96, "id": 30450713 }]
       },
       {
         "date": 1659982265147,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 448158,
+        "price": 53,
+        "locations": [{ "name": 1, "value": 88, "id": 89878046 }]
       },
       {
         "date": 1659982265985,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 205329,
+        "price": 85,
+        "locations": [{ "name": 70, "value": 13, "id": 46085578 }]
       },
       {
         "date": 1659982265256,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 324494,
+        "price": 56,
+        "locations": [{ "name": 60, "value": 41, "id": 87814415 }]
       },
       {
         "date": 1659982265154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 932535,
+        "price": 80,
+        "locations": [{ "name": 92, "value": 28, "id": 7164260 }]
       },
       {
         "date": 1659982265684,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 370361,
+        "price": 152,
+        "locations": [{ "name": 63, "value": 81, "id": 70961162 }]
       },
       {
         "date": 1659982265215,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 825624,
+        "price": 181,
+        "locations": [{ "name": 77, "value": 50, "id": 56046340 }]
       },
       {
         "date": 1662660665121,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 105510,
+        "price": 11,
+        "locations": [{ "name": 39, "value": 60, "id": 91091264 }]
       },
       {
         "date": 1662660665845,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 836373,
+        "price": 65,
+        "locations": [{ "name": 44, "value": 4, "id": 64724336 }]
       },
       {
         "date": 1662660665198,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 799023,
+        "price": 105,
+        "locations": [{ "name": 47, "value": 68, "id": 59319821 }]
       },
       {
         "date": 1665252665456,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 628076,
+        "price": 8,
+        "locations": [{ "name": 44, "value": 67, "id": 48560090 }]
       },
       {
         "date": 1665252665484,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 803477,
+        "price": 113,
+        "locations": [{ "name": 77, "value": 94, "id": 14964998 }]
       },
       {
         "date": 1665252665111,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 459503,
+        "price": 9,
+        "locations": [{ "name": 78, "value": 23, "id": 74786463 }]
       },
       {
         "date": 1665252665556,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 522837,
+        "price": 117,
+        "locations": [{ "name": 82, "value": 83, "id": 33250049 }]
       },
       {
         "date": 1667934665454,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 682712,
+        "price": 97,
+        "locations": [{ "name": 82, "value": 54, "id": 9803643 }]
       },
       {
         "date": 1667934665456,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 282729,
+        "price": 98,
+        "locations": [{ "name": 68, "value": 57, "id": 59042486 }]
       },
       {
         "date": 1667934665854,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 282370,
+        "price": 53,
+        "locations": [{ "name": 92, "value": 7, "id": 69659308 }]
       },
       {
         "date": 1670526665154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 29502,
+        "price": 197,
+        "locations": [{ "name": 15, "value": 47, "id": 81740874 }]
       },
       {
         "date": 1670526665125,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 883746,
+        "price": 88,
+        "locations": [{ "name": 35, "value": 68, "id": 29575566 }]
       },
       {
         "date": 1670526665456,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 199770,
+        "price": 162,
+        "locations": [{ "name": 51, "value": 40, "id": 37042018 }]
       }
     ]
   },
   {
-    "sku": "77456465449",
-    "qty": "4565656568",
-    "price": "111",
+    "sku": "gasmen",
+    "qty": 126897,
+    "price": 23859,
     "company": "creekview",
     "companyStreet": "27 Wickhay",
     "companyCity": "Basildon",
     "companyCounty": "essex",
     "companyCountry": "United Kingdom",
     "companyPostcode": "ss15 5ae",
-    "locations": [{ "name": "1", "value": "1", "id": 1670673646293 }],
+    "locations": [{ "name": 56, "value": 14, "id": 83534197 }],
     "history": [
       {
         "date": 1652033465154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 380183,
+        "price": 29,
+        "locations": [{ "name": 4, "value": 51, "id": 36152015 }]
       },
       {
         "date": 1652033465879,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 294389,
+        "price": 86,
+        "locations": [{ "name": 91, "value": 97, "id": 47336189 }]
       },
       {
         "date": 1652033465458,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 344988,
+        "price": 126,
+        "locations": [{ "name": 16, "value": 21, "id": 78344474 }]
       },
       {
         "date": 1654711865485,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 16030,
+        "price": 93,
+        "locations": [{ "name": 45, "value": 20, "id": 90531535 }]
       },
       {
         "date": 1657303865458,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 556201,
+        "price": 99,
+        "locations": [{ "name": 28, "value": 76, "id": 84880868 }]
       },
       {
         "date": 1657303865647,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 627094,
+        "price": 99,
+        "locations": [{ "name": 27, "value": 25, "id": 85448799 }]
       },
       {
         "date": 1657303865154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 921804,
+        "price": 199,
+        "locations": [{ "name": 14, "value": 86, "id": 88789810 }]
       },
       {
         "date": 1659982265147,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 926314,
+        "price": 99,
+        "locations": [{ "name": 60, "value": 7, "id": 72499766 }]
       },
       {
         "date": 1659982265985,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 634502,
+        "price": 23,
+        "locations": [{ "name": 40, "value": 55, "id": 60463350 }]
       },
       {
         "date": 1659982265256,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 962040,
+        "price": 176,
+        "locations": [{ "name": 2, "value": 58, "id": 79257492 }]
       },
       {
         "date": 1659982265154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 48507,
+        "price": 104,
+        "locations": [{ "name": 78, "value": 75, "id": 63912876 }]
       },
       {
         "date": 1659982265684,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 425099,
+        "price": 58,
+        "locations": [{ "name": 35, "value": 16, "id": 7540743 }]
       },
       {
         "date": 1659982265215,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 262352,
+        "price": 42,
+        "locations": [{ "name": 52, "value": 73, "id": 73608773 }]
       },
       {
         "date": 1662660665121,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 108062,
+        "price": 3,
+        "locations": [{ "name": 38, "value": 61, "id": 23334333 }]
       },
       {
         "date": 1662660665845,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 460922,
+        "price": 169,
+        "locations": [{ "name": 78, "value": 37, "id": 57287862 }]
       },
       {
         "date": 1662660665198,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 692864,
+        "price": 199,
+        "locations": [{ "name": 96, "value": 66, "id": 39624252 }]
       },
       {
         "date": 1665252665456,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 869960,
+        "price": 119,
+        "locations": [{ "name": 27, "value": 93, "id": 69504773 }]
       },
       {
         "date": 1665252665484,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 870935,
+        "price": 10,
+        "locations": [{ "name": 87, "value": 42, "id": 28885340 }]
       },
       {
         "date": 1665252665111,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 636517,
+        "price": 40,
+        "locations": [{ "name": 30, "value": 49, "id": 21492743 }]
       },
       {
         "date": 1665252665556,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 706218,
+        "price": 31,
+        "locations": [{ "name": 56, "value": 91, "id": 16343823 }]
       },
       {
         "date": 1667934665454,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 658567,
+        "price": 24,
+        "locations": [{ "name": 56, "value": 42, "id": 85615445 }]
       },
       {
         "date": 1667934665456,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 592226,
+        "price": 33,
+        "locations": [{ "name": 51, "value": 82, "id": 31102253 }]
       },
       {
         "date": 1667934665854,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 759965,
+        "price": 51,
+        "locations": [{ "name": 20, "value": 73, "id": 27433979 }]
       },
       {
         "date": 1670526665154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 67294,
+        "price": 181,
+        "locations": [{ "name": 18, "value": 78, "id": 70095125 }]
       },
       {
         "date": 1670526665125,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 304686,
+        "price": 134,
+        "locations": [{ "name": 34, "value": 81, "id": 58275784 }]
       },
       {
         "date": 1670526665456,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 883902,
+        "price": 109,
+        "locations": [{ "name": 66, "value": 86, "id": 30394223 }]
       }
     ]
   },
   {
-    "sku": "77456465449",
-    "qty": "4565656568",
-    "price": "111",
+    "sku": "precentorial",
+    "qty": 61245,
+    "price": 23701,
     "company": "creekview",
     "companyStreet": "27 Wickhay",
     "companyCity": "Basildon",
     "companyCounty": "essex",
     "companyCountry": "United Kingdom",
     "companyPostcode": "ss15 5ae",
-    "locations": [{ "name": "1", "value": "1", "id": 1670673646293 }],
+    "locations": [{ "name": 45, "value": 92, "id": 18214758 }],
     "history": [
       {
         "date": 1652033465154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 852912,
+        "price": 92,
+        "locations": [{ "name": 70, "value": 84, "id": 9175485 }]
       },
       {
         "date": 1652033465879,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 677695,
+        "price": 173,
+        "locations": [{ "name": 33, "value": 12, "id": 14681642 }]
       },
       {
         "date": 1652033465458,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 735038,
+        "price": 190,
+        "locations": [{ "name": 63, "value": 10, "id": 64152778 }]
       },
       {
         "date": 1654711865485,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 775273,
+        "price": 82,
+        "locations": [{ "name": 14, "value": 94, "id": 42975589 }]
       },
       {
         "date": 1657303865458,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 374242,
+        "price": 162,
+        "locations": [{ "name": 86, "value": 43, "id": 59329261 }]
       },
       {
         "date": 1657303865647,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 602893,
+        "price": 5,
+        "locations": [{ "name": 59, "value": 43, "id": 11424695 }]
       },
       {
         "date": 1657303865154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 288605,
+        "price": 155,
+        "locations": [{ "name": 61, "value": 11, "id": 54726827 }]
       },
       {
         "date": 1659982265147,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 886741,
+        "price": 129,
+        "locations": [{ "name": 8, "value": 57, "id": 29342219 }]
       },
       {
         "date": 1659982265985,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 715703,
+        "price": 30,
+        "locations": [{ "name": 88, "value": 18, "id": 44964356 }]
       },
       {
         "date": 1659982265256,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 182641,
+        "price": 30,
+        "locations": [{ "name": 31, "value": 73, "id": 48088270 }]
       },
       {
         "date": 1659982265154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 149006,
+        "price": 179,
+        "locations": [{ "name": 47, "value": 68, "id": 98890962 }]
       },
       {
         "date": 1659982265684,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 345648,
+        "price": 151,
+        "locations": [{ "name": 73, "value": 43, "id": 8908233 }]
       },
       {
         "date": 1659982265215,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 417454,
+        "price": 91,
+        "locations": [{ "name": 50, "value": 3, "id": 25678834 }]
       },
       {
         "date": 1662660665121,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 160306,
+        "price": 194,
+        "locations": [{ "name": 65, "value": 75, "id": 49682511 }]
       },
       {
         "date": 1662660665845,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 742028,
+        "price": 107,
+        "locations": [{ "name": 7, "value": 50, "id": 32902059 }]
       },
       {
         "date": 1662660665198,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 814583,
+        "price": 194,
+        "locations": [{ "name": 21, "value": 2, "id": 66601605 }]
       },
       {
         "date": 1665252665456,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 121237,
+        "price": 74,
+        "locations": [{ "name": 45, "value": 42, "id": 26878611 }]
       },
       {
         "date": 1665252665484,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 859728,
+        "price": 170,
+        "locations": [{ "name": 71, "value": 36, "id": 36410721 }]
       },
       {
         "date": 1665252665111,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 306123,
+        "price": 58,
+        "locations": [{ "name": 80, "value": 58, "id": 51815818 }]
       },
       {
         "date": 1665252665556,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 3557,
+        "price": 105,
+        "locations": [{ "name": 41, "value": 67, "id": 12581144 }]
       },
       {
         "date": 1667934665454,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 893383,
+        "price": 184,
+        "locations": [{ "name": 15, "value": 59, "id": 85409252 }]
       },
       {
         "date": 1667934665456,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 363600,
+        "price": 121,
+        "locations": [{ "name": 46, "value": 8, "id": 6458037 }]
       },
       {
         "date": 1667934665854,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 462365,
+        "price": 117,
+        "locations": [{ "name": 86, "value": 43, "id": 51252474 }]
       },
       {
         "date": 1670526665154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 20450,
+        "price": 32,
+        "locations": [{ "name": 57, "value": 88, "id": 10991924 }]
       },
       {
         "date": 1670526665125,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 898798,
+        "price": 41,
+        "locations": [{ "name": 15, "value": 89, "id": 97373094 }]
       },
       {
         "date": 1670526665456,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 594160,
+        "price": 162,
+        "locations": [{ "name": 5, "value": 87, "id": 17303130 }]
       }
     ]
   },
   {
-    "sku": "77456465449",
-    "qty": "4565656568",
-    "price": "111",
+    "sku": "deplaned",
+    "qty": 909950,
+    "price": 39644,
     "company": "creekview",
     "companyStreet": "27 Wickhay",
     "companyCity": "Basildon",
     "companyCounty": "essex",
     "companyCountry": "United Kingdom",
     "companyPostcode": "ss15 5ae",
-    "locations": [{ "name": "1", "value": "1", "id": 1670673646293 }],
+    "locations": [{ "name": 8, "value": 35, "id": 24941783 }],
     "history": [
       {
         "date": 1652033465154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 802302,
+        "price": 141,
+        "locations": [{ "name": 70, "value": 1, "id": 57943572 }]
       },
       {
         "date": 1652033465879,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 674501,
+        "price": 114,
+        "locations": [{ "name": 0, "value": 16, "id": 72494585 }]
       },
       {
         "date": 1652033465458,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 704867,
+        "price": 49,
+        "locations": [{ "name": 68, "value": 85, "id": 55270218 }]
       },
       {
         "date": 1654711865485,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 488055,
+        "price": 148,
+        "locations": [{ "name": 15, "value": 25, "id": 65167961 }]
       },
       {
         "date": 1657303865458,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 753762,
+        "price": 98,
+        "locations": [{ "name": 60, "value": 85, "id": 60415933 }]
       },
       {
         "date": 1657303865647,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 284929,
+        "price": 101,
+        "locations": [{ "name": 87, "value": 14, "id": 7118282 }]
       },
       {
         "date": 1657303865154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 808232,
+        "price": 86,
+        "locations": [{ "name": 36, "value": 18, "id": 3816336 }]
       },
       {
         "date": 1659982265147,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 443723,
+        "price": 164,
+        "locations": [{ "name": 45, "value": 35, "id": 60073181 }]
       },
       {
         "date": 1659982265985,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 628920,
+        "price": 95,
+        "locations": [{ "name": 47, "value": 74, "id": 25807911 }]
       },
       {
         "date": 1659982265256,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 303354,
+        "price": 93,
+        "locations": [{ "name": 33, "value": 24, "id": 20390157 }]
       },
       {
         "date": 1659982265154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 977873,
+        "price": 177,
+        "locations": [{ "name": 22, "value": 58, "id": 45207582 }]
       },
       {
         "date": 1659982265684,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 620011,
+        "price": 153,
+        "locations": [{ "name": 18, "value": 81, "id": 94119382 }]
       },
       {
         "date": 1659982265215,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 468392,
+        "price": 115,
+        "locations": [{ "name": 49, "value": 53, "id": 27653857 }]
       },
       {
         "date": 1662660665121,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 74101,
+        "price": 115,
+        "locations": [{ "name": 55, "value": 83, "id": 68069493 }]
       },
       {
         "date": 1662660665845,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 313745,
+        "price": 147,
+        "locations": [{ "name": 49, "value": 99, "id": 68891289 }]
       },
       {
         "date": 1662660665198,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 420126,
+        "price": 132,
+        "locations": [{ "name": 33, "value": 22, "id": 97993309 }]
       },
       {
         "date": 1665252665456,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 51894,
+        "price": 91,
+        "locations": [{ "name": 48, "value": 56, "id": 42464548 }]
       },
       {
         "date": 1665252665484,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 901710,
+        "price": 55,
+        "locations": [{ "name": 61, "value": 60, "id": 92669307 }]
       },
       {
         "date": 1665252665111,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 319044,
+        "price": 25,
+        "locations": [{ "name": 53, "value": 64, "id": 6569936 }]
       },
       {
         "date": 1665252665556,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 739747,
+        "price": 73,
+        "locations": [{ "name": 14, "value": 43, "id": 55718193 }]
       },
       {
         "date": 1667934665454,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 630462,
+        "price": 61,
+        "locations": [{ "name": 3, "value": 21, "id": 82667909 }]
       },
       {
         "date": 1667934665456,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 15295,
+        "price": 72,
+        "locations": [{ "name": 64, "value": 28, "id": 73912648 }]
       },
       {
         "date": 1667934665854,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 329776,
+        "price": 39,
+        "locations": [{ "name": 56, "value": 87, "id": 75201543 }]
       },
       {
         "date": 1670526665154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 393446,
+        "price": 25,
+        "locations": [{ "name": 96, "value": 92, "id": 61080867 }]
       },
       {
         "date": 1670526665125,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 887219,
+        "price": 80,
+        "locations": [{ "name": 77, "value": 11, "id": 30311746 }]
       },
       {
         "date": 1670526665456,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 79542,
+        "price": 106,
+        "locations": [{ "name": 5, "value": 89, "id": 42640751 }]
       }
     ]
   },
   {
-    "sku": "77456465449",
-    "qty": "4565656568",
-    "price": "111",
+    "sku": "neoconservative",
+    "qty": 971835,
+    "price": 33200,
     "company": "creekview",
     "companyStreet": "27 Wickhay",
     "companyCity": "Basildon",
     "companyCounty": "essex",
     "companyCountry": "United Kingdom",
     "companyPostcode": "ss15 5ae",
-    "locations": [{ "name": "1", "value": "1", "id": 1670673646293 }],
+    "locations": [{ "name": 48, "value": 13, "id": 87488430 }],
     "history": [
       {
         "date": 1652033465154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 436362,
+        "price": 189,
+        "locations": [{ "name": 20, "value": 87, "id": 53496377 }]
       },
       {
         "date": 1652033465879,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 197882,
+        "price": 194,
+        "locations": [{ "name": 7, "value": 24, "id": 57406445 }]
       },
       {
         "date": 1652033465458,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 842232,
+        "price": 102,
+        "locations": [{ "name": 48, "value": 46, "id": 27677265 }]
       },
       {
         "date": 1654711865485,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 328370,
+        "price": 147,
+        "locations": [{ "name": 44, "value": 72, "id": 65153353 }]
       },
       {
         "date": 1657303865458,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 579169,
+        "price": 151,
+        "locations": [{ "name": 68, "value": 15, "id": 92542749 }]
       },
       {
         "date": 1657303865647,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 27804,
+        "price": 111,
+        "locations": [{ "name": 78, "value": 64, "id": 15474609 }]
       },
       {
         "date": 1657303865154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 209740,
+        "price": 127,
+        "locations": [{ "name": 25, "value": 83, "id": 60104966 }]
       },
       {
         "date": 1659982265147,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 492515,
+        "price": 160,
+        "locations": [{ "name": 87, "value": 19, "id": 67815142 }]
       },
       {
         "date": 1659982265985,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 663644,
+        "price": 104,
+        "locations": [{ "name": 22, "value": 69, "id": 62131644 }]
       },
       {
         "date": 1659982265256,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 920286,
+        "price": 147,
+        "locations": [{ "name": 48, "value": 32, "id": 64564592 }]
       },
       {
         "date": 1659982265154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 427819,
+        "price": 124,
+        "locations": [{ "name": 38, "value": 34, "id": 85759233 }]
       },
       {
         "date": 1659982265684,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 608915,
+        "price": 77,
+        "locations": [{ "name": 1, "value": 82, "id": 59046236 }]
       },
       {
         "date": 1659982265215,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 31097,
+        "price": 8,
+        "locations": [{ "name": 6, "value": 68, "id": 14963407 }]
       },
       {
         "date": 1662660665121,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 771010,
+        "price": 35,
+        "locations": [{ "name": 71, "value": 47, "id": 37952061 }]
       },
       {
         "date": 1662660665845,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 2193,
+        "price": 109,
+        "locations": [{ "name": 38, "value": 20, "id": 50157318 }]
       },
       {
         "date": 1662660665198,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 462180,
+        "price": 169,
+        "locations": [{ "name": 8, "value": 68, "id": 91973034 }]
       },
       {
         "date": 1665252665456,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 472797,
+        "price": 93,
+        "locations": [{ "name": 23, "value": 83, "id": 75910904 }]
       },
       {
         "date": 1665252665484,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 659520,
+        "price": 185,
+        "locations": [{ "name": 8, "value": 79, "id": 61363741 }]
       },
       {
         "date": 1665252665111,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 44972,
+        "price": 29,
+        "locations": [{ "name": 22, "value": 79, "id": 64577726 }]
       },
       {
         "date": 1665252665556,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 224089,
+        "price": 185,
+        "locations": [{ "name": 19, "value": 40, "id": 96879287 }]
       },
       {
         "date": 1667934665454,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 756385,
+        "price": 8,
+        "locations": [{ "name": 32, "value": 92, "id": 53999927 }]
       },
       {
         "date": 1667934665456,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 966747,
+        "price": 75,
+        "locations": [{ "name": 12, "value": 0, "id": 44258444 }]
       },
       {
         "date": 1667934665854,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 32099,
+        "price": 119,
+        "locations": [{ "name": 21, "value": 77, "id": 97266638 }]
       },
       {
         "date": 1670526665154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 995115,
+        "price": 180,
+        "locations": [{ "name": 88, "value": 10, "id": 14075480 }]
       },
       {
         "date": 1670526665125,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 675005,
+        "price": 66,
+        "locations": [{ "name": 79, "value": 7, "id": 99421884 }]
       },
       {
         "date": 1670526665456,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 835417,
+        "price": 51,
+        "locations": [{ "name": 23, "value": 82, "id": 73838214 }]
       }
     ]
   },
   {
-    "sku": "77456465449",
-    "qty": "4565656568",
-    "price": "111",
+    "sku": "diary",
+    "qty": 199934,
+    "price": 19822,
     "company": "creekview",
     "companyStreet": "27 Wickhay",
     "companyCity": "Basildon",
     "companyCounty": "essex",
     "companyCountry": "United Kingdom",
     "companyPostcode": "ss15 5ae",
-    "locations": [{ "name": "1", "value": "1", "id": 1670673646293 }],
+    "locations": [{ "name": 33, "value": 2, "id": 78875046 }],
     "history": [
       {
         "date": 1652033465154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 504495,
+        "price": 26,
+        "locations": [{ "name": 56, "value": 65, "id": 18500269 }]
       },
       {
         "date": 1652033465879,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 847772,
+        "price": 69,
+        "locations": [{ "name": 77, "value": 38, "id": 79262118 }]
       },
       {
         "date": 1652033465458,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 787210,
+        "price": 73,
+        "locations": [{ "name": 90, "value": 35, "id": 70546269 }]
       },
       {
         "date": 1654711865485,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 227730,
+        "price": 18,
+        "locations": [{ "name": 64, "value": 45, "id": 72124116 }]
       },
       {
         "date": 1657303865458,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 751106,
+        "price": 62,
+        "locations": [{ "name": 78, "value": 34, "id": 13001748 }]
       },
       {
         "date": 1657303865647,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 652753,
+        "price": 41,
+        "locations": [{ "name": 3, "value": 41, "id": 36344900 }]
       },
       {
         "date": 1657303865154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 208867,
+        "price": 29,
+        "locations": [{ "name": 22, "value": 73, "id": 99533897 }]
       },
       {
         "date": 1659982265147,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 258596,
+        "price": 56,
+        "locations": [{ "name": 19, "value": 64, "id": 8936434 }]
       },
       {
         "date": 1659982265985,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 205025,
+        "price": 68,
+        "locations": [{ "name": 17, "value": 34, "id": 32611646 }]
       },
       {
         "date": 1659982265256,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 783894,
+        "price": 100,
+        "locations": [{ "name": 18, "value": 53, "id": 19779211 }]
       },
       {
         "date": 1659982265154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 609426,
+        "price": 106,
+        "locations": [{ "name": 90, "value": 38, "id": 72461667 }]
       },
       {
         "date": 1659982265684,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 594513,
+        "price": 107,
+        "locations": [{ "name": 29, "value": 79, "id": 32449696 }]
       },
       {
         "date": 1659982265215,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 176496,
+        "price": 16,
+        "locations": [{ "name": 18, "value": 37, "id": 42264345 }]
       },
       {
         "date": 1662660665121,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 596051,
+        "price": 132,
+        "locations": [{ "name": 45, "value": 68, "id": 36954552 }]
       },
       {
         "date": 1662660665845,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 992091,
+        "price": 94,
+        "locations": [{ "name": 94, "value": 88, "id": 24325933 }]
       },
       {
         "date": 1662660665198,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 620555,
+        "price": 128,
+        "locations": [{ "name": 66, "value": 92, "id": 93790072 }]
       },
       {
         "date": 1665252665456,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 403757,
+        "price": 89,
+        "locations": [{ "name": 77, "value": 91, "id": 23937464 }]
       },
       {
         "date": 1665252665484,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 316709,
+        "price": 129,
+        "locations": [{ "name": 65, "value": 20, "id": 60242259 }]
       },
       {
         "date": 1665252665111,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 776505,
+        "price": 179,
+        "locations": [{ "name": 25, "value": 16, "id": 83349332 }]
       },
       {
         "date": 1665252665556,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 354843,
+        "price": 184,
+        "locations": [{ "name": 77, "value": 23, "id": 55054181 }]
       },
       {
         "date": 1667934665454,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 147497,
+        "price": 91,
+        "locations": [{ "name": 84, "value": 23, "id": 66738501 }]
       },
       {
         "date": 1667934665456,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 737310,
+        "price": 18,
+        "locations": [{ "name": 53, "value": 30, "id": 47898456 }]
       },
       {
         "date": 1667934665854,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 200897,
+        "price": 13,
+        "locations": [{ "name": 1, "value": 18, "id": 74470336 }]
       },
       {
         "date": 1670526665154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 21903,
+        "price": 141,
+        "locations": [{ "name": 37, "value": 45, "id": 80939100 }]
       },
       {
         "date": 1670526665125,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 500166,
+        "price": 136,
+        "locations": [{ "name": 63, "value": 85, "id": 60484741 }]
       },
       {
         "date": 1670526665456,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 952586,
+        "price": 98,
+        "locations": [{ "name": 63, "value": 79, "id": 3668157 }]
       }
     ]
   },
   {
-    "sku": "77456465449",
-    "qty": "4565656568",
-    "price": "111",
+    "sku": "estrogen",
+    "qty": 690612,
+    "price": 18065,
     "company": "creekview",
     "companyStreet": "27 Wickhay",
     "companyCity": "Basildon",
     "companyCounty": "essex",
     "companyCountry": "United Kingdom",
     "companyPostcode": "ss15 5ae",
-    "locations": [{ "name": "1", "value": "1", "id": 1670673646293 }],
+    "locations": [{ "name": 27, "value": 88, "id": 14229828 }],
     "history": [
       {
         "date": 1652033465154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 519748,
+        "price": 186,
+        "locations": [{ "name": 85, "value": 9, "id": 31922753 }]
       },
       {
         "date": 1652033465879,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 780550,
+        "price": 145,
+        "locations": [{ "name": 8, "value": 8, "id": 18123867 }]
       },
       {
         "date": 1652033465458,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 277245,
+        "price": 37,
+        "locations": [{ "name": 94, "value": 28, "id": 58459284 }]
       },
       {
         "date": 1654711865485,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 813611,
+        "price": 139,
+        "locations": [{ "name": 38, "value": 51, "id": 13430032 }]
       },
       {
         "date": 1657303865458,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 162704,
+        "price": 173,
+        "locations": [{ "name": 54, "value": 34, "id": 33095592 }]
       },
       {
         "date": 1657303865647,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 742985,
+        "price": 170,
+        "locations": [{ "name": 22, "value": 68, "id": 15798886 }]
       },
       {
         "date": 1657303865154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 455362,
+        "price": 174,
+        "locations": [{ "name": 27, "value": 21, "id": 54138183 }]
       },
       {
         "date": 1659982265147,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 453892,
+        "price": 9,
+        "locations": [{ "name": 19, "value": 72, "id": 88109140 }]
       },
       {
         "date": 1659982265985,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 216949,
+        "price": 107,
+        "locations": [{ "name": 54, "value": 30, "id": 32225985 }]
       },
       {
         "date": 1659982265256,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 226537,
+        "price": 123,
+        "locations": [{ "name": 11, "value": 30, "id": 59287914 }]
       },
       {
         "date": 1659982265154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 685909,
+        "price": 119,
+        "locations": [{ "name": 37, "value": 12, "id": 93360752 }]
       },
       {
         "date": 1659982265684,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 85408,
+        "price": 147,
+        "locations": [{ "name": 65, "value": 48, "id": 57674685 }]
       },
       {
         "date": 1659982265215,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 156387,
+        "price": 149,
+        "locations": [{ "name": 12, "value": 66, "id": 22997435 }]
       },
       {
         "date": 1662660665121,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 994766,
+        "price": 13,
+        "locations": [{ "name": 3, "value": 37, "id": 17162126 }]
       },
       {
         "date": 1662660665845,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 716360,
+        "price": 181,
+        "locations": [{ "name": 84, "value": 95, "id": 50612922 }]
       },
       {
         "date": 1662660665198,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 914211,
+        "price": 71,
+        "locations": [{ "name": 71, "value": 70, "id": 92481779 }]
       },
       {
         "date": 1665252665456,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 327106,
+        "price": 29,
+        "locations": [{ "name": 60, "value": 27, "id": 2932010 }]
       },
       {
         "date": 1665252665484,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 533883,
+        "price": 125,
+        "locations": [{ "name": 42, "value": 74, "id": 24001156 }]
       },
       {
         "date": 1665252665111,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 179312,
+        "price": 112,
+        "locations": [{ "name": 22, "value": 41, "id": 27853919 }]
       },
       {
         "date": 1665252665556,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 127163,
+        "price": 89,
+        "locations": [{ "name": 66, "value": 26, "id": 72409681 }]
       },
       {
         "date": 1667934665454,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 622108,
+        "price": 44,
+        "locations": [{ "name": 87, "value": 57, "id": 90580208 }]
       },
       {
         "date": 1667934665456,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 600297,
+        "price": 131,
+        "locations": [{ "name": 40, "value": 64, "id": 57856588 }]
       },
       {
         "date": 1667934665854,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 640252,
+        "price": 196,
+        "locations": [{ "name": 7, "value": 3, "id": 526620 }]
       },
       {
         "date": 1670526665154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 399965,
+        "price": 161,
+        "locations": [{ "name": 72, "value": 88, "id": 50211606 }]
       },
       {
         "date": 1670526665125,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 56744,
+        "price": 69,
+        "locations": [{ "name": 91, "value": 78, "id": 68991560 }]
       },
       {
         "date": 1670526665456,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 235708,
+        "price": 129,
+        "locations": [{ "name": 13, "value": 44, "id": 97943027 }]
       }
     ]
   },
   {
-    "sku": "77456465449",
-    "qty": "4565656568",
-    "price": "111",
+    "sku": "unspool",
+    "qty": 139984,
+    "price": 31941,
     "company": "creekview",
     "companyStreet": "27 Wickhay",
     "companyCity": "Basildon",
     "companyCounty": "essex",
     "companyCountry": "United Kingdom",
     "companyPostcode": "ss15 5ae",
-    "locations": [{ "name": "1", "value": "1", "id": 1670673646293 }],
+    "locations": [{ "name": 69, "value": 24, "id": 72558035 }],
     "history": [
       {
         "date": 1652033465154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 651521,
+        "price": 192,
+        "locations": [{ "name": 34, "value": 87, "id": 95453280 }]
       },
       {
         "date": 1652033465879,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 139370,
+        "price": 137,
+        "locations": [{ "name": 85, "value": 38, "id": 33036707 }]
       },
       {
         "date": 1652033465458,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 910952,
+        "price": 60,
+        "locations": [{ "name": 29, "value": 26, "id": 44140463 }]
       },
       {
         "date": 1654711865485,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 138978,
+        "price": 137,
+        "locations": [{ "name": 60, "value": 57, "id": 22995128 }]
       },
       {
         "date": 1657303865458,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 356351,
+        "price": 148,
+        "locations": [{ "name": 9, "value": 16, "id": 59472699 }]
       },
       {
         "date": 1657303865647,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 442503,
+        "price": 68,
+        "locations": [{ "name": 58, "value": 84, "id": 65651320 }]
       },
       {
         "date": 1657303865154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 491439,
+        "price": 189,
+        "locations": [{ "name": 41, "value": 69, "id": 38392957 }]
       },
       {
         "date": 1659982265147,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 67236,
+        "price": 101,
+        "locations": [{ "name": 66, "value": 38, "id": 41555495 }]
       },
       {
         "date": 1659982265985,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 43464,
+        "price": 129,
+        "locations": [{ "name": 3, "value": 90, "id": 89739454 }]
       },
       {
         "date": 1659982265256,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 207952,
+        "price": 126,
+        "locations": [{ "name": 60, "value": 38, "id": 34402544 }]
       },
       {
         "date": 1659982265154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 772592,
+        "price": 66,
+        "locations": [{ "name": 66, "value": 42, "id": 26000804 }]
       },
       {
         "date": 1659982265684,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 648515,
+        "price": 34,
+        "locations": [{ "name": 47, "value": 52, "id": 35190852 }]
       },
       {
         "date": 1659982265215,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 81733,
+        "price": 125,
+        "locations": [{ "name": 22, "value": 9, "id": 52234574 }]
       },
       {
         "date": 1662660665121,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 999330,
+        "price": 65,
+        "locations": [{ "name": 90, "value": 63, "id": 46759941 }]
       },
       {
         "date": 1662660665845,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 757845,
+        "price": 8,
+        "locations": [{ "name": 86, "value": 83, "id": 65168603 }]
       },
       {
         "date": 1662660665198,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 614615,
+        "price": 197,
+        "locations": [{ "name": 6, "value": 67, "id": 88627831 }]
       },
       {
         "date": 1665252665456,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 993092,
+        "price": 139,
+        "locations": [{ "name": 32, "value": 59, "id": 73884504 }]
       },
       {
         "date": 1665252665484,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 996277,
+        "price": 130,
+        "locations": [{ "name": 40, "value": 12, "id": 55710480 }]
       },
       {
         "date": 1665252665111,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 120144,
+        "price": 82,
+        "locations": [{ "name": 59, "value": 27, "id": 92451682 }]
       },
       {
         "date": 1665252665556,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 635660,
+        "price": 76,
+        "locations": [{ "name": 4, "value": 63, "id": 38601420 }]
       },
       {
         "date": 1667934665454,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 376189,
+        "price": 52,
+        "locations": [{ "name": 16, "value": 2, "id": 61848219 }]
       },
       {
         "date": 1667934665456,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 553518,
+        "price": 120,
+        "locations": [{ "name": 36, "value": 32, "id": 32092659 }]
       },
       {
         "date": 1667934665854,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 52757,
+        "price": 35,
+        "locations": [{ "name": 36, "value": 70, "id": 96665836 }]
       },
       {
         "date": 1670526665154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 530907,
+        "price": 194,
+        "locations": [{ "name": 57, "value": 35, "id": 14499413 }]
       },
       {
         "date": 1670526665125,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 928074,
+        "price": 48,
+        "locations": [{ "name": 81, "value": 26, "id": 35733972 }]
       },
       {
         "date": 1670526665456,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 745659,
+        "price": 187,
+        "locations": [{ "name": 27, "value": 68, "id": 83138133 }]
       }
     ]
   },
-
   {
-    "sku": "77456465449",
-    "qty": "4565656568",
-    "price": "111",
+    "sku": "purism",
+    "qty": 960199,
+    "price": 27650,
     "company": "creekview",
     "companyStreet": "27 Wickhay",
     "companyCity": "Basildon",
     "companyCounty": "essex",
     "companyCountry": "United Kingdom",
     "companyPostcode": "ss15 5ae",
-    "locations": [{ "name": "1", "value": "1", "id": 1670673646293 }],
+    "locations": [{ "name": 4, "value": 93, "id": 83381404 }],
     "history": [
       {
         "date": 1652033465154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 764358,
+        "price": 182,
+        "locations": [{ "name": 28, "value": 37, "id": 66165062 }]
       },
       {
         "date": 1652033465879,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 286386,
+        "price": 148,
+        "locations": [{ "name": 41, "value": 41, "id": 60792274 }]
       },
       {
         "date": 1652033465458,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 284186,
+        "price": 27,
+        "locations": [{ "name": 24, "value": 28, "id": 4477363 }]
       },
       {
         "date": 1654711865485,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 252465,
+        "price": 120,
+        "locations": [{ "name": 33, "value": 65, "id": 36515851 }]
       },
       {
         "date": 1657303865458,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 411379,
+        "price": 37,
+        "locations": [{ "name": 65, "value": 3, "id": 52446069 }]
       },
       {
         "date": 1657303865647,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 363323,
+        "price": 161,
+        "locations": [{ "name": 70, "value": 30, "id": 21814248 }]
       },
       {
         "date": 1657303865154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 583216,
+        "price": 95,
+        "locations": [{ "name": 26, "value": 64, "id": 87472441 }]
       },
       {
         "date": 1659982265147,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 309067,
+        "price": 32,
+        "locations": [{ "name": 46, "value": 73, "id": 54957083 }]
       },
       {
         "date": 1659982265985,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 915735,
+        "price": 130,
+        "locations": [{ "name": 19, "value": 10, "id": 1659359 }]
       },
       {
         "date": 1659982265256,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 27833,
+        "price": 127,
+        "locations": [{ "name": 68, "value": 49, "id": 29425723 }]
       },
       {
         "date": 1659982265154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 643725,
+        "price": 93,
+        "locations": [{ "name": 18, "value": 17, "id": 57110853 }]
       },
       {
         "date": 1659982265684,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 560843,
+        "price": 89,
+        "locations": [{ "name": 20, "value": 23, "id": 66665728 }]
       },
       {
         "date": 1659982265215,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 494301,
+        "price": 52,
+        "locations": [{ "name": 70, "value": 31, "id": 41330308 }]
       },
       {
         "date": 1662660665121,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 989159,
+        "price": 9,
+        "locations": [{ "name": 30, "value": 62, "id": 51963309 }]
       },
       {
         "date": 1662660665845,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 303930,
+        "price": 44,
+        "locations": [{ "name": 92, "value": 70, "id": 67074620 }]
       },
       {
         "date": 1662660665198,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 524738,
+        "price": 28,
+        "locations": [{ "name": 61, "value": 7, "id": 90269904 }]
       },
       {
         "date": 1665252665456,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 948822,
+        "price": 89,
+        "locations": [{ "name": 71, "value": 12, "id": 38997637 }]
       },
       {
         "date": 1665252665484,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 963686,
+        "price": 122,
+        "locations": [{ "name": 5, "value": 90, "id": 80221583 }]
       },
       {
         "date": 1665252665111,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 96267,
+        "price": 17,
+        "locations": [{ "name": 17, "value": 49, "id": 6260362 }]
       },
       {
         "date": 1665252665556,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 843494,
+        "price": 102,
+        "locations": [{ "name": 16, "value": 21, "id": 65045877 }]
       },
       {
         "date": 1667934665454,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 430143,
+        "price": 51,
+        "locations": [{ "name": 88, "value": 8, "id": 90625084 }]
       },
       {
         "date": 1667934665456,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 101280,
+        "price": 188,
+        "locations": [{ "name": 41, "value": 27, "id": 40714267 }]
       },
       {
         "date": 1667934665854,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 926417,
+        "price": 147,
+        "locations": [{ "name": 46, "value": 42, "id": 26142196 }]
       },
       {
         "date": 1670526665154,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 433925,
+        "price": 187,
+        "locations": [{ "name": 19, "value": 15, "id": 88730251 }]
       },
       {
         "date": 1670526665125,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 267556,
+        "price": 111,
+        "locations": [{ "name": 7, "value": 84, "id": 70315676 }]
       },
       {
         "date": 1670526665456,
-        "qty": "12",
-        "price": "12",
-        "locations": [{ "name": "1", "value": "1", "id": 1671080204437 }]
+        "qty": 504966,
+        "price": 124,
+        "locations": [{ "name": 42, "value": 33, "id": 85685943 }]
       }
     ]
   }
