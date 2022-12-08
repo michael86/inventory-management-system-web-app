@@ -64,6 +64,13 @@ Certain state will only be local storage (enabling dark mode and such)
 - [x] handle form submit and store to local state (send to back end when complete)
 - [x] Refactor to support pre filling.
 
+### Dashboard
+
+this is going to be a headache for testing
+
+- [ ] reduce price pie chart to only 5
+- [ ] add filters to both charts for highest and lowest
+
 ### general
 
 - [ ] Create static pages
