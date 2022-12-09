@@ -9,6 +9,7 @@ import {
   Legend,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
+import { Form, InputGroup } from "react-bootstrap";
 
 const chartOptions = {
   responsive: true,

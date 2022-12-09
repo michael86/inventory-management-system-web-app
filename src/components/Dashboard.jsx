@@ -16,6 +16,7 @@ import { Row, Col } from "react-bootstrap";
 
 import UseageChart from "./Charts/UseageChart";
 import { getHalfMonths } from "../utils";
+import UseageChartForm from "./Charts/UsageChartForm";
 
 const Dashboard = () => {
   ChartJS.register(
@@ -122,7 +123,8 @@ const Dashboard = () => {
       <h1 className="text-center">{user.company}</h1>
 
       <Row className="mx-4">
-        <Col xs={12} lg={6} className="d-flex justify-content-center">
+        <Col xs={12} lg={6}>
+          <UseageChartForm />
           <UseageChart
             plugins={mostStockPlugins}
             labels={mostStockMonths}
