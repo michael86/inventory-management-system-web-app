@@ -17,6 +17,7 @@ import { Row, Col } from "react-bootstrap";
 import UseageChart from "./Charts/UseageChart";
 import { getHalfMonths } from "../utils";
 import UseageChartForm from "./Charts/UsageChartForm";
+import { genChartObject } from "./Dashboard/Utils";
 
 const Dashboard = () => {
   ChartJS.register(
@@ -60,8 +61,8 @@ const Dashboard = () => {
     };
   };
 
-  const mostStockMonths = getHalfMonths(true).sort((a, b) => (a - b ? 1 : -1));
-  const mostStockPlugins = {
+  const useageMonths = getHalfMonths(true).sort((a, b) => (a - b ? 1 : -1));
+  const useagePlugins = {
     legend: {
       position: "top",
     },
@@ -71,52 +72,13 @@ const Dashboard = () => {
     },
   };
 
-  let mostStockDataHighest = stockCopy.sort((a, b) => +a.qty - +b.qty);
-
-  mostStockDataHighest = mostStockDataHighest.slice(
-    //grab last 5
-    mostStockDataHighest.length - 6
+  let useageData = stockCopy.sort((a, b) => +a.qty - +b.qty);
+  useageData = genChartObject(
+    useageData.slice(
+      //grab last 6
+      useageData.length - 6
+    )
   );
-
-  const data = mostStockDataHighest.map((item) => {
-    let obj = {}; //Object containing the month (int) as key and values that month stock []
-    const date = new Date();
-    const curMonth = date.getMonth();
-
-    if (item.history) {
-      item.history.sort((a, b) => a.date - b.date); //Sort history by date
-
-      item.history.forEach((his) => {
-        const date = new Date(his.date); // generate 2d array and push month stock to relevant child []
-        const month = date.getMonth();
-        obj[month] ? obj[month].push(his.qty) : (obj[month] = [his.qty]);
-      });
-    }
-
-    obj[curMonth] ? obj[curMonth].push(item.qty) : (obj[curMonth] = [item.qty]); //push the latest stock to last array or create it
-
-    obj = Object.values(obj); //turn obj to array
-    obj = obj.slice(obj.length - 6); // slice of the last 6 months
-
-    obj.forEach(
-      //sum up each child array
-      (item, index) =>
-        (obj[index] = item.reduce(
-          (accumulator, value) => accumulator + value,
-          0
-        ))
-    );
-
-    return obj;
-  });
-
-  const useageData = mostStockDataHighest.map((item, index) => {
-    return {
-      label: item.sku,
-      data: data[index], //Here we will need to sort by date, then map the resval tp data
-      backgroundColor: "rgba(255, 99, 132, 0.5)", //Gen rand color
-    };
-  });
 
   return (
     <>
@@ -126,8 +88,8 @@ const Dashboard = () => {
         <Col xs={12} lg={6}>
           <UseageChartForm />
           <UseageChart
-            plugins={mostStockPlugins}
-            labels={mostStockMonths}
+            plugins={useagePlugins}
+            labels={useageMonths}
             datasets={useageData}
           />
         </Col>
