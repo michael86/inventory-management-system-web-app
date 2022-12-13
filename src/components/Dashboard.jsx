@@ -17,7 +17,8 @@ import { Row, Col } from "react-bootstrap";
 import UseageChart from "./Charts/UseageChart";
 import { getHalfMonths } from "../utils";
 import UseageChartForm from "./Charts/UsageChartForm";
-import { genChartObject } from "./Dashboard/Utils";
+import { createDateObject, genChartObject } from "./Dashboard/Utils";
+import { useState } from "react";
 
 const Dashboard = () => {
   ChartJS.register(
@@ -35,6 +36,7 @@ const Dashboard = () => {
   const user = useSelector((state) => state.user);
   const stock = useSelector((state) => state.stock.stock);
   const stockCopy = JSON.parse(JSON.stringify(stock));
+  const dateObject = useState(createDateObject(stockCopy));
 
   const genRandColor = () => {
     const randNum = () => Math.floor(Math.random() * 255);
