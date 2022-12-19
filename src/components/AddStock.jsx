@@ -78,6 +78,7 @@ const AddStock = () => {
     const copy = [...stock];
 
     const data = Object.fromEntries(new FormData(e.target));
+    data.dateCreated = Date.now();
 
     delete data["location-name"]; //clean up inputs not required
     delete data["location-value"];

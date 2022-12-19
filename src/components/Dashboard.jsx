@@ -17,7 +17,11 @@ import { Row, Col } from "react-bootstrap";
 import UseageChart from "./Charts/UseageChart";
 import { getHalfMonths } from "../utils";
 import UseageChartForm from "./Charts/UsageChartForm";
-import { createDateObject, genChartObject } from "./Dashboard/Utils";
+import {
+  createDateObject,
+  genChartObject,
+  getHighestCount,
+} from "./Dashboard/Utils";
 import { useState } from "react";
 
 const Dashboard = () => {
@@ -36,7 +40,9 @@ const Dashboard = () => {
   const user = useSelector((state) => state.user);
   const stock = useSelector((state) => state.stock.stock);
   const stockCopy = JSON.parse(JSON.stringify(stock));
-  const dateObject = useState(createDateObject(stockCopy));
+  const [dateObject, setDateObject] = useState(createDateObject(stockCopy));
+
+  getHighestCount(dateObject);
 
   const genRandColor = () => {
     const randNum = () => Math.floor(Math.random() * 255);
@@ -87,15 +93,15 @@ const Dashboard = () => {
       <h1 className="text-center">{user.company}</h1>
 
       <Row className="mx-4">
+        <UseageChartForm dateObject={dateObject} />
         <Col xs={12} lg={6}>
-          <UseageChartForm />
           <UseageChart
             plugins={useagePlugins}
             labels={useageMonths}
             datasets={useageData}
           />
         </Col>
-        <Col xs={12} lg={6} className="d-flex justify-content-center">
+        <Col xs={12} lg={6}>
           <Pie data={generateCostDataSet()} />
         </Col>
         {/* <Col xs={12} lg={6} className="d-flex justify-content-center">
