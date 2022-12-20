@@ -42,7 +42,7 @@ const Dashboard = () => {
   const stockCopy = JSON.parse(JSON.stringify(stock));
   const [dateObject, setDateObject] = useState(createDateObject(stockCopy));
 
-  getHighestCount(dateObject);
+  // getHighestCount(dateObject);
 
   const genRandColor = () => {
     const randNum = () => Math.floor(Math.random() * 255);

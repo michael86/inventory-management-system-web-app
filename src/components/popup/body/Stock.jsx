@@ -80,13 +80,6 @@ const Stock = () => {
     delete data["location-name"]; //clean up inputs not required
     delete data["location-value"];
 
-    const historyEntry = {
-      date: Date.now(),
-      qty: stockCopy[stockIndex].qty,
-      price: stockCopy[stockIndex].price,
-      locations: stockCopy[stockIndex].locations,
-    };
-
     Object.keys(itemCopy).forEach(
       (item) => (itemCopy[item] = data[item] || itemCopy[item])
     );
@@ -98,7 +91,12 @@ const Stock = () => {
 
     stockCopy[stockIndex].history = stockCopy[stockIndex].history || [];
 
-    stockCopy[stockIndex].history.push(historyEntry);
+    stockCopy[stockIndex].history.push({
+      date: Date.now(),
+      qty: itemCopy.qty,
+      price: itemCopy.price,
+      locations: itemCopy.locations,
+    });
 
     dispatch(setPopupStock(itemCopy));
     dispatch(setStock(stockCopy));

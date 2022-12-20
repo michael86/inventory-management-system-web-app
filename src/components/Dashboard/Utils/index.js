@@ -15,43 +15,47 @@
 export const createDateObject = (obj) => {
   const dateObject = {};
 
+  const breakUpDate = (date) => {
+    const d = date ? new Date(date * 1000) : new Date();
+    const day = d.getDate();
+    const month = d.getMonth();
+    const year = d.getFullYear();
+    return [day, month, year];
+  };
+
   //Iterate over each item, UID = item.sku
   obj.forEach((item) => {
-    //sort history here
-    console.log("item", item);
+    const [dateCreated, monthCreated, yearCreated] = breakUpDate(
+      item.dateCreated
+    );
 
+    const [currentDate, currentMonth, currentYear] = breakUpDate();
+
+    item.history?.sort((a, b) => a.date - b.date); //If history, sort by date
+
+    //Create our entry points
+    dateObject[yearCreated] = dateObject[yearCreated] || {};
+
+    dateObject[yearCreated][monthCreated] =
+      dateObject[yearCreated][monthCreated] || {};
+
+    let price, runningTotal;
+
+    //Check history to see if we have one for this month in time.
+
+    /**Michael, no doubt you'll forget what you're thinkging when returning...
+     * You plan to iterate from the date created, and keep adding a month or year until you're at the present month/year (currentMonth, currentYear).
+     * Filling in each gap as you go. If there's not a current month and year contained in the history, check the past as we can assume the last snapshot reflects its current state.!
+     * 
+     
+     **/
     item.history?.forEach((history) => {
-      //Begin adding our history to the object
-      const date = new Date(history.date * 1000);
-      const year = date.getFullYear();
-      const month = date.getMonth();
+      const [historyDate, historyMonth, historyYear] = breakUpDate(
+        history.date
+      );
 
-      dateObject[year] = dateObject[year] || {};
-
-      dateObject[year][month] = dateObject[year][month] || {};
-
-      dateObject[year][month][item.sku] =
-        dateObject[year][month][item.sku] || {};
-
-      dateObject[year][month][item.sku].runningTotal = 1000;
-
-      dateObject[year][month][item.sku].price = 1000;
+      console.log(historyDate, historyMonth, historyYear);
     });
-
-    //Here we need to check if sku is in every history! We can do this by checking dateCreated against that year/month
-    const currentDate = new Date();
-    const currentYear = currentDate.getFullYear();
-    const currentMonth = currentDate.getMonth();
-
-    /// Just incase this year || month didn't have an history
-    dateObject[currentYear] = dateObject[currentYear] || {};
-    dateObject[currentYear][currentMonth] =
-      dateObject[currentYear][currentMonth] || {};
-    dateObject[currentYear][currentMonth][item.sku] =
-      dateObject[currentYear][currentMonth][item.sku] || {};
-
-    dateObject[currentYear][currentMonth][item.sku].runningTotal = 9999;
-    dateObject[currentYear][currentMonth][item.sku].price = 9999;
   });
 
   return dateObject;
@@ -124,7 +128,7 @@ export const getHighestCount = (
    * reflect the same layout as the date object keys. This should then allow us to iterate over the retval
    * to create the datasets and labels.
    **/
-  console.log("dateObject", dateObject);
+
   const retval = {};
   for (const year in timeSpan) {
     timeSpan[year].forEach((month) => {
@@ -134,6 +138,4 @@ export const getHighestCount = (
       }
     });
   }
-
-  console.log("retval", retval);
 };

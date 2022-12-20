@@ -84,6 +84,15 @@ const AddStock = () => {
     delete data["location-value"];
 
     data.locations = locations;
+    data.history = [
+      {
+        date: Date.now(),
+        qty: data.qty,
+        price: data.price,
+        locations: data.locations,
+      },
+    ];
+
     copy.push(data);
     dispatch(setStock(copy));
     resetState(e);
