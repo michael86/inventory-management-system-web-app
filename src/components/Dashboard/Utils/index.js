@@ -15,47 +15,55 @@
 export const createDateObject = (obj) => {
   const dateObject = {};
 
+  //Destructure unix into month and year ints
   const breakUpDate = (date) => {
-    const d = date ? new Date(date * 1000) : new Date();
-    const day = d.getDate();
+    const d = date ? new Date(date) : new Date();
     const month = d.getMonth();
     const year = d.getFullYear();
-    return [day, month, year];
+    return [month, year];
   };
 
-  //Iterate over each item, UID = item.sku
+  const [currentMonth, currentYear] = breakUpDate(); //Used to ensure we eventually break out of the while loop when we are in the present
+
   obj.forEach((item) => {
-    const [dateCreated, monthCreated, yearCreated] = breakUpDate(
-      item.dateCreated
-    );
+    /**To start with, we sort the item history by date ascending.
+     * We then start from the first point in history, which is the date created.
+     * This means if the item is not at a point in the past, it wasn't added to the store yet.
+     */
 
-    const [currentDate, currentMonth, currentYear] = breakUpDate();
+    item.history.sort((a, b) => a.date - b.date);
 
-    item.history?.sort((a, b) => a.date - b.date); //If history, sort by date
+    let [monthCounter, yearCounter] = breakUpDate(item.dateCreated * 1000);
 
-    //Create our entry points
-    dateObject[yearCreated] = dateObject[yearCreated] || {};
+    let lastSnapshot; //Cache the last valid month and year combo into the snapshot. This allows us to reference it without having to iterate over the history again.
 
-    dateObject[yearCreated][monthCreated] =
-      dateObject[yearCreated][monthCreated] || {};
+    while (monthCounter <= currentMonth && yearCounter <= currentYear) {
+      dateObject[yearCounter] = dateObject[yearCounter] || {};
 
-    let price, runningTotal;
+      dateObject[yearCounter][monthCounter] =
+        dateObject[yearCounter][monthCounter] || {};
 
-    //Check history to see if we have one for this month in time.
+      item.history.forEach((history) => {
+        const [historyMonth, historyYear] = breakUpDate(history.date * 1000);
 
-    /**Michael, no doubt you'll forget what you're thinkging when returning...
-     * You plan to iterate from the date created, and keep adding a month or year until you're at the present month/year (currentMonth, currentYear).
-     * Filling in each gap as you go. If there's not a current month and year contained in the history, check the past as we can assume the last snapshot reflects its current state.!
-     * 
-     
-     **/
-    item.history?.forEach((history) => {
-      const [historyDate, historyMonth, historyYear] = breakUpDate(
-        history.date
-      );
+        if (historyMonth === monthCounter && historyYear === yearCounter) {
+          dateObject[yearCounter][monthCounter][item.sku] = {
+            runningTotal: history.qty,
+            price: history.price,
+          };
 
-      console.log(historyDate, historyMonth, historyYear);
-    });
+          lastSnapshot = dateObject[yearCounter][monthCounter][item.sku];
+        } else {
+          dateObject[yearCounter][monthCounter][item.sku] = lastSnapshot;
+        }
+      });
+
+      monthCounter++;
+      if (monthCounter > 11) {
+        yearCounter++;
+        monthCounter = 0;
+      }
+    }
   });
 
   return dateObject;
@@ -63,6 +71,7 @@ export const createDateObject = (obj) => {
 
 export const genItemDataSet = (data) => {
   let obj = {}; //Object containing the month (int) as key and values that month stock []
+
   const date = new Date();
   const curMonth = date.getMonth();
 
