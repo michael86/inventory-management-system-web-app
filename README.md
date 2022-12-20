@@ -12,6 +12,11 @@ This is a full stack project for the jump bootcamp. The aim is to create a full 
 6. React-router-Dom
 7. FontAwesome
 
+## Notes:
+
+Because of the way history would be created, we never had a starting point to create the dateObject from, this meant it would be harder to fill out any empty months if there was not a history snapshot. We'd have had ot look into the future, tehn in the past.
+Due to this, if we create a snapshot in the history from the point of creation and then when editing, create a snapshot for the new values, we are now able to .sort() the history array and use the last snap shot for any empty months.
+
 ## To do:
 
 ### Popup
@@ -70,6 +75,7 @@ this is going to be a headache for testing
 
 - [ ] reduce price pie chart to only 5
 - [ ] add filters to both charts for highest and lowest
+- [ ] Create date object. See notes above
 
 ### general
 
