@@ -33,15 +33,16 @@ export const getMonth = (readable) =>
 
 export const getYear = () => monthNames[date.getYear()];
 
-export const getHalfMonths = (readable) => {
+export const getHalfMonths = (startMonth = getMonth(), readable = true) => {
+  //Needs to return an object with the years as keys as sort() will put the previous year months at the end
   const months = [];
-  const currMonth = getMonth();
+  let lastMonth = startMonth - 4;
+  if (lastMonth < 0) startMonth = 11 + (startMonth - 4); // puky math. We are basically adding a negative number to 11 to ultimately subtract into the previous year
 
-  const lastMonth = currMonth - 5;
-
-  for (let i = currMonth; i >= lastMonth; i--) {
-    if (i < 0) break;
-    readable ? months.push(monthNames[i]) : months.push(i);
+  for (let i = 0; i < 6; i++) {
+    months.push(readable ? monthNames[startMonth] : startMonth);
+    startMonth++;
+    if (startMonth > 11) startMonth = 0;
   }
 
   return months;

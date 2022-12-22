@@ -17,12 +17,9 @@ import { Row, Col } from "react-bootstrap";
 import UseageChart from "./Charts/UseageChart";
 import { getHalfMonths } from "../utils";
 import UseageChartForm from "./Charts/UsageChartForm";
-import {
-  createDateObject,
-  genChartObject,
-  getHighestCount,
-} from "./Dashboard/Utils";
+import { createDateObject } from "./Dashboard/Utils";
 import { useState } from "react";
+import { useagePlugins } from "./Dashboard/Schemas";
 
 const Dashboard = () => {
   ChartJS.register(
@@ -40,53 +37,14 @@ const Dashboard = () => {
   const user = useSelector((state) => state.user);
   const stock = useSelector((state) => state.stock.stock);
   const stockCopy = JSON.parse(JSON.stringify(stock));
-  const [dateObject, setDateObject] = useState(createDateObject(stockCopy));
 
-  // getHighestCount(dateObject);
-
-  const genRandColor = () => {
-    const randNum = () => Math.floor(Math.random() * 255);
-    return `rgba(${randNum()}, ${randNum()},${randNum()},0.2)`;
-  };
-
-  const generateCostDataSet = () => {
-    return {
-      labels: stock
-        .filter((item) => item.price * item.qty > 0)
-        .map((item) => item.sku),
-
-      datasets: [
-        {
-          label: "Value of components",
-          data: stock
-            .filter((item) => item.price * item.qty > 0)
-            .map((item) => item.qty * item.price > 0 && item.price * item.qty),
-          backgroundColor: stock
-            .filter((item) => item.price * item.qty > 0)
-            .map((_, i) => genRandColor()),
-        },
-      ],
-    };
-  };
-
-  const useageMonths = getHalfMonths(true).sort((a, b) => (a - b ? 1 : -1));
-  const useagePlugins = {
-    legend: {
-      position: "top",
-    },
-    title: {
-      display: true,
-      text: "Stock Usage",
-    },
-  };
-
-  let useageData = stockCopy.sort((a, b) => +a.qty - +b.qty);
-  useageData = genChartObject(
-    useageData.slice(
-      //grab last 6
-      useageData.length - 6
-    )
+  const [dateObject] = useState(createDateObject(stockCopy));
+  const [useageMonths, setUsageMonths] = useState(
+    getHalfMonths(4).sort((a, b) => a - b)
   );
+
+  console.log("useageMonths", useageMonths);
+  let useageData = stockCopy.sort((a, b) => +a.qty - +b.qty);
 
   return (
     <>
@@ -102,7 +60,7 @@ const Dashboard = () => {
           />
         </Col>
         <Col xs={12} lg={6}>
-          <Pie data={generateCostDataSet()} />
+          {/* <Pie data={generateCostDataSet()} /> */}
         </Col>
         {/* <Col xs={12} lg={6} className="d-flex justify-content-center">
           <Bar
