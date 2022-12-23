@@ -15,11 +15,12 @@ import { Pie } from "react-chartjs-2";
 import { Row, Col } from "react-bootstrap";
 
 import UseageChart from "./Charts/UseageChart";
-import { getHalfMonths } from "../utils";
+import { getHalfMonths, makeReadable } from "../utils";
 import UseageChartForm from "./Charts/UsageChartForm";
 import { createDateObject } from "./Dashboard/Utils";
 import { useState } from "react";
 import { useagePlugins } from "./Dashboard/Schemas";
+import { generateDataset, generateLabels } from "./Charts/Utils";
 
 const Dashboard = () => {
   ChartJS.register(
@@ -39,24 +40,35 @@ const Dashboard = () => {
   const stockCopy = JSON.parse(JSON.stringify(stock));
 
   const [dateObject] = useState(createDateObject(stockCopy));
-  const [useageMonths, setUsageMonths] = useState(
-    getHalfMonths(4).sort((a, b) => a - b)
-  );
+  const [useageMonths, setUsageMonths] = useState(getHalfMonths(2));
+  const [minMaxValues, setMinMaxValues] = useState(1);
+  const [searchFilter, setSearchFilter] = useState("");
 
-  console.log("useageMonths", useageMonths);
-  let useageData = stockCopy.sort((a, b) => +a.qty - +b.qty);
-
+  // generateDataset(
+  //             useageMonths,
+  //             dateObject,
+  //             minMaxValues,
+  //             searchFilter
+  //           )
   return (
     <>
       <h1 className="text-center">{user.company}</h1>
 
       <Row className="mx-4">
-        <UseageChartForm dateObject={dateObject} />
+        <UseageChartForm
+          dateObject={dateObject}
+          minMaxValues={minMaxValues}
+          setMinMaxValues={setMinMaxValues}
+          searchFilter={searchFilter}
+          setSearchFilter={setSearchFilter}
+        />
         <Col xs={12} lg={6}>
           <UseageChart
             plugins={useagePlugins}
-            labels={useageMonths}
-            datasets={useageData}
+            labels={generateLabels(
+              makeReadable(JSON.parse(JSON.stringify(useageMonths))) //If try destructuring {...useageMonths}, it updates local state?
+            )}
+            datasets={[1]}
           />
         </Col>
         <Col xs={12} lg={6}>

@@ -31,19 +31,37 @@ export const getDay = (readable) =>
 export const getMonth = (readable) =>
   readable ? monthNames[date.getMonth()] : date.getMonth();
 
-export const getYear = () => monthNames[date.getYear()];
+export const getYear = () => date.getFullYear();
 
-export const getHalfMonths = (startMonth = getMonth(), readable = true) => {
+export const getHalfMonths = (startMonth = getMonth(), year = getYear()) => {
   //Needs to return an object with the years as keys as sort() will put the previous year months at the end
-  const months = [];
-  let lastMonth = startMonth - 4;
-  if (lastMonth < 0) startMonth = 11 + (startMonth - 4); // puky math. We are basically adding a negative number to 11 to ultimately subtract into the previous year
+  const months = {};
+  startMonth = startMonth - 5;
+  if (startMonth < 0) {
+    startMonth = 11 + (startMonth + 1); // puky math. We are basically adding a negative number to 11 to ultimately subtract into the previous year. The + 1 is due to js counting months from 0
+    year--;
+  }
 
   for (let i = 0; i < 6; i++) {
-    months.push(readable ? monthNames[startMonth] : startMonth);
+    months[year] = months[year] || [];
+
+    months[year].push(startMonth);
+
     startMonth++;
-    if (startMonth > 11) startMonth = 0;
+
+    //We're now going into the future
+    if (startMonth > 11) {
+      year++;
+      startMonth = 0;
+    }
   }
 
   return months;
+};
+
+export const makeReadable = (obj) => {
+  for (const year in obj) {
+    obj[year].forEach((month, index) => (obj[year][index] = monthNames[month]));
+  }
+  return obj;
 };
