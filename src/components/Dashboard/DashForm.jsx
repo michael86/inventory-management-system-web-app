@@ -1,19 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import { Form, InputGroup } from "react-bootstrap";
+import { getMonth, getYear } from "../../utils";
 import Timebuttons from "./TimeButtons";
 
 const DashForm = ({
+  dateObject,
   minMaxValues,
   setMinMaxValues,
   searchFilter,
   setSearchFilter,
   onTimeChange,
   year,
+  setYear,
   month,
+  setMonth,
 }) => {
   return (
     <Form>
-      <Timebuttons year={year} month={month} onTimeChange={onTimeChange} />
+      <Timebuttons
+        dateObject={dateObject}
+        year={year}
+        setYear={setYear}
+        month={month}
+        setMonth={setMonth}
+        onTimeChange={onTimeChange}
+      />
 
       <div className="d-flex mt-2">
         <Form.Select

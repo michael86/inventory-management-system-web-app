@@ -3,7 +3,6 @@ import userReducer from "../reducers/userSlice";
 import popupReducer from "../reducers/popupSlice";
 import invoiceReducer from "../reducers/invoicesSlice";
 import stockReducer from "../reducers/stockSlice";
-import dateObjectReducer from "../reducers/dateObjectSlice";
 
 //create a redux store.
 export const store = configureStore({
@@ -12,6 +11,5 @@ export const store = configureStore({
     popup: popupReducer,
     invoices: invoiceReducer,
     stock: stockReducer,
-    dateObject: dateObjectReducer,
   },
 });
