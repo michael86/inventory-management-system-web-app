@@ -2,7 +2,7 @@ import React from "react";
 import { Badge, Button } from "react-bootstrap";
 import { makeMonthReadable } from "../../utils";
 
-const Timebuttons = ({ dateObject, year, setYear, month, setMonth }) => {
+const Timebuttons = ({ dateObject, year, month, onTimeChange }) => {
   return (
     <>
       <div className="d-flex justify-content-center">
@@ -13,7 +13,7 @@ const Timebuttons = ({ dateObject, year, setYear, month, setMonth }) => {
               size="sm"
               variant={+objectYear === +year ? "primary" : "secondary"}
               className="me-2"
-              onClick={(e) => setYear(objectYear)}
+              onClick={() => onTimeChange(objectYear, month)}
             >
               {objectYear}
             </Button>
@@ -28,13 +28,13 @@ const Timebuttons = ({ dateObject, year, setYear, month, setMonth }) => {
               size="sm"
               variant={+objectMonth === +month ? "primary" : "secondary"}
               className="me-2 mt-2"
-              onClick={(e) => setMonth(objectMonth)}
+              onClick={() => onTimeChange(year, objectMonth)}
             >
               {makeMonthReadable(objectMonth)}
               <Badge
                 className="ms-2"
                 bg={+objectMonth === +month ? "secondary" : "primary"}
-                onClick={(e) => setMonth(objectMonth)}
+                onClick={() => onTimeChange(year, objectMonth)}
               >
                 {Object.keys(dateObject[year][objectMonth]).length} skus
               </Badge>

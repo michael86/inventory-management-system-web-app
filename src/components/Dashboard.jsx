@@ -15,7 +15,7 @@ import { Pie } from "react-chartjs-2";
 import { Row, Col } from "react-bootstrap";
 
 import UseageChart from "./Charts/UseageChart";
-import { getHalfMonths, makeReadable } from "../utils";
+import { getHalfMonths, getMonth, getYear, makeReadable } from "../utils";
 import { createDateObject } from "./Dashboard/Utils";
 import { useState } from "react";
 import { useagePlugins } from "./Dashboard/Schemas";
@@ -40,16 +40,18 @@ const Dashboard = () => {
   const stockCopy = JSON.parse(JSON.stringify(stock));
 
   const [dateObject] = useState(createDateObject(stockCopy));
-  const [useageMonths, setUsageMonths] = useState(getHalfMonths(2));
+  const [useageMonths, setUsageMonths] = useState(getHalfMonths());
   const [minMaxValues, setMinMaxValues] = useState(1);
   const [searchFilter, setSearchFilter] = useState("");
+  const [year, setYear] = useState(getYear());
+  const [month, setMonth] = useState(getMonth());
 
-  // generateDataset(
-  //             useageMonths,
-  //             dateObject,
-  //             minMaxValues,
-  //             searchFilter
-  //           )
+  const onTimeChange = (year, month) => {
+    setYear(year);
+    setMonth(month);
+    setUsageMonths(getHalfMonths(year, month));
+  };
+
   return (
     <>
       <h1 className="text-center">{user.company}</h1>
@@ -61,7 +63,11 @@ const Dashboard = () => {
           setMinMaxValues={setMinMaxValues}
           searchFilter={searchFilter}
           setSearchFilter={setSearchFilter}
+          onTimeChange={onTimeChange}
+          year={year}
+          month={month}
         />
+
         <Col xs={12} lg={6}>
           <UseageChart
             plugins={useagePlugins}

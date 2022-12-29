@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Badge, Button, Form, InputGroup } from "react-bootstrap";
-import { getMonth, getYear, makeMonthReadable } from "../../utils";
+import { Form, InputGroup } from "react-bootstrap";
+import { getMonth, getYear } from "../../utils";
 import Timebuttons from "./TimeButtons";
 
 const DashForm = ({
@@ -9,10 +9,12 @@ const DashForm = ({
   setMinMaxValues,
   searchFilter,
   setSearchFilter,
+  onTimeChange,
+  year,
+  setYear,
+  month,
+  setMonth,
 }) => {
-  const [year, setYear] = useState(getYear());
-  const [month, setMonth] = useState(getMonth());
-
   return (
     <Form>
       <Timebuttons
@@ -21,11 +23,13 @@ const DashForm = ({
         setYear={setYear}
         month={month}
         setMonth={setMonth}
+        onTimeChange={onTimeChange}
       />
+
       <div className="d-flex mt-2">
         <Form.Select
           size="sm"
-          onChange={(e) => setMinMaxValues(Number(e.target.value))}
+          onChange={(e) => setMinMaxValues(+e.target.value)}
           defaultValue={minMaxValues}
           className="me-2"
         >
