@@ -16,11 +16,11 @@ import { Row, Col } from "react-bootstrap";
 
 import UseageChart from "./Charts/UseageChart";
 import { getHalfMonths, makeReadable } from "../utils";
-import UseageChartForm from "./Charts/UsageChartForm";
 import { createDateObject } from "./Dashboard/Utils";
 import { useState } from "react";
 import { useagePlugins } from "./Dashboard/Schemas";
 import { generateDataset, generateLabels } from "./Charts/Utils";
+import DashForm from "./Dashboard/DashForm";
 
 const Dashboard = () => {
   ChartJS.register(
@@ -55,7 +55,7 @@ const Dashboard = () => {
       <h1 className="text-center">{user.company}</h1>
 
       <Row className="mx-4">
-        <UseageChartForm
+        <DashForm
           dateObject={dateObject}
           minMaxValues={minMaxValues}
           setMinMaxValues={setMinMaxValues}

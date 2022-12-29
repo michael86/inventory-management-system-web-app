@@ -59,6 +59,8 @@ export const getHalfMonths = (startMonth = getMonth(), year = getYear()) => {
   return months;
 };
 
+export const makeMonthReadable = (month) => monthNames[month];
+
 export const makeReadable = (obj) => {
   for (const year in obj) {
     obj[year].forEach((month, index) => (obj[year][index] = monthNames[month]));
