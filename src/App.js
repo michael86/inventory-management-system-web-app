@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
+//Components
 import MainNav from "./components/MainNav";
 import Dashboard from "./components/Dashboard";
 import Settings from "./components/Settings";
@@ -13,21 +14,35 @@ import PricePlans from "./components/PricePlans";
 import Home from "./components/Home";
 import ViewInvoices from "./components/ViewInvoices";
 import GenerateInvoice from "./components/GenerateInvoice";
+import AddStock from "./components/AddStock";
+import ManageStock from "./components/ManageStock";
+
+//Reducers
+import { setUser } from "./reducers/userSlice";
+import { setDateObject } from "./reducers/dateObjectSlice";
 
 //local storage
 import { getStore } from "./localStorage";
 
+//Utils
+import { createDateObject } from "./utils";
+
 //css
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import { setUser } from "./reducers/userSlice";
-import AddStock from "./components/AddStock";
-import ManageStock from "./components/ManageStock";
 
 function App() {
   const { authenticated } = useSelector((state) => state.user);
-
   const dispatch = useDispatch();
+
+  dispatch(
+    setDateObject(
+      createDateObject(
+        JSON.parse(JSON.stringify(useSelector((state) => state.stock.stock)))
+      )
+    )
+  );
+
   //Once rendered, if we have local storage, set user state to current local state
   useEffect(() => {
     const data = getStore("user");

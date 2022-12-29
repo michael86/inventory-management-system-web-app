@@ -1,8 +1,10 @@
 import React from "react";
 import { Badge, Button } from "react-bootstrap";
+import { useSelector } from "react-redux";
 import { makeMonthReadable } from "../../utils";
 
-const Timebuttons = ({ dateObject, year, month, onTimeChange }) => {
+const Timebuttons = ({ year, month, onTimeChange }) => {
+  const dateObject = useSelector((state) => state.dateObject.dateObject);
   return (
     <>
       <div className="d-flex justify-content-center">
