@@ -37,9 +37,11 @@ const Dashboard = () => {
 
   const user = useSelector((state) => state.user);
   const stock = useSelector((state) => state.stock.stock);
-  const stockCopy = JSON.parse(JSON.stringify(stock));
 
-  const [dateObject] = useState(createDateObject(stockCopy));
+  const [dateObject] = useState(
+    createDateObject(JSON.parse(JSON.stringify(stock)))
+  );
+
   const [useageMonths, setUsageMonths] = useState(getHalfMonths());
   const [minMaxValues, setMinMaxValues] = useState(1);
   const [searchFilter, setSearchFilter] = useState("");
@@ -49,7 +51,7 @@ const Dashboard = () => {
   const onTimeChange = (year, month) => {
     setYear(year);
     setMonth(month);
-    setUsageMonths(getHalfMonths(year, month));
+    setUsageMonths(getHalfMonths(month, year));
   };
 
   return (
@@ -72,7 +74,8 @@ const Dashboard = () => {
           <UseageChart
             plugins={useagePlugins}
             labels={generateLabels(
-              makeReadable(JSON.parse(JSON.stringify(useageMonths))) //If try destructuring {...useageMonths}, it updates local state?
+              makeReadable(JSON.parse(JSON.stringify(useageMonths))),
+              true
             )}
             datasets={[1]}
           />

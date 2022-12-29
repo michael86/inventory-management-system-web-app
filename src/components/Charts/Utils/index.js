@@ -1,6 +1,9 @@
-export const generateLabels = (obj) => {
+export const generateLabels = (obj, addYear = false) => {
   const labels = [];
-  for (const year in obj) obj[year].forEach((month) => labels.push(month));
+  for (const year in obj)
+    obj[year].forEach((month) =>
+      addYear ? labels.push(`${month} - ${year}`) : labels.push(month)
+    );
   return labels;
 };
 

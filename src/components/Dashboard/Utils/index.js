@@ -33,7 +33,7 @@ export const createDateObject = (obj) => {
 
     item.history.sort((a, b) => a.date - b.date);
 
-    let [monthCounter, yearCounter] = breakUpDate(item.dateCreated * 1000);
+    let [monthCounter, yearCounter] = breakUpDate(item.dateCreated);
 
     let lastSnapshot; //Cache the last valid month and year combo into the snapshot. This allows us to reference it without having to iterate over the history again.
 
@@ -46,7 +46,7 @@ export const createDateObject = (obj) => {
       // ..... Shut up lint
       // eslint-disable-next-line
       item.history.forEach((history) => {
-        const [historyMonth, historyYear] = breakUpDate(history.date * 1000);
+        const [historyMonth, historyYear] = breakUpDate(history.date);
 
         if (historyMonth === monthCounter && historyYear === yearCounter) {
           dateObject[yearCounter][monthCounter][item.sku] = {
