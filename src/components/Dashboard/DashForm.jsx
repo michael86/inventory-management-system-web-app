@@ -9,7 +9,8 @@ const DashForm = ({
   setMinMaxValues,
   searchFilter,
   setSearchFilter,
-  onTimeChange,
+  onYearChange,
+  onMonthChange,
   year,
   setYear,
   month,
@@ -23,7 +24,8 @@ const DashForm = ({
         setYear={setYear}
         month={month}
         setMonth={setMonth}
-        onTimeChange={onTimeChange}
+        onYearChange={onYearChange}
+        onMonthChange={onMonthChange}
       />
 
       <div className="d-flex mt-2">

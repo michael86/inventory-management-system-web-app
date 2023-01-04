@@ -43,14 +43,18 @@ const Dashboard = () => {
   );
 
   const [useageMonths, setUsageMonths] = useState(getHalfMonths());
-  const [minMaxValues, setMinMaxValues] = useState(1);
+  const [minMaxValues, setMinMaxValues] = useState(0);
   const [searchFilter, setSearchFilter] = useState("");
   const [year, setYear] = useState(getYear());
   const [month, setMonth] = useState(getMonth());
 
-  const onTimeChange = (year, month) => {
-    setYear(year);
-    setMonth(month);
+  const onYearChange = (newYear) => {
+    setYear(newYear);
+    setUsageMonths(getHalfMonths(month, year));
+  };
+
+  const onMonthChange = (newMonth) => {
+    setMonth(newMonth);
     setUsageMonths(getHalfMonths(month, year));
   };
 
@@ -65,7 +69,8 @@ const Dashboard = () => {
           setMinMaxValues={setMinMaxValues}
           searchFilter={searchFilter}
           setSearchFilter={setSearchFilter}
-          onTimeChange={onTimeChange}
+          onYearChange={onYearChange}
+          onMonthChange={onMonthChange}
           year={year}
           month={month}
         />
@@ -77,7 +82,12 @@ const Dashboard = () => {
               makeReadable(JSON.parse(JSON.stringify(useageMonths))),
               true
             )}
-            datasets={[1]}
+            datasets={generateDataset(
+              dateObject,
+              useageMonths,
+              minMaxValues,
+              searchFilter
+            )}
           />
         </Col>
         <Col xs={12} lg={6}>

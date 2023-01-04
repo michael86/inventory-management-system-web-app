@@ -3,7 +3,13 @@ import { Badge, Button } from "react-bootstrap";
 
 import { makeMonthReadable } from "../../utils";
 
-const Timebuttons = ({ dateObject, year, month, onTimeChange }) => {
+const Timebuttons = ({
+  dateObject,
+  year,
+  month,
+  onYearChange,
+  onMonthChange,
+}) => {
   return (
     <>
       {dateObject && (
@@ -15,7 +21,7 @@ const Timebuttons = ({ dateObject, year, month, onTimeChange }) => {
                 size="sm"
                 variant={+objectYear === +year ? "primary" : "secondary"}
                 className="me-2"
-                onClick={() => onTimeChange(objectYear, month)}
+                onClick={() => onYearChange(objectYear, month)}
               >
                 {objectYear}
               </Button>
@@ -27,20 +33,19 @@ const Timebuttons = ({ dateObject, year, month, onTimeChange }) => {
       <div className="d-flex flex-wrap justify-content-center">
         {dateObject[year] ? (
           Object.keys(dateObject[year]).map((objectMonth) => {
-            console.log(dateObject);
             return (
               <Button
                 key={objectMonth}
                 size="sm"
                 variant={+objectMonth === +month ? "primary" : "secondary"}
                 className="me-2 mt-2"
-                onClick={() => onTimeChange(year, objectMonth)}
+                onClick={() => onMonthChange(year, objectMonth)}
               >
                 {makeMonthReadable(objectMonth)}
                 <Badge
                   className="ms-2"
                   bg={+objectMonth === +month ? "secondary" : "primary"}
-                  onClick={() => onTimeChange(year, objectMonth)}
+                  onClick={() => onMonthChange(year, objectMonth)}
                 >
                   {Object.keys(dateObject[year][objectMonth]).length} skus
                 </Badge>
