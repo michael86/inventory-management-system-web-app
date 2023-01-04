@@ -27,6 +27,7 @@ const Timebuttons = ({ dateObject, year, month, onTimeChange }) => {
       <div className="d-flex flex-wrap justify-content-center">
         {dateObject[year] ? (
           Object.keys(dateObject[year]).map((objectMonth) => {
+            console.log(dateObject);
             return (
               <Button
                 key={objectMonth}

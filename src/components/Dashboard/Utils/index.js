@@ -37,7 +37,17 @@ export const createDateObject = (obj) => {
 
     let lastSnapshot; //Cache the last valid month and year combo into the snapshot. This allows us to reference it without having to iterate over the history again.
 
-    while (monthCounter <= currentMonth && yearCounter <= currentYear) {
+    while (yearCounter <= currentYear) {
+      if (yearCounter === currentYear && monthCounter > currentMonth) {
+        //Soon as we increment past this point in time, continue. This prevents the time object from going into the futuree of the current month
+        monthCounter++;
+        if (monthCounter > 11) {
+          yearCounter++;
+          monthCounter = 0;
+        }
+        continue;
+      }
+
       dateObject[yearCounter] = dateObject[yearCounter] || {};
 
       dateObject[yearCounter][monthCounter] =
