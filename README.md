@@ -14,14 +14,20 @@ This is a full stack project for the jump bootcamp. The aim is to create a full 
 
 ## Notes:
 
+### Date object
+
 Because of the way history would be created, we never had a starting point to create the dateObject from, this meant it would be harder to fill out any empty months if there was not a history snapshot. We'd have had ot look into the future, tehn in the past.
 Due to this, if we create a snapshot in the history from the point of creation and then when editing, create a snapshot for the new values, we are now able to .sort() the history array and use the last snap shot for any empty months.
+
+### Dashboard
+
+Made a start on generating dataset when searching by sku. However, when clicking a date range that the sku isn't in the system, it causes the app to crash. So in theory, we can regenerate the dateObject by the search term, and this should allow the dashboard to update the timeButtons component to only contain valid dates. This would aslo allow for a better UX as it shows when the item was first entered into the system.
 
 ## To do:
 
 ### Popup
 
-~~Seems complete so far. May refactor stuff at later date if new funcitonality is required~~ lol
+Seems complete so far. May refactor stuff at later date if new funcitonality is required
 
 - [x] Refactor buttons to be dynamically generated, this will allow me to call them within forms, as well as place in footer at later date.
 - [x] Refactor form to use child components that will allow me to dynamically generate each input.
@@ -75,7 +81,8 @@ this is going to be a headache for testing
 
 - [ ] reduce price pie chart to only 5
 - [ ] add filters to both charts for highest and lowest
-- [ ] Create date object. See notes above
+- [x] Create date object. See notes above
+- [ ] update dateObject when searching by sku
 
 ### general
 
