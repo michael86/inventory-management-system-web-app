@@ -15,7 +15,6 @@ export const generateDataset = (
   minMax,
   searchFilter
 ) => {
-  console.log("searchFilter", searchFilter);
   //dalliance
   //pangolins
   const generateFromFilter = () => {
@@ -32,9 +31,11 @@ export const generateDataset = (
         console.log("dateObject[year]", dateObject[year]);
         console.log("dateObject[year][month]", dateObject[year][month]);
 
-        Object.keys(dateObject[year][month]).forEach((sku) => {
-          !skus.includes(sku) && skus.push(sku);
-        });
+        console.log("time", year, month);
+        dateObject[year][month] &&
+          Object.keys(dateObject[year][month]).forEach((sku) => {
+            !skus.includes(sku) && skus.push(sku);
+          });
       });
     });
 
@@ -47,32 +48,30 @@ export const generateDataset = (
       };
 
       //Iterate object year
+
       Object.keys(useageMonths).forEach((year) => {
         // iterate object month
         useageMonths[year].forEach((month) => {
           //iterate object sku
-          Object.keys(dateObject[year][month]).forEach(() => {
-            //If this sku is valid, push the running total, else 0.
-            skuObject.data.push(
-              dateObject[year][month][sku]
-                ? dateObject[year][month][sku].runningTotal
-                : 0
-            );
-            console.log("skuObject", skuObject);
-          });
+          dateObject[year][month] &&
+            Object.keys(dateObject[year][month]).forEach(() => {
+              //If this sku is valid, push the running total, else 0.
+              skuObject.data.push(
+                dateObject[year][month][sku]
+                  ? dateObject[year][month][sku].runningTotal
+                  : 0
+              );
+            });
         });
       });
 
       dataset.push(skuObject);
     });
 
-    console.log("yeet", dataset);
-
     return dataset;
   };
 
   const generateFromMinMax = () => {
-    console.log("from min");
     return [1];
   };
 
