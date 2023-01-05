@@ -12,9 +12,8 @@ const genLastHalfYear = (month = currentMonth) => {
   return months.sort((a, b) => a - b);
 };
 
-export const createDateObject = (obj) => {
+export const createDateObject = (obj, filter) => {
   const dateObject = {};
-
   //Destructure unix into month and year ints
   const breakUpDate = (date) => {
     const d = date ? new Date(date) : new Date();
@@ -23,13 +22,16 @@ export const createDateObject = (obj) => {
     return [month, year];
   };
 
-  const [currentMonth, currentYear] = breakUpDate(); //Used to ensure we eventually break out of the while loop when we are in the present
+  const [currentMonth, currentYear] = breakUpDate();
 
-  obj.forEach((item) => {
+  for (const item of obj) {
     /**To start with, we sort the item history by date ascending.
      * We then start from the first point in history, which is the date created.
      * This means if the item is not at a point in the past, it wasn't added to the store yet.
      */
+
+    if (filter && !item.sku.toLowerCase().includes(filter.toLowerCase()))
+      continue;
 
     item.history.sort((a, b) => a.date - b.date);
 
@@ -76,7 +78,7 @@ export const createDateObject = (obj) => {
         monthCounter = 0;
       }
     }
-  });
+  }
 
   return dateObject;
 };

@@ -38,7 +38,7 @@ const Dashboard = () => {
   const user = useSelector((state) => state.user);
   const stock = useSelector((state) => state.stock.stock);
 
-  const [dateObject] = useState(
+  const [dateObject, setDateObject] = useState(
     createDateObject(JSON.parse(JSON.stringify(stock)))
   );
 
@@ -47,6 +47,12 @@ const Dashboard = () => {
   const [searchFilter, setSearchFilter] = useState("");
   const [year, setYear] = useState(getYear());
   const [month, setMonth] = useState(getMonth());
+
+  const onSearchfilter = ({ target }) => {
+    setDateObject(
+      createDateObject(JSON.parse(JSON.stringify(stock)), target.value)
+    );
+  };
 
   const onYearChange = (newYear) => {
     const currentDate = new Date();
@@ -80,7 +86,7 @@ const Dashboard = () => {
           minMaxValues={minMaxValues}
           setMinMaxValues={setMinMaxValues}
           searchFilter={searchFilter}
-          setSearchFilter={setSearchFilter}
+          onSearchfilter={onSearchfilter}
           onYearChange={onYearChange}
           onMonthChange={onMonthChange}
           year={year}

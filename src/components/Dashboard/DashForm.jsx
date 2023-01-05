@@ -7,8 +7,7 @@ const DashForm = ({
   dateObject,
   minMaxValues,
   setMinMaxValues,
-  searchFilter,
-  setSearchFilter,
+  onSearchfilter,
   onYearChange,
   onMonthChange,
   year,
@@ -16,8 +15,6 @@ const DashForm = ({
   month,
   setMonth,
 }) => {
-  
-  
   return (
     <Form>
       <Timebuttons
@@ -46,8 +43,7 @@ const DashForm = ({
             placeholder="Sku"
             aria-label="Sku"
             aria-describedby="Sku"
-            value={searchFilter}
-            onInput={(e) => setSearchFilter(e.target.value)}
+            onInput={onSearchfilter}
           />
         </InputGroup>
       </div>
