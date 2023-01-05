@@ -49,15 +49,24 @@ const Dashboard = () => {
   const [month, setMonth] = useState(getMonth());
 
   const onYearChange = (newYear) => {
-    console.log("on Year");
+    const currentDate = new Date();
+    const currentYear = currentDate.getFullYear();
+    const currentMonth = currentDate.getMonth();
+    let monthCheck = month;
+
+    //If year is set to current year and month is ahead of the present month, set to 0
+    if (+currentYear === +newYear && +month > +currentMonth) {
+      setMonth(0);
+      monthCheck = 0;
+    }
+
     setYear(newYear);
-    setUsageMonths(getHalfMonths(month, year));
+    setUsageMonths(getHalfMonths(monthCheck, newYear));
   };
 
   const onMonthChange = (newMonth) => {
-    console.log("on Month", newMonth);
     setMonth(newMonth);
-    setUsageMonths(getHalfMonths(month, year));
+    setUsageMonths(getHalfMonths(newMonth, year));
   };
 
   return (
