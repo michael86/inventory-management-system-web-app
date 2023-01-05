@@ -21,7 +21,7 @@ const Timebuttons = ({
                 size="sm"
                 variant={+objectYear === +year ? "primary" : "secondary"}
                 className="me-2"
-                onClick={() => onYearChange(objectYear, month)}
+                onClick={() => onYearChange(objectYear)}
               >
                 {objectYear}
               </Button>
@@ -39,13 +39,13 @@ const Timebuttons = ({
                 size="sm"
                 variant={+objectMonth === +month ? "primary" : "secondary"}
                 className="me-2 mt-2"
-                onClick={() => onMonthChange(year, objectMonth)}
+                onClick={() => onMonthChange(objectMonth)}
               >
                 {makeMonthReadable(objectMonth)}
                 <Badge
                   className="ms-2"
                   bg={+objectMonth === +month ? "secondary" : "primary"}
-                  onClick={() => onMonthChange(year, objectMonth)}
+                  onClick={() => onMonthChange(objectMonth)}
                 >
                   {Object.keys(dateObject[year][objectMonth]).length} skus
                 </Badge>

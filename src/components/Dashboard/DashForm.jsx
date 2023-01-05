@@ -16,6 +16,8 @@ const DashForm = ({
   month,
   setMonth,
 }) => {
+  console.log("year", year);
+  console.log("month", month);
   return (
     <Form>
       <Timebuttons

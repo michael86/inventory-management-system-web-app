@@ -49,11 +49,13 @@ const Dashboard = () => {
   const [month, setMonth] = useState(getMonth());
 
   const onYearChange = (newYear) => {
+    console.log("on Year");
     setYear(newYear);
     setUsageMonths(getHalfMonths(month, year));
   };
 
   const onMonthChange = (newMonth) => {
+    console.log("on Month", newMonth);
     setMonth(newMonth);
     setUsageMonths(getHalfMonths(month, year));
   };
@@ -63,6 +65,7 @@ const Dashboard = () => {
       <h1 className="text-center">{user.company}</h1>
 
       <Row className="mx-4">
+        {/* Something has broken in the time buttons.... face */}
         <DashForm
           dateObject={dateObject}
           minMaxValues={minMaxValues}

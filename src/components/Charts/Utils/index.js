@@ -15,7 +15,6 @@ export const generateDataset = (
   minMax,
   searchFilter
 ) => {
-  console.log(dateObject);
   //dalliance
   //pangolins
   const generateFromFilter = () => {
@@ -27,8 +26,8 @@ export const generateDataset = (
         backgroundColor: "rgba(255, 99, 132, 0.5)",
       },
     ];
-    Object.keys(useageMonths).forEach((year, yearIndex) => {
-      useageMonths[year].forEach((month, index) => {
+    Object.keys(useageMonths).forEach((year) => {
+      useageMonths[year].forEach((month) => {
         dataset[0].data.push(
           dateObject[year][month][searchFilter]
             ? dateObject[year][month][searchFilter].runningTotal
@@ -37,13 +36,10 @@ export const generateDataset = (
       });
     });
 
-    console.log("dataset", dataset);
-
     return dataset;
   };
 
   const generateFromMinMax = () => {
-    console.log("from min");
     return [1];
   };
 
