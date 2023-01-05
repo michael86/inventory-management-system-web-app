@@ -52,6 +52,7 @@ const Dashboard = () => {
     setDateObject(
       createDateObject(JSON.parse(JSON.stringify(stock)), target.value)
     );
+    setSearchFilter(target.value);
   };
 
   const onYearChange = (newYear) => {
@@ -80,7 +81,6 @@ const Dashboard = () => {
       <h1 className="text-center">{user.company}</h1>
 
       <Row className="mx-4">
-        {/* Something has broken in the time buttons.... face */}
         <DashForm
           dateObject={dateObject}
           minMaxValues={minMaxValues}
