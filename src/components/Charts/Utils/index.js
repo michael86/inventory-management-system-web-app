@@ -17,6 +17,7 @@ export const generateDataset = (
 ) => {
   //dalliance
   //pangolins
+
   const generateFromFilter = () => {
     const dataset = [];
 
@@ -71,7 +72,61 @@ export const generateDataset = (
   };
 
   const generateFromMinMax = () => {
-    return [1];
+    /* 
+      get last year/month required, as this is used to figured out what year/month is selected in parent state
+      sort by minMax
+      generate dataset
+    */
+
+    const dataset = [];
+    let currentSkus = [];
+    let targetYear = Object.keys(useageMonths);
+    targetYear = targetYear[targetYear.length - 1];
+
+    let targetMonth = useageMonths[targetYear];
+    targetMonth = targetMonth[targetMonth.length - 1];
+
+    Object.keys(dateObject[targetYear][targetMonth]).forEach((sku) => {
+      currentSkus.push([
+        sku,
+        dateObject[targetYear][targetMonth][sku].runningTotal,
+      ]);
+    });
+
+    currentSkus = currentSkus
+      .sort((a, b) => (minMax ? a[1] - b[1] : b[1] - a[1]))
+      .slice(0, 5);
+
+    const skuDatasetObject = {};
+
+    currentSkus.forEach((sku) => {
+      skuDatasetObject[sku[0]] = {
+        id: uuidv4(),
+        label: sku[0],
+        data: [],
+        backgroundColor: "rgba(255, 99, 132, 0.5)",
+      };
+    });
+
+    Object.keys(useageMonths).forEach((year) => {
+      useageMonths[year].forEach((month) => {
+        Object.keys(dateObject[year][month]).forEach((sku) => {
+          currentSkus.forEach((filteredSku) => {
+            if (filteredSku.includes(sku)) {
+              skuDatasetObject[sku].data.push(
+                dateObject[year][month][sku].runningTotal
+              );
+            }
+          });
+        });
+      });
+    });
+
+    Object.keys(skuDatasetObject).forEach((sku) => {
+      dataset.push(skuDatasetObject[sku]);
+    });
+
+    return dataset;
   };
 
   return searchFilter ? generateFromFilter() : generateFromMinMax();

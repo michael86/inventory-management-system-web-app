@@ -5,8 +5,8 @@ import Timebuttons from "./TimeButtons";
 
 const DashForm = ({
   dateObject,
+  onMinMaxChange,
   minMaxValues,
-  setMinMaxValues,
   onSearchfilter,
   onYearChange,
   onMonthChange,
@@ -30,7 +30,7 @@ const DashForm = ({
       <div className="d-flex mt-2">
         <Form.Select
           size="sm"
-          onChange={(e) => setMinMaxValues(+e.target.value)}
+          onChange={onMinMaxChange}
           defaultValue={minMaxValues}
           className="me-2"
         >

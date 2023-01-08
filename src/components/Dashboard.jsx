@@ -82,6 +82,11 @@ const Dashboard = () => {
     setUsageMonths(getHalfMonths(newMonth, year));
   };
 
+  const onMinMaxChange = ({ target }) => {
+    if (searchFilter) return; //As we're searching by sku at present.
+    setMinMaxValues(+target.value);
+  };
+
   return (
     <>
       <h1 className="text-center">{user.company}</h1>
@@ -89,6 +94,7 @@ const Dashboard = () => {
       <Row className="mx-4">
         <DashForm
           dateObject={dateObject}
+          onMinMaxChange={onMinMaxChange}
           minMaxValues={minMaxValues}
           setMinMaxValues={setMinMaxValues}
           searchFilter={searchFilter}
