@@ -21,7 +21,9 @@ Due to this, if we create a snapshot in the history from the point of creation a
 
 ### Dashboard
 
-Made a start on generating dataset when searching by sku. However, when clicking a date range that the sku isn't in the system, it causes the app to crash. So in theory, we can regenerate the dateObject by the search term, and this should allow the dashboard to update the timeButtons component to only contain valid dates. This would aslo allow for a better UX as it shows when the item was first entered into the system.
+~~Made a start on generating dataset when searching by sku. However, when clicking a date range that the sku isn't in the system, it causes the app to crash. So in theory, we can regenerate the dateObject by the search term, and this should allow the dashboard to update the timeButtons component to only contain valid dates. This would aslo allow for a better UX as it shows when the item was first entered into the system.~~
+
+sku 'picometer' isn't showing a value for 2018 -> jan however, selecting 2018 -> feb shows a value for jan. Maybe indexing issue???
 
 ## To do:
 
