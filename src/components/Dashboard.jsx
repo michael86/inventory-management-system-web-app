@@ -67,8 +67,12 @@ const Dashboard = () => {
       monthCheck = 0;
     }
 
+    //Same as above, but for past. I.E, 2016 has January, but 2015 doesn't, then set to first available month in 2015
+    if (!dateObject[newYear][monthCheck])
+      setMonth(Object.keys(dateObject[newYear])[0]);
+
     setYear(newYear);
-    setUsageMonths(getHalfMonths(monthCheck, newYear));
+    setUsageMonths(getHalfMonths(+monthCheck, +newYear));
   };
 
   const onMonthChange = (newMonth) => {
