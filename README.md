@@ -82,9 +82,9 @@ Certain state will only be local storage (enabling dark mode and such)
 this is going to be a headache for testing
 
 - [ ] reduce price pie chart to only 5
-- [ ] add filters to both charts for highest and lowest
+- [x] add filters to both charts for highest and lowest
 - [x] Create date object. See notes above
-- [ ] update dateObject when searching by sku
+- [x] update dateObject when searching by sku
 
 ### general
 

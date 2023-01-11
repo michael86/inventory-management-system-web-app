@@ -59,7 +59,7 @@ export const createDateObject = (obj, filter) => {
       // eslint-disable-next-line
       item.history.forEach((history) => {
         const [historyMonth, historyYear] = breakUpDate(history.date);
-
+        //something here broken
         if (historyMonth === monthCounter && historyYear === yearCounter) {
           dateObject[yearCounter][monthCounter][item.sku] = {
             runningTotal: history.qty,
@@ -72,6 +72,8 @@ export const createDateObject = (obj, filter) => {
         }
       });
 
+      // console.log(dateObject);
+
       monthCounter++;
       if (monthCounter > 11) {
         yearCounter++;
@@ -79,6 +81,8 @@ export const createDateObject = (obj, filter) => {
       }
     }
   }
+
+  // console.log("dateObject", dateObject);
 
   return dateObject;
 };

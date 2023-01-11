@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-import { Modal, Form } from "react-bootstrap";
+import { Modal, Form, Spinner } from "react-bootstrap";
 
 import Header from "../components/Header";
 import Buttons from "../components/Buttons";
@@ -17,21 +17,47 @@ import { setUser } from "../../../reducers/userSlice";
 import { registerInputs } from "../schema/genRegisterInputs";
 
 import "../../../styles/Modal.css";
+import axios from "axios";
 
 const Register = () => {
   const dispatch = useDispatch();
   const [errors, setErrors] = useState(false);
+  const [showSpinner, setShowSpinner] = useState(false);
+  const [userHasAccount, setUserHasAccount] = useState(false);
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
+    setUserHasAccount(false);
+
     const data = Object.fromEntries(new FormData(e.target));
 
     data.pricePlan = Number(data.pricePlan);
 
     //check if length of keys is 0. This means no errors. Could poss convert obj to arr
-    if (!errors || Object.keys(errors).length === 0) {
-      dispatch(setUser(data));
-      dispatch(togglePopup());
+    if (Object.keys(errors).length > 0) return;
+
+    const { REACT_APP_API_URL: url } = process.env;
+
+    setShowSpinner(true);
+    const res = await axios.put(`${url}/register`, { data });
+
+    setShowSpinner(false);
+
+    if (res.status !== 200) {
+      console.log("something went wrong", res);
+      return;
+    }
+
+    switch (res.data.code) {
+      case 1:
+        dispatch(setUser(data));
+        dispatch(togglePopup());
+        break;
+      case 2:
+        setUserHasAccount(true);
+        break;
+      default:
+        break;
     }
   };
 
@@ -78,10 +104,21 @@ const Register = () => {
             </Link>
           </Form.Group>
 
+          {userHasAccount && (
+            <p className=" ms-2 text-danger">
+              Email is invalid or already registered
+            </p>
+          )}
           <Buttons
             variant="primary"
             type="submit"
-            label="Submit"
+            label={
+              showSpinner ? (
+                <Spinner animation="border" variant="warning" />
+              ) : (
+                "Submit"
+              )
+            }
             secondaryVariant="warning"
             secondaryOnClick={() => dispatch(setPopupScreen(0))}
             secondaryLabel="Login"

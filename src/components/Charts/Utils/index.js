@@ -86,12 +86,14 @@ export const generateDataset = (
     let targetMonth = useageMonths[targetYear];
     targetMonth = targetMonth[targetMonth.length - 1];
 
-    Object.keys(dateObject[targetYear][targetMonth]).forEach((sku) => {
-      currentSkus.push([
-        sku,
-        dateObject[targetYear][targetMonth][sku].runningTotal,
-      ]);
-    });
+    if (dateObject[targetYear] && [dateObject[targetYear][targetMonth]]) {
+      Object.keys(dateObject[targetYear][targetMonth]).forEach((sku) => {
+        currentSkus.push([
+          sku,
+          dateObject[targetYear][targetMonth][sku].runningTotal,
+        ]);
+      });
+    }
 
     currentSkus = currentSkus
       .sort((a, b) => (minMax ? a[1] - b[1] : b[1] - a[1]))
@@ -110,15 +112,21 @@ export const generateDataset = (
 
     Object.keys(useageMonths).forEach((year) => {
       useageMonths[year].forEach((month) => {
-        Object.keys(dateObject[year][month]).forEach((sku) => {
-          currentSkus.forEach((filteredSku) => {
-            if (filteredSku.includes(sku)) {
-              skuDatasetObject[sku].data.push(
-                dateObject[year][month][sku].runningTotal
-              );
-            }
+        // console.log(year);
+        // console.log(month);
+        // console.log(dateObject);
+
+        if (dateObject[year] && dateObject[year][month]) {
+          Object.keys(dateObject[year][month]).forEach((sku) => {
+            currentSkus.forEach((filteredSku) => {
+              if (filteredSku.includes(sku)) {
+                skuDatasetObject[sku].data.push(
+                  dateObject[year][month][sku].runningTotal
+                );
+              }
+            });
           });
-        });
+        }
       });
     });
 
