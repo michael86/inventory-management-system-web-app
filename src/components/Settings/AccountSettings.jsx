@@ -15,8 +15,8 @@ const AccountSettings = () => {
   const [errors, setErrors] = useState(false);
   const [saved, setSaved] = useState(false);
   const user = useSelector((state) => state.user);
-
-  const [darkMode, setDarkMode] = useState();
+  console.log(user);
+  const [darkMode, setDarkMode] = useState(user.darkMode);
   const dispatch = useDispatch();
 
   const onInput = (e) => setErrors(validateInput(e, errors));
@@ -36,8 +36,6 @@ const AccountSettings = () => {
     dispatch(setUser(newUser));
   };
 
-  useEffect(() => setDarkMode(user.darkMode), [user]);
-
   return (
     <Container className="bg-light p-4 border rounded">
       <Form onSubmit={onSubmit}>
@@ -51,7 +49,7 @@ const AccountSettings = () => {
               className="m-auto"
               name="darkMode"
               onChange={() => setDarkMode(!darkMode)}
-              checked={darkMode}
+              value={darkMode}
             />
           </Col>
 

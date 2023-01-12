@@ -2,7 +2,6 @@ import React from "react";
 
 import { Navbar, Nav, Container, Offcanvas } from "react-bootstrap";
 
-import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 import Popup from "./popup/Popup";
@@ -10,9 +9,7 @@ import LoggedOut from "./MainNav/LoggedOut";
 import LoggedIn from "./MainNav/LoggedIn";
 import Buttons from "./MainNav/Buttons";
 
-function MainNav() {
-  const { authenticated } = useSelector((state) => state.user);
-
+function MainNav({ authenticated }) {
   return (
     <>
       <Navbar key="md" bg="light" expand="md" className="mb-3">
