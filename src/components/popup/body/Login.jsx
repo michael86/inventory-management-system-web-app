@@ -9,25 +9,45 @@ import { validateInput } from "../../../validation/Utils";
 import Buttons from "../components/Buttons";
 import Header from "../components/Header";
 import Input from "../../Generic/Input";
-import { getStore } from "../../../localStorage";
+import { setStore } from "../../../localStorage";
 import { setUserAuthenticated } from "../../../reducers/userSlice";
+import axios from "axios";
 
 const Login = () => {
+  const url = process.env.REACT_APP_API_URL;
   const dispatch = useDispatch();
-  const [loginAuthed, setLoginAuthed] = useState(true);
+  const [loginVerified, setLoginVerified] = useState(true);
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
     const data = Object.fromEntries(new FormData(e.target));
-    const user = getStore("user");
 
-    if (!user || user.email !== data.email || user.password !== data.password) {
-      setLoginAuthed(false);
+    const res = await axios.put(`${url}/login`, {
+      email: data.email,
+      password: data.password,
+    });
+
+    if (res.status !== 200) {
+      console.log("something broke");
       return;
     }
 
-    dispatch(togglePopup());
-    dispatch(setUserAuthenticated());
+    switch (res.data.status) {
+      case 1: //success
+        console.log(res.data);
+        dispatch(togglePopup());
+        dispatch(setUserAuthenticated());
+        setStore({ key: "token", data: res.data.token });
+        break;
+
+      case 2: //user not found or invalid password
+        setLoginVerified(false);
+        break;
+
+        break;
+      default:
+        break;
+    }
   };
 
   const [errors, setErrors] = useState(false);
@@ -66,7 +86,7 @@ const Login = () => {
             <Form.Check type="checkbox" label="remember me" />
           </Form.Group>
 
-          {!loginAuthed && (
+          {!loginVerified && (
             <Form.Group className="mb-3">
               <Form.Text className="text-danger">
                 Incorrect email or password

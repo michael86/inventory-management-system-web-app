@@ -36,7 +36,7 @@ const Register = () => {
     //check if length of keys is 0. This means no errors. Could poss convert obj to arr
     if (Object.keys(errors).length > 0) return;
 
-    const { REACT_APP_API_URL: url } = process.env;
+    const url = process.env.REACT_APP_API_URL;
 
     setShowSpinner(true);
     const res = await axios.put(`${url}/register`, { data });
