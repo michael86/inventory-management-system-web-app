@@ -1,5 +1,7 @@
-import { getStore } from "../localStorage";
+import { getStore, setStore } from "../localStorage";
 import axios from "axios";
+import { store } from "../app/store";
+import { setUserAuthenticated, setUserToken } from "../reducers/userSlice";
 
 const monthNames = [
   "January",
@@ -69,22 +71,4 @@ export const makeReadable = (obj) => {
     obj[year].forEach((month, index) => (obj[year][index] = monthNames[month]));
   }
   return obj;
-};
-
-export const isAuthenticated = async () => {
-  const token = getStore("token");
-
-  const headers = {
-    token,
-  };
-
-  const res = await axios.get(`${process.env.REACT_APP_API_URL}/auth`, {
-    headers,
-  });
-  if (res.status !== 200) {
-    console.log(res);
-    return;
-  }
-
-  return res.data.status > -1 ? true : false;
 };

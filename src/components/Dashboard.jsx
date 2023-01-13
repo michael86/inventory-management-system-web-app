@@ -21,8 +21,11 @@ import { useState } from "react";
 import { useagePlugins } from "./Dashboard/Schemas";
 import { generateDataset, generateLabels } from "./Charts/Utils";
 import DashForm from "./Dashboard/DashForm";
+import Home from "./Home";
 
 const Dashboard = () => {
+  console.log("in dashboard");
+
   ChartJS.register(
     CategoryScale,
     LinearScale,
@@ -87,7 +90,7 @@ const Dashboard = () => {
     setMinMaxValues(+target.value);
   };
 
-  return (
+  return user.authenticated ? (
     <>
       <h1 className="text-center">{user.company}</h1>
 
@@ -120,78 +123,10 @@ const Dashboard = () => {
             )}
           />
         </Col>
-        <Col xs={12} lg={6}>
-          {/* <Pie data={generateCostDataSet()} /> */}
-        </Col>
-        {/* <Col xs={12} lg={6} className="d-flex justify-content-center">
-          <Bar
-            label="chart 2"
-            options={options}
-            data={{
-              labels: ["Jun", "Jul", "Aug"],
-              datasets: [
-                {
-                  id: 1,
-                  label: "",
-                  data: [5, 6, 7],
-                },
-                {
-                  id: 2,
-                  label: "",
-                  data: [3, 2, 1],
-                },
-              ],
-            }}
-          />
-        </Col> */}
       </Row>
-      {/* <Row className="mx-4">
-        <Col xs={12} lg={6} className="d-flex justify-content-center">
-          <Bar
-            label="chart 3"
-            options={options}
-            data={{
-              labels: ["Jun", "Jul", "Aug"],
-              datasets: [
-                {
-                  id: 1,
-                  label: "",
-                  data: [5, 6, 7],
-                },
-                {
-                  id: 2,
-                  label: "",
-                  data: [3, 2, 1],
-                },
-              ],
-            }}
-          />
-        </Col>
-        <Col xs={12} lg={6} className="d-flex justify-content-center">
-          <Bar
-            label="chart 4"
-            options={options}
-            data={{
-              labels: ["Jun", "Jul", "Aug"],
-              datasets: [
-                {
-                  id: 1,
-                  label: "",
-                  data: [5, 6, 7],
-                },
-                {
-                  id: 2,
-                  label: "",
-                  data: [3, 2, 1],
-                },
-              ],
-            }}
-          />
-        </Col>
-      </Row> */}
-
-      {/*  */}
     </>
+  ) : (
+    <Home />
   );
 };
 

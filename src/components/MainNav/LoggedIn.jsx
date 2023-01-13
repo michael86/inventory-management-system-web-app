@@ -63,7 +63,7 @@ const LoggedIn = () => {
         <Link
           to="/"
           className="dropdown-item"
-          onClick={() => dispatch(setUserAuthenticated())}
+          onClick={() => dispatch(setUserAuthenticated(false))}
         >
           Log out
         </Link>

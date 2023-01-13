@@ -1,5 +1,6 @@
 export const setStore = (payload) => {
   const { key, data } = payload;
+  console.log("store", data);
   localStorage.setItem(key, JSON.stringify(data));
 };
 
@@ -10,10 +11,7 @@ export const updateStore = (payload) => {
   setStore({ key, data: localState });
 };
 
-export const getStore = (payload) => JSON.parse(localStorage.getItem(payload));
-
-export const toggleUserAuth = () => {
-  const data = JSON.parse(localStorage.getItem("user"));
-  data.authenticated = !data.authenticated;
-  setStore(JSON.stringify(data));
+export const getStore = (payload) => {
+  const data = localStorage.getItem(payload);
+  return data ? JSON.parse(data) : undefined;
 };

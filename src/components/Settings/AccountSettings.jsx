@@ -15,7 +15,7 @@ const AccountSettings = () => {
   const [errors, setErrors] = useState(false);
   const [saved, setSaved] = useState(false);
   const user = useSelector((state) => state.user);
-  console.log(user);
+  console.log("account setting", user);
   const [darkMode, setDarkMode] = useState(user.darkMode);
   const dispatch = useDispatch();
 

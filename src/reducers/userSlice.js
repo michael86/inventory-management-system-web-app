@@ -1,11 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { setStore, updateStore } from "../localStorage";
+import { getStore, setStore, updateStore } from "../localStorage";
 
 const initialState = {
   id: "",
   email: "",
   company: "",
   authenticated: false,
+  token: "",
 };
 
 export const userSlice = createSlice({
@@ -15,13 +16,11 @@ export const userSlice = createSlice({
     setUserId: (state, action) => {
       state.id = action.payload;
     },
-    setUserAuthenticated: (state) => {
-      state.authenticated = !state.authenticated;
-
-      updateStore({
-        key: "user",
-        data: { authenticated: state.authenticated },
-      });
+    setUserAuthenticated: (state, { payload }) => {
+      state.authenticated = payload;
+    },
+    setUserToken: (state, { payload }) => {
+      state.token = payload;
     },
     setUserEmail: (state, action) => {
       state.email = action.payload;
@@ -62,6 +61,7 @@ export const {
   setUserPassword,
   setUserCompany,
   setUser,
+  setUserToken,
 } = userSlice.actions;
 
 export default userSlice.reducer;

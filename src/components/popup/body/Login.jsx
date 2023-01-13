@@ -9,9 +9,12 @@ import { validateInput } from "../../../validation/Utils";
 import Buttons from "../components/Buttons";
 import Header from "../components/Header";
 import Input from "../../Generic/Input";
-import { setStore } from "../../../localStorage";
-import { setUserAuthenticated } from "../../../reducers/userSlice";
+import {
+  setUserAuthenticated,
+  setUserToken,
+} from "../../../reducers/userSlice";
 import axios from "axios";
+import { setStore } from "../../../localStorage";
 
 const Login = () => {
   const url = process.env.REACT_APP_API_URL;
@@ -34,17 +37,18 @@ const Login = () => {
 
     switch (res.data.status) {
       case 1: //success
-        console.log(res.data);
         dispatch(togglePopup());
-        dispatch(setUserAuthenticated());
+        dispatch(setUserAuthenticated(true));
+        dispatch(setUserToken(res.data.token));
         setStore({ key: "token", data: res.data.token });
+
         break;
 
       case 2: //user not found or invalid password
+        dispatch(setUserAuthenticated(false));
         setLoginVerified(false);
         break;
 
-        break;
       default:
         break;
     }

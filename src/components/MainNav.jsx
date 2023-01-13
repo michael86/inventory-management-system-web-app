@@ -8,8 +8,11 @@ import Popup from "./popup/Popup";
 import LoggedOut from "./MainNav/LoggedOut";
 import LoggedIn from "./MainNav/LoggedIn";
 import Buttons from "./MainNav/Buttons";
+import { useSelector } from "react-redux";
 
-function MainNav({ authenticated }) {
+function MainNav() {
+  const user = useSelector((state) => state.user);
+
   return (
     <>
       <Navbar key="md" bg="light" expand="md" className="mb-3">
@@ -32,9 +35,9 @@ function MainNav({ authenticated }) {
 
             <Offcanvas.Body>
               <Nav className=" flex-grow-1 pe-3">
-                {authenticated && <LoggedIn />}
+                {user.authenticated && <LoggedIn />}
 
-                {!authenticated && <LoggedOut />}
+                {!user.authenticated && <LoggedOut />}
 
                 <Nav.Item>
                   <Link to="/contact" className="nav-link">
@@ -42,7 +45,7 @@ function MainNav({ authenticated }) {
                   </Link>
                 </Nav.Item>
 
-                {!authenticated && <Buttons />}
+                {!user.authenticated && <Buttons />}
               </Nav>
             </Offcanvas.Body>
           </Navbar.Offcanvas>
