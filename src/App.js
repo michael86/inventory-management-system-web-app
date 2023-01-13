@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
-import { Routes, Route, Navigate, RouteObject } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 import MainNav from "./components/MainNav";
 import PrivateRoutes from "./utils/PrivateRoutes";
 import Dashboard from "./components/Dashboard";
 import Settings from "./components/Settings";
 import Profile from "./components/Profile";
-import About from "./components/About";
+// import About from "./components/About";
 import Contact from "./components/Contact";
 import PricePlans from "./components/PricePlans";
 import ViewInvoices from "./components/ViewInvoices";

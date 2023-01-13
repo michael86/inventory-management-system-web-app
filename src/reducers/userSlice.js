@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getStore, setStore, updateStore } from "../localStorage";
+import { setStore } from "../localStorage";
 
 const initialState = {
   id: "",

@@ -1,8 +1,3 @@
-import { getStore, setStore } from "../localStorage";
-import axios from "axios";
-import { store } from "../app/store";
-import { setUserAuthenticated, setUserToken } from "../reducers/userSlice";
-
 const monthNames = [
   "January",
   "February",

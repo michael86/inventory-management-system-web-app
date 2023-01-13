@@ -9,13 +9,11 @@ import { setUser } from "../../reducers/userSlice";
 import { onSaveSettings } from "./Utils/index";
 
 import { accountSchema } from "./schema/companySettings";
-import { useEffect } from "react";
 
 const AccountSettings = () => {
   const [errors, setErrors] = useState(false);
   const [saved, setSaved] = useState(false);
   const user = useSelector((state) => state.user);
-  console.log("account setting", user);
   const [darkMode, setDarkMode] = useState(user.darkMode);
   const dispatch = useDispatch();
 
