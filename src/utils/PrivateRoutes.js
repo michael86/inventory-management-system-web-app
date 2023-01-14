@@ -10,13 +10,11 @@ import { default as axios } from "./axiosInstance";
 const PrivateRoutes = () => {
   const [isAuth, setIsAuth] = useState(); // initially undefined
 
-  //Had to use useEffect, bcause making this function async and awaiting caused react to moan about route children being objects.
-  useEffect(() => {
+  const getAuth = async () => {
     const headers = {
       token: getStore("token"),
     };
-
-    axios.get("/auth", { headers }).then((res) => {
+    const res = await axios.get("/auth", { headers }).then((res) => {
       if (res.status !== 200) {
         console.log("something broke", res);
         return;
@@ -29,7 +27,9 @@ const PrivateRoutes = () => {
 
       setIsAuth(res.data.status > -1 ? true : false);
     });
-  }, []);
+  };
+
+  getAuth();
 
   if (isAuth === undefined) return;
 
