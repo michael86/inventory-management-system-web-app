@@ -20,6 +20,16 @@ import "./App.css";
 import AddStock from "./components/AddStock";
 import ManageStock from "./components/ManageStock";
 
+const PriRoutes = [
+  { path: "/dashboard", element: <Dashboard /> },
+  { path: "/account-settings", element: <Settings /> },
+  { path: "/account-profile", element: <Profile /> },
+  { path: "/view-invoices", element: <ViewInvoices /> },
+  { path: "/generate-invoice", element: <GenerateInvoice /> },
+  { path: "/manage-stock", element: <ManageStock /> },
+  { path: "/add-stock", element: <AddStock /> },
+];
+
 function App() {
   return (
     <>
@@ -29,33 +39,13 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/price-plans" element={<PricePlans />} />
 
-        <Route element={<PrivateRoutes />}>
-          <Route path="/dashboard" element={<Dashboard />} />
-        </Route>
-
-        <Route element={<PrivateRoutes />}>
-          <Route path="/account-settings" element={<Settings />} />
-        </Route>
-
-        <Route element={<PrivateRoutes />}>
-          <Route path="/account-profile" element={<Profile />} />
-        </Route>
-
-        <Route element={<PrivateRoutes />}>
-          <Route path="/view-invoices" element={<ViewInvoices />} />
-        </Route>
-
-        <Route element={<PrivateRoutes />}>
-          <Route path="/generate-invoice" element={<GenerateInvoice />} />
-        </Route>
-
-        <Route element={<PrivateRoutes />}>
-          <Route path="/manage-stock" element={<ManageStock />} />
-        </Route>
-
-        <Route element={<PrivateRoutes />}>
-          <Route path="/add-stock" element={<AddStock />} />
-        </Route>
+        {PriRoutes.map((route) => {
+          return (
+            <Route element={<PrivateRoutes />}>
+              <Route path={route.path} element={route.element} />
+            </Route>
+          );
+        })}
       </Routes>
     </>
   );

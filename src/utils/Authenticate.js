@@ -1,26 +1,21 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+
 import { getStore, setStore } from "../localStorage";
 import { store } from "../app/store";
 import { setUserAuthenticated, setUserToken } from "../reducers/userSlice";
 import App from "../App";
-
-axios.interceptors.request.use(
-  (config) => {
-    config.headers["token"] = getStore("token");
-    return config;
-  },
-  (error) => {
-    return Promise.reject(error);
-  }
-);
+import { default as axios } from "./axiosInstance";
 
 const Authenticate = () => {
   const [authenticated, setAuthenticated] = useState();
 
   useEffect(() => {
     (async () => {
-      const res = await axios.put(`${process.env.REACT_APP_API_URL}/auth`);
+      const headers = {
+        token: getStore("token"),
+      };
+
+      const res = await axios.get("/auth", { headers });
 
       if (res.status !== 200 || res.data.status === -1) {
         store.dispatch(setUserAuthenticated(false));

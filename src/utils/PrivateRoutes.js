@@ -1,17 +1,22 @@
 import { Navigate, Outlet } from "react-router-dom";
-import axios from "axios";
-import { setStore } from "../localStorage";
+
+import { getStore, setStore } from "../localStorage";
 import { useEffect, useState } from "react";
 import { setUserToken } from "../reducers/userSlice";
 
 import { store } from "../app/store";
+import { default as axios } from "./axiosInstance";
 
 const PrivateRoutes = () => {
   const [isAuth, setIsAuth] = useState(); // initially undefined
 
   //Had to use useEffect, bcause making this function async and awaiting caused react to moan about route children being objects.
   useEffect(() => {
-    axios.put(`${process.env.REACT_APP_API_URL}/auth`).then((res) => {
+    const headers = {
+      token: getStore("token"),
+    };
+
+    axios.get("/auth", { headers }).then((res) => {
       if (res.status !== 200) {
         console.log("something broke", res);
         return;
