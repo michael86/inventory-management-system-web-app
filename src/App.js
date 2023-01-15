@@ -41,7 +41,13 @@ function App() {
     <>
       <MainNav />
       <Routes>
-        <Route path="/" element={<Home />} exact />
+        <Route
+          path="/"
+          element={
+            !user.authenticated ? <Home /> : <Navigate to={"/dashboard"} />
+          }
+          exact
+        />
         <Route path="/contact" element={<Contact />} />
         <Route path="/price-plans" element={<PricePlans />} />
 

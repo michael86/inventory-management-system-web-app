@@ -17,7 +17,7 @@ import { setUser } from "../../../reducers/userSlice";
 import { registerInputs } from "../schema/genRegisterInputs";
 
 import "../../../styles/Modal.css";
-import axios from "axios";
+import axios from "../../../utils/axiosInstance";
 
 const Register = () => {
   const dispatch = useDispatch();
@@ -36,10 +36,8 @@ const Register = () => {
     //check if length of keys is 0. This means no errors. Could poss convert obj to arr
     if (Object.keys(errors).length > 0) return;
 
-    const url = process.env.REACT_APP_API_URL;
-
     setShowSpinner(true);
-    const res = await axios.put(`${url}/register`, { data });
+    const res = await axios.put(`account/register`, { data });
 
     setShowSpinner(false);
 

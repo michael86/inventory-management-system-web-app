@@ -19,7 +19,7 @@ const isAuthenticated = async () => {
         reject(false);
       }
 
-      resolve(res.data);
+      resolve(res);
     });
   });
 };
@@ -33,15 +33,15 @@ export default ({ children }) => {
     const isAuth = async () => await isAuthenticated();
 
     isAuth().then((res) => {
-      if (!res.status) {
+      if (!res.data?.status) {
         dispatch(setUserAuthenticated(false));
         setLoader(false);
         return; //404 not found or what ever
       }
-
       dispatch(setUserAuthenticated(true));
-      dispatch(setUserToken(res.token));
-      setStore({ key: "token", data: res.token });
+      dispatch(setUserToken(res.data.token));
+
+      setStore({ key: "token", data: res.data.token });
       setLoader(false);
     });
   }, [window.location.href]);

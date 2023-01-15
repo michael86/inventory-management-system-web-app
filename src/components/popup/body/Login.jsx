@@ -24,7 +24,7 @@ const Login = () => {
     e.preventDefault();
     const { email, password } = Object.fromEntries(new FormData(e.target));
 
-    const res = await axios.put("/login", {
+    const res = await axios.put("/account/login", {
       email,
       password,
     });
