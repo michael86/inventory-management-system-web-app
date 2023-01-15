@@ -1,6 +1,5 @@
 export const setStore = (payload) => {
   const { key, data } = payload;
-  console.log("store", data);
   localStorage.setItem(key, JSON.stringify(data));
 };
 

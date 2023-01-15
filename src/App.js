@@ -1,9 +1,10 @@
 import React from "react";
 
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 import MainNav from "./components/MainNav";
-import PrivateRoutes from "./utils/PrivateRoutes";
+
+import Home from "./components/Home";
 import Dashboard from "./components/Dashboard";
 import Settings from "./components/Settings";
 import Profile from "./components/Profile";
@@ -20,6 +21,9 @@ import "./App.css";
 import AddStock from "./components/AddStock";
 import ManageStock from "./components/ManageStock";
 
+import { useSelector } from "react-redux";
+import AuthProvider from "./utils/AuthProvider";
+
 const PriRoutes = [
   { path: "/dashboard", element: <Dashboard /> },
   { path: "/account-settings", element: <Settings /> },
@@ -31,19 +35,29 @@ const PriRoutes = [
 ];
 
 function App() {
+  const user = useSelector((state) => state.user);
+
   return (
     <>
       <MainNav />
       <Routes>
-        <Route path="/" element={<Dashboard />} exact />
+        <Route path="/" element={<Home />} exact />
         <Route path="/contact" element={<Contact />} />
         <Route path="/price-plans" element={<PricePlans />} />
 
-        {PriRoutes.map((route) => {
+        {PriRoutes.map((route, i) => {
           return (
-            <Route element={<PrivateRoutes />}>
-              <Route path={route.path} element={route.element} />
-            </Route>
+            <Route
+              key={i}
+              path={route.path}
+              element={
+                user.authenticated ? (
+                  <AuthProvider>{route.element}</AuthProvider>
+                ) : (
+                  <Navigate to="/" />
+                )
+              }
+            />
           );
         })}
       </Routes>

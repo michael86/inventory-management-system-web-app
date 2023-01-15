@@ -22,10 +22,9 @@ import { useagePlugins } from "./Dashboard/Schemas";
 import { generateDataset, generateLabels } from "./Charts/Utils";
 import DashForm from "./Dashboard/DashForm";
 import Home from "./Home";
+import { Navigate } from "react-router-dom";
 
 const Dashboard = () => {
-  console.log("in dashboard");
-
   ChartJS.register(
     CategoryScale,
     LinearScale,
@@ -90,7 +89,9 @@ const Dashboard = () => {
     setMinMaxValues(+target.value);
   };
 
-  return user.authenticated ? (
+  console.log("dash", user.authenticated);
+
+  return (
     <>
       <h1 className="text-center">{user.company}</h1>
 
@@ -125,8 +126,6 @@ const Dashboard = () => {
         </Col>
       </Row>
     </>
-  ) : (
-    <Home />
   );
 };
 

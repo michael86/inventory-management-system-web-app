@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useDispatch } from "react-redux";
 
 import { Form, Modal } from "react-bootstrap";
@@ -13,21 +13,20 @@ import {
   setUserAuthenticated,
   setUserToken,
 } from "../../../reducers/userSlice";
-import axios from "axios";
+import axios from "../../../utils/axiosInstance";
 import { setStore } from "../../../localStorage";
 
 const Login = () => {
-  const url = process.env.REACT_APP_API_URL;
   const dispatch = useDispatch();
   const [loginVerified, setLoginVerified] = useState(true);
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    const data = Object.fromEntries(new FormData(e.target));
+    const { email, password } = Object.fromEntries(new FormData(e.target));
 
-    const res = await axios.put(`${url}/login`, {
-      email: data.email,
-      password: data.password,
+    const res = await axios.put("/login", {
+      email,
+      password,
     });
 
     if (res.status !== 200) {
