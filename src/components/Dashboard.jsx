@@ -21,7 +21,7 @@ import { useState } from "react";
 import { useagePlugins } from "./Dashboard/Schemas";
 import { generateDataset, generateLabels } from "./Charts/Utils";
 import DashForm from "./Dashboard/DashForm";
-import Home from "./Home";
+
 import { Navigate } from "react-router-dom";
 
 const Dashboard = () => {

@@ -12,12 +12,18 @@ import Input from "../../Generic/Input";
 import { setPopupScreen, togglePopup } from "../../../reducers/popupSlice";
 import { validateInput } from "../../../validation/Utils";
 
-import { setUser } from "../../../reducers/userSlice";
+import {
+  setUser,
+  setUserEmail,
+  setUserToken,
+} from "../../../reducers/userSlice";
+import { setCompany } from "../../../reducers/companySlice";
 
 import { registerInputs } from "../schema/genRegisterInputs";
 
 import "../../../styles/Modal.css";
 import axios from "../../../utils/axiosInstance";
+import { setStore } from "../../../localStorage";
 
 const Register = () => {
   const dispatch = useDispatch();
@@ -46,12 +52,16 @@ const Register = () => {
       return;
     }
 
-    switch (res.data.code) {
+    switch (res.data.status) {
       case 1:
-        dispatch(setUser(data));
+        const { data } = res.data;
         dispatch(togglePopup());
+        setStore({ key: "token", data: data.user.token });
+        dispatch(setUser(data.user));
+        dispatch(setCompany(data.company));
         break;
       case 2:
+        console.log("case 2");
         setUserHasAccount(true);
         break;
       default:
