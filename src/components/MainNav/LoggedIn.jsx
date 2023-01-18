@@ -15,6 +15,9 @@ const LoggedIn = () => {
   const onClick = async () => {
     const res = await axios.delete("/account/logout", {
       headers: { token: user.token },
+      data: {
+        email: user.email,
+      },
     });
 
     //Something went wrong
@@ -22,6 +25,7 @@ const LoggedIn = () => {
       console.log(res);
       return;
     }
+
     deleteStore("token");
     dispatch(setUserAuthenticated(false));
     dispatch(setUserToken(undefined));

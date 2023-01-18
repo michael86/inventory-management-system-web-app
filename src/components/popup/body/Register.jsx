@@ -12,11 +12,7 @@ import Input from "../../Generic/Input";
 import { setPopupScreen, togglePopup } from "../../../reducers/popupSlice";
 import { validateInput } from "../../../validation/Utils";
 
-import {
-  setUser,
-  setUserEmail,
-  setUserToken,
-} from "../../../reducers/userSlice";
+import { setUser } from "../../../reducers/userSlice";
 import { setCompany } from "../../../reducers/companySlice";
 
 import { registerInputs } from "../schema/genRegisterInputs";

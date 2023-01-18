@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
 
-import { useDispatch } from "react-redux";
-import { setUserAuthenticated, setUserToken } from "../reducers/userSlice";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  setUserAuthenticated,
+  setUserEmail,
+  setUserToken,
+} from "../reducers/userSlice";
 import { setStore } from "../localStorage";
 
 import { getStore } from "../localStorage";
@@ -27,6 +31,8 @@ const isAuthenticated = async () => {
 export default ({ children }) => {
   const [loader, setLoader] = useState(true);
 
+  const user = useSelector((state) => state.user);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -38,9 +44,10 @@ export default ({ children }) => {
         setLoader(false);
         return; //404 not found or what ever
       }
+
       dispatch(setUserAuthenticated(true));
       dispatch(setUserToken(res.data.token));
-
+      !user.email && dispatch(setUserEmail(res.data.email));
       setStore({ key: "token", data: res.data.token });
       setLoader(false);
     });
