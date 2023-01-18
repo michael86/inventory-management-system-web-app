@@ -4,16 +4,27 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { NavDropdown, Nav } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { setUserAuthenticated } from "../../reducers/userSlice";
+import { setUserAuthenticated, setUserToken } from "../../reducers/userSlice";
 import { default as axios } from "../../utils/axiosInstance";
+import { deleteStore, setStore } from "../../localStorage";
 
 const LoggedIn = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
 
   const onClick = async () => {
-    const res = await axios.put("/account/logout");
-    console.log(res);
+    const res = await axios.delete("/account/logout", {
+      headers: { token: user.token },
+    });
+
+    //Something went wrong
+    if (!res.status === 200) {
+      console.log(res);
+      return;
+    }
+    deleteStore("token");
+    dispatch(setUserAuthenticated(false));
+    dispatch(setUserToken(undefined));
   };
 
   return (
@@ -67,9 +78,9 @@ const LoggedIn = () => {
           Profile
         </Link>
         <NavDropdown.Divider />
-        <Link to="/" className="dropdown-item" onClick={onClick}>
+        <a role="button" className="dropdown-item " onClick={onClick}>
           Log out
-        </Link>
+        </a>
       </NavDropdown>
     </>
   );

@@ -14,3 +14,5 @@ export const getStore = (payload) => {
   const data = localStorage.getItem(payload);
   return data ? JSON.parse(data) : undefined;
 };
+
+export const deleteStore = (payload) => window.localStorage.removeItem(payload);
