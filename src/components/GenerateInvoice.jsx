@@ -9,12 +9,15 @@ import { toCompany, item, specifics } from "./Invoices/schema/genInvoiceInputs";
 import { addInvoice } from "../reducers/invoicesSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { genInvoice } from "./Invoices/Utils/Index";
+import axios from "../utils/axiosInstance";
+import { setUserToken } from "../reducers/userSlice";
+import { setStore } from "../localStorage";
 
 const GenerateInvoice = () => {
   const [items, setItems] = useState([]);
   const [errors, setErrors] = useState();
   const { company } = useSelector((state) => state.user); //Used to add 'from' parameter in the invoice
-
+  const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
   const onBubble = (e) => {
@@ -55,16 +58,21 @@ const GenerateInvoice = () => {
     setItems(copy);
   };
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
 
     if (Object.keys(errors).length > 0) return;
 
     const invoice = Object.fromEntries(new FormData(e.target));
     invoice.items = items; //Add state items to formData
-    invoice.userCompany = company;
+    // invoice.userCompany = company;
+    const res = await axios.put("invoice/add", invoice, {
+      headers: { token: user.token },
+    });
 
-    dispatch(addInvoice(genInvoice(invoice)));
+    dispatch(setUserToken(res.data.token));
+    setStore({ key: "token", data: res.data.token });
+    // dispatch(addInvoice(genInvoice(invoice)));
   };
 
   return (

@@ -6,7 +6,7 @@ import { NavDropdown, Nav } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { setUserAuthenticated, setUserToken } from "../../reducers/userSlice";
 import { default as axios } from "../../utils/axiosInstance";
-import { deleteStore, setStore } from "../../localStorage";
+import { deleteStore } from "../../localStorage";
 
 const LoggedIn = () => {
   const dispatch = useDispatch();
@@ -82,7 +82,7 @@ const LoggedIn = () => {
           Profile
         </Link>
         <NavDropdown.Divider />
-        <a role="button" className="dropdown-item " onClick={onClick}>
+        <a role="button" href="#" className="dropdown-item " onClick={onClick}>
           Log out
         </a>
       </NavDropdown>

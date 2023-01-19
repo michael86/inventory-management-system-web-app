@@ -28,7 +28,7 @@ const isAuthenticated = async () => {
   });
 };
 
-export default ({ children }) => {
+const AuthProvider = ({ children }) => {
   const [loader, setLoader] = useState(true);
 
   const user = useSelector((state) => state.user);
@@ -57,3 +57,5 @@ export default ({ children }) => {
 
   return children;
 };
+
+export default AuthProvider;
