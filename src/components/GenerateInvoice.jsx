@@ -84,7 +84,13 @@ const GenerateInvoice = () => {
       orderNumber: invoice.orderNumber,
     };
 
-    const data = { items, company, specifics };
+    const itemCopy = JSON.parse(JSON.stringify(items));
+
+    for (const item in itemCopy) {
+      delete itemCopy[item].id;
+    }
+
+    const data = { items: itemCopy, company, specifics };
 
     const res = await axios.put("invoice/add", data, {
       headers: { token: user.token },
@@ -92,7 +98,6 @@ const GenerateInvoice = () => {
 
     dispatch(setUserToken(res.data.token));
     setStore({ key: "token", data: res.data.token });
-    // dispatch(addInvoice(genInvoice(invoice)));
   };
 
   return (
@@ -162,24 +167,3 @@ const GenerateInvoice = () => {
 };
 
 export default GenerateInvoice;
-
-// id: "fkldasfk24324jdhkj",
-
-//     date_generated: 1633902855 * 1000,
-//     subtotal: 156,
-//     total: 156,
-//     order_number: 1234222,
-//     header: {
-//       company_name: "Nice Invoice",
-//       company_logo: "logo.png",
-//       company_address:
-//         "Nice Invoice. 123 William Street 1th Floor New York, NY 123456",
-//     },
-//     footer: {
-//       text: "This is footer - you can add any text here",
-//     },
-//     currency_symbol: "£",
-//     date: {
-//       billing_date: "08 August 2020",
-//       due_date: "10 September 2020",
-//     },
