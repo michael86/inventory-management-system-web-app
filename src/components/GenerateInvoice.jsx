@@ -64,9 +64,29 @@ const GenerateInvoice = () => {
     if (Object.keys(errors).length > 0) return;
 
     const invoice = Object.fromEntries(new FormData(e.target));
-    invoice.items = items; //Add state items to formData
-    // invoice.userCompany = company;
-    const res = await axios.put("invoice/add", invoice, {
+
+    console.log("invoicer", invoice);
+
+    const company = {
+      contact: invoice.invoiceContactName,
+      name: invoice.invoiceCompanyName,
+      address: invoice.invoiceCompanyAddress,
+      city: invoice.invoiceCompanyCity,
+      state: invoice.invoiceCompanyState,
+      postcode: invoice.invoiceCompanyPostcode,
+      country: invoice.invoiceCompanyCountry,
+    };
+
+    const specifics = {
+      dueDate: invoice.dueDate,
+      billingDate: invoice.billingDate,
+      footer: invoice.footer,
+      orderNumber: invoice.orderNumber,
+    };
+
+    const data = { items, company, specifics };
+
+    const res = await axios.put("invoice/add", data, {
       headers: { token: user.token },
     });
 
@@ -83,7 +103,7 @@ const GenerateInvoice = () => {
         <Form name="shipToForm" onSubmit={onSubmit}>
           <Row>
             {/*To Company*/}
-            <Col xs={12} lg={6} xxl={4} className="mb-4 ">
+            <Col xs={12} lg={4} className="mb-4 ">
               <GenInvoiceCard
                 headerText="To"
                 inputs={toCompany}
@@ -94,7 +114,7 @@ const GenerateInvoice = () => {
             </Col>
 
             {/*Invoice specifics*/}
-            <Col xs={12} lg={6} xxl={4} className="mb-4 ">
+            <Col xs={12} lg={4} className="mb-4 ">
               <GenInvoiceCard
                 className="w-100"
                 headerText="Specifics"
@@ -105,7 +125,7 @@ const GenerateInvoice = () => {
             </Col>
 
             {/*Item card*/}
-            <Col xs={12} lg={6} xxl={4} className="mb-4 ">
+            <Col xs={12} lg={4} className="mb-4 ">
               <GenInvoiceCard
                 className="w-100"
                 headerText="items"
@@ -122,7 +142,7 @@ const GenerateInvoice = () => {
             </Col>
 
             {/*Tally table card*/}
-            <Col xs={12} lg={6} xxl={12} className="mb-4 mb-lg-0">
+            <Col xs={12} className="mb-4 mb-lg-0">
               <TallyCard items={items} currency />
             </Col>
           </Row>

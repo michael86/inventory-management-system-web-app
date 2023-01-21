@@ -92,17 +92,6 @@ export const toCompany = [
 
 export const specifics = [
   {
-    controlId: "dateGenerated",
-    classNames: {
-      group: classes.group,
-      label: classes.label,
-    },
-    label: "Date Generated:",
-    type: "date",
-    placeholder: "Date",
-    required: true,
-  },
-  {
     controlId: "billingDate",
     classNames: {
       group: classes.group,
@@ -136,7 +125,7 @@ export const specifics = [
     required: true,
   },
   {
-    controlId: "Footer",
+    controlId: "footer",
     classNames: {
       group: classes.group,
       label: classes.label,
