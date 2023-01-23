@@ -103,6 +103,8 @@ const GenerateInvoice = () => {
       setToastHeader({ title: `Invoice ${specifics.orderNumber} added` })
     );
     dispatch(toggleToast());
+    e.target.reset();
+    setItems([]);
     // setTimeout(() => {
     //   console.log("timneout");
     //   console.log("toastShown", toastShown);
