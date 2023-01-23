@@ -8,11 +8,15 @@ import TallyCard from "./Invoices/TallyCard";
 import { toCompany, item, specifics } from "./Invoices/schema/genInvoiceInputs";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "../utils/axiosInstance";
+import { setToastHeader, toggleToast } from "../reducers/toastSlice";
+import Alert from "./Generic/Alert/Alert";
+import { useEffect } from "react";
 
 const GenerateInvoice = () => {
   const [items, setItems] = useState([]);
   const [errors, setErrors] = useState();
   const { company } = useSelector((state) => state.user); //Used to add 'from' parameter in the invoice
+  const { show: toastShown } = useSelector((state) => state.toast);
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
@@ -61,8 +65,6 @@ const GenerateInvoice = () => {
 
     const invoice = Object.fromEntries(new FormData(e.target));
 
-    console.log("invoicer", invoice);
-
     const company = {
       contact: invoice.invoiceContactName,
       name: invoice.invoiceCompanyName,
@@ -91,10 +93,32 @@ const GenerateInvoice = () => {
     const res = await axios.put("invoice/add", data, {
       headers: { token: user.token },
     });
+
+    if (!res.data?.status) {
+      console.log("somethign went wrong adding invoice");
+      return;
+    }
+
+    dispatch(
+      setToastHeader({ title: `Invoice ${specifics.orderNumber} added` })
+    );
+    dispatch(toggleToast());
+    // setTimeout(() => {
+    //   console.log("timneout");
+    //   console.log("toastShown", toastShown);
+    // }, 3000);
   };
+
+  // useEffect(() => {
+  //   console.log("useEffect");
+  //   setTimeout(() => {
+  //     console.log("toastShown", toastShown);
+  //   }, 3000);
+  // }, [toastShown]);
 
   return (
     <>
+      <Alert />
       <h1 className="text-center">Generate new invoice</h1>
 
       <Container fluid className="pe-5 ps-5">
