@@ -90,9 +90,7 @@ const GenerateInvoice = () => {
 
     const data = { items: itemCopy, company, specifics };
 
-    const res = await axios.put("invoice/add", data, {
-      headers: { token: user.token },
-    });
+    const res = await axios.put("invoice/add", data);
 
     if (!res.data?.status) {
       console.log("somethign went wrong adding invoice");

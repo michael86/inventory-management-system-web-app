@@ -52,19 +52,7 @@ function App() {
         <Route path="/price-plans" element={<PricePlans />} />
 
         {PriRoutes.map((route, i) => {
-          return (
-            <Route
-              key={i}
-              path={route.path}
-              element={
-                user.authenticated ? (
-                  <AuthProvider>{route.element}</AuthProvider>
-                ) : (
-                  <Navigate to="/" />
-                )
-              }
-            />
-          );
+          return <Route key={i} path={route.path} element={route.element} />;
         })}
       </Routes>
     </>

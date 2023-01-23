@@ -1,6 +1,6 @@
 import axios from "axios";
 import { store } from "../app/store";
-import { setStore } from "../localStorage";
+import { getStore, setStore } from "../localStorage";
 import { setUserToken } from "../reducers/userSlice";
 
 const instance = axios.create({
@@ -11,11 +11,16 @@ const instance = axios.create({
   },
 });
 
+instance.interceptors.request.use(function (config) {
+  const token = getStore("token");
+  config.headers.token = token;
+  return config;
+});
+
 instance.interceptors.response.use(
   function (response) {
-    console.log("response ", response);
+    console.log("response", response);
     if (response?.data?.token) {
-      console.log("setting user token");
       store.dispatch(setUserToken(response.data.token));
       setStore({ key: "token", data: response.data.token });
     }

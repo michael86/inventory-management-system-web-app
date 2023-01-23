@@ -8,6 +8,7 @@ import {
 } from "../reducers/userSlice";
 import { getStore } from "../localStorage";
 import axios from "./axiosInstance";
+import { Navigate, Outlet } from "react-router-dom";
 
 const isAuthenticated = async () => {
   return new Promise((resolve, reject) => {

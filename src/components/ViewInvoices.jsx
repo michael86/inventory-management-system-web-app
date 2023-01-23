@@ -14,6 +14,9 @@ import Footer from "./Invoices/Footer";
 import "../styles/Invoice.css";
 import Header from "./Invoices/Header";
 import GenInvoiceTable from "./Invoices/GenInvoiceTable";
+import { useEffect } from "react";
+
+import axios from "../utils/axiosInstance";
 
 const ViewInvoices = () => {
   const { invoices } = useSelector((state) => state.invoices);
@@ -57,6 +60,16 @@ const ViewInvoices = () => {
 
     setRowCount(count);
   };
+
+  useEffect(() => {
+    const getInvoices = async () => {
+      const res = await axios.get("invoice/get");
+      console.log(res);
+      return res;
+    };
+
+    getInvoices();
+  }, []);
 
   return (
     <>
