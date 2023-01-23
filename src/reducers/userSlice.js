@@ -34,7 +34,6 @@ export const {
   setUserAuthenticated,
   setUserEmail,
   setUserPassword,
-
   setUser,
   setUserToken,
 } = userSlice.actions;

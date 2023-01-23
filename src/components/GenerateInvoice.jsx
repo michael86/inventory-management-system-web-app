@@ -6,12 +6,8 @@ import { Container, Form, Row, Col, Button } from "react-bootstrap";
 import GenInvoiceCard from "./Invoices/GenInvoiceCard";
 import TallyCard from "./Invoices/TallyCard";
 import { toCompany, item, specifics } from "./Invoices/schema/genInvoiceInputs";
-import { addInvoice } from "../reducers/invoicesSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { genInvoice } from "./Invoices/Utils/Index";
 import axios from "../utils/axiosInstance";
-import { setUserToken } from "../reducers/userSlice";
-import { setStore } from "../localStorage";
 
 const GenerateInvoice = () => {
   const [items, setItems] = useState([]);
@@ -95,9 +91,6 @@ const GenerateInvoice = () => {
     const res = await axios.put("invoice/add", data, {
       headers: { token: user.token },
     });
-
-    dispatch(setUserToken(res.data.token));
-    setStore({ key: "token", data: res.data.token });
   };
 
   return (

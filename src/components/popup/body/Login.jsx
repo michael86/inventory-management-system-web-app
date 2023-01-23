@@ -12,7 +12,6 @@ import Input from "../../Generic/Input";
 import {
   setUserAuthenticated,
   setUserEmail,
-  setUserToken,
 } from "../../../reducers/userSlice";
 import axios from "../../../utils/axiosInstance";
 import { setStore } from "../../../localStorage";
@@ -39,9 +38,7 @@ const Login = () => {
       case 1: //success
         dispatch(togglePopup());
         dispatch(setUserAuthenticated(true));
-        dispatch(setUserToken(res.data.token));
         dispatch(setUserEmail(email));
-        setStore({ key: "token", data: res.data.token });
 
         break;
 

@@ -6,8 +6,6 @@ import {
   setUserEmail,
   setUserToken,
 } from "../reducers/userSlice";
-import { setStore } from "../localStorage";
-
 import { getStore } from "../localStorage";
 import axios from "./axiosInstance";
 
@@ -46,9 +44,7 @@ const AuthProvider = ({ children }) => {
       }
 
       dispatch(setUserAuthenticated(true));
-      dispatch(setUserToken(res.data.token));
       !user.email && dispatch(setUserEmail(res.data.email));
-      setStore({ key: "token", data: res.data.token });
       setLoader(false);
     });
   }, [window.location.href]);
