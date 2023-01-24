@@ -72,8 +72,6 @@ export const createDateObject = (obj, filter) => {
         }
       });
 
-      // console.log(dateObject);
-
       monthCounter++;
       if (monthCounter > 11) {
         yearCounter++;
@@ -81,8 +79,6 @@ export const createDateObject = (obj, filter) => {
       }
     }
   }
-
-  // console.log("dateObject", dateObject);
 
   return dateObject;
 };

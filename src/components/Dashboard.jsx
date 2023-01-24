@@ -22,8 +22,6 @@ import { useagePlugins } from "./Dashboard/Schemas";
 import { generateDataset, generateLabels } from "./Charts/Utils";
 import DashForm from "./Dashboard/DashForm";
 
-import { Navigate } from "react-router-dom";
-
 const Dashboard = () => {
   ChartJS.register(
     CategoryScale,
@@ -88,8 +86,6 @@ const Dashboard = () => {
     if (searchFilter) return; //As we're searching by sku at present.
     setMinMaxValues(+target.value);
   };
-
-  console.log("dash", user.authenticated);
 
   return (
     <>

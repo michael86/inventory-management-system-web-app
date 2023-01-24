@@ -112,10 +112,6 @@ export const generateDataset = (
 
     Object.keys(useageMonths).forEach((year) => {
       useageMonths[year].forEach((month) => {
-        // console.log(year);
-        // console.log(month);
-        // console.log(dateObject);
-
         if (dateObject[year] && dateObject[year][month]) {
           Object.keys(dateObject[year][month]).forEach((sku) => {
             currentSkus.forEach((filteredSku) => {

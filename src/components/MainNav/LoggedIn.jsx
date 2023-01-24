@@ -21,7 +21,7 @@ const LoggedIn = () => {
 
     //Something went wrong
     if (!res.status === 200) {
-      console.log(res);
+      console.log("error logging in", res);
       return;
     }
 
@@ -81,9 +81,13 @@ const LoggedIn = () => {
           Profile
         </Link>
         <NavDropdown.Divider />
-        <a role="button" href="#" className="dropdown-item " onClick={onClick}>
+        <NavDropdown.Item
+          role="button"
+          className="dropdown-item "
+          onClick={onClick}
+        >
           Log out
-        </a>
+        </NavDropdown.Item>
       </NavDropdown>
     </>
   );

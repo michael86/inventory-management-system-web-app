@@ -8,7 +8,6 @@ import {
 } from "../reducers/userSlice";
 import { getStore } from "../localStorage";
 import axios from "./axiosInstance";
-import { Navigate, Outlet } from "react-router-dom";
 
 const isAuthenticated = async () => {
   return new Promise((resolve, reject) => {
@@ -37,6 +36,12 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const isAuth = async () => await isAuthenticated();
 
+    const setUserState = ({ token, email }) => {
+      dispatch(setUserAuthenticated(true));
+      dispatch(setUserToken(token));
+      !user.email && dispatch(setUserEmail(email));
+    };
+
     isAuth().then((res) => {
       if (!res.data?.status) {
         dispatch(setUserAuthenticated(false));
@@ -44,11 +49,10 @@ const AuthProvider = ({ children }) => {
         return; //404 not found or what ever
       }
 
-      dispatch(setUserAuthenticated(true));
-      !user.email && dispatch(setUserEmail(res.data.email));
+      setUserState(res.data);
       setLoader(false);
     });
-  }, [window.location.href]);
+  }, [dispatch, user.email]);
 
   if (loader) return <h1>Loadign</h1>; //loader here;
 

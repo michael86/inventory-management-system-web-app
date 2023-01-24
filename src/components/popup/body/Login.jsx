@@ -14,7 +14,6 @@ import {
   setUserEmail,
 } from "../../../reducers/userSlice";
 import axios from "../../../utils/axiosInstance";
-import { setStore } from "../../../localStorage";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -29,10 +28,7 @@ const Login = () => {
       password,
     });
 
-    if (res.status !== 200) {
-      console.log("something broke");
-      return;
-    }
+    if (res.status !== 200) return;
 
     switch (res.data.status) {
       case 1: //success

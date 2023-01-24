@@ -22,7 +22,6 @@ import AddStock from "./components/AddStock";
 import ManageStock from "./components/ManageStock";
 
 import { useSelector } from "react-redux";
-import AuthProvider from "./utils/AuthProvider";
 
 const PriRoutes = [
   { path: "/dashboard", element: <Dashboard /> },
@@ -52,7 +51,15 @@ function App() {
         <Route path="/price-plans" element={<PricePlans />} />
 
         {PriRoutes.map((route, i) => {
-          return <Route key={i} path={route.path} element={route.element} />;
+          return (
+            <Route
+              key={i}
+              path={route.path}
+              element={
+                user.authenticated ? route.element : <Navigate to={"/"} />
+              }
+            />
+          );
         })}
       </Routes>
     </>

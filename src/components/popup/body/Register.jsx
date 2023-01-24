@@ -57,7 +57,6 @@ const Register = () => {
         dispatch(setCompany(data.company));
         break;
       case 2:
-        console.log("case 2");
         setUserHasAccount(true);
         break;
       default:

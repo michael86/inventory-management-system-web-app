@@ -64,7 +64,7 @@ const ViewInvoices = () => {
   useEffect(() => {
     const getInvoices = async () => {
       const res = await axios.get("invoice/get");
-      console.log(res);
+      console.log("view invoice", res);
       return res;
     };
 
