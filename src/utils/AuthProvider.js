@@ -31,6 +31,8 @@ const AuthProvider = ({ children }) => {
 
   const user = useSelector((state) => state.user);
 
+  console.log("auth provider", user.authenticated);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -39,10 +41,11 @@ const AuthProvider = ({ children }) => {
     const setUserState = ({ token, email }) => {
       dispatch(setUserAuthenticated(true));
       dispatch(setUserToken(token));
-      !user.email && dispatch(setUserEmail(email));
+      dispatch(setUserEmail(email));
     };
 
     isAuth().then((res) => {
+      console.log("authProvider", res.data);
       if (!res.data?.status) {
         dispatch(setUserAuthenticated(false));
         setLoader(false);
@@ -52,7 +55,7 @@ const AuthProvider = ({ children }) => {
       setUserState(res.data);
       setLoader(false);
     });
-  }, [dispatch, user.email]);
+  }, [dispatch]);
 
   if (loader) return <h1>Loadign</h1>; //loader here;
 
