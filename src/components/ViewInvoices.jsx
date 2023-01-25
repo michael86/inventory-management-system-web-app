@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Container } from "react-bootstrap";
-import { useSelector } from "react-redux";
 
 import {
   filterInvoices,
@@ -19,9 +18,9 @@ import { useEffect } from "react";
 import axios from "../utils/axiosInstance";
 
 const ViewInvoices = () => {
-  const { invoices } = useSelector((state) => state.invoices);
+  const [invoices, setInvoices] = useState([]);
 
-  const [pages, setPages] = useState(genPages(invoices)); // 2d array, each child will be a sepearate table page
+  const [pages, setPages] = useState([]); // 2d array, each child will be a sepearate table page
   const [filteredInvoices, setFilteredInvoices] = useState([]);
   const [pageIndex, setPageIndex] = useState(0);
   const [rowCount, setRowCount] = useState(5);
@@ -64,8 +63,9 @@ const ViewInvoices = () => {
   useEffect(() => {
     const getInvoices = async () => {
       const res = await axios.get("invoice/get");
-      console.log("view invoice", res);
-      return res;
+
+      setInvoices(res.data?.data || []);
+      setPages(genPages(res.data?.data || []));
     };
 
     getInvoices();

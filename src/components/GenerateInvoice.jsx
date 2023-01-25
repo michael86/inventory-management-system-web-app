@@ -6,18 +6,14 @@ import { Container, Form, Row, Col, Button } from "react-bootstrap";
 import GenInvoiceCard from "./Invoices/GenInvoiceCard";
 import TallyCard from "./Invoices/TallyCard";
 import { toCompany, item, specifics } from "./Invoices/schema/genInvoiceInputs";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import axios from "../utils/axiosInstance";
 import { setToastHeader, toggleToast } from "../reducers/toastSlice";
 import Alert from "./Generic/Alert/Alert";
-import { useEffect } from "react";
 
 const GenerateInvoice = () => {
   const [items, setItems] = useState([]);
   const [errors, setErrors] = useState();
-  const { company } = useSelector((state) => state.user); //Used to add 'from' parameter in the invoice
-  const { show: toastShown } = useSelector((state) => state.toast);
-  const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
   const onBubble = (e) => {
@@ -103,18 +99,7 @@ const GenerateInvoice = () => {
     dispatch(toggleToast());
     e.target.reset();
     setItems([]);
-    // setTimeout(() => {
-    //   console.log("timneout");
-    //   console.log("toastShown", toastShown);
-    // }, 3000);
   };
-
-  // useEffect(() => {
-  //   console.log("useEffect");
-  //   setTimeout(() => {
-  //     console.log("toastShown", toastShown);
-  //   }, 3000);
-  // }, [toastShown]);
 
   return (
     <>

@@ -37,13 +37,20 @@ const GenInvoiceTable = ({ pages, pageIndex, invoices }) => {
       </thead>
       <tbody>
         {pages[pageIndex].map((invoice, index) => {
+          console.log("table", invoice);
           return (
             <tr key={index}>
               {/*Gen a unique key at some point*/}
 
-              <td>{formatDate(invoice.date_generated)}</td>
-              <td>{invoice.from}</td>
-              <td>{invoice.to}</td>
+              <td>{formatDate(invoice.billingDate)}</td>
+              <td>
+                {/* This will be from redux state.company */}
+                {invoice.contact} - {invoice.name}
+              </td>
+
+              <td>
+                {invoice.contact} - {invoice.name}
+              </td>
               <td>
                 {<ViewInvoiceButton onClick={() => onClick(invoice.id)} />}
               </td>
