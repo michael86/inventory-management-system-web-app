@@ -8,10 +8,11 @@ export const sortDescending = (payload) =>
   [...payload].sort((a, b) => b.date_generated - a.date_generated);
 
 export const filterInvoices = (payload) => {
+  console.log("payload", payload);
   const copy = payload.invoices.filter(
     (invoice) =>
-      invoice.from.toLowerCase().includes(payload.filter) ||
-      invoice.to.toLowerCase().includes(payload.filter)
+      invoice.contact.toLowerCase().includes(payload.filter) ||
+      invoice.name.toLowerCase().includes(payload.filter)
   );
   return copy;
 };
