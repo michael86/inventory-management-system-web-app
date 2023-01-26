@@ -14,7 +14,7 @@ const GenInvoiceTable = ({ pages, pageIndex, invoices }) => {
   const dispatch = useDispatch();
 
   const formatDate = (unix) => {
-    let date = new Date(unix);
+    let date = new Date(unix * 1000);
     date = date.toLocaleDateString();
     return date;
   };
@@ -37,7 +37,6 @@ const GenInvoiceTable = ({ pages, pageIndex, invoices }) => {
       </thead>
       <tbody>
         {pages[pageIndex].map((invoice, index) => {
-          console.log("table", invoice);
           return (
             <tr key={index}>
               {/*Gen a unique key at some point*/}

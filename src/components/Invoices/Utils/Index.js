@@ -2,13 +2,12 @@ import { v4 as uuidv4 } from "uuid";
 // export const filterByDate
 
 export const sortAscending = (payload) =>
-  [...payload].sort((a, b) => a.date_generated - b.date_generated);
+  [...payload].sort((a, b) => a.billingDate - b.billingDate);
 
 export const sortDescending = (payload) =>
-  [...payload].sort((a, b) => b.date_generated - a.date_generated);
+  [...payload].sort((a, b) => b.billingDate - a.billingDate);
 
 export const filterInvoices = (payload) => {
-  console.log("payload", payload);
   const copy = payload.invoices.filter(
     (invoice) =>
       invoice.contact.toLowerCase().includes(payload.filter) ||

@@ -25,7 +25,10 @@ const ViewInvoices = () => {
   const [pageIndex, setPageIndex] = useState(0);
   const [rowCount, setRowCount] = useState(5);
 
-  const filterDate = (e) =>
+  const filterDate = (e) => {
+    console.log(
+      sortDescending(filteredInvoices.length > 0 ? filteredInvoices : invoices)
+    );
     setPages(
       genPages(
         e.target.value === "0"
@@ -38,6 +41,7 @@ const ViewInvoices = () => {
         rowCount
       )
     );
+  };
 
   const onInput = (e) => {
     const copy = filterInvoices({ invoices, filter: e.target.value });
