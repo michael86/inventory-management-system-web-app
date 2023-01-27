@@ -5,7 +5,7 @@ import TablePagination from "./TablePagination";
 const Footer = ({ pages, pageIndex, setPageIndex, setPageCount }) => {
   return (
     <Container className="d-flex flex-column flex-lg-row row">
-      <div className="mx-auto position-lg-absolute bottom-0 start-0 end-0 col-12">
+      <div className="mx-auto col-12">
         <TablePagination
           count={pages.length}
           active={pageIndex + 1}

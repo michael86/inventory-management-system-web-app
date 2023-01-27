@@ -8,7 +8,7 @@ import {
   setPopupScreen,
   setPopupInvoice,
 } from "../../reducers/popupSlice";
-import ViewInvoiceButton from "../Invoices/ViewInvoiceButton";
+import InvoiceButton from "../Invoices/InvoiceButton";
 import { findInvoiceById } from "./Utils/Index";
 
 const GenInvoiceTable = ({ pages, pageIndex, invoices }) => {
@@ -23,16 +23,22 @@ const GenInvoiceTable = ({ pages, pageIndex, invoices }) => {
   const onClick = async (id) => {
     const res = await axios.get(`invoice/gen-pdf/${Number(id)}`);
     const { fileName } = res.data;
+
     if (!fileName) console.log("handle file failing");
-    const download = window.open(
-      `http://localhost:6005/download/pdf/${fileName}`
-    );
-    window.setTimeout(function () {
-      download.close();
-    }, 1000);
-    // dispatch(setPopupScreen(2));
-    // dispatch(setPopupInvoice(findInvoiceById(id, invoices)));
-    // dispatch(togglePopup());
+    const blob = await axios({
+      url: `http://localhost:6005/download/pdf/${fileName}`,
+      method: "GET",
+      responseType: "blob", // important
+    });
+
+    const url = window.URL.createObjectURL(new Blob([blob.data]));
+    const link = document.createElement("a");
+
+    link.href = url;
+    link.setAttribute("download", fileName);
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
   };
 
   return (
@@ -42,7 +48,8 @@ const GenInvoiceTable = ({ pages, pageIndex, invoices }) => {
           <th>Date</th>
           <th>From</th>
           <th>To</th>
-          <th>View</th>
+          <th className="text-center">View</th>
+          <th className="text-center">Download</th>
         </tr>
       </thead>
       <tbody>
@@ -60,8 +67,21 @@ const GenInvoiceTable = ({ pages, pageIndex, invoices }) => {
               <td>
                 {invoice.contact} - {invoice.name}
               </td>
-              <td>
-                {<ViewInvoiceButton onClick={() => onClick(invoice.id)} />}
+              <td className="text-center">
+                {
+                  <InvoiceButton
+                    onClick={() => onClick(invoice.id)}
+                    text="View Invoice"
+                  />
+                }
+              </td>
+              <td className="text-center">
+                {
+                  <InvoiceButton
+                    onClick={() => onClick(invoice.id)}
+                    text="Download Invoice"
+                  />
+                }
               </td>
             </tr>
           );
