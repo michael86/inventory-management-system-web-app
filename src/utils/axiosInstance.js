@@ -28,6 +28,11 @@ instance.interceptors.response.use(
     return response;
   },
   function (error) {
+    if (error.response.status >= 400 && error.response.status < 500) {
+      store.dispatch(setUserToken(error.response.data.token));
+      setStore({ key: "token", data: error.response.data.token });
+    }
+
     return Promise.reject(error);
   }
 );

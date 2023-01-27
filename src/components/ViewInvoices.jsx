@@ -69,7 +69,7 @@ const ViewInvoices = () => {
       const res = await axios.get("invoice/get");
 
       setInvoices(res.data?.data || []);
-      setPages(genPages(res.data?.data || []));
+      setPages(genPages(sortAscending(res.data?.data || [])));
     };
 
     getInvoices();

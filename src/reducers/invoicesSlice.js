@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getStore, setStore } from "../localStorage";
 
-const initialState = { invoices: getStore("invoices") || [] };
+const initialState = [];
 
 export const invoiceSlice = createSlice({
   name: "invoices",
@@ -16,8 +15,6 @@ export const invoiceSlice = createSlice({
     addInvoice: (state, { payload }) => {
       //Gen new invoice. Items left as default will be updated once user settings are complete
       state.invoices.push(payload);
-
-      setStore({ key: "invoices", data: state.invoices });
     },
   },
 });

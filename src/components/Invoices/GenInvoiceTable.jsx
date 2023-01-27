@@ -1,6 +1,7 @@
 import React from "react";
 import { Table } from "react-bootstrap";
 import { useDispatch } from "react-redux";
+import axios from "../../utils/axiosInstance";
 
 import {
   togglePopup,
@@ -19,10 +20,19 @@ const GenInvoiceTable = ({ pages, pageIndex, invoices }) => {
     return date;
   };
 
-  const onClick = (id) => {
-    dispatch(setPopupScreen(2));
-    dispatch(setPopupInvoice(findInvoiceById(id, invoices)));
-    dispatch(togglePopup());
+  const onClick = async (id) => {
+    const res = await axios.get(`invoice/gen-pdf/${Number(id)}`);
+    const { fileName } = res.data;
+    if (!fileName) console.log("handle file failing");
+    const download = window.open(
+      `http://localhost:6005/download/pdf/${fileName}`
+    );
+    window.setTimeout(function () {
+      download.close();
+    }, 1000);
+    // dispatch(setPopupScreen(2));
+    // dispatch(setPopupInvoice(findInvoiceById(id, invoices)));
+    // dispatch(togglePopup());
   };
 
   return (

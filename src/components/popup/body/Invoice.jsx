@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 const Invoice = () => {
   const { invoice } = useSelector((state) => state.popup);
 
+  console.log(invoice);
   return (
     <>
       <h1>
