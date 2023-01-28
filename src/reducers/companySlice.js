@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   name: "",
-  street: "",
+  address: "",
   city: "",
   county: "",
   country: "",
@@ -14,9 +14,9 @@ export const companySlice = createSlice({
   initialState,
   reducers: {
     setCompany: (state, { payload }) => {
-      const { name, street, city, county, country, postcode } = payload;
+      const { name, address, city, county, country, postcode } = payload;
       state.name = name;
-      state.street = street;
+      state.address = address;
       state.city = city;
       state.county = county;
       state.country = country;
@@ -25,8 +25,8 @@ export const companySlice = createSlice({
     setComanyName: (state, { payload }) => {
       state.name = payload;
     },
-    setCompanyStreet: (state, { payload }) => {
-      state.street = payload;
+    setCompanyAddress: (state, { payload }) => {
+      state.address = payload;
     },
     setCompanyCity: (state, { payload }) => {
       state.city = payload;
@@ -47,7 +47,7 @@ export const companySlice = createSlice({
 export const {
   setCompany,
   setComanyName,
-  setCompanyStreet,
+  setCompanyAddress,
   setCompanyCity,
   setCompanyCounty,
   setCompanyCountry,

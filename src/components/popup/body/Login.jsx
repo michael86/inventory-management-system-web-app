@@ -14,6 +14,7 @@ import {
   setUserEmail,
 } from "../../../reducers/userSlice";
 import axios from "../../../utils/axiosInstance";
+import { setCompany } from "../../../reducers/companySlice";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -35,6 +36,7 @@ const Login = () => {
         dispatch(togglePopup());
         dispatch(setUserAuthenticated(true));
         dispatch(setUserEmail(email));
+        dispatch(setCompany(res.data?.company));
 
         break;
 
