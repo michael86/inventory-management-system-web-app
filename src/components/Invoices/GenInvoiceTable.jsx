@@ -1,18 +1,12 @@
 import React from "react";
 import { Table } from "react-bootstrap";
-import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import axios from "../../utils/axiosInstance";
 
-import {
-  togglePopup,
-  setPopupScreen,
-  setPopupInvoice,
-} from "../../reducers/popupSlice";
 import InvoiceButton from "../Invoices/InvoiceButton";
-import { findInvoiceById } from "./Utils/Index";
 
-const GenInvoiceTable = ({ pages, pageIndex, invoices }) => {
-  const dispatch = useDispatch();
+const GenInvoiceTable = ({ pages, pageIndex }) => {
+  const userCompany = useSelector((state) => state.company);
 
   const formatDate = (unix) => {
     let date = new Date(unix * 1000);
@@ -21,7 +15,11 @@ const GenInvoiceTable = ({ pages, pageIndex, invoices }) => {
   };
 
   const onClick = async (id) => {
-    const res = await axios.get(`invoice/gen-pdf/${Number(id)}`);
+    const res = await axios.post(`invoice/gen-pdf`, {
+      id: Number(id),
+      company: userCompany,
+    });
+
     const { fileName } = res.data;
 
     if (!fileName) console.log("handle file failing");
