@@ -19,9 +19,11 @@ import { setCompany } from "../../../reducers/companySlice";
 const Login = () => {
   const dispatch = useDispatch();
   const [loginVerified, setLoginVerified] = useState(true);
+  const [errors, setErrors] = useState(false);
 
   const onSubmit = async (e) => {
     e.preventDefault();
+    if (errors && Object.keys(errors).length > 0) return;
     const { email, password } = Object.fromEntries(new FormData(e.target));
 
     const res = await axios.put("/account/login", {
@@ -50,7 +52,6 @@ const Login = () => {
     }
   };
 
-  const [errors, setErrors] = useState(false);
   const onInput = (e) => setErrors(validateInput(e));
 
   return (

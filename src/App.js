@@ -22,6 +22,7 @@ import AddStock from "./components/AddStock";
 import ManageStock from "./components/ManageStock";
 
 import { useSelector } from "react-redux";
+import ForgotPassword from "./components/ForgotPassword";
 
 const PriRoutes = [
   { path: "/dashboard", element: <Dashboard /> },
@@ -51,6 +52,7 @@ function App() {
         />
         <Route path="/contact" element={<Contact />} />
         <Route path="/price-plans" element={<PricePlans />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
 
         {PriRoutes.map((route, i) => {
           return (

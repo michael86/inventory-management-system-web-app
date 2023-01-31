@@ -24,6 +24,7 @@ import { setStore } from "../../../localStorage";
 const Register = () => {
   const dispatch = useDispatch();
   const [errors, setErrors] = useState(false);
+
   const [showSpinner, setShowSpinner] = useState(false);
   const [userHasAccount, setUserHasAccount] = useState(false);
 
@@ -36,7 +37,7 @@ const Register = () => {
     data.pricePlan = Number(data.pricePlan);
 
     //check if length of keys is 0. This means no errors. Could poss convert obj to arr
-    if (Object.keys(errors).length > 0) return;
+    if (errors && Object.keys(errors).length > 0) return;
 
     setShowSpinner(true);
     const res = await axios.put(`account/register`, { data });
