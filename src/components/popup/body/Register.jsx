@@ -108,9 +108,20 @@ const Register = () => {
           </Form.Group>
 
           {userHasAccount && (
-            <p className=" ms-2 text-danger">
-              Email is invalid or already registered
-            </p>
+            <>
+              <p className="text-danger mb-0">
+                Email is invalid or already registered
+              </p>
+              <div className="mb-3">
+                <Link
+                  to="forgot-password"
+                  onClick={() => dispatch(togglePopup())}
+                  className="text-primary "
+                >
+                  Forgot Password
+                </Link>
+              </div>
+            </>
           )}
           <Buttons
             variant="primary"

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-
+import { Link } from "react-router-dom";
 import { Form, Modal } from "react-bootstrap";
 
 import { setPopupScreen, togglePopup } from "../../../reducers/popupSlice";
@@ -93,6 +93,14 @@ const Login = () => {
               </Form.Text>
             </Form.Group>
           )}
+
+          <Link
+            to="forgot-password"
+            onClick={() => dispatch(togglePopup())}
+            className="text-primary "
+          >
+            Forgot Password
+          </Link>
 
           <Buttons
             variant="primary"
