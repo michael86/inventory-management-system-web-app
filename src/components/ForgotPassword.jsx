@@ -7,6 +7,7 @@ import axios from "../utils/axiosInstance";
 
 const ForgotPassword = () => {
   const [errors, setErrors] = useState(false);
+  const [sentMessage, setSentMessage] = useState();
   const onInput = (e) => setErrors(validateInput(e, errors));
 
   const onSubmit = async (e) => {
@@ -14,7 +15,15 @@ const ForgotPassword = () => {
     if (errors && Object.keys(errors).length > 0) return;
     const { email } = Object.fromEntries(new FormData(e.target));
 
-    axios.put("/account/forgot-password", { email });
+    const res = await axios.put("/account/forgot-password", { email });
+
+    res.data.status
+      ? setSentMessage(
+          "An email has been sent, don't forget to check your spam "
+        )
+      : setSentMessage("Error Sending Email, please try again later");
+
+    setTimeout(() => setSentMessage(), 3000);
   };
   return (
     <>
@@ -36,6 +45,7 @@ const ForgotPassword = () => {
             Submit
           </Button>
         </Form>
+        {sentMessage && <p className="text-success">{sentMessage}</p>}
       </Container>
     </>
   );
