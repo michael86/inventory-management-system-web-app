@@ -29,10 +29,6 @@ const isAuthenticated = async () => {
 const AuthProvider = ({ children }) => {
   const [loader, setLoader] = useState(true);
 
-  const user = useSelector((state) => state.user);
-
-  console.log("auth provider", user.authenticated);
-
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -45,7 +41,6 @@ const AuthProvider = ({ children }) => {
     };
 
     isAuth().then((res) => {
-      console.log("authProvider", res.data);
       if (!res.data?.status) {
         dispatch(setUserAuthenticated(false));
         setLoader(false);

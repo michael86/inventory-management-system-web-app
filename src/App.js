@@ -38,8 +38,6 @@ const PriRoutes = [
 function App() {
   const user = useSelector((state) => state.user);
 
-  console.log("userAuth", user.authenticated);
-
   return (
     <>
       <MainNav />

@@ -26,9 +26,6 @@ const ViewInvoices = () => {
   const [rowCount, setRowCount] = useState(5);
 
   const filterDate = (e) => {
-    console.log(
-      sortDescending(filteredInvoices.length > 0 ? filteredInvoices : invoices)
-    );
     setPages(
       genPages(
         e.target.value === "0"
