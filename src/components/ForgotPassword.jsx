@@ -22,8 +22,6 @@ const ForgotPassword = () => {
           "An email has been sent, don't forget to check your spam "
         )
       : setSentMessage("Error Sending Email, please try again later");
-
-    setTimeout(() => setSentMessage(), 3000);
   };
   return (
     <>

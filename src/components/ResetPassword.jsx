@@ -12,6 +12,7 @@ const ResetPassword = () => {
 
   const [passwordsMatch, setPasswordsMatch] = useState(true);
   const [errors, setErrors] = useState(false);
+  const [passwordChanged, setPasswordChanged] = useState();
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -21,9 +22,17 @@ const ResetPassword = () => {
 
     let { token, email } = params;
 
-    const reset = await axios.patch(
+    const res = await axios.patch(
       `account/reset-password/${token}/${email}/${formData.password}`
     );
+
+    res.data.status
+      ? setPasswordChanged(
+          "Your password has been updated, you can now log in with your new password"
+        )
+      : setPasswordChanged(
+          "An error occurred when updating your password. Please try again or request a new email"
+        );
   };
 
   const onInput = (e) => {
@@ -62,6 +71,7 @@ const ResetPassword = () => {
 
           <Button type="submit">Submit</Button>
         </Form>
+        {passwordChanged && <p className="text-info">{passwordChanged}</p>}
       </Container>
     </>
   );
