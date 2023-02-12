@@ -6,6 +6,7 @@ import {
   setUserEmail,
   setUserToken,
 } from "../reducers/userSlice";
+import { setCompany } from "../reducers/companySlice";
 import { getStore } from "../localStorage";
 import axios from "./axiosInstance";
 
@@ -34,10 +35,11 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const isAuth = async () => await isAuthenticated();
 
-    const setUserState = ({ token, email }) => {
+    const setUserState = ({ token, email, company }) => {
       dispatch(setUserAuthenticated(true));
       dispatch(setUserToken(token));
       dispatch(setUserEmail(email));
+      dispatch(setCompany(getStore("company")));
     };
 
     isAuth().then((res) => {

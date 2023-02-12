@@ -9,8 +9,11 @@ const GenInvoiceTable = ({ pages, pageIndex }) => {
   const userCompany = useSelector((state) => state.company);
 
   const formatDate = (unix) => {
+    console.log(unix);
     let date = new Date(unix * 1000);
+    console.log(date);
     date = date.toLocaleDateString();
+
     return date;
   };
 
@@ -44,9 +47,7 @@ const GenInvoiceTable = ({ pages, pageIndex }) => {
       <thead>
         <tr>
           <th>Date</th>
-          <th>From</th>
           <th>To</th>
-          <th className="text-center">View</th>
           <th className="text-center">Download</th>
         </tr>
       </thead>
@@ -54,25 +55,12 @@ const GenInvoiceTable = ({ pages, pageIndex }) => {
         {pages[pageIndex].map((invoice, index) => {
           return (
             <tr key={index}>
-              {/*Gen a unique key at some point*/}
-
               <td>{formatDate(invoice.billingDate)}</td>
-              <td>
-                {/* This will be from redux state.company */}
-                {invoice.contact} - {invoice.name}
-              </td>
 
               <td>
                 {invoice.contact} - {invoice.name}
               </td>
-              <td className="text-center">
-                {
-                  <InvoiceButton
-                    onClick={() => onClick(invoice.id)}
-                    text="View Invoice"
-                  />
-                }
-              </td>
+
               <td className="text-center">
                 {
                   <InvoiceButton

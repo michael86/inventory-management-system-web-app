@@ -26,6 +26,7 @@ const LoggedIn = () => {
     }
 
     deleteStore("token");
+    deleteStore("company");
     dispatch(setUserAuthenticated(false));
     dispatch(setUserToken(undefined));
   };

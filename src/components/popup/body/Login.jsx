@@ -15,6 +15,7 @@ import {
 } from "../../../reducers/userSlice";
 import axios from "../../../utils/axiosInstance";
 import { setCompany } from "../../../reducers/companySlice";
+import { setStore } from "../../../localStorage";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -38,8 +39,10 @@ const Login = () => {
         dispatch(togglePopup());
         dispatch(setUserAuthenticated(true));
         dispatch(setUserEmail(email));
-        dispatch(setCompany(res.data?.company));
 
+        const { company_id, ...company } = res.data?.company;
+        dispatch(setCompany(company));
+        setStore({ key: "company", data: company });
         break;
 
       case 2: //user not found or invalid password
