@@ -45,7 +45,10 @@ const TallyCard = (props) => {
       </Card.Body>
 
       <Card.Footer>
-        Total Cost: £{items.length > 0 && calculateCombinedCost(items)}
+        Total Cost: £
+        {items.length > 0 &&
+          Math.round((calculateCombinedCost(items) + Number.EPSILON) * 100) /
+            100}
       </Card.Footer>
     </Card>
   );

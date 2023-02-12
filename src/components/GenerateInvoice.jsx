@@ -113,8 +113,8 @@ const GenerateInvoice = () => {
       setToastHeader({ title: `Invoice ${specifics.orderNumber} added` })
     );
     dispatch(toggleToast());
-    // e.target.reset();
-    // setItems([]);
+    e.target.reset();
+    setItems([]);
   };
 
   return (
