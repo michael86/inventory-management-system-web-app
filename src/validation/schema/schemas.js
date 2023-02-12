@@ -24,7 +24,7 @@ const anyString = Joi.string().required();
 
 const greaterThanZero = Joi.number().greater(0);
 const greaterThanMinus = Joi.number().greater(-1);
-const mustBeInt = Joi.number().integer().greater(-1);
+const mustBeInt = Joi.number().integer().greater(0);
 
 export const schema = {
   login: {
@@ -100,6 +100,9 @@ export const schema = {
   },
   qty: {
     qty: mustBeInt,
+  },
+  quantity: {
+    quantity: mustBeInt,
   },
   editQty: {
     editQty: mustBeInt,

@@ -34,20 +34,6 @@ const GenerateInvoice = () => {
     let valid = inputs.every((input) => {
       if (input.value === "") return false;
 
-      const qtyError = { ...errors };
-
-      if (input.name === "quantity" && input.value % 1 !== 0) {
-        //Have to check for error here, as this isn't on form submission
-        qtyError.quantity = "Invalid quantity amount";
-        setErrors(qtyError);
-        return false;
-      }
-
-      if (qtyError.quantity) {
-        delete qtyError.quantity;
-        setErrors(qtyError);
-      }
-
       inputObject[input.name] = input.value;
       inputObject.id = uniqid();
       return true;
