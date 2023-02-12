@@ -4,7 +4,6 @@ import popupReducer from "../reducers/popupSlice";
 import invoiceReducer from "../reducers/invoicesSlice";
 import stockReducer from "../reducers/stockSlice";
 import companyReducer from "../reducers/companySlice";
-import toastReducer from "../reducers/toastSlice";
 
 //create a redux store.
 export const store = configureStore({
@@ -14,6 +13,5 @@ export const store = configureStore({
     invoices: invoiceReducer,
     stock: stockReducer,
     company: companyReducer,
-    toast: toastReducer,
   },
 });

@@ -8,13 +8,12 @@ import TallyCard from "./Invoices/TallyCard";
 import { toCompany, item, specifics } from "./Invoices/schema/genInvoiceInputs";
 import { useDispatch } from "react-redux";
 import axios from "../utils/axiosInstance";
-import { setToastHeader, toggleToast } from "../reducers/toastSlice";
-import Alert from "./Generic/Alert/Alert";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const GenerateInvoice = () => {
   const [items, setItems] = useState([]);
   const [errors, setErrors] = useState();
-  const dispatch = useDispatch();
 
   const onBubble = (e) => {
     //This is passed down to the items card, and used to catch when items are added. As items state needs to be in this component, not ideal, but... meh....
@@ -95,19 +94,26 @@ const GenerateInvoice = () => {
       return;
     }
 
-    dispatch(
-      setToastHeader({ title: `Invoice ${specifics.orderNumber} added` })
-    );
-    dispatch(toggleToast());
+    toast.success("Invoice added");
     e.target.reset();
     setItems([]);
   };
 
   return (
     <>
-      <Alert />
       <h1 className="text-center">Generate new invoice</h1>
-
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        pauseOnHover
+        theme="light"
+        type="success"
+      />
       <Container fluid className="pe-5 ps-5">
         <Form name="shipToForm" onSubmit={onSubmit}>
           <Row>
