@@ -43,6 +43,9 @@ const Input = (props) => {
     step,
   } = props;
 
+  console.log(controlId);
+  console.log(step);
+
   return (
     <Form.Group
       className={classNames?.group && [...classNames.group].join(" ")}

@@ -178,6 +178,7 @@ export const item = [
     label: "Price:",
     type: "number",
     placeholder: "Price",
+    step: 0.01,
     min: 0,
     custError: "Price can not be less than 0",
   },

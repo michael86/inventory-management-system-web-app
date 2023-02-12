@@ -55,6 +55,7 @@ const GenInvoiceCard = (props) => {
               min={input.min}
               max={input.max}
               value={input.value}
+              step={input.step}
             />
           );
         })}
