@@ -6,7 +6,7 @@ import { Container, Form, Row, Col, Button } from "react-bootstrap";
 import GenInvoiceCard from "./Invoices/GenInvoiceCard";
 import TallyCard from "./Invoices/TallyCard";
 import { toCompany, item, specifics } from "./Invoices/schema/genInvoiceInputs";
-import { useDispatch } from "react-redux";
+
 import axios from "../utils/axiosInstance";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";

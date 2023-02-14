@@ -83,8 +83,8 @@ const AddStock = () => {
     ];
 
     axios.post("stock/add", { data });
-    // dispatch(setStock(data));
-    // resetState(e);
+
+    resetState(e);
   };
 
   return (
