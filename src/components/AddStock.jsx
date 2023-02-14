@@ -5,8 +5,8 @@ import ItemCard from "./Generic/ItemCard";
 import CompanyCard from "./Stock/CompanyCard";
 import { useState } from "react";
 import { validateInput } from "../validation/Utils";
-import { useDispatch, useSelector } from "react-redux";
-import { setStock } from "../reducers/stockSlice";
+
+import axios from "../utils/axiosInstance";
 
 const AddStock = () => {
   const [errors, setErrors] = useState();
@@ -14,14 +14,6 @@ const AddStock = () => {
   const [locationsValid, setLocationsValid] = useState(true);
   const [skuValid, setSkuValid] = useState(true);
   const [priceDisabled, setPriceDisabled] = useState(false);
-
-  const stock = useSelector((state) => state.stock.stock);
-  const dispatch = useDispatch();
-
-  const validateSku = (e) => {
-    const valid = stock.some((item) => item.sku === e.target.value);
-    valid ? setSkuValid(false) : setSkuValid(true);
-  };
 
   const submitLocation = (id) => {
     const elements = document.forms[0].elements;
@@ -53,7 +45,6 @@ const AddStock = () => {
   const onInput = (e) => {
     const res = validateInput(e, errors);
     res && setErrors(res);
-    validateSku(e);
   };
 
   const resetState = (e) => {
@@ -75,8 +66,6 @@ const AddStock = () => {
       return;
     }
 
-    const copy = [...stock];
-
     const data = Object.fromEntries(new FormData(e.target));
     data.dateCreated = Date.now();
 
@@ -93,9 +82,9 @@ const AddStock = () => {
       },
     ];
 
-    copy.push(data);
-    dispatch(setStock(copy));
-    resetState(e);
+    axios.post("stock/add", { data });
+    // dispatch(setStock(data));
+    // resetState(e);
   };
 
   return (
@@ -111,12 +100,11 @@ const AddStock = () => {
               deleteLocation={deleteLocation}
               locationsValid={locationsValid}
               skuValid={skuValid}
-              validateSku={validateSku}
               priceDisabled={priceDisabled}
               setPriceDisabled={setPriceDisabled}
               title={"Add a new item"}
               subtitle={"To update a SKU currently registered, visit the "}
-              subtitleLink={{ to: "/manage-stock", text: "manage stock" }}
+              subtitleLink={{ to: "/manage-stock", text: "manage stock page" }}
             />
           </Col>
           <Col xs={12} lg={6}>
