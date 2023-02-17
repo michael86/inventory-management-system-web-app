@@ -13,6 +13,8 @@ const instance = axios.create({
 
 instance.interceptors.request.use(function (config) {
   const token = getStore("token");
+  const { email } = store.getState((state) => state.user);
+
   config.headers.token = token;
 
   return config;
