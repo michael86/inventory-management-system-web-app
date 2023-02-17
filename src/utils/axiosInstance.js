@@ -16,6 +16,7 @@ instance.interceptors.request.use(function (config) {
   const { email } = store.getState((state) => state.user);
 
   config.headers.token = token;
+  config.headers.email = email;
 
   return config;
 });
