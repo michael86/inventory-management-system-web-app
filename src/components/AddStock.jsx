@@ -8,6 +8,9 @@ import { validateInput } from "../validation/Utils";
 
 import axios from "../utils/axiosInstance";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const AddStock = () => {
   const [errors, setErrors] = useState();
   const [locations, setLocations] = useState([]);
@@ -82,13 +85,29 @@ const AddStock = () => {
       },
     ];
 
-    axios.post("stock/add", { data });
+    const res = await axios.post("stock/add", { data });
 
-    // resetState(e);
+    switch (res.data?.status) {
+      //Item Added
+      case 1:
+        resetState(e);
+        toast.success(`${data.sku} Added`);
+        break;
+      //Sku used
+      case 2:
+        toast.warning(
+          `${data.sku} has already been used, please update and try again`
+        );
+        break;
+      default:
+        resetState(e);
+        break;
+    }
   };
 
   return (
     <Container>
+      <ToastContainer />
       <Form onSubmit={onSubmit}>
         <Row>
           <Col xs={12} lg={6}>
