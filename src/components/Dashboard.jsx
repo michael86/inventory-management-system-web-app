@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import {
   Chart as ChartJS,
@@ -21,6 +21,8 @@ import { useState } from "react";
 import { useagePlugins } from "./Dashboard/Schemas";
 import { generateDataset, generateLabels } from "./Charts/Utils";
 import DashForm from "./Dashboard/DashForm";
+import axios from "../utils/axiosInstance";
+import { setStock } from "../reducers/stockSlice";
 
 const Dashboard = () => {
   ChartJS.register(
@@ -36,7 +38,8 @@ const Dashboard = () => {
   );
 
   const user = useSelector((state) => state.user);
-  const stock = useSelector((state) => state.stock.stock);
+  const [stock, setStock] = useState([]);
+  // const stock = useSelector((state) => state.stock.stock);
 
   const [dateObject, setDateObject] = useState(
     createDateObject(JSON.parse(JSON.stringify(stock)))
@@ -87,9 +90,22 @@ const Dashboard = () => {
     setMinMaxValues(+target.value);
   };
 
+  useEffect(() => {
+    const getStock = async () => {
+      const res = await axios.get("stock/get");
+      if (res.status && res.data?.stock) {
+        createDateObject(res.data.stock);
+        setStock(res.data.stock);
+      }
+    };
+
+    getStock();
+  }, []);
+
+  console.log(dateObject);
   return (
     <>
-      <h1 className="text-center">{user.company}</h1>
+      {/* <h1 className="text-center">{user.company}</h1> */}
 
       <Row className="mx-4">
         <DashForm
