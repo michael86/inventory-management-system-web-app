@@ -19,6 +19,7 @@ export const createDateObject = (obj, filter) => {
     const d = date ? new Date(date) : new Date();
     const month = d.getMonth();
     const year = d.getFullYear();
+
     return [month, year];
   };
 
@@ -35,7 +36,7 @@ export const createDateObject = (obj, filter) => {
 
     item.history.sort((a, b) => a.date - b.date);
 
-    let [monthCounter, yearCounter] = breakUpDate(item.dateCreated);
+    let [monthCounter, yearCounter] = breakUpDate(item.dateCreated * 1000);
 
     let lastSnapshot; //Cache the last valid month and year combo into the snapshot. This allows us to reference it without having to iterate over the history again.
 
@@ -55,14 +56,12 @@ export const createDateObject = (obj, filter) => {
       dateObject[yearCounter][monthCounter] =
         dateObject[yearCounter][monthCounter] || {};
 
-      // ..... Shut up lint
-      // eslint-disable-next-line
-      item.history.forEach((history) => {
-        const [historyMonth, historyYear] = breakUpDate(history.date);
-        //something here broken
+      for (const history of item.history) {
+        const [historyMonth, historyYear] = breakUpDate(history.date * 1000);
+
         if (historyMonth === monthCounter && historyYear === yearCounter) {
           dateObject[yearCounter][monthCounter][item.sku] = {
-            runningTotal: history.qty,
+            runningTotal: history.quantity,
             price: history.price,
           };
 
@@ -70,7 +69,7 @@ export const createDateObject = (obj, filter) => {
         } else {
           dateObject[yearCounter][monthCounter][item.sku] = lastSnapshot;
         }
-      });
+      }
 
       monthCounter++;
       if (monthCounter > 11) {

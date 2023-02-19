@@ -94,7 +94,7 @@ const Dashboard = () => {
     const getStock = async () => {
       const res = await axios.get("stock/get");
       if (res.status && res.data?.stock) {
-        createDateObject(res.data.stock);
+        setDateObject(createDateObject(res.data.stock));
         setStock(res.data.stock);
       }
     };
@@ -102,7 +102,7 @@ const Dashboard = () => {
     getStock();
   }, []);
 
-  console.log(dateObject);
+  console.log("dateObject", dateObject);
   return (
     <>
       {/* <h1 className="text-center">{user.company}</h1> */}
