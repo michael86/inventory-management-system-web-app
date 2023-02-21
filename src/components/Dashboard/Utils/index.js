@@ -63,6 +63,7 @@ export const createDateObject = (obj, filter) => {
           dateObject[yearCounter][monthCounter][item.sku] = {
             runningTotal: history.quantity,
             price: history.price,
+            history: [],
           };
 
           lastSnapshot = dateObject[yearCounter][monthCounter][item.sku];

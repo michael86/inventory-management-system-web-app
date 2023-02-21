@@ -1,27 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { setStock } from "../reducers/stockSlice";
-
+import axios from "../utils/axiosInstance";
 import ManageStockCard from "./Stock/ManageStockCard";
 
 import "../styles/ManageStock.css";
 
 const ManageStock = () => {
-  const stock = useSelector((state) => state.stock.stock);
-  const dispatch = useDispatch();
-
+  const [stock, setStock] = useState([]);
   const onDelete = (sku) => {
-    let copy = [...stock];
-
-    copy.splice(
-      copy.findIndex((item) => item.sku === sku),
-      1
-    );
-
-    dispatch(setStock(copy));
+    // let copy = [...stock];
+    // copy.splice(
+    //   copy.findIndex((item) => item.sku === sku),
+    //   1
+    // );
+    // dispatch(setStock(copy));
   };
+
+  useEffect(() => {
+    const getStock = async () => {
+      const res = await axios.get("stock/get");
+      if (res.status && res.data?.stock) {
+        setStock(res.data.stock);
+      }
+    };
+
+    getStock();
+  }, []);
 
   return (
     <>

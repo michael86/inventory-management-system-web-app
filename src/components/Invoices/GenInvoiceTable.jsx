@@ -9,9 +9,8 @@ const GenInvoiceTable = ({ pages, pageIndex }) => {
   const userCompany = useSelector((state) => state.company);
 
   const formatDate = (unix) => {
-    console.log(unix);
     let date = new Date(unix * 1000);
-    console.log(date);
+
     date = date.toLocaleDateString();
 
     return date;

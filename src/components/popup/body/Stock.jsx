@@ -126,7 +126,7 @@ const Stock = () => {
           },
           sku: { value: item.sku },
           price: { value: item.price },
-          qty: { value: item.qty },
+          qty: { value: item.quantity },
           freeIssue: item.price ? false : true,
         }}
       />

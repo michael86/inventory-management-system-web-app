@@ -12,11 +12,15 @@ const ManageStockCard = ({ item, onDelete }) => {
 
   return (
     <Col xs={1} key={item.sku} className="fit-content">
-      <Card className="fit-content">
+      <Card className="fit-content mt-2">
         <Card.Title className="text-center">{item.sku}</Card.Title>
         <Card.Body className="d-flex flex-column">
-          <input type="text" value={item.qty} disabled />
-          <input type="text" value={item.price || "free issue"} disabled />
+          <input type="text" value={`Qty: ${item.quantity}`} disabled />
+          <input
+            type="text"
+            value={`Price: ${item.price}` || "free issue"}
+            disabled
+          />
           <div className="location-container mt-2">
             <Card.Text className="text-center">Location</Card.Text>
             <div className="d-flex flex-wrap justify-content-between ">

@@ -102,7 +102,6 @@ const Dashboard = () => {
     getStock();
   }, []);
 
-  console.log("dateObject", dateObject);
   return (
     <>
       {/* <h1 className="text-center">{user.company}</h1> */}
