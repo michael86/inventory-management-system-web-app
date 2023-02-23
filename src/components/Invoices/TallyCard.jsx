@@ -1,9 +1,6 @@
 import React from "react";
 import { Card, Table } from "react-bootstrap";
-import {
-  calculateCombinedCost,
-  calculateCombinedItemTax,
-} from "../../utils/invoices";
+import utils from "../../utils/invoices";
 
 const TallyCard = (props) => {
   const { items } = props; //Get currency from here
@@ -34,7 +31,7 @@ const TallyCard = (props) => {
                   <td>{item.tax}</td>
                   <td>
                     £
-                    {calculateCombinedItemTax(
+                    {utils.calculateCombinedItemTax(
                       item.quantity,
                       item.price,
                       item.tax
@@ -50,8 +47,9 @@ const TallyCard = (props) => {
       <Card.Footer>
         Total Cost: £
         {items.length > 0 &&
-          Math.round((calculateCombinedCost(items) + Number.EPSILON) * 100) /
-            100}
+          Math.round(
+            (utils.calculateCombinedCost(items) + Number.EPSILON) * 100
+          ) / 100}
       </Card.Footer>
     </Card>
   );

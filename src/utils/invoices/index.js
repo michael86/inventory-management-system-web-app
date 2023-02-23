@@ -99,3 +99,17 @@ export const genInvoice = (payload) => {
 
   return newInvoice;
 };
+
+//react moans if we don't assign to variable before exporting
+const all = {
+  sortAscending,
+  sortDescending,
+  filterInvoices,
+  genPages,
+  findInvoiceById,
+  calculateCombinedCost,
+  calculateCombinedItemTax,
+  genInvoice,
+};
+
+export default all;
