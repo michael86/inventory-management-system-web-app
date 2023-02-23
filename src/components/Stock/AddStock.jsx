@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 
 import { validateInput } from "../../validation/Utils";
-import axios from "../../utils/axiosInstance";
+import axios from "../../utils/axios";
 
 import CompanyCard from "./components/CompanyCard";
 import ItemCard from "../Shared/ItemCard";

@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { Button, Container, Form } from "react-bootstrap";
-import axios from "../../utils/axiosInstance";
+import axios from "../../utils/axios";
 import { validateInput } from "../../validation/Utils";
 import Input from "../Shared/Input";
 

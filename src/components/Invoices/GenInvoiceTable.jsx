@@ -1,7 +1,7 @@
 import React from "react";
 import { Table } from "react-bootstrap";
 import { useSelector } from "react-redux";
-import axios from "../../utils/axiosInstance";
+import axios from "../../utils/axios";
 
 import InvoiceButton from "../Invoices/InvoiceButton";
 

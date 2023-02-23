@@ -4,7 +4,7 @@ import ItemCard from "../../Shared/ItemCard";
 import { validateInput } from "../../../validation/Utils";
 import { Button, Form } from "react-bootstrap";
 import { togglePopup } from "../../../reducers/popupSlice";
-import axios from "../../../utils/axiosInstance";
+import axios from "../../../utils/axios";
 
 const Stock = () => {
   const dispatch = useDispatch();

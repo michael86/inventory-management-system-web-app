@@ -3,7 +3,7 @@ import { Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { setStock } from "../../reducers/stockSlice";
-import axios from "../../utils/axiosInstance";
+import axios from "../../utils/axios";
 import ManageStockCard from "./components/ManageStockCard";
 
 import "../../styles/ManageStock.css";

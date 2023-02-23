@@ -13,7 +13,7 @@ import {
   setUserAuthenticated,
   setUserEmail,
 } from "../../../reducers/userSlice";
-import axios from "../../../utils/axiosInstance";
+import axios from "../../../utils/axios";
 import { setCompany } from "../../../reducers/companySlice";
 import { setStore } from "../../../localStorage";
 

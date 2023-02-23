@@ -8,7 +8,7 @@ import {
 } from "../reducers/userSlice";
 import { setCompany } from "../reducers/companySlice";
 import { getStore } from "../localStorage";
-import axios from "./axiosInstance";
+import axios from "../utils/axios";
 
 const isAuthenticated = async () => {
   return new Promise((resolve, reject) => {

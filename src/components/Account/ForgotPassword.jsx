@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Container, Form, Button } from "react-bootstrap";
 import { validateInput } from "../../validation/Utils";
 import Input from "../Shared/Input";
-import axios from "../../utils/axiosInstance";
+import axios from "../../utils/axios";
 
 const ForgotPassword = () => {
   const [errors, setErrors] = useState(false);

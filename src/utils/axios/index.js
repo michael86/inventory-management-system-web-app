@@ -1,7 +1,7 @@
 import axios from "axios";
-import { store } from "../app/store";
-import { getStore, setStore } from "../localStorage";
-import { setUserToken } from "../reducers/userSlice";
+import { store } from "../../app/store";
+import { getStore, setStore } from "../../localStorage";
+import { setUserToken } from "../../reducers/userSlice";
 
 const instance = axios.create({
   baseURL: process.env.REACT_APP_API_URL,

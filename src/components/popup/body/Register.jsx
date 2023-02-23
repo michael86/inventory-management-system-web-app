@@ -18,7 +18,7 @@ import { setCompany } from "../../../reducers/companySlice";
 import { registerInputs } from "../schema/genRegisterInputs";
 
 import "../../../styles/Modal.css";
-import axios from "../../../utils/axiosInstance";
+import axios from "../../../utils/axios";
 import { setStore } from "../../../localStorage";
 
 const Register = () => {

@@ -9,7 +9,7 @@ import {
   sortAscending,
   sortDescending,
 } from "../../utils/invoices";
-import axios from "../../utils/axiosInstance";
+import axios from "../../utils/axios";
 
 import Header from "./Header";
 import Footer from "./Footer";

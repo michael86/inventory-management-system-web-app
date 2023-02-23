@@ -8,7 +8,7 @@ import TallyCard from "./TallyCard";
 import { toCompany, item, specifics } from "./schema/genInvoiceInputs";
 
 import GenInvoiceCard from "./GenInvoiceCard";
-import axios from "../../utils/axiosInstance";
+import axios from "../../utils/axios";
 
 import "../../styles/Forms.css";
 import "react-toastify/dist/ReactToastify.css";
