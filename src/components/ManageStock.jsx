@@ -22,7 +22,7 @@ const ManageStock = () => {
   useEffect(() => {
     const getStock = async () => {
       //Update get to use history=bool.
-      const res = await axios.get("stock/get");
+      const res = await axios.get("stock/get/?locations=true");
       if (res.status && res.data?.stock) {
         setStock(res.data.stock);
       }

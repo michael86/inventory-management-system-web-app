@@ -39,10 +39,12 @@ const Stock = () => {
   };
 
   const deleteLocation = (id) => {
-    const copy = [...locations];
+    const copy = JSON.parse(JSON.stringify(locations));
     const index = copy.findIndex((location) => location.id === id);
     if (index === -1) return;
-    copy.splice(index, 1);
+    delete copy[index].name;
+    delete copy[index].value;
+
     setLocations(copy);
   };
 

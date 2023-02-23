@@ -26,13 +26,17 @@ const Location = (props) => {
           return (
             <Col key={location.id} xs={2} className="me-2 mt-2">
               <Badge pill bg="primary">
-                <span className="text-warning"> {location.name}:</span>{" "}
-                {location.value}
-                <FontAwesomeIcon
-                  icon={faCircleXmark}
-                  onClick={() => deleteLocation(location.id)}
-                  className="ms-2 delete-location"
-                />
+                {location.name && location.value && (
+                  <>
+                    <span className="text-warning"> {location.name}:</span>
+                    {location.value}
+                    <FontAwesomeIcon
+                      icon={faCircleXmark}
+                      onClick={() => deleteLocation(location.id)}
+                      className="ms-2 delete-location"
+                    />
+                  </>
+                )}
               </Badge>
             </Col>
           );

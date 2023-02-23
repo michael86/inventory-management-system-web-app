@@ -11,7 +11,7 @@ const ManageStockCard = ({ item, onDelete }) => {
   const dispatch = useDispatch();
 
   return (
-    <Col xs={1} key={item.sku} className="fit-content">
+    <Col xs={1} className="fit-content">
       <Card className="fit-content mt-2">
         <Card.Title className="text-center">{item.sku}</Card.Title>
         <Card.Body className="d-flex flex-column">
@@ -25,6 +25,7 @@ const ManageStockCard = ({ item, onDelete }) => {
             <Card.Text className="text-center">Location</Card.Text>
             <div className="d-flex flex-wrap justify-content-between ">
               {item.locations.map((location) => {
+                console.log(location);
                 return (
                   <Badge bg="primary" key={location.id}>
                     <span className="text-warning">{location.name}</span>:{" "}
