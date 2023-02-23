@@ -5,7 +5,7 @@ import {
   setPopupScreen,
   setPopupStock,
   togglePopup,
-} from "../../reducers/popupSlice";
+} from "../../../reducers/popupSlice";
 
 const ManageStockCard = ({ item, onDelete }) => {
   const dispatch = useDispatch();

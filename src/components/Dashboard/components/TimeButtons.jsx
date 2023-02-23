@@ -1,7 +1,7 @@
 import React from "react";
 import { Badge, Button } from "react-bootstrap";
 
-import { makeMonthReadable } from "../../utils";
+import { makeMonthReadable } from "../../../utils";
 
 const Timebuttons = ({
   dateObject,

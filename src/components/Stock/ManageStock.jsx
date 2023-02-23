@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { setStock } from "../reducers/stockSlice";
-import axios from "../utils/axiosInstance";
-import ManageStockCard from "./Stock/ManageStockCard";
+import { setStock } from "../../reducers/stockSlice";
+import axios from "../../utils/axiosInstance";
+import ManageStockCard from "./components/ManageStockCard";
 
-import "../styles/ManageStock.css";
+import "../../styles/ManageStock.css";
 
 const ManageStock = () => {
   const [stock, setStock] = useState([]);

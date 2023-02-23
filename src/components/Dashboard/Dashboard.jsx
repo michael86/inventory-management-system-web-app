@@ -14,15 +14,14 @@ import {
 
 import { Row, Col } from "react-bootstrap";
 
-import UseageChart from "./Charts/UseageChart";
-import { getHalfMonths, getMonth, getYear, makeReadable } from "../utils";
-import { createDateObject } from "./Dashboard/Utils";
+import UseageChart from "../Charts/UseageChart";
+import { getHalfMonths, getMonth, getYear, makeReadable } from "../../utils";
+import { createDateObject } from "./Utils";
 import { useState } from "react";
-import { useagePlugins } from "./Dashboard/Schemas";
-import { generateDataset, generateLabels } from "./Charts/Utils";
-import DashForm from "./Dashboard/DashForm";
-import axios from "../utils/axiosInstance";
-import { setStock } from "../reducers/stockSlice";
+import { useagePlugins } from "./Schemas";
+import { generateDataset, generateLabels } from "../Charts/Utils";
+import DashForm from "./components/DashForm";
+import axios from "../../utils/axiosInstance";
 
 const Dashboard = () => {
   ChartJS.register(
