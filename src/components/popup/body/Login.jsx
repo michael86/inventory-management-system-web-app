@@ -8,7 +8,7 @@ import { validateInput } from "../../../validation/Utils";
 
 import Buttons from "../components/Buttons";
 import Header from "../components/Header";
-import Input from "../../Generic/Input";
+import Input from "../../Shared/Input";
 import {
   setUserAuthenticated,
   setUserEmail,

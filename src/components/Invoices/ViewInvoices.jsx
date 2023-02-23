@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
+
 import { Container } from "react-bootstrap";
 
 import {
@@ -6,16 +8,14 @@ import {
   genPages,
   sortAscending,
   sortDescending,
-} from "./Invoices/Utils/Index";
+} from "./Utils/Index";
+import axios from "../../utils/axiosInstance";
 
-import Footer from "./Invoices/Footer";
+import Header from "./Header";
+import Footer from "./Footer";
+import GenInvoiceTable from "./GenInvoiceTable";
 
-import "../styles/Invoice.css";
-import Header from "./Invoices/Header";
-import GenInvoiceTable from "./Invoices/GenInvoiceTable";
-import { useEffect } from "react";
-
-import axios from "../utils/axiosInstance";
+import "../../styles/Invoice.css";
 
 const ViewInvoices = () => {
   const [invoices, setInvoices] = useState([]);

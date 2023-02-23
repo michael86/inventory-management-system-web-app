@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Form, Row, Col, Button, Container } from "react-bootstrap";
 
+import { accountSchema } from "./schema/companySettings";
 import { validateInput } from "../../validation/Utils";
-import Input from "../Generic/Input";
+
+import Input from "../Shared/Input";
 
 import { setUser } from "../../reducers/userSlice";
-import { onSaveSettings } from "./Utils/index";
-
-import { accountSchema } from "./schema/companySettings";
+import { onSaveSettings } from "../../utils/account";
 
 const AccountSettings = () => {
   const [errors, setErrors] = useState(false);

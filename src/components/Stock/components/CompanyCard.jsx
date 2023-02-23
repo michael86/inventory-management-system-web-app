@@ -1,6 +1,6 @@
 import React from "react";
 import { Card } from "react-bootstrap";
-import Input from "../../Generic/Input";
+import Input from "../../Shared/Input";
 import { addStock } from "../Schema/addStock";
 
 const CompanyCard = ({ onInput, errors }) => {

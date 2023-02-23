@@ -1,13 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
+
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 
-import ItemCard from "../Generic/ItemCard";
-import CompanyCard from "./components/CompanyCard";
-import { useState } from "react";
 import { validateInput } from "../../validation/Utils";
-
 import axios from "../../utils/axiosInstance";
 
+import CompanyCard from "./components/CompanyCard";
+import ItemCard from "../Shared/ItemCard";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 

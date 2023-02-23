@@ -1,14 +1,16 @@
 import React, { useState } from "react";
-import "./../styles/Forms.css";
 
 import uniqid from "uniqid";
 import { Container, Form, Row, Col, Button } from "react-bootstrap";
-import GenInvoiceCard from "./Invoices/GenInvoiceCard";
-import TallyCard from "./Invoices/TallyCard";
-import { toCompany, item, specifics } from "./Invoices/schema/genInvoiceInputs";
-
-import axios from "../utils/axiosInstance";
 import { ToastContainer, toast } from "react-toastify";
+import TallyCard from "./TallyCard";
+
+import { toCompany, item, specifics } from "./schema/genInvoiceInputs";
+
+import GenInvoiceCard from "./GenInvoiceCard";
+import axios from "../../utils/axiosInstance";
+
+import "../../styles/Forms.css";
 import "react-toastify/dist/ReactToastify.css";
 
 const GenerateInvoice = () => {

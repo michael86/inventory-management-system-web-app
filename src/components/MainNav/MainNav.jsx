@@ -4,10 +4,10 @@ import { Navbar, Nav, Container, Offcanvas } from "react-bootstrap";
 
 import { Link } from "react-router-dom";
 
-import Popup from "./popup/Popup";
-import LoggedOut from "./MainNav/LoggedOut";
-import LoggedIn from "./MainNav/LoggedIn";
-import Buttons from "./MainNav/Buttons";
+import Popup from "../popup/Popup";
+import LoggedOut from "./LoggedOut";
+import LoggedIn from "./LoggedIn";
+import Buttons from "./Buttons";
 import { useSelector } from "react-redux";
 
 function MainNav() {

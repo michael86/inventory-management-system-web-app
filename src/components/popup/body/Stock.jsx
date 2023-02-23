@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import ItemCard from "../../Generic/ItemCard";
+import ItemCard from "../../Shared/ItemCard";
 import { validateInput } from "../../../validation/Utils";
 import { Button, Form } from "react-bootstrap";
 import { togglePopup } from "../../../reducers/popupSlice";

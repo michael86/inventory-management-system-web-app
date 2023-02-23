@@ -1,12 +1,14 @@
 import React, { useState } from "react";
-import { Container, Form, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { validateInput } from "../../validation/Utils";
-import Input from "../Generic/Input";
-import { onSaveSettings } from "./Utils/index";
+import { Container, Form, Button } from "react-bootstrap";
 
 import { companySchema } from "./schema/companySettings";
 import { setUser } from "../../reducers/userSlice";
+
+import { validateInput } from "../../validation/Utils";
+import { onSaveSettings } from "../../utils/account/index";
+
+import Input from "../Shared/Input";
 
 const CompanySettings = () => {
   const [errors, setErrors] = useState(false);

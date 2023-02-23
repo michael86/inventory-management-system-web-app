@@ -1,8 +1,8 @@
 import React, { useRef, useState } from "react";
 import { Button, Container, Form } from "react-bootstrap";
-import axios from "../utils/axiosInstance";
-import { validateInput } from "../validation/Utils";
-import Input from "./Generic/Input";
+import axios from "../../utils/axiosInstance";
+import { validateInput } from "../../validation/Utils";
+import Input from "../Shared/Input";
 
 const ResetPassword = () => {
   const params = new Proxy(new URLSearchParams(window.location.search), {

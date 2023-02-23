@@ -8,8 +8,8 @@ const Input = (props) => {
    *
    * @Required
    * @param {props} I mean... Props :P !
-   * @param {props.type} Type of input we require
-   * @param {props.controlId} Sets the id 'for' and 'id' to link label to input
+   * @param {props.type} Type of input we require. I.E text|password|email
+   * @param {props.controlId} Sets the attributes 'for' && 'id' of label and input
    * @param {props.label} The label text
    *
    * @Optional

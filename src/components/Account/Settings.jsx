@@ -1,8 +1,8 @@
 import React from "react";
 import { Row, Col } from "react-bootstrap";
 
-import AccountSettings from "./Settings/AccountSettings";
-import CompanySettings from "./Settings/CompanySettings";
+import AccountSettings from "./AccountSettings";
+import CompanySettings from "./CompanySettings";
 
 const Settings = () => {
   return (

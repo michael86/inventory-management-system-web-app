@@ -1,11 +1,13 @@
 import React from "react";
 import { Card, Button, Badge, Row, Col } from "react-bootstrap";
-import Input from "../Generic/Input";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
+
 import { validateInput } from "../../validation/Utils";
 
-import "./../../styles/Invoice.css";
+import Input from "../Shared/Input";
+
+import "../../styles/Invoice.css";
 
 const GenInvoiceCard = (props) => {
   const {
