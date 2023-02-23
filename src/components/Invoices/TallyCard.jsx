@@ -1,6 +1,9 @@
 import React from "react";
 import { Card, Table } from "react-bootstrap";
-import { calculateCombinedCost, calculateCombinedItemTax } from "./Utils/Index";
+import {
+  calculateCombinedCost,
+  calculateCombinedItemTax,
+} from "../../utils/invoices";
 
 const TallyCard = (props) => {
   const { items } = props; //Get currency from here

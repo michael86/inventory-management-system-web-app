@@ -8,7 +8,7 @@ import {
   genPages,
   sortAscending,
   sortDescending,
-} from "./Utils/Index";
+} from "../../utils/invoices";
 import axios from "../../utils/axiosInstance";
 
 import Header from "./Header";

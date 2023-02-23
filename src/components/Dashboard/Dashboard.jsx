@@ -16,10 +16,10 @@ import { Row, Col } from "react-bootstrap";
 
 import UseageChart from "../Charts/UseageChart";
 import { getHalfMonths, getMonth, getYear, makeReadable } from "../../utils";
-import { createDateObject } from "./Utils";
+import { createDateObject } from "../../utils/dashboard";
 import { useState } from "react";
 import { useagePlugins } from "./Schemas";
-import { generateDataset, generateLabels } from "../Charts/Utils";
+import { generateDataset, generateLabels } from "../../utils/charts";
 import DashForm from "./components/DashForm";
 import axios from "../../utils/axiosInstance";
 
