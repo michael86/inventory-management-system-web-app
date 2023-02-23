@@ -92,8 +92,9 @@ const Dashboard = () => {
 
   useEffect(() => {
     const getStock = async () => {
-      const res = await axios.get("stock/get");
+      const res = await axios.get("stock/get/?history=true");
       if (res.status && res.data?.stock) {
+        console.log(res.data);
         setDateObject(createDateObject(res.data.stock));
         setStock(res.data.stock);
       }

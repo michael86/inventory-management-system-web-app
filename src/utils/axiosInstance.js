@@ -31,7 +31,8 @@ instance.interceptors.response.use(
     return response;
   },
   function (error) {
-    console.log("error", error);
+    document.querySelector("body").innerHTML = error;
+    // console.log("error", error.response);
     if (error.response?.status >= 400 && error.response?.status < 500) {
       if (error.response.data.token) {
         store.dispatch(setUserToken(error.response.data.token));
