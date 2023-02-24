@@ -1,14 +1,8 @@
-import React, { useState } from "react";
-import { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 import { Container } from "react-bootstrap";
 
-import {
-  filterInvoices,
-  genPages,
-  sortAscending,
-  sortDescending,
-} from "../../utils/invoices";
+import utils from "../../utils/invoices";
 import axios from "../../utils/axios";
 
 import Header from "./components/Header";
@@ -25,40 +19,41 @@ const ViewInvoices = () => {
   const [pageIndex, setPageIndex] = useState(0);
   const [rowCount, setRowCount] = useState(5);
 
-  const filterDate = (e) => {
-    setPages(
-      genPages(
-        e.target.value === "0"
-          ? sortAscending(
-              filteredInvoices.length > 0 ? filteredInvoices : invoices
-            )
-          : sortDescending(
-              filteredInvoices.length > 0 ? filteredInvoices : invoices
-            ),
-        rowCount
-      )
-    );
+  const setNewPages = (copy) => {
+    const newInvoices = copy.length > 0 ? copy : invoices;
+    const newPages = utils.genPages(newInvoices, rowCount);
+    setPages(newPages);
   };
 
-  const onInput = (e) => {
-    const copy = filterInvoices({ invoices, filter: e.target.value });
+  const filterDate = (e) => {
+    const payload =
+      filteredInvoices.length > 0 ? filteredInvoices : [...invoices];
+
+    const newInvoices = utils.sortAscending(payload, e.target.value === "0");
+    setNewPages(newInvoices);
+  };
+
+  const onInput = ({ target }) => {
+    const filter = target.value;
+    const copy = utils.filterInvoices(invoices, filter);
     setFilteredInvoices(copy);
 
-    const newPages = genPages(copy.length > 0 ? copy : invoices, rowCount);
-
-    setPages(newPages);
-
+    setNewPages(copy);
     setPageIndex(0);
   };
 
-  const setPageCount = (e) => {
+  const setPageCount = ({ target }) => {
     setPageIndex(0);
-    const count = Number(e.target.value);
-    setPages(
-      genPages(filteredInvoices.length > 0 ? filteredInvoices : invoices, count)
-    );
+    const newCount = +target.value;
 
-    setRowCount(count);
+    const newInvoices =
+      filteredInvoices.length > 0 ? filteredInvoices : invoices;
+
+    //Can't call setNewPages here due to racing issues
+    const newPages = utils.genPages(newInvoices, newCount);
+    setPages(newPages);
+
+    setRowCount(newCount);
   };
 
   useEffect(() => {
@@ -66,7 +61,7 @@ const ViewInvoices = () => {
       const res = await axios.get("invoice/get");
 
       setInvoices(res.data?.data || []);
-      setPages(genPages(sortAscending(res.data?.data || [])));
+      setPages(utils.genPages(utils.sortAscending(res.data?.data || [])));
     };
 
     getInvoices();

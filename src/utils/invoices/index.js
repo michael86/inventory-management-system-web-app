@@ -1,17 +1,18 @@
 import { v4 as uuidv4 } from "uuid";
 // export const filterByDate
 
-export const sortAscending = (payload) =>
-  [...payload].sort((a, b) => a.billingDate - b.billingDate);
+export const sortAscending = (payload, ascending = true) =>
+  payload.sort(
+    (a, b) =>
+      (ascending ? a.billingDate : b.billingDate) -
+      (ascending ? b.billingDate : a.billingDate)
+  );
 
-export const sortDescending = (payload) =>
-  [...payload].sort((a, b) => b.billingDate - a.billingDate);
-
-export const filterInvoices = (payload) => {
-  const copy = payload.invoices.filter(
+export const filterInvoices = (invoices, filter) => {
+  const copy = invoices.filter(
     (invoice) =>
-      invoice.contact.toLowerCase().includes(payload.filter) ||
-      invoice.name.toLowerCase().includes(payload.filter)
+      invoice.contact.toLowerCase().includes(filter) ||
+      invoice.name.toLowerCase().includes(filter)
   );
   return copy;
 };
@@ -156,10 +157,10 @@ export const generateInvoice = (data, items) => {
     items,
   };
 };
+
 //react moans if we don't assign to variable before exporting
 const all = {
   sortAscending,
-  sortDescending,
   filterInvoices,
   genPages,
   findInvoiceById,
