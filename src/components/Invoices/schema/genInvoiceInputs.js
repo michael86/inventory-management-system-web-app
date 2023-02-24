@@ -138,14 +138,14 @@ export const specifics = [
 
 export const item = [
   {
-    controlId: "item",
+    controlId: "name",
     classNames: {
       group: classes.group,
       label: classes.label,
     },
-    label: "Item:",
+    label: "Name:",
     type: "text",
-    placeholder: "Item",
+    placeholder: "Name",
   },
   {
     controlId: "description",

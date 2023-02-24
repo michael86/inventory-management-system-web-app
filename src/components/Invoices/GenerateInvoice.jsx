@@ -32,21 +32,22 @@ const GenerateInvoice = () => {
     if (!utils.validateItemData(inputFields)) return;
 
     const itemData = utils.generateItemObject(inputFields);
-    const copy = JSON.parse(JSON.stringify(items));
+    const copy = [...items];
 
-    const stockIndex = copy.findIndex((item) => item.item === itemData.item);
+    const stockIndex = copy.findIndex((item) => item.name === itemData.name);
 
     if (stockIndex > -1) {
       setItems(utils.updateStockByIndex(copy, stockIndex, itemData));
       return;
     }
+
     copy.push(itemData);
     setItems(copy);
   };
 
   const onDelete = (id) => {
     const copy = [...items];
-    const index = copy.findIndex((item) => item.id === id);
+    const index = copy.findIndex((item) => item.name === id);
     copy.splice(index, 1);
     setItems(copy);
   };
@@ -56,37 +57,17 @@ const GenerateInvoice = () => {
 
     if (Object.keys(errors).length > 0) return;
 
-    const invoice = Object.fromEntries(new FormData(e.target));
-
-    const company = {
-      contact: invoice.invoiceContactName,
-      name: invoice.invoiceCompanyName,
-      address: invoice.invoiceCompanyAddress,
-      city: invoice.invoiceCompanyCity,
-      state: invoice.invoiceCompanyState,
-      postcode: invoice.invoiceCompanyPostcode,
-      country: invoice.invoiceCompanyCountry,
-    };
-
-    const specifics = {
-      dueDate: invoice.dueDate,
-      billingDate: invoice.billingDate,
-      footer: invoice.footer,
-      orderNumber: invoice.orderNumber,
-    };
-
-    const itemCopy = JSON.parse(JSON.stringify(items));
-
-    for (const item in itemCopy) {
-      delete itemCopy[item].id;
-    }
-
-    const data = { items: itemCopy, company, specifics };
+    const data = utils.generateInvoice(
+      Object.fromEntries(new FormData(e.target)),
+      [...items]
+    );
 
     const res = await axios.put("invoice/add", data);
 
     if (!res.data?.status) {
-      console.log("somethign went wrong adding invoice");
+      toast.error(
+        "There was an error adding your invoice, please try again later."
+      );
       return;
     }
 

@@ -76,10 +76,10 @@ const GenInvoiceCard = (props) => {
                 {footer.items.map((item) => {
                   return (
                     <Badge pill bg="primary me-2 mb-2 fs-6" key={item.id}>
-                      {`${item.item}: qty ${item.quantity}`}
+                      {`${item.name}: qty ${item.quantity}`}
                       <FontAwesomeIcon
                         icon={faCircleXmark}
-                        onClick={() => onDelete(item.id)}
+                        onClick={() => onDelete(item.name)}
                         className="ms-2"
                       />
                     </Badge>

@@ -135,6 +135,27 @@ export const updateStockByIndex = (stock, index, item) => {
   stock[index].price = item.price;
   return stock;
 };
+
+export const generateInvoice = (data, items) => {
+  return {
+    company: {
+      contact: data.invoiceContactName,
+      name: data.invoiceCompanyName,
+      address: data.invoiceCompanyAddress,
+      city: data.invoiceCompanyCity,
+      state: data.invoiceCompanyState,
+      postcode: data.invoiceCompanyPostcode,
+      country: data.invoiceCompanyCountry,
+    },
+    specifics: {
+      dueDate: data.dueDate,
+      billingDate: data.billingDate,
+      footer: data.footer,
+      orderNumber: data.orderNumber,
+    },
+    items,
+  };
+};
 //react moans if we don't assign to variable before exporting
 const all = {
   sortAscending,
@@ -149,6 +170,7 @@ const all = {
   extractItemInput,
   generateItemObject,
   updateStockByIndex,
+  generateInvoice,
 };
 
 export default all;
