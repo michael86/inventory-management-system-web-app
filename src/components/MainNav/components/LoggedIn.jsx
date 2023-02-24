@@ -4,9 +4,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { NavDropdown, Nav } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { setUserAuthenticated, setUserToken } from "../../reducers/userSlice";
-import { default as axios } from "../../utils/axios";
-import { deleteStore } from "../../localStorage";
+import {
+  setUserAuthenticated,
+  setUserToken,
+} from "../../../reducers/userSlice";
+import { default as axios } from "../../../utils/axios";
+import { deleteStore } from "../../../localStorage";
 
 const LoggedIn = () => {
   const dispatch = useDispatch();

@@ -5,9 +5,9 @@ import { Navbar, Nav, Container, Offcanvas } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 import Popup from "../popup/Popup";
-import LoggedOut from "./LoggedOut";
-import LoggedIn from "./LoggedIn";
-import Buttons from "./Buttons";
+import LoggedOut from "./components/LoggedOut";
+import LoggedIn from "./components/LoggedIn";
+import Buttons from "./components/Buttons";
 import { useSelector } from "react-redux";
 
 function MainNav() {

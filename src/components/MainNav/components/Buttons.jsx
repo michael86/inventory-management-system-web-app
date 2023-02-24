@@ -1,7 +1,7 @@
 import React from "react";
 import { Nav, Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
-import { togglePopup, setPopupScreen } from "../../reducers/popupSlice";
+import { togglePopup, setPopupScreen } from "../../../reducers/popupSlice";
 
 const Buttons = () => {
   const dispatch = useDispatch();
