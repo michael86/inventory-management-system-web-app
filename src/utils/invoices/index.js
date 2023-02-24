@@ -100,6 +100,41 @@ export const genInvoice = (payload) => {
   return newInvoice;
 };
 
+export const validateItemData = (inputs) => {
+  return inputs.every((input) => {
+    if (input.value !== "") return true;
+
+    return false;
+  });
+};
+
+export const extractItemInput = (children) => {
+  return children
+    .map((child) =>
+      [...child.children].filter((child) => child.tagName === "INPUT")
+    )
+    .flat();
+};
+
+export const generateItemObject = (inputs) => {
+  const inputObject = {};
+
+  inputs.forEach((input) => (inputObject[input.name] = input.value));
+
+  inputObject.quantity = +inputObject.quantity;
+  inputObject.price = +inputObject.price;
+  inputObject.tax = +inputObject.tax;
+
+  return inputObject;
+};
+
+export const updateStockByIndex = (stock, index, item) => {
+  stock[index].quantity = stock[index].quantity + item.quantity;
+  stock[index].tax = item.tax;
+  stock[index].description = item.description;
+  stock[index].price = item.price;
+  return stock;
+};
 //react moans if we don't assign to variable before exporting
 const all = {
   sortAscending,
@@ -110,6 +145,10 @@ const all = {
   calculateCombinedCost,
   calculateCombinedItemTax,
   genInvoice,
+  validateItemData,
+  extractItemInput,
+  generateItemObject,
+  updateStockByIndex,
 };
 
 export default all;

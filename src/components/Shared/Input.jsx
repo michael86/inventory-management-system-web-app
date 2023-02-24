@@ -7,7 +7,6 @@ const Input = (props) => {
    * Dynamically generates a form group to be used within a form. Also accepts a cb on input, this can be used to elevate back to parent. I.E to validate a form .
    *
    * @Required
-   * @param {props} I mean... Props :P !
    * @param {props.type} Type of input we require. I.E text|password|email
    * @param {props.controlId} Sets the attributes 'for' && 'id' of label and input
    * @param {props.label} The label text

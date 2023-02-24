@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 import { Card, Form } from "react-bootstrap";
 
-import Optional from "./ItemCard/Optional";
-import Location from "./ItemCard/Location";
-import ItemDetails from "./ItemCard/ItemDetails";
+import Optional from "./components/Optional";
+import Location from "./components/Location";
+import ItemDetails from "./components/ItemDetails";
 
 //Would have used the Input component for this form, however, we manipulate the form layout (disabling/hiding/showing) to much.
 

@@ -1,52 +1,46 @@
 import React, { useState } from "react";
-
-import uniqid from "uniqid";
 import { Container, Form, Row, Col, Button } from "react-bootstrap";
 import { ToastContainer, toast } from "react-toastify";
+
+import uniqid from "uniqid";
+
+import axios from "../../utils/axios";
+
 import TallyCard from "./components/TallyCard";
+import GenInvoiceCard from "./components/GenInvoiceCard";
 
 import { toCompany, item, specifics } from "./schema/genInvoiceInputs";
 
-import GenInvoiceCard from "./components/GenInvoiceCard";
-import axios from "../../utils/axios";
-
 import "../../styles/Forms.css";
 import "react-toastify/dist/ReactToastify.css";
+import utils from "../../utils/invoices";
 
 const GenerateInvoice = () => {
   const [items, setItems] = useState([]);
   const [errors, setErrors] = useState();
 
-  const onBubble = (e) => {
-    //This is passed down to the items card, and used to catch when items are added. As items state needs to be in this component, not ideal, but... meh....
+  //This is passed down to the items card, and used to catch when items are added. As items state needs to be in this component, not ideal, but... meh....
+  const onAddItem = (e) => {
     const targetType = e.target.type;
 
     if (targetType !== "button") return;
-    const { children } = e.currentTarget.children[1]; //Get card body children
+    const { children } = e.currentTarget.children[1];
 
-    //Get inputs from children
-    let inputs = [...children]
-      .map((child) =>
-        [...child.children].filter((child) => child.tagName === "INPUT")
-      )
-      .flat();
+    let inputFields = utils.extractItemInput([...children]);
 
-    const inputObject = {};
-    let valid = inputs.every((input) => {
-      if (input.value === "") return false;
+    //An error should be shown by joi, so just return if this fails.
+    if (!utils.validateItemData(inputFields)) return;
 
-      inputObject[input.name] = input.value;
-      inputObject.id = uniqid();
-      return true;
-    });
+    const itemData = utils.generateItemObject(inputFields);
+    const copy = JSON.parse(JSON.stringify(items));
 
-    inputObject.quantity = Number(inputObject.quantity);
-    inputObject.price = Number(inputObject.price);
+    const stockIndex = copy.findIndex((item) => item.item === itemData.item);
 
-    if (!valid) return;
-
-    const copy = [...items];
-    copy.push(inputObject);
+    if (stockIndex > -1) {
+      setItems(utils.updateStockByIndex(copy, stockIndex, itemData));
+      return;
+    }
+    copy.push(itemData);
     setItems(copy);
   };
 
@@ -147,7 +141,7 @@ const GenerateInvoice = () => {
                 className="w-100"
                 headerText="items"
                 inputs={item}
-                onClick={onBubble}
+                onClick={onAddItem}
                 onDelete={onDelete}
                 footer={{
                   text: "Add",
