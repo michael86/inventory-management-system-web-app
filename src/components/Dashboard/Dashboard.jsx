@@ -1,59 +1,29 @@
-import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend,
-  ArcElement,
-} from "chart.js";
-// import { Pie } from "react-chartjs-2";
+import React, { useEffect, useState } from "react";
 
 import { Row, Col } from "react-bootstrap";
 
 import UseageChart from "../Charts/UseageChart";
-import {
-  getHalfMonths,
-  getMonth,
-  getYear,
-  makeReadable,
-} from "../../utils/dates";
-import { createDateObject } from "../../utils/dashboard";
-import { useState } from "react";
-import { useagePlugins } from "./Schemas";
-import { generateDataset, generateLabels } from "../../utils/charts";
 import DashForm from "./components/DashForm";
+
 import axios from "../../utils/axios";
+import dUtils from "../../utils/dates";
+import { createDateObject } from "../../utils/dashboard";
+import { generateDataset, generateLabels } from "../../utils/charts";
+
+import { useagePlugins } from "./Schemas";
 
 const Dashboard = () => {
-  ChartJS.register(
-    CategoryScale,
-    LinearScale,
-    BarElement,
-    ArcElement,
-    Tooltip,
-    Legend,
-    Title,
-    Tooltip,
-    Legend
-  );
-
-  const user = useSelector((state) => state.user);
   const [stock, setStock] = useState([]);
-  // const stock = useSelector((state) => state.stock.stock);
 
   const [dateObject, setDateObject] = useState(
     createDateObject(JSON.parse(JSON.stringify(stock)))
   );
 
-  const [useageMonths, setUsageMonths] = useState(getHalfMonths());
+  const [useageMonths, setUsageMonths] = useState(dUtils.getHalfMonths());
   const [minMaxValues, setMinMaxValues] = useState(0);
   const [searchFilter, setSearchFilter] = useState("");
-  const [year, setYear] = useState(getYear());
-  const [month, setMonth] = useState(getMonth());
+  const [year, setYear] = useState(dUtils.getYear());
+  const [month, setMonth] = useState(dUtils.getMonth());
 
   const onSearchfilter = ({ target }) => {
     setDateObject(
@@ -81,12 +51,12 @@ const Dashboard = () => {
     }
 
     setYear(newYear);
-    setUsageMonths(getHalfMonths(monthCheck, newYear));
+    setUsageMonths(dUtils.getHalfMonths(monthCheck, newYear));
   };
 
   const onMonthChange = (newMonth) => {
     setMonth(newMonth);
-    setUsageMonths(getHalfMonths(newMonth, year));
+    setUsageMonths(dUtils.getHalfMonths(newMonth, year));
   };
 
   const onMinMaxChange = ({ target }) => {
@@ -128,7 +98,7 @@ const Dashboard = () => {
           <UseageChart
             plugins={useagePlugins}
             labels={generateLabels(
-              makeReadable(JSON.parse(JSON.stringify(useageMonths))),
+              dUtils.makeDateReadable(JSON.parse(JSON.stringify(useageMonths))),
               true
             )}
             datasets={generateDataset(
