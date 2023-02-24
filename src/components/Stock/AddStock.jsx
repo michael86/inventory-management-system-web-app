@@ -113,9 +113,11 @@ const AddStock = () => {
             <ItemCard
               onInput={onInput}
               errors={errors}
-              locations={locations}
-              submitLocation={submitLocation}
-              deleteLocation={deleteLocation}
+              locations={{
+                data: locations,
+                submitLocation: submitLocation,
+                deleteLocation: deleteLocation,
+              }}
               locationsValid={locationsValid}
               skuValid={skuValid}
               priceDisabled={priceDisabled}

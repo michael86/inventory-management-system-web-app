@@ -10,30 +10,37 @@ import ItemDetails from "./components/ItemDetails";
 //Would have used the Input component for this form, however, we manipulate the form layout (disabling/hiding/showing) to much.
 
 const ItemCard = (props) => {
+  /**
+   * Shared component for adding stock and editing stock.
+   *
+   * @Required
+   * @param {props.errors} Object. Joi error handling.
+   * @param {onInput} Elevated onInput handler, primarily for form validation and setting props.errors
+   * @param {props.locations} Object containing locations object {name, value} and three functions: submitLocation, deleteLocation, locationsValid
+   * @param {title} String Title of the card. I.e Update Stock || Add stock
+   *
+   * @Optional
+   * @param {props.priceDisabled} Object containing elevated state: boolean, setState
+   * @param {props.prefill} Object containing values for prefilling, sent by manage stock
+   * @param {props.quantity} Object contains two booleans showEditQty && disableQty. Used to show extra input on manage stock call and disable default qty input
+   *
+   * @return {component} React Component: item Card for adding/updating stock items
+   */
   const {
-    errors,
+    errors, // error handling
     locations,
-    submitLocation,
-    deleteLocation,
-    locationsValid,
-    skuValid,
-    validateSku,
     priceDisabled,
-    setPriceDisabled,
     title,
     prefill,
     onInput,
-    showEditQty,
-    disableQty,
+    quantity,
   } = props;
 
   const [showOptional, setShowOptional] = useState(false);
 
   return (
     <Card className="shadow">
-      <Card.Title className="p-2 bg-primary rounded-top">
-        {prefill?.title || title}
-      </Card.Title>
+      <Card.Title className="p-2 bg-primary rounded-top">{title}</Card.Title>
 
       {prefill?.subtitle && (
         <Card.Subtitle className="px-2">
@@ -50,12 +57,10 @@ const ItemCard = (props) => {
         <ItemDetails
           errors={errors}
           priceDisabled={priceDisabled}
-          skuValid={skuValid}
-          validateSku={validateSku}
           prefill={prefill}
           onInput={onInput}
-          showEditQty={showEditQty}
-          disableQty={disableQty}
+          showEditQty={quantity.showEditQty}
+          disableQty={quantity.disableQty}
         />
 
         <Form.Group>
@@ -69,16 +74,16 @@ const ItemCard = (props) => {
 
         {showOptional && (
           <Optional
-            priceDisabled={priceDisabled}
-            setPriceDisabled={setPriceDisabled}
+            priceDisabled={priceDisabled.value}
+            setPriceDisabled={priceDisabled.set}
           />
         )}
 
         <Location
           locations={locations}
-          submitLocation={submitLocation}
-          deleteLocation={deleteLocation}
-          locationsValid={locationsValid}
+          submitLocation={locations.submitLocation}
+          deleteLocation={locations.deleteLocation}
+          locationsValid={locations.locationsValid}
         />
       </Card.Body>
     </Card>

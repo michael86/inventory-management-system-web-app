@@ -5,15 +5,8 @@ import { Form } from "react-bootstrap";
 import EditQty from "./EditQty";
 
 const ItemDetails = (props) => {
-  const {
-    onInput,
-    errors,
-    priceDisabled,
-    prefill,
-    skuValid,
-    showEditQty,
-    disableQty,
-  } = props;
+  const { onInput, errors, priceDisabled, prefill, showEditQty, disableQty } =
+    props;
 
   const onKeyDown = (e) =>
     (e.key === "-" || e.key === "e") && e.preventDefault();
@@ -62,8 +55,6 @@ const ItemDetails = (props) => {
             <span className="text-danger">
               Sku can not contain special characters
             </span>
-          ) : !skuValid ? (
-            <span className="text-danger">Sku has already been used</span>
           ) : (
             "Unique identifier for your company"
           )}
