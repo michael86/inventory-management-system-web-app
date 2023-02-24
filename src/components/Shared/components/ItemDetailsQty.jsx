@@ -6,7 +6,6 @@ import EditQty from "./EditQty";
 const ItemDetailsQty = ({
   prefill,
   onInput,
-  onKeyDown,
   disableQty,
   errors,
   showEditQty,
@@ -14,6 +13,9 @@ const ItemDetailsQty = ({
   const [qty, setQty] = useState(prefill?.qty?.value || 0);
   // const [price, setPrice] = useState(prefill?.price?.value || 0);
   const [qtyValid, setQtyValid] = useState(true);
+
+  const onKeyDown = (e) =>
+    (e.key === "-" || e.key === "e") && e.preventDefault();
 
   const equateQty = (equate, amount, errors) => {
     //Equate is a bool used to decide if adding or subtracting

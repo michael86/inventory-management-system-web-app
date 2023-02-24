@@ -1,6 +1,9 @@
 import { Form } from "react-bootstrap";
 
-const ItemDetailsPrice = ({ price, onInput, prefill, onKeyDown, errors }) => {
+const ItemDetailsPrice = ({ price, onInput, prefill, errors }) => {
+  const onKeyDown = (e) =>
+    (e.key === "-" || e.key === "e") && e.preventDefault();
+
   return (
     <>
       {" "}

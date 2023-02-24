@@ -6,6 +6,9 @@ import { Card, Form } from "react-bootstrap";
 import Optional from "./components/ItemDetailsOptional";
 import Location from "./components/Location";
 import ItemDetails from "./components/ItemDetails";
+import ItemDetailsSku from "./components/ItemDetailsSku";
+import ItemDetailsQty from "./components/ItemDetailsQty";
+import ItemDetailsPrice from "./components/ItemDetailsPrice";
 
 //Would have used the Input component for this form, however, we manipulate the form layout (disabling/hiding/showing) to much.
 
@@ -53,14 +56,27 @@ const ItemCard = (props) => {
       )}
 
       <Card.Body className="bg-light">
-        <ItemDetails
+        <ItemDetailsSku
           errors={errors}
           price={price}
           prefill={prefill}
           onInput={onInput}
           quantity={quantity && quantity.showEditQty}
         />
-
+        <ItemDetailsQty
+          errors={errors}
+          price={price}
+          prefill={prefill}
+          onInput={onInput}
+          quantity={quantity && quantity.showEditQty}
+        />
+        <ItemDetailsPrice
+          errors={errors}
+          price={price}
+          prefill={prefill}
+          onInput={onInput}
+          quantity={quantity && quantity.showEditQty}
+        />
         <Form.Group>
           <Form.Check
             type="switch"
