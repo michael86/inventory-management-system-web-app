@@ -55,7 +55,6 @@ const AddStock = () => {
     setLocations([]);
     setLocationsValid(true);
     setSkuValid(true);
-    setPriceDisabled(false);
   };
 
   const onSubmit = async (e) => {
@@ -114,17 +113,24 @@ const AddStock = () => {
               onInput={onInput}
               errors={errors}
               locations={{
-                data: locations,
-                submitLocation: submitLocation,
-                deleteLocation: deleteLocation,
+                values: locations,
+                submitLocation,
+                deleteLocation,
+                locationsValid,
               }}
-              locationsValid={locationsValid}
               skuValid={skuValid}
-              priceDisabled={priceDisabled}
-              setPriceDisabled={setPriceDisabled}
-              title={"Add a new item"}
-              subtitle={"To update a SKU currently registered, visit the "}
-              subtitleLink={{ to: "/manage-stock", text: "manage stock page" }}
+              title="Add a new item"
+              subtitle={{
+                text: "To update a SKU currently registered, visit the ",
+                link: {
+                  to: "/manage-stock",
+                  text: "manage stock page",
+                },
+              }}
+              price={{
+                priceDisabled,
+                setPriceDisabled,
+              }}
             />
           </Col>
           <Col xs={12} lg={6}>

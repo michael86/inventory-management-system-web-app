@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import { Card, Form } from "react-bootstrap";
 
-import Optional from "./components/Optional";
+import Optional from "./components/ItemDetailsOptional";
 import Location from "./components/Location";
 import ItemDetails from "./components/ItemDetails";
 
@@ -16,39 +16,38 @@ const ItemCard = (props) => {
    * @Required
    * @param {props.errors} Object. Joi error handling.
    * @param {onInput} Elevated onInput handler, primarily for form validation and setting props.errors
-   * @param {props.locations} Object containing locations object {name, value} and three functions: submitLocation, deleteLocation, locationsValid
+   * @param {props.locations} Object containing locations.value object {name, value} and three functions: submitLocation, deleteLocation, locationsValid
    * @param {title} String Title of the card. I.e Update Stock || Add stock
    *
    * @Optional
-   * @param {props.priceDisabled} Object containing elevated state: boolean, setState
+   * @param {props.price} Object containing elevated state: boolean, setState
    * @param {props.prefill} Object containing values for prefilling, sent by manage stock
    * @param {props.quantity} Object contains two booleans showEditQty && disableQty. Used to show extra input on manage stock call and disable default qty input
    *
    * @return {component} React Component: item Card for adding/updating stock items
    */
   const {
-    errors, // error handling
-    locations,
-    priceDisabled,
     title,
+    subtitle,
+    errors,
+    locations,
+    price,
     prefill,
     onInput,
     quantity,
   } = props;
 
   const [showOptional, setShowOptional] = useState(false);
-
+  console.log("subtitle", price);
   return (
     <Card className="shadow">
       <Card.Title className="p-2 bg-primary rounded-top">{title}</Card.Title>
 
-      {prefill?.subtitle && (
+      {subtitle && (
         <Card.Subtitle className="px-2">
-          {prefill.subtitle.text}
-          {prefill.subtitle.link && (
-            <Link to={prefill.subtitle.link.to}>
-              {prefill.subtitle.link.text}
-            </Link>
+          {subtitle.text}
+          {subtitle.link && (
+            <Link to={subtitle.link.to}>{subtitle.link.text}</Link>
           )}
         </Card.Subtitle>
       )}
@@ -56,11 +55,10 @@ const ItemCard = (props) => {
       <Card.Body className="bg-light">
         <ItemDetails
           errors={errors}
-          priceDisabled={priceDisabled}
+          price={price}
           prefill={prefill}
           onInput={onInput}
-          showEditQty={quantity.showEditQty}
-          disableQty={quantity.disableQty}
+          quantity={quantity && quantity.showEditQty}
         />
 
         <Form.Group>
@@ -72,15 +70,10 @@ const ItemCard = (props) => {
           />
         </Form.Group>
 
-        {showOptional && (
-          <Optional
-            priceDisabled={priceDisabled.value}
-            setPriceDisabled={priceDisabled.set}
-          />
-        )}
+        {showOptional && <Optional price={price} />}
 
         <Location
-          locations={locations}
+          locations={locations.values}
           submitLocation={locations.submitLocation}
           deleteLocation={locations.deleteLocation}
           locationsValid={locations.locationsValid}

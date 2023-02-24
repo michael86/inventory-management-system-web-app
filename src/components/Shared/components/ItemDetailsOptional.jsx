@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 
-const OptionalAddStock = ({ priceDisabled, setPriceDisabled }) => {
+const OptionalAddStock = ({ price }) => {
+  const { priceDisabled, setPriceDisabled } = price;
   const [freeIssue, setFreeIssue] = useState(priceDisabled);
 
   return (

@@ -82,12 +82,14 @@ const Stock = () => {
   return (
     <Form onSubmit={onSubmit}>
       <ItemCard
-        onInput={onInput}
         errors={errors}
-        locations={locations}
-        submitLocation={submitLocation}
-        deleteLocation={deleteLocation}
-        locationsValid={locationsValid}
+        onInput={onInput}
+        locations={{
+          values: locations,
+          submitLocation,
+          deleteLocation,
+          locationsValid,
+        }}
         skuValid={skuValid}
         priceDisabled={priceDisabled}
         setPriceDisabled={setPriceDisabled}
