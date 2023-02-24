@@ -1,9 +1,9 @@
 import React from "react";
 import { Table } from "react-bootstrap";
 import { useSelector } from "react-redux";
-import axios from "../../utils/axios";
+import axios from "../../../utils/axios";
 
-import InvoiceButton from "../Invoices/InvoiceButton";
+import InvoiceButton from "./InvoiceButton";
 
 const GenInvoiceTable = ({ pages, pageIndex }) => {
   const userCompany = useSelector((state) => state.company);

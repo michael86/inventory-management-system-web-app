@@ -3,11 +3,11 @@ import React, { useState } from "react";
 import uniqid from "uniqid";
 import { Container, Form, Row, Col, Button } from "react-bootstrap";
 import { ToastContainer, toast } from "react-toastify";
-import TallyCard from "./TallyCard";
+import TallyCard from "./components/TallyCard";
 
 import { toCompany, item, specifics } from "./schema/genInvoiceInputs";
 
-import GenInvoiceCard from "./GenInvoiceCard";
+import GenInvoiceCard from "./components/GenInvoiceCard";
 import axios from "../../utils/axios";
 
 import "../../styles/Forms.css";

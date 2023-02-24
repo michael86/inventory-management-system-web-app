@@ -3,11 +3,11 @@ import { Card, Button, Badge, Row, Col } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 
-import { validateInput } from "../../validation/Utils";
+import { validateInput } from "../../../validation/Utils";
 
-import Input from "../Shared/Input";
+import Input from "../../Shared/Input";
 
-import "../../styles/Invoice.css";
+import "../../../styles/Invoice.css";
 
 const GenInvoiceCard = (props) => {
   const {
