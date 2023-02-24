@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { Form } from "react-bootstrap";
 
-const ItemDetailsSku = ({ onInput, prefill, errors }) => {
+const ItemSku = ({ onInput, prefill, errors }) => {
   const [sku, setSku] = useState(prefill?.sku?.value || "");
   return (
     <>
@@ -35,4 +35,4 @@ const ItemDetailsSku = ({ onInput, prefill, errors }) => {
   );
 };
 
-export default ItemDetailsSku;
+export default ItemSku;

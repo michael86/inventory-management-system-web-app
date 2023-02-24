@@ -3,13 +3,7 @@ import { Form } from "react-bootstrap";
 
 import EditQty from "./EditQty";
 
-const ItemDetailsQty = ({
-  prefill,
-  onInput,
-  disableQty,
-  errors,
-  showEditQty,
-}) => {
+const ItemQty = ({ prefill, onInput, disableQty, errors, showEditQty }) => {
   const [qty, setQty] = useState(prefill?.qty?.value || 0);
   // const [price, setPrice] = useState(prefill?.price?.value || 0);
   const [qtyValid, setQtyValid] = useState(true);
@@ -76,4 +70,4 @@ const ItemDetailsQty = ({
   );
 };
 
-export default ItemDetailsQty;
+export default ItemQty;

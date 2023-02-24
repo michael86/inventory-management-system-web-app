@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 
-const OptionalAddStock = ({ price }) => {
+const ItemOptional = ({ price }) => {
   const { priceDisabled, setPriceDisabled } = price;
   const [freeIssue, setFreeIssue] = useState(priceDisabled);
 
@@ -33,4 +33,4 @@ const OptionalAddStock = ({ price }) => {
   );
 };
 
-export default OptionalAddStock;
+export default ItemOptional;

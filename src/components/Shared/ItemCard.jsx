@@ -3,12 +3,11 @@ import { Link } from "react-router-dom";
 
 import { Card, Form } from "react-bootstrap";
 
-import Optional from "./components/ItemDetailsOptional";
+import ItemOptional from "./components/ItemOptional";
 import Location from "./components/Location";
-import ItemDetails from "./components/ItemDetails";
-import ItemDetailsSku from "./components/ItemDetailsSku";
-import ItemDetailsQty from "./components/ItemDetailsQty";
-import ItemDetailsPrice from "./components/ItemDetailsPrice";
+import ItemSku from "./components/ItemSku";
+import ItemQty from "./components/ItemQty";
+import ItemPrice from "./components/ItemPrice";
 
 //Would have used the Input component for this form, however, we manipulate the form layout (disabling/hiding/showing) to much.
 
@@ -56,21 +55,21 @@ const ItemCard = (props) => {
       )}
 
       <Card.Body className="bg-light">
-        <ItemDetailsSku
+        <ItemSku
           errors={errors}
           price={price}
           prefill={prefill}
           onInput={onInput}
           quantity={quantity && quantity.showEditQty}
         />
-        <ItemDetailsQty
+        <ItemQty
           errors={errors}
           price={price}
           prefill={prefill}
           onInput={onInput}
           quantity={quantity && quantity.showEditQty}
         />
-        <ItemDetailsPrice
+        <ItemPrice
           errors={errors}
           price={price}
           prefill={prefill}
@@ -86,7 +85,7 @@ const ItemCard = (props) => {
           />
         </Form.Group>
 
-        {showOptional && <Optional price={price} />}
+        {showOptional && <ItemOptional price={price} />}
 
         <Location
           locations={locations.values}

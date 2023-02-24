@@ -1,12 +1,11 @@
 import { Form } from "react-bootstrap";
 
-const ItemDetailsPrice = ({ price, onInput, prefill, errors }) => {
+const ItemPrice = ({ price, onInput, prefill, errors }) => {
   const onKeyDown = (e) =>
     (e.key === "-" || e.key === "e") && e.preventDefault();
 
   return (
     <>
-      {" "}
       <Form.Group className="mb-3" controlId="price">
         <Form.Label>Cost Per Item</Form.Label>
         <Form.Control
@@ -40,4 +39,4 @@ const ItemDetailsPrice = ({ price, onInput, prefill, errors }) => {
   );
 };
 
-export default ItemDetailsPrice;
+export default ItemPrice;
