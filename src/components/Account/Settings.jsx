@@ -2,7 +2,7 @@ import React from "react";
 import { Row, Col } from "react-bootstrap";
 
 import AccountSettings from "./AccountSettings";
-import CompanySettings from "./CompanySettings";
+import CompanySettings from "./components/CompanySettings";
 
 const Settings = () => {
   return (
