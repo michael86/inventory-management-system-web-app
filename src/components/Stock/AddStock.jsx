@@ -62,7 +62,6 @@ const AddStock = () => {
     }
 
     const data = Object.fromEntries(new FormData(e.target));
-    data.dateCreated = Date.now();
 
     delete data["location-name"]; //clean up inputs not required
     delete data["location-value"];
@@ -70,7 +69,6 @@ const AddStock = () => {
     data.locations = locations;
     data.history = [
       {
-        date: Date.now(),
         qty: data.qty,
         price: data.price,
         locations: data.locations,
@@ -144,35 +142,3 @@ const AddStock = () => {
 };
 
 export default AddStock;
-
-//  {
-//     "id": "sku_54437857",
-//     "min_required": 220,
-//     "current_stock": 4563453156,
-//     "picture": "path/to/img",
-//     "cost_per_unit": 9990,
-//     "free_issue": false,
-//     "location": {
-//       "aisle": "B",
-//       "shelf": 2
-//     },
-//     "history": [
-//       {
-//         "date_checked_in": 13151234541,
-//         "staff_member": "Paul Lewington",
-//         "staff_id": "SD342",
-//         "qty_checked_in": 1548
-//       },
-//       {
-//         "date_checked_in": 13151234541,
-//         "staff_member": "Paul Lewington",
-//         "staff_id": "SD342",
-//         "qty_checked_in": 1548
-//       }
-//     ],
-
-//     "supplier_info": {
-//       "company": "Some company",
-//       "address": "123 fake street"
-//     }
-//   },

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 import { Card, Form } from "react-bootstrap";
 
+import CardTitle from "./components/CardTitle";
 import ItemOptional from "./components/ItemOptional";
 import Location from "./components/Location";
 import ItemSku from "./components/ItemSku";
@@ -34,16 +35,7 @@ const ItemCard = (props) => {
 
   return (
     <Card className="shadow">
-      <Card.Title className="p-2 bg-primary rounded-top">{title}</Card.Title>
-
-      {subtitle && (
-        <Card.Subtitle className="px-2">
-          {subtitle.text}
-          {subtitle.link && (
-            <Link to={subtitle.link.to}>{subtitle.link.text}</Link>
-          )}
-        </Card.Subtitle>
-      )}
+      <CardTitle title={title} subtitle={subtitle} />
 
       <Card.Body className="bg-light">
         <ItemSku errors={errors} price={price} sku={sku} />

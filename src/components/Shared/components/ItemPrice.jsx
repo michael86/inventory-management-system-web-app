@@ -6,7 +6,7 @@ import { validateInput } from "../../../validation/Utils";
 const ItemPrice = ({ price: prefill, errors }) => {
   const { values: err, setErrors } = errors;
 
-  const [price, setPrice] = useState(prefill?.value || 0);
+  const [price, setPrice] = useState(prefill?.value || 0.01);
 
   const onInput = (e) => {
     const res = validateInput(e, err);
