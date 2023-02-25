@@ -6,36 +6,16 @@ import {
   setPopupStock,
   togglePopup,
 } from "../../../reducers/popupSlice";
+import ManageStockBody from "./ManageStockBody";
 
 const ManageStockCard = ({ item, onDelete }) => {
   const dispatch = useDispatch();
 
   return (
-    <Col xs={1} className="fit-content">
-      <Card className="fit-content mt-2">
+    <Col xs={12} sm={6} md={4} lg={3} xxl={2}>
+      <Card className="mx-auto fit-content mt-2">
         <Card.Title className="text-center">{item.sku}</Card.Title>
-        <Card.Body className="d-flex flex-column">
-          <input type="text" value={`Qty: ${item.quantity}`} disabled />
-          <input
-            type="text"
-            value={`Price: ${item.price}` || "free issue"}
-            disabled
-          />
-          <div className="location-container mt-2">
-            <Card.Text className="text-center">Location</Card.Text>
-            <div className="d-flex flex-wrap justify-content-between ">
-              {item.locations.map((location) => {
-                console.log(location);
-                return (
-                  <Badge bg="primary" key={location.id}>
-                    <span className="text-warning">{location.name}</span>:{" "}
-                    {location.value}
-                  </Badge>
-                );
-              })}
-            </div>
-          </div>
-        </Card.Body>
+        <ManageStockBody item={item} locations={item.locations} />
         <Card.Footer className="d-flex justify-content-between">
           <Button onClick={() => onDelete(item.sku)}>Delete</Button>
           <Button

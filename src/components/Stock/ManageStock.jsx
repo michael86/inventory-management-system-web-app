@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Row } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { setStock } from "../../reducers/stockSlice";
