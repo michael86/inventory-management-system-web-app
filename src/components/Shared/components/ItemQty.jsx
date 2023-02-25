@@ -1,12 +1,20 @@
 import { useState } from "react";
 import { Form } from "react-bootstrap";
-
+import { validateInput } from "../../../validation/Utils";
 import EditQty from "./EditQty";
 
-const ItemQty = ({ prefill, onInput, disableQty, errors, showEditQty }) => {
-  const [qty, setQty] = useState(prefill?.qty?.value || 0);
-  // const [price, setPrice] = useState(prefill?.price?.value || 0);
+const ItemQty = ({ qty: manageQty, errors }) => {
+  const { values: err, setErrors } = errors;
+
+  const [qty, setQty] = useState(manageQty?.value || 0);
   const [qtyValid, setQtyValid] = useState(true);
+
+  const onInput = (e) => {
+    const res = validateInput(e, err);
+    res && setErrors(res);
+    setQty(e.target.value);
+    // manageQty?.onInput && manageQty?.onInput(e);
+  };
 
   const onKeyDown = (e) =>
     (e.key === "-" || e.key === "e") && e.preventDefault();
@@ -36,20 +44,16 @@ const ItemQty = ({ prefill, onInput, disableQty, errors, showEditQty }) => {
           min="0"
           placeholder="starting quantity"
           name="qty"
-          onInput={(e) => {
-            setQty(e.target.value);
-            onInput && onInput(e);
-            prefill?.qty?.onInput && prefill?.qty?.onInput(e);
-          }}
+          onInput={onInput}
           onKeyDown={(e) => onKeyDown(e)}
           value={qty}
           required
-          readOnly={disableQty}
+          readOnly={manageQty?.disableQty}
         />
 
-        {disableQty ? (
+        {manageQty?.disableQty ? (
           <Form.Text>Please use the buttons below to edit your qty</Form.Text>
-        ) : !errors?.qty && !errors?.editQty ? (
+        ) : !err?.qty ? (
           <Form.Text className="text-muted">
             How much stock do you currently have. Can be 0
           </Form.Text>
@@ -60,7 +64,7 @@ const ItemQty = ({ prefill, onInput, disableQty, errors, showEditQty }) => {
         )}
       </Form.Group>
 
-      {showEditQty && <EditQty onClick={equateQty} />}
+      {manageQty?.showEditQty && <EditQty onClick={equateQty} />}
       {!qtyValid && (
         <Form.Text className="text-danger">
           Subtracting this amount will put you in the minus. Quick math.

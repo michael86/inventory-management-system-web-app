@@ -2,7 +2,6 @@ import React, { useState } from "react";
 
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 
-import { validateInput } from "../../validation/Utils";
 import axios from "../../utils/axios";
 
 import CompanyCard from "./components/CompanyCard";
@@ -42,11 +41,6 @@ const AddStock = () => {
     if (index === -1) return;
     copy.splice(index, 1);
     setLocations(copy);
-  };
-
-  const onInput = (e) => {
-    const res = validateInput(e, errors);
-    res && setErrors(res);
   };
 
   const resetState = (e) => {
@@ -110,15 +104,10 @@ const AddStock = () => {
         <Row>
           <Col xs={12} lg={6}>
             <ItemCard
-              onInput={onInput}
-              errors={errors}
-              locations={{
-                values: locations,
-                submitLocation,
-                deleteLocation,
-                locationsValid,
+              errors={{
+                values: errors,
+                setErrors,
               }}
-              skuValid={skuValid}
               title="Add a new item"
               subtitle={{
                 text: "To update a SKU currently registered, visit the ",
@@ -127,14 +116,23 @@ const AddStock = () => {
                   text: "manage stock page",
                 },
               }}
+              sku={{
+                skuValid,
+              }}
               price={{
                 priceDisabled,
                 setPriceDisabled,
               }}
+              locations={{
+                values: locations,
+                submitLocation,
+                deleteLocation,
+                locationsValid,
+              }}
             />
           </Col>
           <Col xs={12} lg={6}>
-            <CompanyCard onInput={onInput} errors={errors} />
+            <CompanyCard setErrors={setErrors} errors={errors} />
           </Col>
         </Row>
         <Button className="mt-2" type="submit">

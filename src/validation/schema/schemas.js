@@ -99,7 +99,7 @@ export const schema = {
     invoiceCompanyPostcode: stringWithNumbers,
   },
   qty: {
-    qty: mustBeInt,
+    qty: greaterThanMinus,
   },
   quantity: {
     quantity: mustBeInt,

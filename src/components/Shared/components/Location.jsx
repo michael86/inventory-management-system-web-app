@@ -7,7 +7,8 @@ import "../../../styles/Locations.css";
 import { useState } from "react";
 
 const Location = (props) => {
-  const { locations, submitLocation, deleteLocation, locationsValid } = props;
+  const { values, submitLocation, deleteLocation, locationsValid } =
+    props.locations;
 
   const genId = () => {
     return Math.floor(Math.random() * 999999999 + Date.now());
@@ -22,7 +23,7 @@ const Location = (props) => {
     <Form.Group className="mb-3 " id="stockLocation">
       <p className="fs-4 mb-0 pb-0 text-center">location</p>
       <Row className="justify-content-between">
-        {locations.map((location) => {
+        {values.map((location) => {
           return (
             <Col key={location.id} xs={2} className="me-2 mt-2">
               <Badge pill bg="primary">

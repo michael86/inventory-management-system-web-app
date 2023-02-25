@@ -28,19 +28,10 @@ const ItemCard = (props) => {
    *
    * @return {component} React Component: item Card for adding/updating stock items
    */
-  const {
-    title,
-    subtitle,
-    errors,
-    locations,
-    price,
-    prefill,
-    onInput,
-    quantity,
-  } = props;
+  const { title, subtitle, errors, sku, qty, price, locations } = props;
 
   const [showOptional, setShowOptional] = useState(false);
-  console.log("subtitle", price);
+
   return (
     <Card className="shadow">
       <Card.Title className="p-2 bg-primary rounded-top">{title}</Card.Title>
@@ -55,27 +46,10 @@ const ItemCard = (props) => {
       )}
 
       <Card.Body className="bg-light">
-        <ItemSku
-          errors={errors}
-          price={price}
-          prefill={prefill}
-          onInput={onInput}
-          quantity={quantity && quantity.showEditQty}
-        />
-        <ItemQty
-          errors={errors}
-          price={price}
-          prefill={prefill}
-          onInput={onInput}
-          quantity={quantity && quantity.showEditQty}
-        />
-        <ItemPrice
-          errors={errors}
-          price={price}
-          prefill={prefill}
-          onInput={onInput}
-          quantity={quantity && quantity.showEditQty}
-        />
+        <ItemSku errors={errors} price={price} sku={sku} />
+        <ItemQty errors={errors} qty={qty} />
+        <ItemPrice errors={errors} price={price} />
+
         <Form.Group>
           <Form.Check
             type="switch"
@@ -87,12 +61,7 @@ const ItemCard = (props) => {
 
         {showOptional && <ItemOptional price={price} />}
 
-        <Location
-          locations={locations.values}
-          submitLocation={locations.submitLocation}
-          deleteLocation={locations.deleteLocation}
-          locationsValid={locations.locationsValid}
-        />
+        <Location locations={locations} />
       </Card.Body>
     </Card>
   );

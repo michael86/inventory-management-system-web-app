@@ -1,9 +1,15 @@
 import React from "react";
 import { Card } from "react-bootstrap";
+import { validateInput } from "../../../validation/Utils";
 import Input from "../../Shared/Input";
 import { addStock } from "../Schema/addStock";
 
-const CompanyCard = ({ onInput, errors }) => {
+const CompanyCard = ({ setErrors, errors }) => {
+  const onInput = (e) => {
+    const res = validateInput(e, errors);
+    res && setErrors(res);
+  };
+
   return (
     <Card className="shadow">
       <Card.Title className="bg-primary p-2 rounded-top">Company</Card.Title>

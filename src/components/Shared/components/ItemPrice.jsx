@@ -1,6 +1,20 @@
+import { useState } from "react";
 import { Form } from "react-bootstrap";
 
-const ItemPrice = ({ price, onInput, prefill, errors }) => {
+import { validateInput } from "../../../validation/Utils";
+
+const ItemPrice = ({ price: prefill, errors }) => {
+  const { values: err, setErrors } = errors;
+
+  const [price, setPrice] = useState(prefill?.value || 0);
+
+  const onInput = (e) => {
+    const res = validateInput(e, err);
+    res && setErrors(res);
+    setPrice(+e.target.value);
+    //prefill?.onInput && prefill.onInput(e);
+  };
+
   const onKeyDown = (e) =>
     (e.key === "-" || e.key === "e") && e.preventDefault();
 
@@ -13,25 +27,22 @@ const ItemPrice = ({ price, onInput, prefill, errors }) => {
           min="0.01"
           step="0.01"
           placeholder="cost per item"
-          //   disabled={price.priceDisabled}
+          disabled={prefill.priceDisabled}
           name="price"
-          onInput={(e) => {
-            price.setPrice(e.target.value);
-            onInput && onInput(e);
-            prefill?.price?.onInput && prefill?.price?.onInput(e);
-          }}
+          onInput={onInput}
           onKeyDown={(e) => onKeyDown(e)}
           value={price}
           required
         />
 
-        {!errors?.price ? (
+        {!err?.price ? (
           <Form.Text className="text-muted">
             cost per individual component
           </Form.Text>
         ) : (
           <Form.Text className="text-danger">
-            Quantity must be greater than 0
+            Quantity must be greater than 0, if this item is free issue, set it
+            via the optional settings
           </Form.Text>
         )}
       </Form.Group>

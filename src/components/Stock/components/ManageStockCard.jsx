@@ -40,7 +40,7 @@ const ManageStockCard = ({ item, onDelete }) => {
           <Button onClick={() => onDelete(item.sku)}>Delete</Button>
           <Button
             onClick={() => {
-              dispatch(setPopupScreen(3));
+              dispatch(setPopupScreen(2));
               dispatch(setPopupStock(item));
               dispatch(togglePopup());
             }}

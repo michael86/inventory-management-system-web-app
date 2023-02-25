@@ -1,8 +1,17 @@
 import { useState } from "react";
-
 import { Form } from "react-bootstrap";
+import { validateInput } from "../../../validation/Utils";
 
-const ItemSku = ({ onInput, prefill, errors }) => {
+const ItemSku = ({ sku: prefill, errors }) => {
+  const { values: err, setErrors } = errors;
+
+  const onInput = (e) => {
+    const res = validateInput(e, err);
+    res && setErrors(res);
+    setSku(e.target.value);
+    // prefill?.sku?.onInput && prefill?.sku?.onInput(e);
+  };
+
   const [sku, setSku] = useState(prefill?.sku?.value || "");
   return (
     <>
@@ -11,18 +20,14 @@ const ItemSku = ({ onInput, prefill, errors }) => {
         <Form.Control
           type="text"
           placeholder="SKU"
-          onInput={(e) => {
-            setSku(e.target.value);
-            onInput && onInput(e);
-            // prefill?.sku?.onInput && prefill?.sku?.onInput(e);
-          }}
+          onInput={onInput}
           name="sku"
           value={sku}
           required
         />
 
         <Form.Text className="text-muted">
-          {errors?.sku ? (
+          {err?.sku ? (
             <span className="text-danger">
               Sku can not contain special characters
             </span>
