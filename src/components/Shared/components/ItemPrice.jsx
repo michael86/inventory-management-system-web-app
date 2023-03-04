@@ -3,16 +3,19 @@ import { Form } from "react-bootstrap";
 
 import { validateInput } from "../../../validation/Utils";
 
+import { penniesToPounds } from "../../../utils/stock";
+
 const ItemPrice = ({ price: prefill, errors }) => {
   const { values: err, setErrors } = errors;
 
-  const [price, setPrice] = useState(prefill?.value || 0.01);
+  const [price, setPrice] = useState(
+    (prefill?.value && penniesToPounds(prefill?.value)) || 0.01
+  );
 
   const onInput = (e) => {
     const res = validateInput(e, err);
     res && setErrors(res);
     setPrice(+e.target.value);
-    //prefill?.onInput && prefill.onInput(e);
   };
 
   const onKeyDown = (e) =>

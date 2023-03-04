@@ -6,8 +6,8 @@ import { Form, Modal } from "react-bootstrap";
 import { setPopupScreen, togglePopup } from "../../../reducers/popupSlice";
 import { validateInput } from "../../../validation/Utils";
 
-import Buttons from "../components/Buttons";
-import Header from "../components/Header";
+import Buttons from "./Buttons";
+import Header from "./Header";
 import Input from "../../Shared/Input";
 import {
   setUserAuthenticated,

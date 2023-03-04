@@ -16,6 +16,7 @@ const ManageStockCard = ({ item, onDelete }) => {
       <Card className="mx-auto fit-content mt-2">
         <Card.Title className="text-center">{item.sku}</Card.Title>
         <ManageStockBody item={item} locations={item.locations} />
+
         <Card.Footer className="d-flex justify-content-between">
           <Button onClick={() => onDelete(item.sku)}>Delete</Button>
           <Button

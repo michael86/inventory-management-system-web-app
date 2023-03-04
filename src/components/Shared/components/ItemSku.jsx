@@ -9,10 +9,9 @@ const ItemSku = ({ sku: prefill, errors }) => {
     const res = validateInput(e, err);
     res && setErrors(res);
     setSku(e.target.value);
-    // prefill?.sku?.onInput && prefill?.sku?.onInput(e);
   };
 
-  const [sku, setSku] = useState(prefill?.sku?.value || "");
+  const [sku, setSku] = useState(prefill?.value || "");
   return (
     <>
       <Form.Group className="mb-3" controlId="sku">

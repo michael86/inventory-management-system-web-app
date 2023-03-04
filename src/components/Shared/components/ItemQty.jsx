@@ -3,17 +3,17 @@ import { Form } from "react-bootstrap";
 import { validateInput } from "../../../validation/Utils";
 import EditQty from "./EditQty";
 
-const ItemQty = ({ qty: manageQty, errors }) => {
+const ItemQty = ({ qty: prefill, errors }) => {
   const { values: err, setErrors } = errors;
 
-  const [qty, setQty] = useState(manageQty?.value || 0);
+  const [qty, setQty] = useState(prefill?.value || 0);
   const [qtyValid, setQtyValid] = useState(true);
 
   const onInput = (e) => {
     const res = validateInput(e, err);
     res && setErrors(res);
     setQty(e.target.value);
-    // manageQty?.onInput && manageQty?.onInput(e);
+    console.log("qty", res);
   };
 
   const onKeyDown = (e) =>
@@ -48,10 +48,10 @@ const ItemQty = ({ qty: manageQty, errors }) => {
           onKeyDown={(e) => onKeyDown(e)}
           value={qty}
           required
-          readOnly={manageQty?.disableQty}
+          readOnly={prefill?.disableQty}
         />
 
-        {manageQty?.disableQty ? (
+        {prefill?.disableQty && !err?.qty ? ( //We check for err here as well as a mallicious user could remove the readonly attribute to make the input editable
           <Form.Text>Please use the buttons below to edit your qty</Form.Text>
         ) : !err?.qty ? (
           <Form.Text className="text-muted">
@@ -64,7 +64,7 @@ const ItemQty = ({ qty: manageQty, errors }) => {
         )}
       </Form.Group>
 
-      {manageQty?.showEditQty && <EditQty onClick={equateQty} />}
+      {prefill?.disableQty && <EditQty onClick={equateQty} />}
       {!qtyValid && (
         <Form.Text className="text-danger">
           Subtracting this amount will put you in the minus. Quick math.
