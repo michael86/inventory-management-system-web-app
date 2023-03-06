@@ -19,15 +19,9 @@ This is a full stack project for the jump bootcamp. The aim is to create a full 
 ~~Because of the way history would be created, we never had a starting point to create the dateObject from, this meant it would be harder to fill out any empty months if there was not a history snapshot. We'd have had ot look into the future, tehn in the past.~~
 ~~Due to this, if we create a snapshot in the history from the point of creation and then when editing, create a snapshot for the new values, we are now able to .sort() the history array and use the last snap shot for any empty months.~~
 
-### auth route
-
-For some reason, auth route is being triggered twice on href change. This is the expected behaviour when navigating direct to a protected route manually, however, we don't expect this when clicking a link. Needs invetigating.
-
 ### Dashboard
 
-~~Made a start on generating dataset when searching by sku. However, when clicking a date range that the sku isn't in the system, it causes the app to crash. So in theory, we can regenerate the dateObject by the search term, and this should allow the dashboard to update the timeButtons component to only contain valid dates. This would aslo allow for a better UX as it shows when the item was first entered into the system.~~
-
-~~sku 'picometer' isn't showing a value for 2018 -> jan however, selecting 2018 -> feb shows a value for jan. Maybe indexing issue???~~
+pending manageStock.jsx
 
 ## To do:
 
@@ -47,7 +41,6 @@ Seems complete so far. May refactor stuff at later date if new funcitonality is 
 - [x] Add row count drop down
 - [x] Add filter by date
 - [x] Add filter by input
-- [ ] Hook up 'View Invoice' buttons. This can't be done untill back is done
 
 ### Gen invoice
 
@@ -56,7 +49,6 @@ Seems complete so far. May refactor stuff at later date if new funcitonality is 
 - [x] Create tally card.
 - [x] Need to convert each items qty and price to a number for invoice items array
 - [x] Need to get user company address on registration for invoice header
-- [ ] refactor item bubbling
 
 ### Settings component
 
