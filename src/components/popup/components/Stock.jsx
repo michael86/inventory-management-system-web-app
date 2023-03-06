@@ -6,9 +6,8 @@ import { Button, Form } from "react-bootstrap";
 import axios from "../../../utils/axios";
 
 //another cluster fuck, needs refactoring
-//we need to send prefill here for pretty much everything to ItemCard.jsx
 const Stock = () => {
-  const [locationsUpdated, setLocationsUpdated] = useState(false);
+  const [locationsUpdated, setLocationsUpdated] = useState(0);
 
   const item = useSelector((state) => state.popup.stock);
 
@@ -34,16 +33,19 @@ const Stock = () => {
     copy.push(location);
     setLocations(copy);
     setLocationsValid(true);
-    !locationsUpdated && setLocationsUpdated(true);
+    !locationsUpdated && setLocationsUpdated(1);
   };
 
   const deleteLocation = (id) => {
     let copy = [...locations];
     const index = copy.findIndex((location) => location.id === id);
+
     if (index === -1) return;
 
     copy.splice(index, 1);
     setLocations(copy);
+
+    !locationsUpdated && setLocationsUpdated(1);
   };
 
   const onSubmit = async (e) => {
@@ -65,6 +67,9 @@ const Stock = () => {
     delete data["location-value"];
     data.locations = [...locations];
     data.id = item.id;
+
+    console.log("locationsUpdated", locationsUpdated);
+
     const res = await axios.patch(
       `stock/update/?locations=${locationsUpdated}`,
       {

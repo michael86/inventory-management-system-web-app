@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const CardTitle = ({ title, subtitle }) => {
   return (
     <>
-      <Card.Title className="p-2 bg-primary rounded-top">{title}</Card.Title>;
+      <Card.Title className="p-2 bg-primary rounded-top">{title}</Card.Title>
       {subtitle && (
         <Card.Subtitle className="px-2">
           {subtitle.text}
