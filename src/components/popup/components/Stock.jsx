@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import ItemCard from "../../Shared/ItemCard";
 import { Button, Form } from "react-bootstrap";
 
 import axios from "../../../utils/axios";
+import { setPopupStock } from "../../../reducers/popupSlice";
 
 //another cluster fuck, needs refactoring
 const Stock = () => {
@@ -15,6 +16,7 @@ const Stock = () => {
   const [locationsValid, setLocationsValid] = useState(true);
   const [priceDisabled, setPriceDisabled] = useState(item.price ? false : true);
   const [errors, setErrors] = useState();
+  const dispatch = useDispatch();
 
   const submitLocation = (id) => {
     const elements = document.forms[0].elements;
@@ -78,6 +80,7 @@ const Stock = () => {
       }
     );
 
+    res.data.status && dispatch(setPopupStock(data));
     // dispatch(togglePopup());
   };
 

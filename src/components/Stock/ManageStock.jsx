@@ -10,6 +10,9 @@ import "../../styles/ManageStock.css";
 
 const ManageStock = () => {
   const [stock, setStock] = useState([]);
+  const popupStock = useSelector((state) => state.popup.stock);
+
+  //Will delete the item from the database.
   const onDelete = (sku) => {
     // let copy = [...stock];
     // copy.splice(
@@ -29,7 +32,7 @@ const ManageStock = () => {
     };
 
     getStock();
-  }, []);
+  }, [popupStock]);
 
   return (
     <>
