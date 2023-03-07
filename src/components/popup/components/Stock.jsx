@@ -5,6 +5,7 @@ import { Button, Form } from "react-bootstrap";
 
 import axios from "../../../utils/axios";
 import { setPopupStock } from "../../../reducers/popupSlice";
+import { ToastContainer, toast } from "react-toastify";
 
 //another cluster fuck, needs refactoring
 const Stock = () => {
@@ -80,37 +81,54 @@ const Stock = () => {
       }
     );
 
-    res.data.status && dispatch(setPopupStock(data));
+    switch (res.data.status) {
+      case 1:
+        res.data.status && dispatch(setPopupStock(data));
+        toast.success("Sku updated");
+
+        break;
+
+      case 3:
+        toast.warning("Sku already in use, please try update and try again");
+        break;
+
+      default:
+        break;
+    }
+
     // dispatch(togglePopup());
   };
 
   return (
-    <Form onSubmit={onSubmit}>
-      <ItemCard
-        errors={{
-          values: errors,
-          setErrors,
-        }}
-        title="Manage Stock"
-        sku={{ value: item.sku }}
-        qty={{
-          disableQty: true,
-          value: item.quantity,
-        }}
-        price={{
-          priceDisabled,
-          setPriceDisabled,
-          value: item.price,
-        }}
-        locations={{
-          values: locations,
-          submitLocation,
-          deleteLocation,
-          locationsValid,
-        }}
-      />
-      <Button type="submit">Save</Button>
-    </Form>
+    <>
+      <ToastContainer />
+      <Form onSubmit={onSubmit}>
+        <ItemCard
+          errors={{
+            values: errors,
+            setErrors,
+          }}
+          title="Manage Stock"
+          sku={{ value: item.sku }}
+          qty={{
+            disableQty: true,
+            value: item.quantity,
+          }}
+          price={{
+            priceDisabled,
+            setPriceDisabled,
+            value: item.price,
+          }}
+          locations={{
+            values: locations,
+            submitLocation,
+            deleteLocation,
+            locationsValid,
+          }}
+        />
+        <Button type="submit">Save</Button>
+      </Form>
+    </>
   );
 };
 
