@@ -4,7 +4,7 @@ import ItemCard from "../../Shared/ItemCard";
 import { Button, Form } from "react-bootstrap";
 
 import axios from "../../../utils/axios";
-import { setPopupStock } from "../../../reducers/popupSlice";
+import { setPopupStock, togglePopup } from "../../../reducers/popupSlice";
 import { ToastContainer, toast } from "react-toastify";
 
 //another cluster fuck, needs refactoring
@@ -71,8 +71,6 @@ const Stock = () => {
     data.locations = [...locations];
     data.id = item.id;
 
-    console.log("locationsUpdated", locationsUpdated);
-
     const res = await axios.patch(
       `stock/update/?locations=${locationsUpdated}`,
       {
@@ -84,8 +82,7 @@ const Stock = () => {
     switch (res.data.status) {
       case 1:
         res.data.status && dispatch(setPopupStock(data));
-        toast.success("Sku updated");
-
+        dispatch(togglePopup());
         break;
 
       case 3:
@@ -93,6 +90,9 @@ const Stock = () => {
         break;
 
       default:
+        toast.error(
+          "Something went wrong our end. Please try again, if the problem persists, please contact us"
+        );
         break;
     }
 

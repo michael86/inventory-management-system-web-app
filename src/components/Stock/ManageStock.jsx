@@ -12,16 +12,6 @@ const ManageStock = () => {
   const [stock, setStock] = useState([]);
   const popupStock = useSelector((state) => state.popup.stock);
 
-  //Will delete the item from the database.
-  const onDelete = (sku) => {
-    // let copy = [...stock];
-    // copy.splice(
-    //   copy.findIndex((item) => item.sku === sku),
-    //   1
-    // );
-    // dispatch(setStock(copy));
-  };
-
   useEffect(() => {
     const getStock = async () => {
       //Update get to use history=bool.
@@ -46,9 +36,7 @@ const ManageStock = () => {
       <div className="mx-2">
         <Row>
           {stock.map((item) => {
-            return (
-              <ManageStockCard item={item} key={item.sku} onDelete={onDelete} />
-            );
+            return <ManageStockCard item={item} key={item.sku} />;
           })}
         </Row>
       </div>

@@ -8,8 +8,15 @@ import {
 } from "../../../reducers/popupSlice";
 import ManageStockBody from "./ManageStockBody";
 
-const ManageStockCard = ({ item, onDelete }) => {
+import axios from "../../../utils/axios";
+
+const ManageStockCard = ({ item }) => {
   const dispatch = useDispatch();
+
+  const onDelete = async (id) => {
+    const res = await axios.delete("/stock/delete", { data: { id } });
+    console.log(res);
+  };
 
   return (
     <Col xs={12} sm={6} md={4} lg={3} xxl={2}>
@@ -18,7 +25,7 @@ const ManageStockCard = ({ item, onDelete }) => {
         <ManageStockBody item={item} locations={item.locations} />
 
         <Card.Footer className="d-flex justify-content-between">
-          <Button onClick={() => onDelete(item.sku)}>Delete</Button>
+          <Button onClick={() => onDelete(item.id)}>Delete</Button>
           <Button
             onClick={() => {
               dispatch(setPopupScreen(2));

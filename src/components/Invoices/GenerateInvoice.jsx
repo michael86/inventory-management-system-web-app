@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { Container, Form, Row, Col, Button } from "react-bootstrap";
 import { ToastContainer, toast } from "react-toastify";
 
-import uniqid from "uniqid";
-
 import axios from "../../utils/axios";
 
 import TallyCard from "./components/TallyCard";
