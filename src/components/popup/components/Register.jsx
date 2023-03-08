@@ -56,6 +56,7 @@ const Register = () => {
         setStore({ key: "token", data: data.user.token });
         dispatch(setUser(data.user));
         dispatch(setCompany(data.company));
+        setStore({ key: "company", data: data.company });
         break;
       case 2:
         setUserHasAccount(true);

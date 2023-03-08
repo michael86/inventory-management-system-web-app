@@ -14,6 +14,7 @@ export const companySlice = createSlice({
   initialState,
   reducers: {
     setCompany: (state, { payload }) => {
+      console.log(payload);
       const { name, address, city, county, country, postcode } = payload;
       state.name = name;
       state.address = address;
