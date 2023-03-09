@@ -53,10 +53,10 @@ const Register = () => {
       case 1:
         const { data } = res.data;
         dispatch(togglePopup());
-        setStore({ key: "token", data: data.user.token });
         dispatch(setUser(data.user));
         dispatch(setCompany(data.company));
         setStore({ key: "company", data: data.company });
+        setStore({ key: "token", data: data.user.token });
         break;
       case 2:
         setUserHasAccount(true);
