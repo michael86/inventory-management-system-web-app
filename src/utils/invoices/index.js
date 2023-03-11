@@ -130,11 +130,11 @@ export const generateInvoice = (data, items) => {
     company: {
       contact: data.invoiceContactName,
       company: data.invoiceCompanyName,
-      address: data.invoiceCompanyAddress,
-      city: data.invoiceCompanyCity,
-      state: data.invoiceCompanyState,
-      postcode: data.invoiceCompanyPostcode,
-      country: data.invoiceCompanyCountry,
+      companyStreet: data.invoiceCompanyAddress,
+      companyCity: data.invoiceCompanyCity,
+      companyCounty: data.invoiceCompanyState,
+      companyPostcode: data.invoiceCompanyPostcode,
+      companyCountry: data.invoiceCompanyCountry,
     },
     specifics: {
       dueDate: data.dueDate,
