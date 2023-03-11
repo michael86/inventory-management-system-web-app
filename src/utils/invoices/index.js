@@ -4,15 +4,13 @@ import { v4 as uuidv4 } from "uuid";
 export const sortAscending = (payload, ascending = true) =>
   payload.sort(
     (a, b) =>
-      (ascending ? a.billingDate : b.billingDate) -
-      (ascending ? b.billingDate : a.billingDate)
+      (ascending ? a.billingDate : b.billingDate) - (ascending ? b.billingDate : a.billingDate)
   );
 
 export const filterInvoices = (invoices, filter) => {
   const copy = invoices.filter(
     (invoice) =>
-      invoice.contact.toLowerCase().includes(filter) ||
-      invoice.name.toLowerCase().includes(filter)
+      invoice.contact.toLowerCase().includes(filter) || invoice.name.toLowerCase().includes(filter)
   );
   return copy;
 };
@@ -27,12 +25,7 @@ export const genPages = (invoices, count = 5, pages = []) => {
    * ]
    */
 
-  if (
-    typeof count !== "number" ||
-    !Array.isArray(invoices) ||
-    !Array.isArray(pages)
-  )
-    return;
+  if (typeof count !== "number" || !Array.isArray(invoices) || !Array.isArray(pages)) return;
 
   let i = 0;
   invoices.forEach((invoice) => {
@@ -44,8 +37,7 @@ export const genPages = (invoices, count = 5, pages = []) => {
   return pages;
 };
 
-export const findInvoiceById = (id, invoices) =>
-  invoices.find((invoice) => invoice.id === id);
+export const findInvoiceById = (id, invoices) => invoices.find((invoice) => invoice.id === id);
 
 export const calculateCombinedCost = (arr) => {
   const combinedCosts = arr.map((item) =>
@@ -53,8 +45,7 @@ export const calculateCombinedCost = (arr) => {
   );
 
   return combinedCosts.reduce(
-    (previousValue, currentValue) =>
-      Number(previousValue) + Number(currentValue)
+    (previousValue, currentValue) => Number(previousValue) + Number(currentValue)
   );
 };
 
@@ -85,8 +76,7 @@ export const genInvoice = (payload) => {
     header: {
       company_name: "Nice Invoice",
       company_logo: "logo.png",
-      company_address:
-        "Nice Invoice. 123 William Street 1th Floor New York, NY 123456",
+      company_address: "Nice Invoice. 123 William Street 1th Floor New York, NY 123456",
     },
     footer: {
       text: payload.Footer,
@@ -111,9 +101,7 @@ export const validateItemData = (inputs) => {
 
 export const extractItemInput = (children) => {
   return children
-    .map((child) =>
-      [...child.children].filter((child) => child.tagName === "INPUT")
-    )
+    .map((child) => [...child.children].filter((child) => child.tagName === "INPUT"))
     .flat();
 };
 
@@ -141,7 +129,7 @@ export const generateInvoice = (data, items) => {
   return {
     company: {
       contact: data.invoiceContactName,
-      name: data.invoiceCompanyName,
+      company: data.invoiceCompanyName,
       address: data.invoiceCompanyAddress,
       city: data.invoiceCompanyCity,
       state: data.invoiceCompanyState,
