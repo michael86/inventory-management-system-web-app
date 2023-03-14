@@ -7,7 +7,6 @@ export const accountSchema = [
     controlId: "email",
     classNames: {
       group: classes.group,
-      //   label: classes.label,
     },
     label: "Email:",
     type: "email",
@@ -20,7 +19,6 @@ export const accountSchema = [
     controlId: "password",
     classNames: {
       group: classes.group,
-      //   label: classes.label,
     },
     label: "Password:",
     type: "password",
@@ -36,7 +34,6 @@ export const companySchema = [
     controlId: "company",
     classNames: {
       group: classes.group,
-      //   label: classes.label,
     },
     label: "Company Name:",
     type: "text",
@@ -47,7 +44,6 @@ export const companySchema = [
     controlId: "companyStreet",
     classNames: {
       group: classes.group,
-      //   label: classes.label,
     },
     label: "Address:",
     type: "text",
@@ -58,7 +54,6 @@ export const companySchema = [
     controlId: "companyCity",
     classNames: {
       group: classes.group,
-      //   label: classes.label,
     },
     label: "City:",
     type: "text",
@@ -69,7 +64,6 @@ export const companySchema = [
     controlId: "companyCounty",
     classNames: {
       group: classes.group,
-      //   label: classes.label,
     },
     label: "county:",
     type: "text",
@@ -80,7 +74,6 @@ export const companySchema = [
     controlId: "companyPostcode",
     classNames: {
       group: classes.group,
-      //   label: classes.label,
     },
     label: "Postcode:",
     type: "text",

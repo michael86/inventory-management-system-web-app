@@ -26,7 +26,6 @@ const GenerateInvoice = () => {
 
     let inputFields = utils.extractItemInput([...children]);
 
-    //An error should be shown by joi, so just return if this fails.
     if (!utils.validateItemData(inputFields)) return;
 
     const itemData = utils.generateItemObject(inputFields);
@@ -55,17 +54,12 @@ const GenerateInvoice = () => {
 
     if (Object.keys(errors).length > 0) return;
 
-    const data = utils.generateInvoice(
-      Object.fromEntries(new FormData(e.target)),
-      [...items]
-    );
+    const data = utils.generateInvoice(Object.fromEntries(new FormData(e.target)), [...items]);
 
     const res = await axios.put("invoice/add", data);
 
     if (!res.data?.status) {
-      toast.error(
-        "There was an error adding your invoice, please try again later."
-      );
+      toast.error("There was an error adding your invoice, please try again later.");
       return;
     }
 

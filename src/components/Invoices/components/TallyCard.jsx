@@ -3,7 +3,7 @@ import { Card, Table } from "react-bootstrap";
 import utils from "../../../utils/invoices";
 
 const TallyCard = (props) => {
-  const { items } = props; //Get currency from here
+  const { items } = props;
 
   return (
     <Card className="shadow">

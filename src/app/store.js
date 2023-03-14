@@ -4,7 +4,6 @@ import popupReducer from "../reducers/popupSlice";
 import stockReducer from "../reducers/stockSlice";
 import companyReducer from "../reducers/companySlice";
 
-//create a redux store.
 export const store = configureStore({
   reducer: {
     user: userReducer,

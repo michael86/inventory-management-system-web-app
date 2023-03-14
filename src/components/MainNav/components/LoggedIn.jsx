@@ -4,10 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { NavDropdown, Nav } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  setUserAuthenticated,
-  setUserToken,
-} from "../../../reducers/userSlice";
+import { setUserAuthenticated, setUserToken } from "../../../reducers/userSlice";
 import { default as axios } from "../../../utils/axios";
 import { deleteStore } from "../../../localStorage";
 
@@ -22,7 +19,6 @@ const LoggedIn = () => {
       },
     });
 
-    //Something went wrong
     if (!res.status === 200) {
       console.log("error logging in", res);
       return;
@@ -36,11 +32,7 @@ const LoggedIn = () => {
 
   return (
     <>
-      <NavDropdown
-        title="Stock"
-        id="offcanvasNavbarDropdown-expand-md"
-        className="order-md-3"
-      >
+      <NavDropdown title="Stock" id="offcanvasNavbarDropdown-expand-md" className="order-md-3">
         <Link to="manage-stock" className="dropdown-item">
           Manage
         </Link>
@@ -54,11 +46,7 @@ const LoggedIn = () => {
         </Link>
       </NavDropdown>
 
-      <NavDropdown
-        title="Invoices"
-        id="offcanvasNavbarDropdown-expand-md"
-        className="order-md-3 "
-      >
+      <NavDropdown title="Invoices" id="offcanvasNavbarDropdown-expand-md" className="order-md-3 ">
         <Link to="generate-invoice" className="dropdown-item">
           Generate
         </Link>
@@ -85,11 +73,7 @@ const LoggedIn = () => {
           Profile
         </Link>
         <NavDropdown.Divider />
-        <NavDropdown.Item
-          role="button"
-          className="dropdown-item "
-          onClick={onClick}
-        >
+        <NavDropdown.Item role="button" className="dropdown-item " onClick={onClick}>
           Log out
         </NavDropdown.Item>
       </NavDropdown>

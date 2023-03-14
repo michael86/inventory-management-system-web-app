@@ -47,7 +47,6 @@ const ViewInvoices = () => {
 
     const newInvoices = filteredInvoices.length > 0 ? filteredInvoices : invoices;
 
-    //Can't call setNewPages here due to racing issues
     const newPages = utils.genPages(newInvoices, newCount);
     setPages(newPages);
 
@@ -57,7 +56,6 @@ const ViewInvoices = () => {
   useEffect(() => {
     const getInvoices = async () => {
       const res = await axios.get("invoice/get");
-      // const res = await axios.get("invoice/get?id=12");
 
       setInvoices(res.data?.invoices || []);
       setPages(utils.genPages(utils.sortAscending(res.data?.invoices || [])));

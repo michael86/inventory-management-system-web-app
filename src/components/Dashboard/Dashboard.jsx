@@ -15,9 +15,7 @@ import { useagePlugins } from "./Schemas";
 const Dashboard = () => {
   const [stock, setStock] = useState([]);
 
-  const [dateObject, setDateObject] = useState(
-    createDateObject(JSON.parse(JSON.stringify(stock)))
-  );
+  const [dateObject, setDateObject] = useState(createDateObject(JSON.parse(JSON.stringify(stock))));
 
   const [useageMonths, setUsageMonths] = useState(dUtils.getHalfMonths());
   const [minMaxValues, setMinMaxValues] = useState(0);
@@ -26,9 +24,7 @@ const Dashboard = () => {
   const [month, setMonth] = useState(dUtils.getMonth());
 
   const onSearchfilter = ({ target }) => {
-    setDateObject(
-      createDateObject(JSON.parse(JSON.stringify(stock)), target.value)
-    );
+    setDateObject(createDateObject(JSON.parse(JSON.stringify(stock)), target.value));
     setSearchFilter(target.value);
   };
 
@@ -60,7 +56,7 @@ const Dashboard = () => {
   };
 
   const onMinMaxChange = ({ target }) => {
-    if (searchFilter) return; //As we're searching by sku at present.
+    if (searchFilter) return;
     setMinMaxValues(+target.value);
   };
 
@@ -101,12 +97,7 @@ const Dashboard = () => {
               dUtils.makeDateReadable(JSON.parse(JSON.stringify(useageMonths))),
               true
             )}
-            datasets={generateDataset(
-              dateObject,
-              useageMonths,
-              minMaxValues,
-              searchFilter
-            )}
+            datasets={generateDataset(dateObject, useageMonths, minMaxValues, searchFilter)}
           />
         </Col>
       </Row>
