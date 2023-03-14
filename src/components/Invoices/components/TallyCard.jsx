@@ -7,9 +7,7 @@ const TallyCard = (props) => {
 
   return (
     <Card className="shadow">
-      <Card.Header className="text-center bg-primary text-light fs-4 ">
-        Tally
-      </Card.Header>
+      <Card.Header className="text-center bg-primary text-light fs-4 ">Tally</Card.Header>
       <Card.Body>
         <Table>
           <thead>
@@ -22,21 +20,14 @@ const TallyCard = (props) => {
             </tr>
           </thead>
           <tbody>
-            {items.map((item) => {
+            {items.map((item, index) => {
               return (
-                <tr key={item.id}>
+                <tr key={index}>
                   <td>{item.item}</td>
                   <td>{item.quantity}</td>
                   <td>{item.price}</td>
                   <td>{item.tax}</td>
-                  <td>
-                    £
-                    {utils.calculateCombinedItemTax(
-                      item.quantity,
-                      item.price,
-                      item.tax
-                    )}
-                  </td>
+                  <td>£{utils.calculateCombinedItemTax(item.quantity, item.price, item.tax)}</td>
                 </tr>
               );
             })}
@@ -47,9 +38,7 @@ const TallyCard = (props) => {
       <Card.Footer>
         Total Cost: £
         {items.length > 0 &&
-          Math.round(
-            (utils.calculateCombinedCost(items) + Number.EPSILON) * 100
-          ) / 100}
+          Math.round((utils.calculateCombinedCost(items) + Number.EPSILON) * 100) / 100}
       </Card.Footer>
     </Card>
   );

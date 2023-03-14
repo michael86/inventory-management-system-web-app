@@ -10,16 +10,7 @@ import Input from "../../Shared/Input";
 import "../../../styles/Invoice.css";
 
 const GenInvoiceCard = (props) => {
-  const {
-    headerText,
-    onClick,
-    inputs,
-    footer,
-    className,
-    onDelete,
-    errors,
-    setErrors,
-  } = props;
+  const { headerText, onClick, inputs, footer, className, onDelete, errors, setErrors } = props;
 
   const onInput = (e) => {
     const res = validateInput(e, errors);
@@ -34,9 +25,7 @@ const GenInvoiceCard = (props) => {
 
   return (
     <Card className={`shadow ${className}`} onClick={onClick}>
-      <Card.Header className="text-center bg-primary text-light fs-4 ">
-        {headerText}
-      </Card.Header>
+      <Card.Header className="text-center bg-primary text-light fs-4 ">{headerText}</Card.Header>
 
       <Card.Body className="bg-light">
         {inputs.map((input, index) => {
@@ -73,9 +62,9 @@ const GenInvoiceCard = (props) => {
             </Col>
             <Col xs={12}>
               <div className="d-flex flex-row flex-wrap justify-content-center">
-                {footer.items.map((item) => {
+                {footer.items.map((item, index) => {
                   return (
-                    <Badge pill bg="primary me-2 mb-2 fs-6" key={item.id}>
+                    <Badge pill bg="primary me-2 mb-2 fs-6" key={index}>
                       {`${item.name}: qty ${item.quantity}`}
                       <FontAwesomeIcon
                         icon={faCircleXmark}

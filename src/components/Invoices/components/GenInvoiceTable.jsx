@@ -9,6 +9,7 @@ const GenInvoiceTable = ({ pages, pageIndex }) => {
   const userCompany = useSelector((state) => state.company);
 
   const formatDate = (unix) => {
+    console.log(unix);
     let date = new Date(unix * 1000);
 
     date = date.toLocaleDateString();
@@ -52,6 +53,7 @@ const GenInvoiceTable = ({ pages, pageIndex }) => {
       </thead>
       <tbody>
         {pages[pageIndex].map((invoice, index) => {
+          console.log(invoice);
           return (
             <tr key={index}>
               <td>{formatDate(invoice.billingDate)}</td>
@@ -61,12 +63,7 @@ const GenInvoiceTable = ({ pages, pageIndex }) => {
               </td>
 
               <td className="text-center">
-                {
-                  <InvoiceButton
-                    onClick={() => onClick(invoice.id)}
-                    text="Download Invoice"
-                  />
-                }
+                {<InvoiceButton onClick={() => onClick(invoice.id)} text="Download Invoice" />}
               </td>
             </tr>
           );

@@ -44,8 +44,15 @@ export const calculateCombinedCost = (arr) => {
     calculateCombinedItemTax(item.quantity, item.price, item.tax)
   );
 
-  return combinedCosts.reduce(
-    (previousValue, currentValue) => Number(previousValue) + Number(currentValue)
+  console.log(
+    combinedCosts.reduce(
+      (previousValue, currentValue) => Number(previousValue) + Number(currentValue)
+    )
+  );
+  return Number(
+    combinedCosts.reduce(
+      (previousValue, currentValue) => Number(previousValue) + Number(currentValue)
+    )
   );
 };
 
