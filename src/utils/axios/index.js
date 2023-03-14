@@ -31,9 +31,10 @@ instance.interceptors.response.use(
     return response;
   },
   function (error) {
+    window.location = "http://localhost:3000/Dashboard";
     document.querySelector("body").innerHTML = error;
     // console.log("error", error.response);
-    if (error.response?.status >= 400 && error.response?.status < 500) {
+    if (error.response?.status >= 400 && error.response?.status <= 500) {
       if (error.response.data.token) {
         store.dispatch(setUserToken(error.response.data.token));
         setStore({ key: "token", data: error.response.data.token });
@@ -43,6 +44,5 @@ instance.interceptors.response.use(
     return Promise.reject(error);
   }
 );
-// "Qb3gg^y")p8!iJ8Zm3xgWg5ApE7q_KM3R"b_MGO^5g4j)JcEiq_1674587267353"
 
 export default instance;

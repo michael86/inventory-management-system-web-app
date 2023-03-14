@@ -26,8 +26,7 @@ const ViewInvoices = () => {
   };
 
   const filterDate = (e) => {
-    const payload =
-      filteredInvoices.length > 0 ? filteredInvoices : [...invoices];
+    const payload = filteredInvoices.length > 0 ? filteredInvoices : [...invoices];
 
     const newInvoices = utils.sortAscending(payload, e.target.value === "0");
     setNewPages(newInvoices);
@@ -46,8 +45,7 @@ const ViewInvoices = () => {
     setPageIndex(0);
     const newCount = +target.value;
 
-    const newInvoices =
-      filteredInvoices.length > 0 ? filteredInvoices : invoices;
+    const newInvoices = filteredInvoices.length > 0 ? filteredInvoices : invoices;
 
     //Can't call setNewPages here due to racing issues
     const newPages = utils.genPages(newInvoices, newCount);
@@ -59,6 +57,7 @@ const ViewInvoices = () => {
   useEffect(() => {
     const getInvoices = async () => {
       const res = await axios.get("invoice/get");
+      // const res = await axios.get("invoice/get?id=12");
 
       setInvoices(res.data?.data || []);
       setPages(utils.genPages(utils.sortAscending(res.data?.data || [])));
@@ -71,19 +70,13 @@ const ViewInvoices = () => {
     <>
       <h1 className="text-center">Invoices</h1>
 
-      {!pages[pageIndex] && (
-        <h2 className="text-warning text-center">No Invoices Found</h2>
-      )}
+      {!pages[pageIndex] && <h2 className="text-warning text-center">No Invoices Found</h2>}
 
       {pages[pageIndex] && (
         <Container className="position-relative">
           <Header filterDate={filterDate} onInput={onInput} />
 
-          <GenInvoiceTable
-            pages={pages}
-            pageIndex={pageIndex}
-            invoices={invoices}
-          />
+          <GenInvoiceTable pages={pages} pageIndex={pageIndex} invoices={invoices} />
 
           <Footer
             pages={pages}
