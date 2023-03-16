@@ -1,4 +1,5 @@
 import axios from "axios";
+import { toast } from "react-toastify";
 import { store } from "../../app/store";
 import { getStore, setStore } from "../../localStorage";
 import { setUserToken } from "../../reducers/userSlice";
@@ -31,9 +32,7 @@ instance.interceptors.response.use(
     return response;
   },
   function (error) {
-    window.location = "http://localhost:3000/Dashboard";
-    document.querySelector("body").innerHTML = error;
-    // console.log("error", error.response);
+    console.log("error", error);
     if (error.response?.status >= 400 && error.response?.status <= 500) {
       if (error.response.data.token) {
         store.dispatch(setUserToken(error.response.data.token));

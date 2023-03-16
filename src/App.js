@@ -18,7 +18,6 @@ import ManageStock from "./components/Stock/ManageStock";
 import ForgotPassword from "./components/Account/ForgotPassword";
 import ResetPassword from "./components/Account/ResetPassword";
 
-//css
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
@@ -46,9 +45,7 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={
-            !user.authenticated ? <Home /> : <Navigate to={"/dashboard"} />
-          }
+          element={!user.authenticated ? <Home /> : <Navigate to={"/dashboard"} />}
           exact
         />
         <Route path="/contact" element={<Contact />} />
@@ -61,9 +58,7 @@ function App() {
             <Route
               key={i}
               path={route.path}
-              element={
-                user.authenticated ? route.element : <Navigate to={"/"} />
-              }
+              element={user.authenticated ? route.element : <Navigate to={"/"} />}
             />
           );
         })}
