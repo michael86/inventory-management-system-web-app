@@ -53,45 +53,47 @@ const AddStock = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-
     if ((errors && Object.keys(errors).length > 0) || !skuValid) return;
 
     if (!locations.length) {
       setLocationsValid(false);
       return;
     }
+    try {
+      const data = Object.fromEntries(new FormData(e.target));
 
-    const data = Object.fromEntries(new FormData(e.target));
+      delete data["location-name"]; //clean up inputs not required
+      delete data["location-value"];
 
-    delete data["location-name"]; //clean up inputs not required
-    delete data["location-value"];
+      data.locations = locations;
+      data.history = [
+        {
+          qty: data.qty,
+          price: data.price,
+          locations: data.locations,
+        },
+      ];
 
-    data.locations = locations;
-    data.history = [
-      {
-        qty: data.qty,
-        price: data.price,
-        locations: data.locations,
-      },
-    ];
+      const res = await axios.post("stock/add", { data });
 
-    const res = await axios.post("stock/add", { data });
-
-    switch (res.data?.status) {
-      //Item Added
-      case 1:
-        resetState(e);
-        toast.success(`${data.sku} Added`);
-        break;
-      //Sku used
-      case 2:
-        toast.warning(
-          `${data.sku} has already been used, please update and try again`
-        );
-        break;
-      default:
-        resetState(e);
-        break;
+      switch (res.data?.status) {
+        //Item Added
+        case 1:
+          resetState(e);
+          toast.success(`${data.sku} Added`);
+          break;
+        //Sku used
+        case 2:
+          toast.warning(`${data.sku} has already been used, please update and try again`);
+          break;
+        default:
+          resetState(e);
+          break;
+      }
+    } catch (err) {
+      toast.error(
+        "It's not you, it's us. Something went wrong there, please try again. If the problem persists, please contact us"
+      );
     }
   };
 
