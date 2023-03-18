@@ -79,7 +79,7 @@ const AddStock = () => {
       switch (res.data?.status) {
         //Item Added
         case 1:
-          resetState(e);
+          // resetState(e);
           toast.success(`${data.sku} Added`);
           break;
         //Sku used
@@ -87,7 +87,10 @@ const AddStock = () => {
           toast.warning(`${data.sku} has already been used, please update and try again`);
           break;
         default:
-          resetState(e);
+          toast.error(
+            "It's not you, it's us. Something went wrong there, please try again. If the problem persists, please contact us"
+          );
+
           break;
       }
     } catch (err) {
