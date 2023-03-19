@@ -68,6 +68,7 @@ const AddStock = () => {
       data.locations = locations;
       data.history = [
         {
+          sku: data.sku,
           qty: data.qty,
           price: data.price,
           locations: data.locations,
