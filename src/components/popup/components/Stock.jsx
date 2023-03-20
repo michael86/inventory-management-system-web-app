@@ -15,8 +15,11 @@ const Stock = () => {
 
   const [locations, setLocations] = useState(item.locations);
   const [locationsValid, setLocationsValid] = useState(true);
-  const [priceDisabled, setPriceDisabled] = useState(item.price ? false : true);
+  const [priceDisabled, setPriceDisabled] = useState(item?.price ? false : true);
   const [errors, setErrors] = useState();
+  const [sku, setSku] = useState(item.sku);
+  const [qty, setQty] = useState(item.quantity);
+  const [price, setPrice] = useState(item.price);
   const dispatch = useDispatch();
 
   const submitLocation = (id) => {
@@ -71,13 +74,10 @@ const Stock = () => {
     data.locations = [...locations];
     data.id = item.id;
 
-    const res = await axios.patch(
-      `stock/update/?locations=${locationsUpdated}`,
-      {
-        data,
-        history: item,
-      }
-    );
+    const res = await axios.patch(`stock/update/?locations=${locationsUpdated}`, {
+      data,
+      history: item,
+    });
 
     switch (res.data.status) {
       case 1:
@@ -109,15 +109,21 @@ const Stock = () => {
             setErrors,
           }}
           title="Manage Stock"
-          sku={{ value: item.sku }}
+          sku={{ state: { sku, setSku } }}
           qty={{
+            state: {
+              qty,
+              setQty,
+            },
             disableQty: true,
-            value: item.quantity,
           }}
           price={{
             priceDisabled,
             setPriceDisabled,
-            value: item.price,
+            state: {
+              price,
+              setPrice,
+            },
           }}
           locations={{
             values: locations,

@@ -3,21 +3,20 @@ import { Form } from "react-bootstrap";
 import { validateInput } from "../../../validation/Utils";
 import EditQty from "./EditQty";
 
-const ItemQty = ({ qty: prefill, errors }) => {
+const ItemQty = ({ qty, errors }) => {
   const { values: err, setErrors } = errors;
 
-  const [qty, setQty] = useState(prefill?.value || 0);
+  const { state, disabled } = qty || {};
+
   const [qtyValid, setQtyValid] = useState(true);
 
   const onInput = (e) => {
     const res = validateInput(e, err);
     res && setErrors(res);
-    setQty(e.target.value);
-    console.log("qty", res);
+    state?.setQty && state.setQty(e.target.value);
   };
 
-  const onKeyDown = (e) =>
-    (e.key === "-" || e.key === "e") && e.preventDefault();
+  const onKeyDown = (e) => (e.key === "-" || e.key === "e") && e.preventDefault();
 
   const equateQty = (equate, amount, errors) => {
     //Equate is a bool used to decide if adding or subtracting
@@ -32,7 +31,7 @@ const ItemQty = ({ qty: prefill, errors }) => {
 
     setQtyValid(true); //Just incase amount wasn't valid, it now is.
 
-    setQty(equate ? +qty + +amount : +qty - +amount);
+    state?.qty && state.setQty(equate ? +qty + +amount : +qty - +amount);
   };
 
   return (
@@ -46,12 +45,12 @@ const ItemQty = ({ qty: prefill, errors }) => {
           name="qty"
           onInput={onInput}
           onKeyDown={(e) => onKeyDown(e)}
-          value={qty}
+          value={state?.qty && state.qty}
           required
-          readOnly={prefill?.disableQty}
+          readOnly={disabled}
         />
 
-        {prefill?.disableQty && !err?.qty ? ( //We check for err here as well as a mallicious user could remove the readonly attribute to make the input editable
+        {disabled && !err?.qty ? ( //We check for err here as well as a mallicious user could remove the readonly attribute to make the input editable
           <Form.Text>Please use the buttons below to edit your qty</Form.Text>
         ) : !err?.qty ? (
           <Form.Text className="text-muted">
@@ -64,7 +63,7 @@ const ItemQty = ({ qty: prefill, errors }) => {
         )}
       </Form.Group>
 
-      {prefill?.disableQty && <EditQty onClick={equateQty} />}
+      {disabled && <EditQty onClick={equateQty} />}
       {!qtyValid && (
         <Form.Text className="text-danger">
           Subtracting this amount will put you in the minus. Quick math.

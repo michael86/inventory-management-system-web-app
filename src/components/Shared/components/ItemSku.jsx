@@ -1,17 +1,18 @@
-import { useState } from "react";
 import { Form } from "react-bootstrap";
 import { validateInput } from "../../../validation/Utils";
 
-const ItemSku = ({ sku: prefill, errors }) => {
+const ItemSku = ({ sku, errors }) => {
   const { values: err, setErrors } = errors;
+  const { state } = sku || {};
 
   const onInput = (e) => {
     const res = validateInput(e, err);
     res && setErrors(res);
-    setSku(e.target.value);
+    state.setSku && state.setSku(e.target.value);
   };
 
-  const [sku, setSku] = useState(prefill?.value || "");
+  console.log("state", state);
+
   return (
     <>
       <Form.Group className="mb-3" controlId="sku">
@@ -21,15 +22,13 @@ const ItemSku = ({ sku: prefill, errors }) => {
           placeholder="SKU"
           onInput={onInput}
           name="sku"
-          value={sku}
+          value={state.sku && state.sku}
           required
         />
 
         <Form.Text className="text-muted">
           {err?.sku ? (
-            <span className="text-danger">
-              Sku can not contain special characters
-            </span>
+            <span className="text-danger">Sku can not contain special characters</span>
           ) : (
             "Unique identifier for your company"
           )}

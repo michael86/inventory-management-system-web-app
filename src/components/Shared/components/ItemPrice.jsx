@@ -1,25 +1,17 @@
-import { useState } from "react";
 import { Form } from "react-bootstrap";
-
 import { validateInput } from "../../../validation/Utils";
 
-import { penniesToPounds } from "../../../utils/stock";
-
-const ItemPrice = ({ price: prefill, errors }) => {
+const ItemPrice = ({ price, errors }) => {
   const { values: err, setErrors } = errors;
-
-  const [price, setPrice] = useState(
-    (prefill?.value && penniesToPounds(prefill?.value)) || 0.01
-  );
+  const { state, priceDisabled } = price || {};
 
   const onInput = (e) => {
     const res = validateInput(e, err);
     res && setErrors(res);
-    setPrice(+e.target.value);
+    state?.setPrice && state.setPrice(+e.target.value);
   };
 
-  const onKeyDown = (e) =>
-    (e.key === "-" || e.key === "e") && e.preventDefault();
+  const onKeyDown = (e) => (e.key === "-" || e.key === "e") && e.preventDefault();
 
   return (
     <>
@@ -30,22 +22,20 @@ const ItemPrice = ({ price: prefill, errors }) => {
           min="0.01"
           step="0.01"
           placeholder="cost per item"
-          disabled={prefill.priceDisabled}
+          disabled={priceDisabled}
           name="price"
           onInput={onInput}
           onKeyDown={(e) => onKeyDown(e)}
-          value={price}
+          value={state?.price && state.price}
           required
         />
 
         {!err?.price ? (
-          <Form.Text className="text-muted">
-            cost per individual component
-          </Form.Text>
+          <Form.Text className="text-muted">cost per individual component</Form.Text>
         ) : (
           <Form.Text className="text-danger">
-            Quantity must be greater than 0, if this item is free issue, set it
-            via the optional settings
+            Quantity must be greater than 0, if this item is free issue, set it via the optional
+            settings
           </Form.Text>
         )}
       </Form.Group>
