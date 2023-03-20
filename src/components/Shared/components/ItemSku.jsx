@@ -11,8 +11,6 @@ const ItemSku = ({ sku, errors }) => {
     state.setSku && state.setSku(e.target.value);
   };
 
-  console.log("state", state);
-
   return (
     <>
       <Form.Group className="mb-3" controlId="sku">
