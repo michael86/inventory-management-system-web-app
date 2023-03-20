@@ -18,11 +18,11 @@ const ItemQty = ({ qty, errors }) => {
 
   const onKeyDown = (e) => (e.key === "-" || e.key === "e") && e.preventDefault();
 
-  const equateQty = (equate, amount, errors) => {
+  const equateQty = (equate, amount) => {
     //Equate is a bool used to decide if adding or subtracting
-    if (!amount || errors) return;
+    if (!amount) return;
 
-    const res = equate ? +qty + +amount : +qty - +amount;
+    const res = equate ? +state.qty + +amount : +state.qty - +amount;
 
     if (res < 0) {
       setQtyValid(false);
@@ -31,7 +31,7 @@ const ItemQty = ({ qty, errors }) => {
 
     setQtyValid(true); //Just incase amount wasn't valid, it now is.
 
-    state?.qty && state.setQty(equate ? +qty + +amount : +qty - +amount);
+    state?.setQty && state.setQty(res);
   };
 
   return (
@@ -63,7 +63,7 @@ const ItemQty = ({ qty, errors }) => {
         )}
       </Form.Group>
 
-      {disabled && <EditQty onClick={equateQty} />}
+      {disabled && <EditQty equateQty={equateQty} />}
       {!qtyValid && (
         <Form.Text className="text-danger">
           Subtracting this amount will put you in the minus. Quick math.

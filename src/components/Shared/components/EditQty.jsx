@@ -1,13 +1,11 @@
-import React, { useState } from "react";
+import React, { useRef } from "react";
 import { Button, Form } from "react-bootstrap";
 
-const EditQty = ({ onClick }) => {
-  const onKeyDown = (e) =>
-    (e.key === "-" || e.key === "e") && e.preventDefault();
+const EditQty = ({ equateQty }) => {
+  const onKeyDown = (e) => (e.key === "-" || e.key === "e") && e.preventDefault();
+  const ref = useRef();
 
-  const [amount, setAmount] = useState(0);
-
-  const onInput = ({ target }) => setAmount(+target.value);
+  const onClick = (operation) => equateQty(operation, ref.current.value);
 
   return (
     <>
@@ -20,16 +18,15 @@ const EditQty = ({ onClick }) => {
             placeholder="starting quantity"
             name="editQty"
             className="me-2"
-            onInput={onInput}
             onKeyDown={(e) => onKeyDown(e)}
-            value={amount}
+            ref={ref}
           />
 
           <Button
             variant="primary me-2 mt-2"
             data-equation="1"
             onClick={() => {
-              onClick(true, amount);
+              onClick(true);
             }}
           >
             Add
@@ -37,7 +34,7 @@ const EditQty = ({ onClick }) => {
           <Button
             variant="primary mt-2"
             onClick={() => {
-              onClick(false, amount);
+              onClick(false);
             }}
           >
             Remove

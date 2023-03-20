@@ -7,7 +7,6 @@ import axios from "../../../utils/axios";
 import { setPopupStock, togglePopup } from "../../../reducers/popupSlice";
 import { ToastContainer, toast } from "react-toastify";
 
-//another cluster fuck, needs refactoring
 const Stock = () => {
   const [locationsUpdated, setLocationsUpdated] = useState(0);
 
@@ -115,7 +114,7 @@ const Stock = () => {
               qty,
               setQty,
             },
-            disableQty: true,
+            disabled: true,
           }}
           price={{
             priceDisabled,
