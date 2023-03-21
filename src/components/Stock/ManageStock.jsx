@@ -15,7 +15,7 @@ const ManageStock = () => {
   useEffect(() => {
     const getStock = async () => {
       //Update get to use history=bool.
-      const res = await axios.get("stock/get/?locations=true");
+      const res = await axios.get("stock/get?locations=true");
       if (res.status && res.data?.stock) {
         setStock(res.data.stock);
       }
@@ -29,8 +29,7 @@ const ManageStock = () => {
       <h1 className="text-center">Manage stock</h1>
       {!stock.length && (
         <h2 className="text-center">
-          No stock found, head to the <Link to="/add-stock">Add Stock</Link>{" "}
-          page
+          No stock found, head to the <Link to="/add-stock">Add Stock</Link> page
         </h2>
       )}
       <div className="mx-2">
