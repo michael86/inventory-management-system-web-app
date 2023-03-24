@@ -42,7 +42,7 @@ const ItemQty = ({ qty, errors }) => {
           type="number"
           min="0"
           placeholder="starting quantity"
-          name="qty"
+          name="quantity"
           onInput={onInput}
           onKeyDown={(e) => onKeyDown(e)}
           value={state?.qty && state.qty}

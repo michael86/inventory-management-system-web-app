@@ -17,6 +17,7 @@ const ManageStock = () => {
       //Update get to use history=bool.
       const res = await axios.get("stock/get?locations=true");
       if (res.status && res.data?.stock) {
+        console.log(res.data.stock);
         setStock(res.data.stock);
       }
     };

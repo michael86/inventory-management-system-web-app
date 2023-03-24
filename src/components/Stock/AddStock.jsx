@@ -16,8 +16,6 @@ const AddStock = () => {
   const [skuValid, setSkuValid] = useState(true);
   const [priceDisabled, setPriceDisabled] = useState(false);
   const [sku, setSku] = useState("");
-  const [price, setPrice] = useState("");
-  const [qty, setQty] = useState("");
 
   const submitLocation = (id) => {
     const elements = document.forms[0].elements;
@@ -52,8 +50,7 @@ const AddStock = () => {
     setLocations([]);
     setLocationsValid(true);
     setSkuValid(true);
-    setPrice();
-    setQty();
+
     setSku("");
   };
 
@@ -75,14 +72,14 @@ const AddStock = () => {
       data.history = [
         {
           sku: data.sku,
-          qty: data.qty,
+          quantity: data.quantity,
           price: data.price,
           locations: data.locations,
         },
       ];
 
       const res = await axios.post("stock/add", { data });
-      console.log(res.data.status);
+
       switch (res.data?.status) {
         //Item Added
         case 1:
