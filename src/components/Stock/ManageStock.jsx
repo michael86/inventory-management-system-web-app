@@ -7,6 +7,7 @@ import axios from "../../utils/axios";
 import ManageStockCard from "./components/ManageStockCard";
 
 import "../../styles/ManageStock.css";
+import { ToastContainer } from "react-toastify";
 
 const ManageStock = () => {
   const [stock, setStock] = useState([]);
@@ -29,16 +30,23 @@ const ManageStock = () => {
 
   const onInput = ({ target }) => setFilter(target.value);
 
+  const deleteStock = (id) => {
+    const copy = JSON.parse(JSON.stringify(stock));
+    const index = copy.findIndex((item) => item.id === id);
+    copy.splice(index, 1);
+    setStock(copy);
+  };
+
   return (
     <>
       <h1 className="text-center">Manage stock</h1>
       {!apiCalled && <h3>Loading</h3>}
-      {apiCalled && !stock.length && (
+      {apiCalled && stock?.length === 0 && (
         <h2 className="text-center">
           No stock found, head to the <Link to="/add-stock">Add Stock</Link> page
         </h2>
       )}
-      {apiCalled && stock.length && (
+      {stock?.length > 0 && (
         <div className="mx-2">
           <div className="search-container">
             <InputGroup className="search mb-3">
@@ -53,7 +61,7 @@ const ManageStock = () => {
           <Row>
             {stock.map((item) => {
               if (item.sku.includes(filter)) {
-                return <ManageStockCard item={item} key={item.sku} />;
+                return <ManageStockCard item={item} key={item.sku} deleteStock={deleteStock} />;
               }
             })}
           </Row>

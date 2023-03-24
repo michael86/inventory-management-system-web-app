@@ -6,12 +6,12 @@ import ManageStockBody from "./ManageStockBody";
 
 import axios from "../../../utils/axios";
 
-const ManageStockCard = ({ item }) => {
+const ManageStockCard = ({ item, deleteStock }) => {
   const dispatch = useDispatch();
 
   const onDelete = async (id) => {
     const res = await axios.delete(`/stock/delete?id=${id}`);
-    console.log(res);
+    res.data.status && deleteStock(id);
   };
 
   return (
