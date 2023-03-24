@@ -10,7 +10,7 @@ const ManageStockCard = ({ item }) => {
   const dispatch = useDispatch();
 
   const onDelete = async (id) => {
-    const res = await axios.delete("/stock/delete", { data: { id } });
+    const res = await axios.delete(`/stock/delete?id=${id}`);
     console.log(res);
   };
 

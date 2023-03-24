@@ -1,3 +1,8 @@
-.fit-content {
+/* .fit-content {
   width: fit-content;
+} */
+
+.search-container {
+  width: 30%;
+  margin-left: auto;
 }

@@ -1,8 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { setStore } from "../localStorage";
-import { getStore } from "../localStorage";
 
-const initialState = { stock: getStore("stock") || [] };
+const initialState = { stock: [] };
 
 export const stockSlice = createSlice({
   name: "stock",
@@ -10,7 +8,6 @@ export const stockSlice = createSlice({
   reducers: {
     setStock: (state, { payload }) => {
       state.stock = payload;
-      setStore({ key: "stock", data: payload });
     },
   },
 });
