@@ -1,5 +1,5 @@
-import React from "react";
-import { Col, Card, Badge, Button } from "react-bootstrap";
+import React, { useState } from "react";
+import { Col, Card, Spinner, Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { setPopupScreen, setPopupStock, togglePopup } from "../../../reducers/popupSlice";
 import ManageStockBody from "./ManageStockBody";
@@ -8,9 +8,10 @@ import axios from "../../../utils/axios";
 
 const ManageStockCard = ({ item, deleteStock }) => {
   const dispatch = useDispatch();
-
+  const [deleting, setDeleting] = useState(false);
   const onDelete = async (id) => {
     const res = await axios.delete(`/stock/delete?id=${id}`);
+    setDeleting(false);
     res.data.status && deleteStock(id);
   };
 
@@ -23,8 +24,16 @@ const ManageStockCard = ({ item, deleteStock }) => {
         <ManageStockBody item={item} locations={item.locations} />
 
         <Card.Footer className="d-flex justify-content-between">
-          <Button onClick={() => onDelete(item.id)}>Delete</Button>
           <Button
+            onClick={() => {
+              onDelete(item.id);
+              setDeleting(true);
+            }}
+          >
+            {deleting ? <Spinner /> : "Delete"}
+          </Button>
+          <Button
+            disabled={deleting}
             onClick={() => {
               dispatch(setPopupScreen(2));
               dispatch(setPopupStock(item));
