@@ -15,7 +15,7 @@ import { useagePlugins } from "./Schemas";
 const Dashboard = () => {
   const [stock, setStock] = useState([]);
 
-  const [dateObject, setDateObject] = useState(createDateObject(JSON.parse(JSON.stringify(stock))));
+  const [dateObject, setDateObject] = useState([]);
 
   const [useageMonths, setUsageMonths] = useState(dUtils.getHalfMonths());
   const [minMaxValues, setMinMaxValues] = useState(0);
@@ -63,6 +63,7 @@ const Dashboard = () => {
   useEffect(() => {
     const getStock = async () => {
       const res = await axios.get("stock/get/?history=true");
+
       if (res.status && res.data?.stock) {
         setDateObject(createDateObject(res.data.stock));
         setStock(res.data.stock);

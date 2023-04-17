@@ -9,6 +9,7 @@ import axios from "../../../utils/axios";
 const ManageStockCard = ({ item, deleteStock }) => {
   const dispatch = useDispatch();
   const [deleting, setDeleting] = useState(false);
+
   const onDelete = async (id) => {
     const res = await axios.delete(`/stock/delete?id=${id}`);
     setDeleting(false);

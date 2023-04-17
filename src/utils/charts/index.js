@@ -10,7 +10,6 @@ export const generateLabels = (obj, addYear = false) => {
 };
 
 export const generateDataset = (dateObject, useageMonths, minMax, searchFilter) => {
-  console.log(dateObject);
   return [];
   //First collect all skus for target year/month
   //if serachFilter, filter out the junk

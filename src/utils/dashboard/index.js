@@ -15,6 +15,7 @@ const genLastHalfYear = (month = currentMonth) => {
 export const createDateObject = (obj, filter) => {
   const dateObject = {};
   //Destructure unix into month and year ints
+
   const breakUpDate = (date) => {
     const d = date ? new Date(date) : new Date();
     const month = d.getMonth();
@@ -31,18 +32,17 @@ export const createDateObject = (obj, filter) => {
      * This means if the item is not at a point in the past, it wasn't added to the store yet.
      */
 
-    if (filter && !item.sku.toLowerCase().includes(filter.toLowerCase()))
-      continue;
+    if (filter && !item.sku.toLowerCase().includes(filter.toLowerCase())) continue;
 
     item.history.sort((a, b) => a.date - b.date);
 
-    let [monthCounter, yearCounter] = breakUpDate(item.dateCreated * 1000);
+    let [monthCounter, yearCounter] = breakUpDate(item.date * 1000);
 
     let lastSnapshot; //Cache the last valid month and year combo into the snapshot. This allows us to reference it without having to iterate over the history again.
 
     while (yearCounter <= currentYear) {
       if (yearCounter === currentYear && monthCounter > currentMonth) {
-        //Soon as we increment past this point in time, continue. This prevents the time object from going into the futuree of the current month
+        //Soon as we increment past this point in time, continue. This prevents the time object from going into the futuree
         monthCounter++;
         if (monthCounter > 11) {
           yearCounter++;
@@ -53,8 +53,7 @@ export const createDateObject = (obj, filter) => {
 
       dateObject[yearCounter] = dateObject[yearCounter] || {};
 
-      dateObject[yearCounter][monthCounter] =
-        dateObject[yearCounter][monthCounter] || {};
+      dateObject[yearCounter][monthCounter] = dateObject[yearCounter][monthCounter] || {};
 
       for (const history of item.history) {
         const [historyMonth, historyYear] = breakUpDate(history.date * 1000);
@@ -89,11 +88,7 @@ const currentYear = date.getFullYear();
 const timeSchema = {};
 timeSchema[currentYear] = genLastHalfYear();
 
-export const getHighestCount = (
-  dateObject,
-  timeSpan = timeSchema,
-  amount = 5
-) => {
+export const getHighestCount = (dateObject, timeSpan = timeSchema, amount = 5) => {
   /**
    * @arg dateObject is a deep nested object, structed by: year -> month -> sku -> Props for this sku
    * @arg timeSpan is an array containing target months/years

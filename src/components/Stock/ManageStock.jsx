@@ -60,7 +60,7 @@ const ManageStock = () => {
           </div>
           <Row>
             {stock.map((item) => {
-              if (item.sku.includes(filter)) {
+              if (item.sku.toLowerCase().includes(filter.toLowerCase())) {
                 return <ManageStockCard item={item} key={item.sku} deleteStock={deleteStock} />;
               }
             })}

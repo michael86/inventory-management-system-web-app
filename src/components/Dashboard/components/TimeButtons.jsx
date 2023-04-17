@@ -3,24 +3,18 @@ import { Badge, Button } from "react-bootstrap";
 
 import { makeMonthReadable } from "../../../utils/dates";
 
-const Timebuttons = ({
-  dateObject,
-  year,
-  month,
-  onYearChange,
-  onMonthChange,
-}) => {
+const Timebuttons = ({ dateObject, year, month, onYearChange, onMonthChange }) => {
   return (
     <>
       {dateObject && (
-        <div className="d-flex justify-content-center">
+        <div className="d-flex justify-content-center flex-wrap">
           {Object.keys(dateObject).map((objectYear) => {
             return (
               <Button
                 key={objectYear}
                 size="sm"
                 variant={+objectYear === +year ? "primary" : "secondary"}
-                className="me-2"
+                className="me-2 mt-2"
                 onClick={() => onYearChange(objectYear)}
               >
                 {objectYear}
