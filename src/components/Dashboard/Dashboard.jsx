@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
-
+import React, { useEffect, useState, useCallback } from "react";
 import { Row, Col } from "react-bootstrap";
+import { debounce, cloneDeep } from "lodash";
 
 import UseageChart from "../Charts/UseageChart";
 import DashForm from "./components/DashForm";
+import Loader from "../Shared/Loader";
 
 import axios from "../../utils/axios";
 import dUtils from "../../utils/dates";
@@ -14,6 +15,7 @@ import { useagePlugins } from "./Schemas";
 
 const Dashboard = () => {
   const [stock, setStock] = useState([]);
+  const [apiCalled, setApiCalled] = useState(false);
 
   const [dateObject, setDateObject] = useState([]);
 
@@ -23,10 +25,15 @@ const Dashboard = () => {
   const [year, setYear] = useState(dUtils.getYear());
   const [month, setMonth] = useState(dUtils.getMonth());
 
-  const onSearchfilter = ({ target }) => {
-    setDateObject(createDateObject(JSON.parse(JSON.stringify(stock)), target.value));
-    setSearchFilter(target.value);
-  };
+  const debouncedFilter = useCallback(
+    debounce(async (query) => {
+      setDateObject(await createDateObject(cloneDeep(stock), query));
+      setSearchFilter(query);
+    }, 500),
+    []
+  );
+
+  const onSearchfilter = ({ target }) => debouncedFilter(target.value);
 
   const onYearChange = (newYear) => {
     const currentDate = new Date();
@@ -65,9 +72,13 @@ const Dashboard = () => {
       const res = await axios.get("stock/get/?history=true");
 
       if (res.status && res.data?.stock) {
-        setDateObject(createDateObject(res.data.stock));
+        const data = await createDateObject(res.data.stock);
+
+        setDateObject(data);
         setStock(res.data.stock);
       }
+
+      setApiCalled(true);
     };
 
     getStock();
@@ -75,33 +86,35 @@ const Dashboard = () => {
 
   return (
     <>
-      {/* <h1 className="text-center">{user.company}</h1> */}
+      {!apiCalled && <Loader />}
 
-      <Row className="mx-4">
-        <DashForm
-          dateObject={dateObject}
-          onMinMaxChange={onMinMaxChange}
-          minMaxValues={minMaxValues}
-          setMinMaxValues={setMinMaxValues}
-          searchFilter={searchFilter}
-          onSearchfilter={onSearchfilter}
-          onYearChange={onYearChange}
-          onMonthChange={onMonthChange}
-          year={year}
-          month={month}
-        />
-
-        <Col xs={12} lg={6}>
-          <UseageChart
-            plugins={useagePlugins}
-            labels={generateLabels(
-              dUtils.makeDateReadable(JSON.parse(JSON.stringify(useageMonths))),
-              true
-            )}
-            datasets={generateDataset(dateObject, useageMonths, minMaxValues, searchFilter)}
+      {apiCalled && (
+        <Row className="mx-4">
+          <DashForm
+            dateObject={dateObject}
+            onMinMaxChange={onMinMaxChange}
+            minMaxValues={minMaxValues}
+            setMinMaxValues={setMinMaxValues}
+            searchFilter={searchFilter}
+            onSearchfilter={onSearchfilter}
+            onYearChange={onYearChange}
+            onMonthChange={onMonthChange}
+            year={year}
+            month={month}
           />
-        </Col>
-      </Row>
+
+          <Col xs={12} lg={6}>
+            <UseageChart
+              plugins={useagePlugins}
+              labels={generateLabels(
+                dUtils.makeDateReadable(JSON.parse(JSON.stringify(useageMonths))),
+                true
+              )}
+              datasets={generateDataset(dateObject, useageMonths, minMaxValues, searchFilter)}
+            />
+          </Col>
+        </Row>
+      )}
     </>
   );
 };

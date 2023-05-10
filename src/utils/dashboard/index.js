@@ -12,7 +12,8 @@ const genLastHalfYear = (month = currentMonth) => {
   return months.sort((a, b) => a - b);
 };
 
-export const createDateObject = (obj, filter) => {
+export const createDateObject = async (obj, filter) => {
+  console.log("filter", filter);
   const dateObject = {};
   //Destructure unix into month and year ints
 
@@ -36,7 +37,7 @@ export const createDateObject = (obj, filter) => {
 
     item.history.sort((a, b) => a.date - b.date);
 
-    let [monthCounter, yearCounter] = breakUpDate(item.date * 1000);
+    let [monthCounter, yearCounter] = breakUpDate(item.date_created * 1000); //Get the date the item was first created
 
     let lastSnapshot; //Cache the last valid month and year combo into the snapshot. This allows us to reference it without having to iterate over the history again.
 
@@ -56,13 +57,12 @@ export const createDateObject = (obj, filter) => {
       dateObject[yearCounter][monthCounter] = dateObject[yearCounter][monthCounter] || {};
 
       for (const history of item.history) {
-        const [historyMonth, historyYear] = breakUpDate(history.date * 1000);
+        const [historyMonth, historyYear] = breakUpDate(history.date_added * 1000);
 
         if (historyMonth === monthCounter && historyYear === yearCounter) {
           dateObject[yearCounter][monthCounter][item.sku] = {
             runningTotal: history.quantity,
             price: history.price,
-            history: [],
           };
 
           lastSnapshot = dateObject[yearCounter][monthCounter][item.sku];
