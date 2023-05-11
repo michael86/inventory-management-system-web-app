@@ -1,3 +1,4 @@
+import { isTypeQueryNode } from "typescript";
 import { v4 as uuidv4 } from "uuid";
 
 export const generateLabels = (obj, addYear = false) => {
@@ -10,115 +11,57 @@ export const generateLabels = (obj, addYear = false) => {
 };
 
 export const generateDataset = (dateObject, useageMonths, minMax, searchFilter) => {
-  const generateFromFilter = () => {
-    const dataset = [];
+  /**
+   * @param {object} targetMonth => {year: [month, month], year: [month, month]}
+   * @param {object} dateObject => {year: {month: {sku: {runningTotal, price}, sku{repeat}}}}
+   * @param {int} minMax => used as a booolean to filter by highest or lowest totals
+   * @param {string || null} => used to filter for skus containing filter
 
-    const skus = [];
+   * @returns {Array} => [{id: uuidv4(), label: sku name, data: [number, number, number], backgroundColor: "rgba(255, 99, 132, 0.5)",}]
 
-    if (!Object.keys(dateObject).length) return; //Sku not found
+   * collect skus for target months/years
+   * filter by searchFilter
+   * sort by min max
+   * returning in graph dataset format
+  */
 
-    //Filter out the sku labels
+  /**Will iterate over the target time period and return a new object containing all skus within that time period
+   * @return {object} -> Same format as dateObject.
+   */
+  const getTargetSkus = () => {
+    const data = {};
     Object.keys(useageMonths).forEach((year) => {
       useageMonths[year].forEach((month) => {
-        dateObject[year] &&
-          dateObject[year][month] &&
-          Object.keys(dateObject[year][month]).forEach((sku) => {
-            !skus.includes(sku) && skus.push(sku);
-          });
+        data[year] = data[year] || {};
+        data[year][month] = dateObject[year][month];
       });
     });
-
-    skus.forEach((sku) => {
-      const skuObject = {
-        id: uuidv4(),
-        label: sku,
-        data: [],
-        backgroundColor: "rgba(255, 99, 132, 0.5)",
-      };
-
-      /* 
-        Hi whoever checks this... This drove me insane for a good hour. So let me explain why I'm having to do this... 
-        Due to the way chartJS expects the array and the way I've generated the dateObject. If the user clicks on a month that overlaps the 6month period with the date it was entered into the system. 
-        Then the useageMonths will contain months where the item didn't exist. In turn causing an indexing issue with the dateObject. So, we can safely assume, IF the dateObject doesn't contain the current year/month, 
-        it wasn't entered into the system. This means, we can safely enter the value 0 for the months it didn't exists, and force the month it did exists into the correct index. 
-      */
-      Object.keys(useageMonths).forEach((year) => {
-        useageMonths[year].forEach((month) => {
-          dateObject[year] && dateObject[year][month]
-            ? Object.keys(dateObject[year][month]).forEach(() => {
-                //If this sku is valid, push the running total, else 0.
-                skuObject.data.push(
-                  dateObject[year][month][sku] ? dateObject[year][month][sku].runningTotal : 0
-                );
-              })
-            : skuObject.data.push(0);
-        });
-      });
-
-      dataset.push(skuObject);
-    });
-
-    return dataset;
+    return data;
   };
 
-  const generateFromMinMax = () => {
-    /* 
-      get last year/month required, as this is used to figured out what year/month is selected in parent state
-      sort by minMax
-      generate dataset
-    */
+  /**If a search filter is passed, then iterate over the object and remove any skus that don't contain the filter. */
+  const filterSkus = (payload) => {
+    const data = {};
 
-    const dataset = [];
-    let currentSkus = [];
-    let targetYear = Object.keys(useageMonths);
-    targetYear = targetYear[targetYear.length - 1];
+    Object.keys(payload).forEach((year) => {
+      Object.keys(payload[year]).forEach((month) => {
+        const skus = Object.keys(payload[year][month]);
 
-    let targetMonth = useageMonths[targetYear];
-    targetMonth = targetMonth[targetMonth.length - 1];
-
-    if (dateObject[targetYear] && [dateObject[targetYear][targetMonth]]) {
-      Object.keys(dateObject[targetYear][targetMonth]).forEach((sku) => {
-        currentSkus.push([sku, dateObject[targetYear][targetMonth][sku].runningTotal]);
-      });
-    }
-
-    currentSkus = currentSkus.sort((a, b) => (minMax ? a[1] - b[1] : b[1] - a[1])).slice(0, 5);
-
-    const skuDatasetObject = {};
-
-    currentSkus.forEach((sku) => {
-      skuDatasetObject[sku[0]] = {
-        id: uuidv4(),
-        label: sku[0],
-        data: [],
-        backgroundColor: "rgba(255, 99, 132, 0.5)",
-      };
-    });
-
-    Object.keys(useageMonths).forEach((year) => {
-      useageMonths[year].forEach((month) => {
-        // console.log(year);
-        // console.log(month);
-        // console.log(dateObject);
-
-        if (dateObject[year] && dateObject[year][month]) {
-          Object.keys(dateObject[year][month]).forEach((sku) => {
-            currentSkus.forEach((filteredSku) => {
-              if (filteredSku.includes(sku)) {
-                skuDatasetObject[sku].data.push(dateObject[year][month][sku].runningTotal);
-              }
-            });
-          });
-        }
+        for (const sku of skus)
+          if (sku.toLowerCase().includes(searchFilter.toLowerCase())) {
+            data[year] = data[year] || {};
+            data[year][month] = data[year][month] || {};
+            data[year][month][sku] = payload[year][month][sku];
+          }
       });
     });
 
-    Object.keys(skuDatasetObject).forEach((sku) => {
-      dataset.push(skuDatasetObject[sku]);
-    });
-
-    return dataset;
+    return data;
   };
 
-  return searchFilter ? generateFromFilter() : generateFromMinMax();
+  let targetSkus = getTargetSkus();
+
+  targetSkus = searchFilter ? filterSkus(targetSkus) : targetSkus;
+
+  return [];
 };

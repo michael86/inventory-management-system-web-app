@@ -26,10 +26,7 @@ const Dashboard = () => {
   const [month, setMonth] = useState(dUtils.getMonth());
 
   const debouncedFilter = useCallback(
-    debounce(async (query) => {
-      setDateObject(await createDateObject(cloneDeep(stock), query));
-      setSearchFilter(query);
-    }, 500),
+    debounce(async (query) => setSearchFilter(query), 500),
     []
   );
 
