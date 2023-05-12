@@ -15,7 +15,7 @@ import { useagePlugins } from "./Schemas";
 import ValuePie from "../Charts/ValuePie";
 
 const Dashboard = () => {
-  const [stock, setStock] = useState([]);
+  const [dataset, setDataset] = useState();
   const [apiCalled, setApiCalled] = useState(false);
 
   const [dateObject, setDateObject] = useState([]);
@@ -27,7 +27,12 @@ const Dashboard = () => {
   const [month, setMonth] = useState(dUtils.getMonth());
 
   const debouncedFilter = useCallback(
-    debounce(async (query) => setSearchFilter(query), 500),
+    debounce(async (query) => {
+      setSearchFilter(query);
+      console.log(query);
+      generateDataset(dateObject, useageMonths, minMaxValues, query);
+    }, 500),
+
     []
   );
 
@@ -53,14 +58,31 @@ const Dashboard = () => {
 
     setYear(newYear);
     setUsageMonths(dUtils.getHalfMonths(monthCheck, newYear));
+    setDataset(
+      generateDataset(
+        dateObject,
+        dUtils.getHalfMonths(monthCheck, newYear),
+        minMaxValues
+      )
+    );
   };
 
   const onMonthChange = (newMonth) => {
     setMonth(newMonth);
     setUsageMonths(dUtils.getHalfMonths(newMonth, year));
+    setDataset(
+      generateDataset(
+        dateObject,
+        dUtils.getHalfMonths(newMonth, year),
+        minMaxValues
+      )
+    );
   };
 
-  const onMinMaxChange = ({ target }) => setMinMaxValues(+target.value);
+  const onMinMaxChange = ({ target }) => {
+    setMinMaxValues(+target.value);
+    setDataset(generateDataset(dateObject, useageMonths, +target.value));
+  };
 
   useEffect(() => {
     const getStock = async () => {
@@ -70,7 +92,7 @@ const Dashboard = () => {
         const data = await createDateObject(res.data.stock);
 
         setDateObject(data);
-        setStock(res.data.stock);
+        setDataset(generateDataset(data, useageMonths, minMaxValues));
       }
 
       setApiCalled(true);
@@ -107,12 +129,7 @@ const Dashboard = () => {
                 ),
                 true
               )}
-              datasets={generateDataset(
-                dateObject,
-                useageMonths,
-                minMaxValues,
-                searchFilter
-              )}
+              datasets={dataset}
             />
           </Col>
           <Col xs={12} lg={6}>
