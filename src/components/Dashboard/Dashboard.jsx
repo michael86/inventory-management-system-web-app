@@ -12,6 +12,7 @@ import { createDateObject } from "../../utils/dashboard";
 import { generateDataset, generateLabels } from "../../utils/charts";
 
 import { useagePlugins } from "./Schemas";
+import ValuePie from "../Charts/ValuePie";
 
 const Dashboard = () => {
   const [stock, setStock] = useState([]);
@@ -59,10 +60,7 @@ const Dashboard = () => {
     setUsageMonths(dUtils.getHalfMonths(newMonth, year));
   };
 
-  const onMinMaxChange = ({ target }) => {
-    if (searchFilter) return;
-    setMinMaxValues(+target.value);
-  };
+  const onMinMaxChange = ({ target }) => setMinMaxValues(+target.value);
 
   useEffect(() => {
     const getStock = async () => {
@@ -108,6 +106,11 @@ const Dashboard = () => {
                 true
               )}
               datasets={generateDataset(dateObject, useageMonths, minMaxValues, searchFilter)}
+            />
+          </Col>
+          <Col xs={12} lg={6}>
+            <ValuePie
+              data={generateDataset(dateObject, useageMonths, minMaxValues, searchFilter, true)}
             />
           </Col>
         </Row>

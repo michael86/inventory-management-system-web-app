@@ -19,10 +19,7 @@ const LoggedIn = () => {
       },
     });
 
-    if (!res.status === 200) {
-      console.log("error logging in", res);
-      return;
-    }
+    if (!res.status === 200) return;
 
     deleteStore("token");
     deleteStore("company");

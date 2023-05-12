@@ -1,5 +1,6 @@
 import { isTypeQueryNode } from "typescript";
 import { v4 as uuidv4 } from "uuid";
+import { getRandRgba } from "../generic";
 
 export const generateLabels = (obj, addYear = false) => {
   const labels = [];
@@ -10,11 +11,11 @@ export const generateLabels = (obj, addYear = false) => {
   return labels;
 };
 
-export const generateDataset = (dateObject, useageMonths, minMax, searchFilter) => {
+export const generateDataset = (dateObject, useageMonths, minMax, searchFilter, price = false) => {
   /**
-   * @param {object} targetMonth => {year: [month, month], year: [month, month]}
+   * @param {object} useageMonths => {year: [month, month], year: [month, month]}
    * @param {object} dateObject => {year: {month: {sku: {runningTotal, price}, sku{repeat}}}}
-   * @param {int} minMax => used as a booolean to filter by highest or lowest totals
+   * @param {int} minMax => used as a boolean to filter by ascending or descending totals. 1 = lowest, 0 = highest
    * @param {string || null} => used to filter for skus containing filter
 
    * @returns {Array} => [{id: uuidv4(), label: sku name, data: [number, number, number], backgroundColor: "rgba(255, 99, 132, 0.5)",}]
@@ -25,7 +26,12 @@ export const generateDataset = (dateObject, useageMonths, minMax, searchFilter) 
    * returning in graph dataset format
   */
 
+  //Get the currently selected year, and month so we can select what data to sort by min and max
+  const selectedYear = Object.keys(useageMonths)[Object.keys(useageMonths).length - 1];
+  const selectedMonth = useageMonths[selectedYear][useageMonths[selectedYear].length - 1];
+
   /**Will iterate over the target time period and return a new object containing all skus within that time period
+   * If a point in time didn't exist for a given month/year, it will set it to null. We can then truthy/falsy when generating the dataset and insert 0 where index is null
    * @return {object} -> Same format as dateObject.
    */
   const getTargetSkus = () => {
@@ -33,7 +39,11 @@ export const generateDataset = (dateObject, useageMonths, minMax, searchFilter) 
     Object.keys(useageMonths).forEach((year) => {
       useageMonths[year].forEach((month) => {
         data[year] = data[year] || {};
-        data[year][month] = dateObject[year][month];
+        data[year][month] = dateObject[year]
+          ? dateObject[year][month]
+            ? dateObject[year][month]
+            : null
+          : null;
       });
     });
     return data;
@@ -45,23 +55,90 @@ export const generateDataset = (dateObject, useageMonths, minMax, searchFilter) 
 
     Object.keys(payload).forEach((year) => {
       Object.keys(payload[year]).forEach((month) => {
-        const skus = Object.keys(payload[year][month]);
+        const skus = payload[year] && payload[year][month] && Object.keys(payload[year][month]);
 
-        for (const sku of skus)
-          if (sku.toLowerCase().includes(searchFilter.toLowerCase())) {
-            data[year] = data[year] || {};
-            data[year][month] = data[year][month] || {};
-            data[year][month][sku] = payload[year][month][sku];
-          }
+        if (skus) {
+          for (const sku of skus)
+            if (sku.toLowerCase().includes(searchFilter.toLowerCase())) {
+              data[year] = data[year] || {};
+              data[year][month] = data[year][month] || {};
+              data[year][month][sku] = payload[year][month][sku];
+            }
+        } else {
+          data[year] = data[year] || {};
+          data[year][month] = null;
+        }
       });
     });
 
     return data;
   };
 
-  let targetSkus = getTargetSkus();
+  /**Sorts the data and returns the highest or lowest 6 skus */
+  const getSkusAscending = (payload) => {
+    let data = [];
 
-  targetSkus = searchFilter ? filterSkus(targetSkus) : targetSkus;
+    for (const sku in payload[selectedYear][selectedMonth])
+      data.push([sku, payload[selectedYear][selectedMonth][sku].runningTotal]);
 
-  return [];
+    data = data.sort((a, b) => a[1] - b[1]);
+
+    data = data.map((entry) => entry[0]);
+
+    return minMax ? data.slice(0, 5) : data.slice(data.length - 6);
+  };
+
+  /** Will generate the final array for chartJs
+   * @param {array} => contains a list of skus we require
+   * @returns {array -> object} - Each entry will contain the required object format for js
+   */
+  const generateFinalObject = (skus, payload) => {
+    const dataset = !price
+      ? []
+      : {
+          labels: [],
+          datasets: [{ label: "Current value: £", data: [], backgroundColor: [], borderWidth: 0 }],
+        };
+
+    skus.forEach((sku) => {
+      const data = !price && {
+        id: uuidv4(),
+        label: sku,
+        data: [],
+        backgroundColor: getRandRgba(),
+      };
+
+      Object.keys(payload).forEach((year) => {
+        Object.keys(payload[year]).forEach((month) => {
+          if (!Object.is(payload[year][month], null) && payload[year][month][sku]) {
+            !price && data.data.push(payload[year][month][sku].runningTotal);
+            if (price) {
+              dataset.labels.push(sku);
+              dataset.datasets[0].data.push(payload[year][month][sku].price);
+              dataset.datasets[0].backgroundColor.push(getRandRgba());
+            }
+          } else {
+            !price && data.data.push(0);
+            if (price) {
+              dataset.labels.push(sku);
+              dataset.datasets[0].data.push(0);
+              dataset.datasets[0].backgroundColor.push(getRandRgba());
+            }
+          }
+        });
+      });
+
+      !price && dataset.push(data);
+    });
+
+    console.log(dataset);
+
+    return dataset;
+  };
+
+  let targetObj = getTargetSkus();
+
+  targetObj = searchFilter ? filterSkus(targetObj) : targetObj;
+
+  return generateFinalObject(getSkusAscending(targetObj), targetObj);
 };

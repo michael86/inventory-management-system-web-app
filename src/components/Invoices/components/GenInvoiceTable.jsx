@@ -8,7 +8,6 @@ import InvoiceButton from "./InvoiceButton";
 
 const GenInvoiceTable = ({ pages, pageIndex }) => {
   const formatDate = (unix) => {
-    console.log(unix);
     let date = new Date(unix * 1000);
 
     date = date.toLocaleDateString();
@@ -29,7 +28,6 @@ const GenInvoiceTable = ({ pages, pageIndex }) => {
         </thead>
         <tbody>
           {pages[pageIndex].map((invoice, index) => {
-            console.log(invoice);
             return (
               <tr key={index}>
                 <td>{formatDate(invoice.billingDate)}</td>

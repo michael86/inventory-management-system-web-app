@@ -12,8 +12,7 @@ const genLastHalfYear = (month = currentMonth) => {
   return months.sort((a, b) => a - b);
 };
 
-export const createDateObject = async (obj, filter) => {
-  console.log("filter", filter);
+export const createDateObject = async (obj) => {
   const dateObject = {};
   //Destructure unix into month and year ints
 
@@ -32,8 +31,6 @@ export const createDateObject = async (obj, filter) => {
      * We then start from the first point in history, which is the date created.
      * This means if the item is not at a point in the past, it wasn't added to the store yet.
      */
-
-    if (filter && !item.sku.toLowerCase().includes(filter.toLowerCase())) continue;
 
     item.history.sort((a, b) => a.date - b.date);
 

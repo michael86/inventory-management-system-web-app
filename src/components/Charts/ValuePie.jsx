@@ -8,9 +8,9 @@ import {
   Legend,
   ArcElement,
 } from "chart.js";
-// import { Pie } from "react-chartjs-2";
+import { Pie } from "react-chartjs-2";
 
-const ValuePie = () => {
+const ValuePie = ({ data }) => {
   ChartJS.register(
     CategoryScale,
     LinearScale,
@@ -22,7 +22,7 @@ const ValuePie = () => {
     Tooltip,
     Legend
   );
-  return;
+  return <Pie data={data} />;
 };
 
 export default ValuePie;
