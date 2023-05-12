@@ -1,6 +1,5 @@
 import { isTypeQueryNode } from "typescript";
 import { v4 as uuidv4 } from "uuid";
-import { getRandRgba } from "../generic";
 
 export const generateLabels = (obj, addYear = false) => {
   const labels = [];
@@ -11,7 +10,7 @@ export const generateLabels = (obj, addYear = false) => {
   return labels;
 };
 
-export const generateDataset = (dateObject, useageMonths, minMax, searchFilter, price = false) => {
+export const generateDataset = (dateObject, useageMonths, minMax, searchFilter) => {
   /**
    * @param {object} useageMonths => {year: [month, month], year: [month, month]}
    * @param {object} dateObject => {year: {month: {sku: {runningTotal, price}, sku{repeat}}}}
@@ -93,45 +92,27 @@ export const generateDataset = (dateObject, useageMonths, minMax, searchFilter, 
    * @returns {array -> object} - Each entry will contain the required object format for js
    */
   const generateFinalObject = (skus, payload) => {
-    const dataset = !price
-      ? []
-      : {
-          labels: [],
-          datasets: [{ label: "Current value: £", data: [], backgroundColor: [], borderWidth: 0 }],
-        };
-
+    const dataset = [];
     skus.forEach((sku) => {
-      const data = !price && {
+      const data = {
         id: uuidv4(),
         label: sku,
         data: [],
-        backgroundColor: getRandRgba(),
+        backgroundColor: `rgba(${Math.floor(Math.random() * 255) + 1}, ${
+          Math.floor(Math.random() * 255) + 1
+        }, ${Math.floor(Math.random() * 255) + 1}, 0.5)`,
       };
 
       Object.keys(payload).forEach((year) => {
         Object.keys(payload[year]).forEach((month) => {
-          if (!Object.is(payload[year][month], null) && payload[year][month][sku]) {
-            !price && data.data.push(payload[year][month][sku].runningTotal);
-            if (price) {
-              dataset.labels.push(sku);
-              dataset.datasets[0].data.push(payload[year][month][sku].price);
-              dataset.datasets[0].backgroundColor.push(getRandRgba());
-            }
-          } else {
-            !price && data.data.push(0);
-            if (price) {
-              dataset.labels.push(sku);
-              dataset.datasets[0].data.push(0);
-              dataset.datasets[0].backgroundColor.push(getRandRgba());
-            }
-          }
+          if (!Object.is(payload[year][month], null) && payload[year][month][sku])
+            data.data.push(payload[year][month][sku].runningTotal);
+          else data.data.push(0);
         });
       });
 
-      !price && dataset.push(data);
+      dataset.push(data);
     });
-
-    console.log(dataset);
 
     return dataset;
   };

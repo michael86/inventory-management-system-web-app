@@ -109,9 +109,9 @@ const Dashboard = () => {
             />
           </Col>
           <Col xs={12} lg={6}>
-            <ValuePie
+            {/* <ValuePie
               data={generateDataset(dateObject, useageMonths, minMaxValues, searchFilter, true)}
-            />
+            /> */}
           </Col>
         </Row>
       )}
