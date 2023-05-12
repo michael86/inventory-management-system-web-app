@@ -85,8 +85,12 @@ export const generateDataset = (
   const getSkusAscending = (payload) => {
     let data = [];
 
-    for (const sku in payload[selectedYear][selectedMonth])
-      data.push([sku, payload[selectedYear][selectedMonth][sku].runningTotal]);
+    if (Object.keys(payload).length > 0)
+      for (const sku in payload[selectedYear][selectedMonth])
+        data.push([
+          sku,
+          payload[selectedYear][selectedMonth][sku].runningTotal,
+        ]);
 
     data = data.sort((a, b) => a[1] - b[1]);
 
