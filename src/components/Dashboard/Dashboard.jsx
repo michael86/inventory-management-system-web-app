@@ -15,7 +15,6 @@ import { useagePlugins } from "./Schemas";
 import ValuePie from "../Charts/ValuePie";
 
 const Dashboard = () => {
-  const [dataset, setDataset] = useState();
   const [apiCalled, setApiCalled] = useState(false);
 
   const [dateObject, setDateObject] = useState([]);
@@ -75,7 +74,6 @@ const Dashboard = () => {
         const data = await createDateObject(res.data.stock);
 
         setDateObject(data);
-        setDataset(generateDataset(data, useageMonths, minMaxValues));
       }
 
       setApiCalled(true);
@@ -121,9 +119,14 @@ const Dashboard = () => {
             />
           </Col>
           <Col xs={12} lg={6}>
-            {/* <ValuePie
-              data={generateDataset(dateObject, useageMonths, minMaxValues, searchFilter, true)}
-            /> */}
+            <ValuePie
+              datasets={generateDataset(
+                dateObject,
+                useageMonths,
+                minMaxValues,
+                searchFilter
+              )}
+            />
           </Col>
         </Row>
       )}

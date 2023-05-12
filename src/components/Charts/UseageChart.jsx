@@ -16,7 +16,6 @@ const chartOptions = {
 };
 
 const UseageChart = ({ plugins, labels, datasets }) => {
-  // console.log("datasets", datasets);
   ChartJS.register(
     CategoryScale,
     LinearScale,
@@ -40,7 +39,6 @@ const UseageChart = ({ plugins, labels, datasets }) => {
     return data;
   };
 
-  // console.log(data);
   return (
     <Bar
       options={chartOptions}
