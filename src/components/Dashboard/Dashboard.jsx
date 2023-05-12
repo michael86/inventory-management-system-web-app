@@ -29,13 +29,6 @@ const Dashboard = () => {
   const debouncedFilter = useCallback(
     debounce(async (query) => {
       setSearchFilter(query);
-      console.log(
-        generateDataset(dateObject, useageMonths, minMaxValues, query)
-      );
-      console.log(useageMonths);
-      setDataset(
-        generateDataset(dateObject, useageMonths, minMaxValues, query)
-      );
     }, 500),
 
     []
@@ -63,34 +56,15 @@ const Dashboard = () => {
 
     setYear(newYear);
     setUsageMonths(dUtils.getHalfMonths(monthCheck, newYear));
-    setDataset(
-      generateDataset(
-        dateObject,
-        dUtils.getHalfMonths(monthCheck, newYear),
-        minMaxValues,
-        searchFilter
-      )
-    );
   };
 
   const onMonthChange = (newMonth) => {
     setMonth(newMonth);
     setUsageMonths(dUtils.getHalfMonths(newMonth, year));
-    setDataset(
-      generateDataset(
-        dateObject,
-        dUtils.getHalfMonths(newMonth, year),
-        minMaxValues,
-        searchFilter
-      )
-    );
   };
 
   const onMinMaxChange = ({ target }) => {
     setMinMaxValues(+target.value);
-    setDataset(
-      generateDataset(dateObject, useageMonths, +target.value, searchFilter)
-    );
   };
 
   useEffect(() => {
@@ -138,7 +112,12 @@ const Dashboard = () => {
                 ),
                 true
               )}
-              datasets={dataset}
+              datasets={generateDataset(
+                dateObject,
+                useageMonths,
+                minMaxValues,
+                searchFilter
+              )}
             />
           </Col>
           <Col xs={12} lg={6}>
