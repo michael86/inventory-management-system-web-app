@@ -64,12 +64,13 @@ export const generateDataset = (
           Object.keys(payload[year][month]);
 
         if (skus) {
-          for (const sku of skus)
+          for (const sku of skus) {
             if (sku.toLowerCase().includes(searchFilter.toLowerCase())) {
               data[year] = data[year] || {};
               data[year][month] = data[year][month] || {};
               data[year][month][sku] = payload[year][month][sku];
             }
+          }
         } else {
           data[year] = data[year] || {};
           data[year][month] = null;
@@ -131,7 +132,6 @@ export const generateDataset = (
       dataset.push(data);
     });
 
-    console.log("erm", dataset);
     return dataset;
   };
 
