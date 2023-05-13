@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ItemCard from "../../Shared/ItemCard";
 import { Button, Form } from "react-bootstrap";
+import { cloneDeep } from "lodash";
 
 import axios from "../../../utils/axios";
 import { setPopupStock, togglePopup } from "../../../reducers/popupSlice";
@@ -73,9 +74,13 @@ const Stock = () => {
     data.locations = [...locations];
     data.id = item.id;
 
+    //delete history array from item as caused a 413 (object to large error). Could increase limit amount within backend, but no need for this one issue
+    const history = cloneDeep(item);
+    delete history.history;
+
     const res = await axios.patch(`stock/update/?locations=${locationsUpdated}`, {
       data,
-      history: item,
+      history,
     });
 
     switch (res.data.status) {

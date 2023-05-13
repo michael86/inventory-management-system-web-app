@@ -97,13 +97,13 @@ export const generateDataset = (dateObject, useageMonths, minMax, searchFilter) 
         label: sku,
         data: [],
       };
-      console.log("payload", payload);
+
       Object.keys(payload).forEach((year) => {
         Object.keys(payload[year]).forEach((month) => {
           if (!Object.is(payload[year][month], null) && payload[year][month][sku])
             data.data.push({
               runningTotal: payload[year][month][sku].runningTotal,
-              price: payload[year][month][sku].runningTotal,
+              price: payload[year][month][sku].price,
               year,
               month,
             });

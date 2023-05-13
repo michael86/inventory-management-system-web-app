@@ -38,7 +38,6 @@ const ValuePie = ({ datasets }) => {
     };
 
     datasets.forEach((entry) => {
-      console.log(entry);
       data.datasets[0].data.push(
         parseFloat(entry.data[entry.data.length - 1].price / 100).toFixed(2) *
           entry.data[entry.data.length - 1].runningTotal

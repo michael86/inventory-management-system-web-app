@@ -72,7 +72,7 @@ const Dashboard = () => {
 
       if (res.status && res.data?.stock) {
         const data = await createDateObject(res.data.stock);
-
+        console.log("dateObject", data);
         setDateObject(data);
       }
 

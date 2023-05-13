@@ -64,7 +64,10 @@ export const createDateObject = async (obj) => {
 
           lastSnapshot = dateObject[yearCounter][monthCounter][item.sku];
         } else {
-          dateObject[yearCounter][monthCounter][item.sku] = lastSnapshot;
+          dateObject[yearCounter][monthCounter][item.sku] = lastSnapshot || {
+            runningTotal: history.quantity,
+            price: history.price,
+          };
         }
       }
 
