@@ -76,6 +76,14 @@ export const createDateObject = async (obj) => {
     }
   }
 
+  //Set current month/year to current state
+  obj.forEach((entry) => {
+    dateObject[currentYear][currentMonth][entry.sku] = {
+      runningTotal: entry.quantity,
+      price: Number(Math.floor(parseFloat(entry.price) * 100).toFixed(0)),
+    };
+  });
+
   return dateObject;
 };
 

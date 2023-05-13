@@ -7,12 +7,7 @@ export const generateLabels = (obj, addYear = false) => {
   return labels;
 };
 
-export const generateDataset = (
-  dateObject,
-  useageMonths,
-  minMax,
-  searchFilter
-) => {
+export const generateDataset = (dateObject, useageMonths, minMax, searchFilter) => {
   /**
    * @param {object} useageMonths => {year: [month, month], year: [month, month]}
    * @param {object} dateObject => {year: {month: {sku: {runningTotal, price}, sku{repeat}}}}
@@ -28,10 +23,8 @@ export const generateDataset = (
   */
 
   //Get the currently selected year, and month so we can select what data to sort by min and max
-  const selectedYear =
-    Object.keys(useageMonths)[Object.keys(useageMonths).length - 1];
-  const selectedMonth =
-    useageMonths[selectedYear][useageMonths[selectedYear].length - 1];
+  const selectedYear = Object.keys(useageMonths)[Object.keys(useageMonths).length - 1];
+  const selectedMonth = useageMonths[selectedYear][useageMonths[selectedYear].length - 1];
 
   /**Will iterate over the target time period and return a new object containing all skus within that time period
    * If a point in time didn't exist for a given month/year, it will set it to null. We can then truthy/falsy when generating the dataset and insert 0 where index is null
@@ -58,10 +51,7 @@ export const generateDataset = (
 
     Object.keys(payload).forEach((year) => {
       Object.keys(payload[year]).forEach((month) => {
-        const skus =
-          payload[year] &&
-          payload[year][month] &&
-          Object.keys(payload[year][month]);
+        const skus = payload[year] && payload[year][month] && Object.keys(payload[year][month]);
 
         if (skus) {
           for (const sku of skus) {
@@ -87,10 +77,7 @@ export const generateDataset = (
 
     if (Object.keys(payload).length > 0)
       for (const sku in payload[selectedYear][selectedMonth])
-        data.push([
-          sku,
-          payload[selectedYear][selectedMonth][sku].runningTotal,
-        ]);
+        data.push([sku, payload[selectedYear][selectedMonth][sku].runningTotal]);
 
     data = data.sort((a, b) => a[1] - b[1]);
 
@@ -110,13 +97,10 @@ export const generateDataset = (
         label: sku,
         data: [],
       };
-
+      console.log("payload", payload);
       Object.keys(payload).forEach((year) => {
         Object.keys(payload[year]).forEach((month) => {
-          if (
-            !Object.is(payload[year][month], null) &&
-            payload[year][month][sku]
-          )
+          if (!Object.is(payload[year][month], null) && payload[year][month][sku])
             data.data.push({
               runningTotal: payload[year][month][sku].runningTotal,
               price: payload[year][month][sku].runningTotal,

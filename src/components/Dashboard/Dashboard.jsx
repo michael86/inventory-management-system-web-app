@@ -105,27 +105,15 @@ const Dashboard = () => {
             <UseageChart
               plugins={useagePlugins}
               labels={generateLabels(
-                dUtils.makeDateReadable(
-                  JSON.parse(JSON.stringify(useageMonths))
-                ),
+                dUtils.makeDateReadable(JSON.parse(JSON.stringify(useageMonths))),
                 true
               )}
-              datasets={generateDataset(
-                dateObject,
-                useageMonths,
-                minMaxValues,
-                searchFilter
-              )}
+              datasets={generateDataset(dateObject, useageMonths, minMaxValues, searchFilter)}
             />
           </Col>
           <Col xs={12} lg={6}>
             <ValuePie
-              datasets={generateDataset(
-                dateObject,
-                useageMonths,
-                minMaxValues,
-                searchFilter
-              )}
+              datasets={generateDataset(dateObject, useageMonths, minMaxValues, searchFilter)}
             />
           </Col>
         </Row>
