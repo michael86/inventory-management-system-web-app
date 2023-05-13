@@ -32,7 +32,7 @@ const ManageStock = () => {
 
   const deleteStock = (id) => {
     const copy = JSON.parse(JSON.stringify(stock));
-    const index = copy.findIndex((item) => item.id === id);
+    const index = copy.findIndex((item) => item?.id === id);
     copy.splice(index, 1);
     setStock(copy);
   };
@@ -60,7 +60,7 @@ const ManageStock = () => {
           </div>
           <Row>
             {stock.map((item) => {
-              if (item.sku.toLowerCase().includes(filter.toLowerCase())) {
+              if (item && item.sku.toLowerCase().includes(filter.toLowerCase())) {
                 return <ManageStockCard item={item} key={item.sku} deleteStock={deleteStock} />;
               }
             })}

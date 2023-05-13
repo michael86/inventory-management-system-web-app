@@ -32,6 +32,9 @@ export const createDateObject = async (obj) => {
      * This means if the item is not at a point in the past, it wasn't added to the store yet.
      */
 
+    //As data may be received from cache and a deleted item will be a null index, just double check the item exists
+    if (!item) continue;
+
     item.history.sort((a, b) => a.date - b.date);
 
     let [monthCounter, yearCounter] = breakUpDate(item.date_created * 1000); //Get the date the item was first created
@@ -52,7 +55,6 @@ export const createDateObject = async (obj) => {
       dateObject[yearCounter] = dateObject[yearCounter] || {};
 
       dateObject[yearCounter][monthCounter] = dateObject[yearCounter][monthCounter] || {};
-
       for (const history of item.history) {
         const [historyMonth, historyYear] = breakUpDate(history.date_added * 1000);
 
@@ -80,12 +82,13 @@ export const createDateObject = async (obj) => {
   }
 
   //Set current month/year to current state
-  obj.forEach((entry) => {
+  for (const entry of obj) {
+    if (!entry?.sku) continue; //Again, because a deleted object from cache serverside will be a null index.
     dateObject[currentYear][currentMonth][entry.sku] = {
       runningTotal: entry.quantity,
       price: Number(Math.floor(parseFloat(entry.price) * 100).toFixed(0)),
     };
-  });
+  }
 
   return dateObject;
 };
