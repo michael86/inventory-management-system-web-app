@@ -21,7 +21,7 @@ This is a full stack project for the jump bootcamp. The aim is to create a full 
 
 ### Dashboard
 
-pending manageStock.jsx
+~~pending manageStock.jsx~~
 
 ## To do:
 
@@ -77,7 +77,7 @@ Certain state will only be local storage (enabling dark mode and such)
 
 this is going to be a headache for testing
 
-- [ ] reduce price pie chart to only 5
+- [x] reduce price pie chart to only 5
 - [x] add filters to both charts for highest and lowest
 - [x] Create date object. See notes above
 - [x] update dateObject when searching by sku
@@ -86,7 +86,7 @@ this is going to be a headache for testing
 
 - [ ] Create static pages
 - [x] Create local storage wrapper (May be updated with more functionality in future)
-- [ ] Create charts
-- [ ] Add Charts to Dashboard
+- [x] Create charts
+- [x] Add Charts to Dashboard
 - [ ] Overall restyle design
 - [ ] Stuff I've no doubt missed.
