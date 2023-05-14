@@ -5,9 +5,6 @@ import { Row, Col, Card, Button, Container } from "react-bootstrap";
 
 const Profile = () => {
   const user = useSelector((state) => state.user);
-  const [showPassword, setShowPassword] = useState(false);
-
-  const hidePassword = () => [...user.password].map((letter) => "*");
 
   const getpricePlanString = () => {
     switch (user.pricePlan) {
@@ -38,10 +35,7 @@ const Profile = () => {
               <Card.Text>
                 <strong>email</strong>: {user.email}
               </Card.Text>
-              <Card.Text>
-                <strong>password</strong>:&nbsp;
-                {showPassword ? user.password : hidePassword()}
-              </Card.Text>
+
               <Card.Text>
                 <strong>currency</strong>: {user.currency}
               </Card.Text>
@@ -49,11 +43,6 @@ const Profile = () => {
                 <strong>price plan</strong>: {getpricePlanString()}
               </Card.Text>
             </Card.Body>
-            <Card.Footer>
-              <Button onClick={() => setShowPassword(!showPassword)}>
-                Show Password
-              </Button>
-            </Card.Footer>
           </Card>
         </Col>
         <Col xs={12} lg={6} className="mt-3 mt-lg-0">

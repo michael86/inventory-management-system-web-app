@@ -9,10 +9,7 @@ import { validateInput } from "../../../validation/Utils";
 import Buttons from "./Buttons";
 import Header from "./Header";
 import Input from "../../Shared/Input";
-import {
-  setUserAuthenticated,
-  setUserEmail,
-} from "../../../reducers/userSlice";
+import { setUserAuthenticated, setUserEmail, setUserPassword } from "../../../reducers/userSlice";
 import axios from "../../../utils/axios";
 import { setCompany } from "../../../reducers/companySlice";
 import { setStore } from "../../../localStorage";
@@ -25,11 +22,10 @@ const Login = () => {
   const onSubmit = async (e) => {
     e.preventDefault();
     if (errors && Object.keys(errors).length > 0) return;
-    const { email, password } = Object.fromEntries(new FormData(e.target));
+    const { email } = Object.fromEntries(new FormData(e.target));
 
     const res = await axios.put("/account/login", {
       email,
-      password,
     });
 
     if (res.status !== 200) return;
@@ -92,9 +88,7 @@ const Login = () => {
 
           {!loginVerified && (
             <Form.Group className="mb-3">
-              <Form.Text className="text-danger">
-                Incorrect email or password
-              </Form.Text>
+              <Form.Text className="text-danger">Incorrect email or password</Form.Text>
             </Form.Group>
           )}
 
