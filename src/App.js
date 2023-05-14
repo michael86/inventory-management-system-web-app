@@ -42,27 +42,29 @@ function App() {
   return (
     <>
       <MainNav />
-      <Routes>
-        <Route
-          path="/"
-          element={!user.authenticated ? <Home /> : <Navigate to={"/dashboard"} />}
-          exact
-        />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/price-plans" element={<PricePlans />} />
-        <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route path="/reset-password" element={<ResetPassword />} />
+      <main>
+        <Routes>
+          <Route
+            path="/"
+            element={!user.authenticated ? <Home /> : <Navigate to={"/dashboard"} />}
+            exact
+          />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/price-plans" element={<PricePlans />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
 
-        {PriRoutes.map((route, i) => {
-          return (
-            <Route
-              key={i}
-              path={route.path}
-              element={user.authenticated ? route.element : <Navigate to={"/"} />}
-            />
-          );
-        })}
-      </Routes>
+          {PriRoutes.map((route, i) => {
+            return (
+              <Route
+                key={i}
+                path={route.path}
+                element={user.authenticated ? route.element : <Navigate to={"/"} />}
+              />
+            );
+          })}
+        </Routes>
+      </main>
     </>
   );
 }

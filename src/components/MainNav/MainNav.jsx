@@ -14,7 +14,7 @@ function MainNav() {
 
   return (
     <>
-      <Navbar key="md" bg="light" expand="md" className="mb-3">
+      <Navbar key="md" bg="light" expand="md">
         <Container fluid>
           <Link to="/" className="navbar-brand">
             CIMS
@@ -27,10 +27,7 @@ function MainNav() {
             aria-labelledby="offcanvasNavbarLabel-expand-md"
             placement="end"
           >
-            <Offcanvas.Header
-              closeButton
-              className="ms-auto"
-            ></Offcanvas.Header>
+            <Offcanvas.Header closeButton className="ms-auto"></Offcanvas.Header>
 
             <Offcanvas.Body>
               <Nav className=" flex-grow-1 pe-3">

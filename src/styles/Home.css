@@ -1,0 +1,30 @@
+.landing {
+  margin: auto;
+  background-color: #b0d7f0;
+  padding: 0 5%;
+
+  background-image: linear-gradient(to right, rgba(109, 179, 242, 0.6), rgba(109, 179, 242, 0.6)),
+    url("../../public/images/landing_background.jpg");
+  background-size: cover;
+}
+
+.landing > div {
+  margin-top: 20px;
+}
+
+.landing h1 span {
+  color: #c1292e;
+}
+
+.landing-image {
+  width: 50%;
+  aspect-ratio: 2 / 1;
+  margin-top: 2rem;
+  margin-left: 20px;
+}
+
+@media screen and (max-width: 992px) {
+  .landing-image {
+    display: none;
+  }
+}
