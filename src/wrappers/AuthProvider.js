@@ -1,11 +1,7 @@
 import { useEffect, useState } from "react";
 
 import { useDispatch } from "react-redux";
-import {
-  setUserAuthenticated,
-  setUserEmail,
-  setUserToken,
-} from "../reducers/userSlice";
+import { setUserAuthenticated, setUserEmail, setUserToken } from "../reducers/userSlice";
 import { setCompany } from "../reducers/companySlice";
 import { getStore } from "../localStorage";
 import axios from "../utils/axios";
@@ -18,7 +14,6 @@ const isAuthenticated = async () => {
 
     axios.get("/auth", { headers }).then((res) => {
       if (res.status !== 200) {
-        console.error(res);
         reject(false);
       }
 

@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 
-import { Row, Col, Card, Button, Container } from "react-bootstrap";
+import { Card, Container } from "react-bootstrap";
 
 const Profile = () => {
   const user = useSelector((state) => state.user);

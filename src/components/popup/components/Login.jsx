@@ -9,7 +9,7 @@ import { validateInput } from "../../../validation/Utils";
 import Buttons from "./Buttons";
 import Header from "./Header";
 import Input from "../../Shared/Input";
-import { setUserAuthenticated, setUserEmail, setUserPassword } from "../../../reducers/userSlice";
+import { setUserAuthenticated, setUserEmail } from "../../../reducers/userSlice";
 import axios from "../../../utils/axios";
 import { setCompany } from "../../../reducers/companySlice";
 import { setStore } from "../../../localStorage";
@@ -38,7 +38,7 @@ const Login = () => {
         dispatch(setUserEmail(email));
 
         const { company_id, ...company } = res.data?.company;
-        console.log(res.data.company);
+
         dispatch(setCompany(company));
         setStore({ key: "company", data: company });
         break;

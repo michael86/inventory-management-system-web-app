@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { Row, Col } from "react-bootstrap";
-import { debounce, cloneDeep } from "lodash";
+import { debounce } from "lodash";
 
 import UseageChart from "../Charts/UseageChart";
 import DashForm from "./components/DashForm";
@@ -25,13 +25,11 @@ const Dashboard = () => {
   const [year, setYear] = useState(dUtils.getYear());
   const [month, setMonth] = useState(dUtils.getMonth());
 
-  const debouncedFilter = useCallback(
+  const debouncedFilter = useCallback(() => {
     debounce(async (query) => {
       setSearchFilter(query);
-    }, 500),
-
-    []
-  );
+    }, 500);
+  }, []);
 
   const onSearchfilter = ({ target }) => debouncedFilter(target.value);
 
@@ -72,7 +70,7 @@ const Dashboard = () => {
 
       if (res.status && res.data?.stock) {
         const data = await createDateObject(res.data.stock);
-        console.log("dateObject", data);
+
         setDateObject(data);
       }
 
