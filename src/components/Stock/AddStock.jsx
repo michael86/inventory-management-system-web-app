@@ -56,6 +56,7 @@ const AddStock = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
+    console.log(errors);
     if ((errors && Object.keys(errors).length > 0) || !skuValid) return;
 
     if (!locations.length) {

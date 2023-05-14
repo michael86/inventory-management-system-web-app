@@ -102,7 +102,7 @@ export const schema = {
     qty: greaterThanMinus,
   },
   quantity: {
-    quantity: mustBeInt,
+    quantity: greaterThanMinus,
   },
   editQty: {
     editQty: mustBeInt,
