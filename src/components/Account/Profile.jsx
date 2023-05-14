@@ -5,6 +5,7 @@ import { Row, Col, Card, Button, Container } from "react-bootstrap";
 
 const Profile = () => {
   const user = useSelector((state) => state.user);
+  const company = useSelector((state) => state.company);
 
   const getpricePlanString = () => {
     switch (user.pricePlan) {
@@ -54,22 +55,22 @@ const Profile = () => {
 
             <Card.Body className="px-4">
               <Card.Text>
-                <strong>company name</strong>: {user.company}
+                <strong>company name</strong>: {company.name}
               </Card.Text>
               <Card.Text>
-                <strong>company address</strong>: {user.companyStreet}
+                <strong>company address</strong>: {company.address}
               </Card.Text>
               <Card.Text>
-                <strong>company city</strong>: {user.companyCity}
+                <strong>company city</strong>: {company.city}
               </Card.Text>
               <Card.Text>
-                <strong>company county</strong>: {user.companyCounty}
+                <strong>company county</strong>: {company.county}
               </Card.Text>
               <Card.Text>
-                <strong>company postcode</strong>: {user.companyPostcode}
+                <strong>company postcode</strong>: {company.postcode}
               </Card.Text>
               <Card.Text>
-                <strong>company country</strong>: {user.companyCountry}
+                <strong>company country</strong>: {company.country}
               </Card.Text>
             </Card.Body>
           </Card>

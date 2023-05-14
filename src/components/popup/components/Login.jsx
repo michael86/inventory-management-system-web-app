@@ -22,10 +22,11 @@ const Login = () => {
   const onSubmit = async (e) => {
     e.preventDefault();
     if (errors && Object.keys(errors).length > 0) return;
-    const { email } = Object.fromEntries(new FormData(e.target));
+    const { email, password } = Object.fromEntries(new FormData(e.target));
 
     const res = await axios.put("/account/login", {
       email,
+      password,
     });
 
     if (res.status !== 200) return;
@@ -37,6 +38,7 @@ const Login = () => {
         dispatch(setUserEmail(email));
 
         const { company_id, ...company } = res.data?.company;
+        console.log(res.data.company);
         dispatch(setCompany(company));
         setStore({ key: "company", data: company });
         break;
