@@ -12,3 +12,7 @@
   outline: 1px solid slategrey;
   border-radius: 2rem;
 }
+
+.container {
+  max-width: 1800px;
+}

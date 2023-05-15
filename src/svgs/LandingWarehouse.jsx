@@ -27,7 +27,11 @@ const LandingWarehouse = () => {
   }, []);
 
   return (
-    <svg id="Capa_1" viewBox="0 0 307.503 327.503" style={{ marginLeft: "50px" }}>
+    <svg
+      id="Capa_1"
+      viewBox="0 0 307.503 327.503"
+      style={{ marginLeft: "50px", maxWidth: "500px" }}
+    >
       <g id="XMLID_35_">
         <g ref={scopeRef}>
           <rect x="93.406" y="221.893" style={{ fill: "#A38671" }} width="45.46" height="55.59" />

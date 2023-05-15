@@ -58,25 +58,27 @@ const Landing = () => {
   }, []);
 
   return (
-    <section className="d-flex landing" id="landing" ref={scopeRef}>
-      <div>
-        <h1>
-          <span>Complete</span> Inventory Management <span>System</span>
-        </h1>
+    <section className="landing" id="landing">
+      <div className="container d-flex" ref={scopeRef}>
+        <div>
+          <h1>
+            <span>Complete</span> Inventory Management <span>System</span>
+          </h1>
 
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi impedit corporis,
-          consequatur, doloribus accusamus voluptates mollitia voluptatibus exercitationem nam
-          expedita eaque cum et distinctio atque perferendis fuga enim. Ad, nulla!
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi impedit corporis,
-          consequatur, doloribus accusamus voluptates mollitia voluptatibus exercitationem nam
-          expedita eaque cum et distinctio atque perferendis fuga enim. Ad, nulla!
-        </p>
-        <BookDemo />
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi impedit corporis,
+            consequatur, doloribus accusamus voluptates mollitia voluptatibus exercitationem nam
+            expedita eaque cum et distinctio atque perferendis fuga enim. Ad, nulla!
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi impedit corporis,
+            consequatur, doloribus accusamus voluptates mollitia voluptatibus exercitationem nam
+            expedita eaque cum et distinctio atque perferendis fuga enim. Ad, nulla!
+          </p>
+          <BookDemo />
+        </div>
+        {width > 992 && <LandingWarehouse />}
       </div>
-      {width > 992 && <LandingWarehouse />}
     </section>
   );
 };
