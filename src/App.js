@@ -8,7 +8,7 @@ import Home from "./components/Static/Home";
 import Dashboard from "./components/Dashboard/Dashboard";
 import Settings from "./components/Account/Settings";
 import Profile from "./components/Account/Profile";
-import About from "./components/Static/About";
+
 import Contact from "./components/Static/Contact";
 import PricePlans from "./components/Static/PricePlans";
 import ViewInvoices from "./components/Invoices/ViewInvoices";
