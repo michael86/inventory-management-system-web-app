@@ -23,6 +23,58 @@
   margin-left: 2.5rem;
 }
 
+.accordion {
+  --padding-y: 10px;
+  --padding-x: 20px;
+
+  width: 50%;
+  margin: auto;
+  background-color: rgba(109, 179, 242, 0.6);
+  border-radius: 25px;
+
+  text-align: center;
+  border: 1px solid black;
+}
+
+.accordion .dropdown:hover {
+  cursor: pointer;
+}
+
+.accordion .dropdown:not(:last-of-type) {
+  border-bottom: 1px solid black;
+}
+
+.accordion .question {
+  position: relative;
+  padding: 0 var(--padding-x);
+  display: flex;
+  align-items: center;
+  margin-top: var(--padding-y) 0;
+  padding: var(--padding-y) 0;
+}
+
+.accordion .question p {
+  width: 95%;
+  margin: 0;
+  text-transform: capitalize;
+}
+
+.accordion .question svg {
+  width: 5%;
+  justify-self: flex-end;
+}
+
+.accordion .answer {
+  height: 0;
+  background-color: white;
+  overflow: hidden;
+  padding: 0 calc(var(--padding-x) / 2);
+}
+
+.accordion .answer.active {
+  padding-top: var(--padding-y);
+}
+
 @media screen and (max-width: 992px) {
   .landing-image {
     display: none;

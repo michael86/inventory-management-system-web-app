@@ -54,8 +54,14 @@ const About = () => {
 
       cards.forEach((card) => {
         gsap.from(card, {
-          scrollTrigger: { trigger: card, start: "top bottom", end: "top center", scrub: true },
-          autoAlpha: 0,
+          scrollTrigger: {
+            trigger: card,
+            start: "top bottom",
+            end: "top center",
+            scrub: true,
+            // markers: true,
+          },
+
           scale: 0,
         });
       });
@@ -72,10 +78,10 @@ const About = () => {
           business, we have you covered.
         </p>
 
-        <Row ref={scopeRef}>
+        <Row ref={scopeRef} className="justify-content-center mt-3">
           {cards.map((card, i) => {
             return (
-              <Col xs={12} md={6} className="mt-3" key={i}>
+              <Col xs={12} md={3} className="" key={i}>
                 <Card className="h-100">
                   <Card.Title className="text-center">{card.title}</Card.Title>
                   <Card.Img variant="top" src={card.img.src} alt={card.img.alt} />
