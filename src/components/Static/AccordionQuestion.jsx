@@ -28,7 +28,14 @@ const AccordionQuestion = ({ entry }) => {
     tl.current = gsap
       .timeline({ paused: true })
       .to(question, { boxShadow: "0px 10px 18px -8px rgba(0, 0, 0, 1)" }, 0)
-      .to(answer, { height: 100 }, 0)
+      .to(
+        answer,
+        {
+          height: "auto",
+          onReverseComplete: () => gsap.set(answer, { clearProps: "all" }), //Something was causing gsap to leave a 10px height on reverse, so oncomplete just remove inline styles
+        },
+        0
+      )
       .to(chevlon, { rotate: 180, ease: "bounce" }, 0);
 
     return () => ctx.revert();
