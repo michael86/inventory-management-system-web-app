@@ -1,7 +1,7 @@
-import React, { useLayoutEffect } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
+import Lightbox from "react-image-lightbox";
 import { Row, Col, Card, Container } from "react-bootstrap";
 import { useRef } from "react";
 import { usePrefersReducedMotion } from "../../hooks/useReducedmotion";
@@ -9,11 +9,16 @@ import { usePrefersReducedMotion } from "../../hooks/useReducedmotion";
 import "../../styles/About.css";
 
 gsap.registerPlugin(ScrollTrigger);
+const images = [
+  "images/historical-data-snapshot.png",
+  "https://placehold.co/600x400/000000/FFF",
+  "images/pdf-generator-snapshot.png",
+];
 
 const cards = [
   {
     title: "Historical Data",
-    img: { src: "https://placehold.co/600x400/000000/FFF", alt: "Historical Data" },
+    img: { src: "images/historical-data-snapshot.png", alt: "Historical Data" },
     text: "View a 6-month period of historical data from any given period straight from the dashboard, or view all of the data in an easy to ready table from a given items view page",
   },
   {
@@ -23,7 +28,7 @@ const cards = [
   },
   {
     title: "Invoice Generation",
-    img: { src: "https://placehold.co/600x400/000000/FFF", alt: "Real Time Update Image" },
+    img: { src: "images/pdf-generator-snapshot.png", alt: "PDF Invoice generator" },
     text: "Generate invoices in seconds with our invoice generator, then download them in a nicely formatted pdf ready to send to your clients.",
   },
   {
@@ -45,7 +50,8 @@ const cards = [
 
 const About = () => {
   const reducedMotion = usePrefersReducedMotion();
-
+  const [photoIndex, setPhotoIndex] = useState(0);
+  const [isLightboxOpen, setIsLighboxOpen] = useState(false);
   const scopeRef = useRef();
 
   useLayoutEffect(() => {
@@ -69,6 +75,11 @@ const About = () => {
       });
     }, [scopeRef]);
   }, []);
+
+  const onClick = (index) => {
+    setPhotoIndex(index);
+    setIsLighboxOpen(true);
+  };
 
   return (
     <section className="about pt-3">
@@ -94,7 +105,12 @@ const About = () => {
               <Col xs={12} md={4} className="mb-3" key={i}>
                 <Card className="h-100 ">
                   <Card.Title className="text-center">{card.title}</Card.Title>
-                  <Card.Img variant="top" src={card.img.src} alt={card.img.alt} />
+                  <Card.Img
+                    variant="top"
+                    onClick={() => onClick(i)}
+                    src={card.img.src}
+                    alt={card.img.alt}
+                  />
 
                   <Card.Body>
                     <Card.Text>{card.text}</Card.Text>
@@ -105,6 +121,20 @@ const About = () => {
           })}
         </Row>
       </Container>
+      {isLightboxOpen && (
+        <Lightbox
+          mainSrc={images[photoIndex]}
+          nextSrc={images[(photoIndex + 1) % images.length]}
+          prevSrc={images[(photoIndex + images.length - 1) % images.length]}
+          onCloseRequest={() => setIsLighboxOpen(false)}
+          onMovePrevRequest={() =>
+            setPhotoIndex(photoIndex - 1 < 0 ? images.length - 1 : photoIndex - 1)
+          }
+          onMoveNextRequest={() =>
+            setPhotoIndex(photoIndex + 1 > images.length - 1 ? 0 : photoIndex + 1)
+          }
+        />
+      )}
     </section>
   );
 };

@@ -19,6 +19,7 @@ import ForgotPassword from "./components/Account/ForgotPassword";
 import ResetPassword from "./components/Account/ResetPassword";
 
 import "bootstrap/dist/css/bootstrap.min.css";
+import "react-image-lightbox/style.css";
 import "./App.css";
 
 //Private routes are all routes that a user needs to be logged in for.
