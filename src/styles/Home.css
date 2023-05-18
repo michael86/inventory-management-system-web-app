@@ -6,21 +6,24 @@
   background-image: linear-gradient(to right, rgba(109, 179, 242, 0.6), rgba(109, 179, 242, 0.6)),
     url("../../public/images/landing_background.jpg");
   background-size: cover;
+  height: 100svh;
 }
 
-.landing h1 {
-  font-size: 4rem;
-}
-
-.landing h1 span {
-  color: #c1292e;
+.landing > div:first-of-type {
+  height: auto;
 }
 
 .landing-image {
-  width: 100%;
-  height: 400px;
-  margin-top: 5rem;
-  margin-left: 2.5rem;
+  margin-left: -40px;
+  width: 70%;
+}
+
+.landing h1 {
+  font-size: 2.6rem;
+}
+
+.landing ul {
+  list-style: none;
 }
 
 .accordion {
@@ -75,12 +78,23 @@
   padding-top: var(--padding-y);
 }
 
-@media screen and (max-width: 992px) {
-  .landing-image {
-    display: none;
+@media screen and (min-width: 992px) {
+  .landing > div:first-of-type {
+    height: inherit;
   }
 
   .landing h1 {
-    font-size: 2.6rem;
+    max-width: 1200px;
+    font-size: 3.5rem;
+  }
+
+  .landing-image {
+    max-width: 550px;
+    margin-left: 100px;
+  }
+
+  .landing span {
+    font-size: 2rem;
+    font-weight: 300;
   }
 }

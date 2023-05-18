@@ -8,7 +8,7 @@ const LandingWarehouse = () => {
   const { width } = useViewport();
 
   useLayoutEffect(() => {
-    if (width <= 992 || !scopeRef.current) return;
+    if (!scopeRef.current) return;
 
     const ctx = gsap.context(() => {
       const children = scopeRef.current.children;
@@ -27,11 +27,7 @@ const LandingWarehouse = () => {
   }, []);
 
   return (
-    <svg
-      id="Capa_1"
-      viewBox="0 0 307.503 327.503"
-      style={{ marginLeft: "50px", maxWidth: "500px" }}
-    >
+    <svg id="Capa_1" viewBox="0 0 307.503 327.503" className="landing-image mt-3 mt-md-5 pt-md-3">
       <g id="XMLID_35_">
         <g ref={scopeRef}>
           <rect x="93.406" y="221.893" style={{ fill: "#A38671" }} width="45.46" height="55.59" />

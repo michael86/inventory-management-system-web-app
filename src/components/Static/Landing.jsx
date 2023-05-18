@@ -1,11 +1,10 @@
 import { useRef, useLayoutEffect } from "react";
-import BookDemo from "./BookDemo";
+
 import { gsap } from "gsap";
 import LandingWarehouse from "../../svgs/LandingWarehouse";
-import { useViewport } from "../../hooks/useViewport";
 
+import Typewriter from "typewriter-effect";
 const Landing = () => {
-  const { width } = useViewport();
   const scopeRef = useRef();
 
   useLayoutEffect(() => {
@@ -25,8 +24,9 @@ const Landing = () => {
         if (reduceMotion) return;
 
         const header = children[0].children[0];
-        const paras = [...children[0].children].splice(1, 2);
-        const form = [...children[0].children].splice(3, 1)[0];
+        const tag = children[0].children[1];
+        const typewriter = children[0].children[2];
+        const image = children[1];
 
         gsap
           .timeline()
@@ -36,20 +36,21 @@ const Landing = () => {
             y: isMobile ? 20 : 0,
             scale: isDesktop ? 0 : 1,
           })
-          .from(paras, {
+          .from(tag, {
             autoAlpha: 0,
-            duration: 0.5,
+            duration: 1,
             y: isMobile ? 20 : 0,
-            stagger: 0.5,
             scale: isDesktop ? 0 : 1,
           })
-          .from(form.children, {
+          .from(typewriter, {
+            autoAlpha: 0,
+            duration: 1,
+            autoAlpha: 0,
+          })
+          .from(image, {
             autoAlpha: 0,
             duration: 0.5,
-            y: isMobile ? 20 : 0,
-            width: isDesktop ? 0 : "100%",
-
-            stagger: 0.5,
+            scale: 0,
           });
       }
     );
@@ -58,27 +59,28 @@ const Landing = () => {
   }, []);
 
   return (
-    <section className="landing" id="landing">
-      <div className="container d-flex" ref={scopeRef}>
-        <div>
-          <h1>
-            <span>Complete</span> Inventory Management <span>System</span>
-          </h1>
-
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi impedit corporis,
-            consequatur, doloribus accusamus voluptates mollitia voluptatibus exercitationem nam
-            expedita eaque cum et distinctio atque perferendis fuga enim. Ad, nulla!
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi impedit corporis,
-            consequatur, doloribus accusamus voluptates mollitia voluptatibus exercitationem nam
-            expedita eaque cum et distinctio atque perferendis fuga enim. Ad, nulla!
-          </p>
-          <BookDemo />
-        </div>
-        {width > 992 && <LandingWarehouse />}
+    <section
+      className="landing d-flex align-items-center justify-content-center flex-column flex-md-row text-center"
+      id="landing"
+      ref={scopeRef}
+    >
+      <div className="d-md-flex justify-content-center flex-column">
+        <h1>All you inventory needs in one place</h1>
+        <p>Cims provides everything you need to manage your stock in a streamline fashion</p>
+        <Typewriter
+          options={{
+            strings: [
+              "Set custom stock alerts",
+              "Generate pdf invoices",
+              "Historical data since the dawn of time",
+              "Register multiple users with different roles",
+            ],
+            autoStart: true,
+            loop: true,
+          }}
+        />
       </div>
+      <img src="/images/cims-logo.png" alt="" className="landing-image mt-2 mt-md-0" />
     </section>
   );
 };
