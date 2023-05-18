@@ -1,0 +1,7 @@
+.about {
+  background-color: rgba(109, 179, 242, 0.9);
+}
+
+.about .card-body {
+  padding: 0.5rem 0.7rem 0.2rem 0.7rem;
+}

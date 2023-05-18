@@ -2,9 +2,11 @@ import React, { useLayoutEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-import { Container, Row, Col, Card } from "react-bootstrap";
+import { Row, Col, Card, Container } from "react-bootstrap";
 import { useRef } from "react";
 import { usePrefersReducedMotion } from "../../hooks/useReducedmotion";
+
+import "../../styles/About.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -69,20 +71,28 @@ const About = () => {
   }, []);
 
   return (
-    <>
+    <section className="about pt-3">
       <Container>
         <h1 className="text-center">About Us</h1>
-        <p>
-          Here at Cims we aim to meet all off your Inventory Management Needs. Whether this is
-          tracking components within a manufacturing business or tracking inventory for a small
-          business, we have you covered.
-        </p>
+        <div className="text-center">
+          <p>
+            Here at Cims we understand what it takes to run a succesful business, time, dedication
+            and hard work. We aim to help help all off these needs by providing you an all in one
+            Inventory Management system. From our streamline registration, to our invoice generator,
+            stock management and historical data.
+          </p>
+
+          <p>
+            You'll be able to dedicate more time to meeting clients needs or location stock in
+            seconds. Don't just take our word for it though! Read about some of our features below.
+          </p>
+        </div>
 
         <Row ref={scopeRef} className="justify-content-center mt-3">
           {cards.map((card, i) => {
             return (
-              <Col xs={12} md={3} className="" key={i}>
-                <Card className="h-100">
+              <Col xs={12} md={4} className="mb-md-3" key={i}>
+                <Card className="h-100 ">
                   <Card.Title className="text-center">{card.title}</Card.Title>
                   <Card.Img variant="top" src={card.img.src} alt={card.img.alt} />
 
@@ -95,7 +105,7 @@ const About = () => {
           })}
         </Row>
       </Container>
-    </>
+    </section>
   );
 };
 

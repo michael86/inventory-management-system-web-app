@@ -1,7 +1,6 @@
 import { useRef, useLayoutEffect } from "react";
 
 import { gsap } from "gsap";
-import LandingWarehouse from "../../svgs/LandingWarehouse";
 
 import Typewriter from "typewriter-effect";
 const Landing = () => {
