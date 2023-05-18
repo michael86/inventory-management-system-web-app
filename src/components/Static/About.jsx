@@ -91,7 +91,7 @@ const About = () => {
         <Row ref={scopeRef} className="justify-content-center mt-3">
           {cards.map((card, i) => {
             return (
-              <Col xs={12} md={4} className="mb-md-3" key={i}>
+              <Col xs={12} md={4} className="mb-3" key={i}>
                 <Card className="h-100 ">
                   <Card.Title className="text-center">{card.title}</Card.Title>
                   <Card.Img variant="top" src={card.img.src} alt={card.img.alt} />
