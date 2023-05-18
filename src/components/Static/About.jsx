@@ -53,6 +53,7 @@ const About = () => {
   const [photoIndex, setPhotoIndex] = useState(0);
   const [isLightboxOpen, setIsLighboxOpen] = useState(false);
   const scopeRef = useRef();
+  const imageRefs = useRef([]);
 
   useLayoutEffect(() => {
     if (!scopeRef || reducedMotion) return;
@@ -79,6 +80,20 @@ const About = () => {
   const onClick = (index) => {
     setPhotoIndex(index);
     setIsLighboxOpen(true);
+  };
+
+  const onMouseEnter = (index) => {
+    gsap.to(imageRefs.current[index], {
+      scale: 0.9,
+      repeat: -1,
+      duration: 0.5,
+      yoyo: true,
+      ease: "Linear.easeNone",
+    });
+  };
+
+  const onMouseLeave = (index) => {
+    gsap.to(imageRefs.current[index], { scale: 1, duration: 0.5 });
   };
 
   return (
@@ -110,6 +125,9 @@ const About = () => {
                     onClick={() => onClick(i)}
                     src={card.img.src}
                     alt={card.img.alt}
+                    ref={(el) => imageRefs.current.push(el)}
+                    onMouseEnter={() => onMouseEnter(i)}
+                    onMouseLeave={() => onMouseLeave(i)}
                   />
 
                   <Card.Body>
