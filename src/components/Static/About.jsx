@@ -56,7 +56,7 @@ const About = () => {
   const imageRefs = useRef([]);
 
   useLayoutEffect(() => {
-    if (!scopeRef || reducedMotion) return;
+    if (!scopeRef || reducedMotion || !imageRefs.current) return;
 
     const ctx = gsap.context(() => {
       const cards = [...scopeRef.current.children].map((col) => [...col.children]).flat();
@@ -75,6 +75,19 @@ const About = () => {
         });
       });
     }, [scopeRef]);
+
+    imageRefs.current.forEach(({ el }, i) => {
+      imageRefs.current[i].anim = gsap.to(el, {
+        scale: 0.9,
+        repeat: -1,
+        duration: 0.5,
+        yoyo: true,
+        ease: "Linear.easeNone",
+        paused: true,
+      });
+    });
+
+    return () => ctx.revert();
   }, []);
 
   const onClick = (index) => {
@@ -82,19 +95,9 @@ const About = () => {
     setIsLighboxOpen(true);
   };
 
-  const onMouseEnter = (index) => {
-    gsap.to(imageRefs.current[index], {
-      scale: 0.9,
-      repeat: -1,
-      duration: 0.5,
-      yoyo: true,
-      ease: "Linear.easeNone",
-    });
-  };
+  const onMouseEnter = (index) => imageRefs.current[index].anim.play();
 
-  const onMouseLeave = (index) => {
-    gsap.to(imageRefs.current[index], { scale: 1, duration: 0.5 });
-  };
+  const onMouseLeave = (index) => imageRefs.current[index].anim.pause(0);
 
   return (
     <section className="about pt-3">
@@ -125,7 +128,7 @@ const About = () => {
                     onClick={() => onClick(i)}
                     src={card.img.src}
                     alt={card.img.alt}
-                    ref={(el) => imageRefs.current.push(el)}
+                    ref={(el) => imageRefs.current.push({ el })}
                     onMouseEnter={() => onMouseEnter(i)}
                     onMouseLeave={() => onMouseLeave(i)}
                   />

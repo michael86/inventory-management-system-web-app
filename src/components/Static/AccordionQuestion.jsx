@@ -27,7 +27,7 @@ const AccordionQuestion = ({ entry }) => {
 
     tl.current = gsap
       .timeline({ paused: true })
-      .to(question, { boxShadow: "0px 10px 18px -8px rgba(0, 0, 0, 1)" }, 0)
+      .to(question, { boxShadow: "0px 10px 18px -8px black" }, 0)
       .to(
         answer,
         {

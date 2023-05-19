@@ -1,0 +1,72 @@
+.faq {
+  position: relative;
+  background-color: rgb(109, 179, 242);
+}
+
+.faq::before {
+  position: absolute;
+  content: "";
+  top: -120px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 250px;
+  width: 100%;
+  background-color: rgb(109, 179, 242);
+  z-index: -1;
+
+  border-radius: 10%;
+}
+
+.faq .accordion {
+  --padding-y: 10px;
+  --padding-x: 20px;
+
+  width: 100%;
+  max-width: 1250px;
+  margin: auto;
+  background-color: black;
+  color: white;
+  border-radius: 25px;
+
+  text-align: center;
+}
+
+.faq .accordion .dropdown:hover {
+  cursor: pointer;
+}
+
+.faq .accordion .dropdown:not(:last-of-type) {
+  border-bottom: 1px solid white;
+}
+
+.faq .accordion .question {
+  position: relative;
+  padding: 0 var(--padding-x);
+  display: flex;
+  align-items: center;
+  margin-top: var(--padding-y) 0;
+  padding: var(--padding-y) 0;
+}
+
+.faq .accordion .question p {
+  width: 95%;
+  margin: 0;
+  text-transform: capitalize;
+}
+
+.faq .accordion .question svg {
+  width: 5%;
+  justify-self: flex-end;
+}
+
+.faq .accordion .answer {
+  height: 0;
+  background-color: white;
+  color: black;
+  overflow: hidden;
+  padding: 0 calc(var(--padding-x) / 2);
+}
+
+.faq .accordion .answer.active {
+  padding-top: var(--padding-y);
+}
