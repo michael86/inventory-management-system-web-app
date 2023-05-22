@@ -116,4 +116,7 @@ export const schema = {
   sku: {
     sku: stringWithNumbers,
   },
+  name: {
+    name: basicString,
+  },
 };
