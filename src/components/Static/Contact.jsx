@@ -6,12 +6,25 @@ import { inputs } from "../../schema/contactSchema";
 import { validateInput } from "../../validation/Utils";
 import "../../styles/Forms.css";
 import Buttons from "../popup/components/Buttons";
+import axios from "../../utils/axios";
 
 const Contact = () => {
   const { authenticated } = useSelector((state) => state.user);
   const [errors, setErrors] = useState();
-  console.log(inputs);
+
   const onInput = (e) => setErrors(validateInput(e, errors));
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    if (Object.keys(errors).length) return;
+
+    const { target: form } = e;
+    const data = Object.fromEntries(new FormData(form));
+    if (!data.message.length) return;
+
+    const sent = await axios.put("/account/support", { ...data });
+    console.log("sent", sent);
+  };
 
   return (
     <section className="contact contact-form">
@@ -29,7 +42,7 @@ const Contact = () => {
           </p>
         )}
       </div>
-      <Form className="container w-lg-50">
+      <Form className="container w-lg-50" onSubmit={onSubmit}>
         {inputs.map((input, index) => {
           return (
             <Input
@@ -47,15 +60,19 @@ const Contact = () => {
             />
           );
         })}
-        <Form.Label htmlFor="option">Send to</Form.Label>
-        <Form.Select aria-label="send to" id="option">
-          <option value="1">Support</option>
-          {!authenticated && <option value="3">Accounts - Request Demo</option>}
-          {authenticated && <option value="2">Company Admin</option>}
-        </Form.Select>
+
+        <Form.Group controlId="option">
+          <Form.Label>Send to</Form.Label>
+          <Form.Select aria-label="send to" name="option">
+            <option value="1">Support</option>
+            {!authenticated && <option value="3">Accounts - Request Demo</option>}
+            {authenticated && <option value="2">Company Admin</option>}
+          </Form.Select>
+        </Form.Group>
+
         <Form.Group className="mb-3" controlId="message">
           <Form.Label>Your message</Form.Label>
-          <Form.Control as="textarea" rows={3} />
+          <Form.Control as="textarea" rows={3} name="message" />
         </Form.Group>
 
         <Buttons variant="primary" type="submit" label={"Send"} />

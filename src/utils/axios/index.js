@@ -12,11 +12,10 @@ const instance = axios.create({
 });
 
 instance.interceptors.request.use(function (config) {
-  const token = getStore("token");
-  const { email } = store.getState((state) => state.user);
+  const { user } = store.getState((state) => state);
 
-  config.headers.token = token;
-  config.headers.email = email;
+  config.headers.token = user.token;
+  config.headers.email = user.email;
 
   return config;
 });
