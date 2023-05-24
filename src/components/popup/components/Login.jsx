@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { Form, Modal } from "react-bootstrap";
+import { Button, Form, Modal } from "react-bootstrap";
 
-import { setPopupScreen, togglePopup } from "../../../reducers/popupSlice";
+import { togglePopup } from "../../../reducers/popupSlice";
 import { validateInput } from "../../../validation/Utils";
 
-import Buttons from "./Buttons";
 import Header from "./Header";
 import Input from "../../Shared/Input";
 import { setUserAuthenticated, setUserEmail } from "../../../reducers/userSlice";
@@ -102,15 +101,15 @@ const Login = () => {
             Forgot Password
           </Link>
 
-          <Buttons
-            variant="primary"
-            type="submit"
-            label="Submit"
-            secondaryVariant="warning"
-            secondaryOnClick={() => dispatch(setPopupScreen(1))}
-            secondaryLabel="Register"
-            errors={errors}
-          />
+          <div className="mt-2">
+            <Button variant="primary" type="submit" className="me-2">
+              Submit
+            </Button>
+
+            <Link to={"/register"} onClick={() => dispatch(togglePopup())}>
+              <Button variant="warning">Register</Button>
+            </Link>
+          </div>
         </Form>
       </Modal.Body>
     </>

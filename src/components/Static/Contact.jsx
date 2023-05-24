@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { Form, InputGroup } from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import Input from "../Shared/Input";
 import { inputs } from "../../schema/contactSchema";
 import { validateInput } from "../../validation/Utils";
 import "../../styles/Forms.css";
-import Buttons from "../popup/components/Buttons";
+
 import axios from "../../utils/axios";
 
 const Contact = () => {
@@ -75,7 +75,9 @@ const Contact = () => {
           <Form.Control as="textarea" rows={3} name="message" />
         </Form.Group>
 
-        <Buttons variant="primary" type="submit" label={"Send"} />
+        <Button variant="primary" type="submit">
+          Send
+        </Button>
       </Form>
     </section>
   );
