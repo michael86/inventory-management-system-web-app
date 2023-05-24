@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { togglePopup } from "../../reducers/popupSlice";
 
 import Login from "./components/Login";
-import Register from "./components/Register";
+
 import Stock from "./components/Stock";
 
 const Popup = () => {
@@ -22,8 +22,8 @@ const Popup = () => {
         onHide={() => dispatch(togglePopup())}
       >
         {screen === 0 && <Login />}
-        {screen === 1 && <Register />}
-        {screen === 2 && <Stock />}
+
+        {screen === 1 && <Stock />}
       </Modal>
     </>
   );

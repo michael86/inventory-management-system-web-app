@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button, Form, Modal } from "react-bootstrap";
 
 import { togglePopup } from "../../../reducers/popupSlice";
@@ -17,6 +17,7 @@ const Login = () => {
   const dispatch = useDispatch();
   const [loginVerified, setLoginVerified] = useState(true);
   const [errors, setErrors] = useState(false);
+  const navigate = useNavigate();
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -40,6 +41,7 @@ const Login = () => {
 
         dispatch(setCompany(company));
         setStore({ key: "company", data: company });
+        navigate("/dashboard");
         break;
 
       case 2: //user not found or invalid password

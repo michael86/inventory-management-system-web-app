@@ -11,6 +11,7 @@ import Profile from "./components/Account/Profile";
 
 import Contact from "./components/Static/Contact";
 import PricePlans from "./components/Static/PricePlans";
+import Register from "./components/Static/Register";
 import ViewInvoices from "./components/Invoices/ViewInvoices";
 import GenerateInvoice from "./components/Invoices/GenerateInvoice";
 import AddStock from "./components/Stock/AddStock";
@@ -54,6 +55,7 @@ function App() {
           <Route path="/price-plans" element={<PricePlans />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/reset-password" element={<ResetPassword />} />
+          <Route path="/register" element={<Register />} />
 
           {PriRoutes.map((route, i) => {
             return (

@@ -43,7 +43,7 @@ const ManageStockCard = ({ item, deleteStock }) => {
             <Button
               disabled={deleting}
               onClick={() => {
-                dispatch(setPopupScreen(2));
+                dispatch(setPopupScreen(1));
                 dispatch(setPopupStock(item));
                 dispatch(togglePopup());
               }}
