@@ -1,14 +1,14 @@
-import "../../styles/Register.css";
-import "../../styles/Accordion.css";
+import "../../../styles/Register.css";
+import "../../../styles/Accordion.css";
 
 import { useDispatch } from "react-redux";
-import { setPopupScreen, setPopupText, togglePopup } from "../../reducers/popupSlice";
+import { setPopupScreen, setPopupText, togglePopup } from "../../../reducers/popupSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faForward } from "@fortawesome/free-solid-svg-icons";
 import { useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 
-const Register = () => {
+const Intro = ({ addAnimation }) => {
   const dispatch = useDispatch();
   const scope = useRef();
 
@@ -27,26 +27,11 @@ const Register = () => {
   };
 
   useLayoutEffect(() => {
-    const ctx = gsap.context(() => {
-      const header = scope.current.children[0].children[0];
-      const subHeading = scope.current.children[0].children[1];
-      const list = scope.current.children[0].children[2];
-      const help = scope.current.children[0].children[3];
-      const next = scope.current.children[0].children[4];
-      console.log(header);
+    const animation = gsap.to(scope.current, { rotate: 180, x: 100 });
+    addAnimation(animation);
 
-      gsap
-        .timeline()
-        .from(scope.current, { autoAlpha: 0, duration: 0.3 })
-        .from(header, { autoAlpha: 0, y: 300, duration: 0.3 })
-        .from(subHeading, { autoAlpha: 0, duration: 0.3 })
-        .from(list.children, { autoAlpha: 0, scale: 0, duration: 0.3, stagger: 0.2 })
-        .from(help, { autoAlpha: 0, duration: 0.3 })
-        .from(next, { autoAlpha: 0, x: 500, duration: 0.3 });
-    }, [scope]);
-
-    return () => ctx.revert();
-  }, []);
+    return () => animation.progress(0).kill();
+  }, [addAnimation]);
 
   return (
     <div className="register-as-container" ref={scope}>
@@ -84,4 +69,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Intro;

@@ -9,8 +9,8 @@ const Message = () => {
       <Header label={message.label} />
 
       <Modal.Body>
-        {message.content.map((text) => (
-          <p>{text}</p>
+        {message.content.map((text, i) => (
+          <p key={i}>{text}</p>
         ))}
       </Modal.Body>
     </>
