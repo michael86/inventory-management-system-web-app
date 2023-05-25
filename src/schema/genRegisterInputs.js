@@ -2,12 +2,11 @@ const classes = {
   group: ["mb-3"],
 };
 
-export const registerInputs = [
+export const personal = [
   {
     controlId: "email",
     classNames: {
       group: classes.group,
-      //   label: classes.label,
     },
     label: "Email:",
     type: "email",
@@ -20,7 +19,6 @@ export const registerInputs = [
     controlId: "password",
     classNames: {
       group: classes.group,
-      //   label: classes.label,
     },
     label: "Password:",
     type: "password",
@@ -29,7 +27,21 @@ export const registerInputs = [
     custError:
       "Password must contain 1 lowercase, 1 uppercase, 1 number, 1 special character and be between 8 - 25 chars",
   },
+  {
+    controlId: "name",
+    classNames: {
+      group: classes.group,
+    },
+    label: "Name:",
+    type: "text",
+    placeholder: "Full Name",
+    required: true,
+    custError:
+      "Password must contain 1 lowercase, 1 uppercase, 1 number, 1 special character and be between 8 - 25 chars",
+  },
+];
 
+export const company = [
   {
     controlId: "company",
     classNames: {
