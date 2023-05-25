@@ -1,0 +1,98 @@
+.register-as-container {
+  background-color: rgba(106, 180, 248, 0.8);
+  min-height: 100svh;
+}
+
+.register-as {
+  display: block;
+  position: relative;
+  margin: auto;
+  height: auto;
+  width: 90%;
+  padding: 20px;
+}
+
+.register-as ul {
+  list-style: none;
+  max-width: 500px;
+  margin: auto;
+  padding: 0;
+  overflow: auto;
+}
+
+ul li {
+  color: rgb(0, 0, 0);
+  display: block;
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 100px;
+  border-bottom: 1px solid rgb(0, 0, 0);
+}
+
+ul li input[type="radio"] {
+  position: absolute;
+  visibility: hidden;
+}
+
+ul li label {
+  display: block;
+  position: relative;
+  font-weight: 300;
+  font-size: 1.35em;
+  padding: 25px 25px 25px 80px;
+  margin: 10px auto;
+  height: 30px;
+  z-index: 9;
+  cursor: pointer;
+  -webkit-transition: all 0.25s linear;
+}
+
+ul li:hover label {
+  color: rgba(248, 8, 8, 0.8);
+}
+
+ul li .check {
+  display: block;
+  position: absolute;
+  border: 5px solid rgb(0, 0, 0);
+  border-radius: 100%;
+  height: 30px;
+  width: 30px;
+  top: 30px;
+  left: 20px;
+  z-index: 5;
+  transition: border 0.25s linear;
+  -webkit-transition: border 0.25s linear;
+}
+
+ul li:hover .check {
+  border: 5px solid rgba(248, 8, 8, 0.8);
+}
+
+ul li .check::before {
+  display: block;
+  position: absolute;
+  content: "";
+  border-radius: 100%;
+  height: 15px;
+  width: 15px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: auto;
+  transition: background 0.25s linear;
+  -webkit-transition: background 0.25s linear;
+}
+
+input[type="radio"]:checked ~ .check {
+  border: 5px solid rgb(68, 1, 255);
+}
+
+input[type="radio"]:checked ~ .check::before {
+  background: rgb(68, 1, 255);
+}
+
+input[type="radio"]:checked ~ label {
+  color: rgb(68, 1, 255);
+}

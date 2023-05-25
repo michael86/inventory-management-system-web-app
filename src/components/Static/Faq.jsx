@@ -1,6 +1,7 @@
 import { Container } from "react-bootstrap";
 import AccordionQuestion from "./AccordionQuestion";
 import "../../styles/Faq.css";
+import "../../styles/Accordion.css";
 
 const questions = [
   {
@@ -47,8 +48,8 @@ const Faq = () => {
       </div>
       <Container>
         <div className="accordion">
-          {questions.map((entry) => {
-            return <AccordionQuestion entry={entry} />;
+          {questions.map((entry, i) => {
+            return <AccordionQuestion entry={entry} key={i} />;
           })}
         </div>
       </Container>

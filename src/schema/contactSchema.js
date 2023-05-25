@@ -4,7 +4,7 @@ const classes = {
 
 export const inputs = [
   {
-    controlId: "email",
+    controlId: "contact-email",
     classNames: {
       group: classes.group,
     },

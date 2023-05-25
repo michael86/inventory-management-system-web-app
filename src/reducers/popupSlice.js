@@ -5,6 +5,7 @@ const initialState = {
   show: false,
   invoice: {},
   stock: {},
+  message: {},
 };
 
 export const popupSlice = createSlice({
@@ -23,10 +24,13 @@ export const popupSlice = createSlice({
     setPopupStock: (state, { payload }) => {
       state.stock = payload;
     },
+    setPopupText: (state, { payload }) => {
+      state.message = payload;
+    },
   },
 });
 
-export const { setPopupScreen, togglePopup, setPopupInvoice, setPopupStock } =
+export const { setPopupScreen, togglePopup, setPopupInvoice, setPopupStock, setPopupText } =
   popupSlice.actions;
 
 export default popupSlice.reducer;
