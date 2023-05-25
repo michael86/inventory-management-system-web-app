@@ -11,6 +11,7 @@ import { gsap } from "gsap";
 const Register = () => {
   const dispatch = useDispatch();
   const scope = useRef();
+  const choice = useRef();
 
   const onClick = () => {
     dispatch(
@@ -48,15 +49,22 @@ const Register = () => {
     return () => ctx.revert();
   }, []);
 
+  const onNext = () => {
+    const children = [...choice.current.children].map((child) =>
+      child.children[0].checked ? child.children[0].dataset.type : null
+    );
+    const selected = +children[children.findIndex((child) => child !== null)];
+    if (isNaN(selected) || !selected) return;
+  };
   return (
     <div className="register-as-container" ref={scope}>
       <div className="text-center register-as">
         <h1>Before you Register!</h1>
         <p>We just need to get check with you. Are you registering as a</p>
 
-        <ul>
+        <ul ref={choice}>
           <li>
-            <input type="radio" id="s-option" name="selector" />
+            <input type="radio" data-type={0} id="s-option" name="selector" />
             <label htmlFor="s-option">Person</label>
 
             <div className="check">
@@ -65,7 +73,7 @@ const Register = () => {
           </li>
 
           <li>
-            <input type="radio" id="t-option" name="selector" />
+            <input type="radio" data-type={1} id="t-option" name="selector" />
             <label htmlFor="t-option">Company</label>
 
             <div className="check">
@@ -78,7 +86,7 @@ const Register = () => {
           If you're not sure.
         </p>
 
-        <FontAwesomeIcon icon={faForward} className="register-next" />
+        <FontAwesomeIcon icon={faForward} className="register-next" onClick={onNext} />
       </div>
     </div>
   );
