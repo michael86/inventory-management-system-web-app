@@ -1,18 +1,40 @@
-import "../../../styles/Register.css";
-import "../../../styles/Accordion.css";
-
-import { useDispatch } from "react-redux";
-import { setPopupScreen, setPopupText, togglePopup } from "../../../reducers/popupSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faForward } from "@fortawesome/free-solid-svg-icons";
+
 import { useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 
-const Intro = ({ addAnimation }) => {
-  const dispatch = useDispatch();
-  const scope = useRef();
+import { useDispatch } from "react-redux";
+import { setPopupScreen, setPopupText, togglePopup } from "../../../reducers/popupSlice";
 
-  const onClick = () => {
+const Intro = ({ onNext, setType }) => {
+  const dispatch = useDispatch();
+
+  const scope = useRef();
+  const choice = useRef();
+
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      const header = scope.current.children[0].children[0];
+      const subHeading = scope.current.children[0].children[1];
+      const list = scope.current.children[0].children[2];
+      const help = scope.current.children[0].children[3];
+      const next = scope.current.children[0].children[4];
+
+      gsap
+        .timeline()
+        .from(scope.current, { autoAlpha: 0, duration: 0.3 })
+        .from(header, { autoAlpha: 0, y: 300, duration: 0.3 })
+        .from(subHeading, { autoAlpha: 0, duration: 0.3 })
+        .from(list.children, { autoAlpha: 0, scale: 0, duration: 0.3, stagger: 0.2 })
+        .from(help, { autoAlpha: 0, duration: 0.3 })
+        .from(next, { autoAlpha: 0, x: 500, duration: 0.3 });
+    }, [scope]);
+
+    return () => ctx.revert();
+  }, []);
+
+  const onHelpClick = () => {
     dispatch(
       setPopupText({
         label: "Account Types",
@@ -26,12 +48,22 @@ const Intro = ({ addAnimation }) => {
     dispatch(togglePopup());
   };
 
-  useLayoutEffect(() => {
-    const animation = gsap.to(scope.current, { rotate: 180, x: 100 });
-    addAnimation(animation);
+  const getChoice = () => {
+    const children = [...choice.current.children].map((child) =>
+      child.children[0].checked ? child.children[0].dataset.type : null
+    );
 
-    return () => animation.progress(0).kill();
-  }, [addAnimation]);
+    const type = +children[children.findIndex((child) => child !== null)];
+
+    if (isNaN(type) || type === undefined) return;
+
+    gsap.to(scope.current, {
+      y: -500,
+      autoAlpha: 0,
+      duration: 0.2,
+      onComplete: () => setType(type),
+    });
+  };
 
   return (
     <div className="register-as-container" ref={scope}>
@@ -39,9 +71,9 @@ const Intro = ({ addAnimation }) => {
         <h1>Before you Register!</h1>
         <p>We just need to get check with you. Are you registering as a</p>
 
-        <ul>
+        <ul ref={choice}>
           <li>
-            <input type="radio" id="s-option" name="selector" />
+            <input type="radio" data-type={0} id="s-option" name="selector" />
             <label htmlFor="s-option">Person</label>
 
             <div className="check">
@@ -50,7 +82,7 @@ const Intro = ({ addAnimation }) => {
           </li>
 
           <li>
-            <input type="radio" id="t-option" name="selector" />
+            <input type="radio" data-type={1} id="t-option" name="selector" />
             <label htmlFor="t-option">Company</label>
 
             <div className="check">
@@ -59,11 +91,15 @@ const Intro = ({ addAnimation }) => {
           </li>
         </ul>
 
-        <p className="mt-3 text-muted help" onClick={onClick}>
+        <p className="mt-3 text-muted help" onClick={onHelpClick}>
           If you're not sure.
         </p>
 
-        <FontAwesomeIcon icon={faForward} className="register-next" />
+        <FontAwesomeIcon
+          icon={faForward}
+          className="register-next"
+          onClick={() => onNext(getChoice())}
+        />
       </div>
     </div>
   );
