@@ -57,7 +57,7 @@ const Intro = ({ onNext, setType }) => {
 
     if (isNaN(type) || type === undefined) return;
 
-    gsap.to(scope.current, {
+    gsap.to(scope.current.children, {
       y: -500,
       autoAlpha: 0,
       duration: 0.2,
@@ -66,8 +66,8 @@ const Intro = ({ onNext, setType }) => {
   };
 
   return (
-    <div className="register-as-container" ref={scope}>
-      <div className="text-center register-as">
+    <div className="register-container" ref={scope}>
+      <div className="text-center register">
         <h1>Before you Register!</h1>
         <p>We just need to get check with you. Are you registering as a</p>
 

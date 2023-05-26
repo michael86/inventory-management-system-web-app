@@ -1,18 +1,23 @@
-.register-as-container {
+.register-container {
   background-color: rgba(106, 180, 248, 0.8);
   min-height: 100svh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-.register-as {
+.register {
   display: block;
   position: relative;
   margin: auto;
   height: auto;
   width: 90%;
+  max-width: 500px;
   padding: 20px;
 }
 
-.register-as .help:hover {
+.register .help:hover {
   cursor: pointer;
   color: rgb(68, 1, 255) !important; /*Regret bootstrap now*/
 }
@@ -25,9 +30,9 @@
   cursor: pointer;
 }
 
-.register-as ul {
+.register ul {
   list-style: none;
-  max-width: 500px;
+
   margin: auto;
   padding: 0;
   overflow: auto;
