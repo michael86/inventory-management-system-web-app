@@ -25,13 +25,17 @@ const Dashboard = () => {
   const [year, setYear] = useState(dUtils.getYear());
   const [month, setMonth] = useState(dUtils.getMonth());
 
-  const debouncedFilter = useCallback(() => {
+  const debouncedFilter = useCallback((query) => {
+    console.log("erm");
     debounce(async (query) => {
+      console.log("hereeeee");
       setSearchFilter(query);
     }, 500);
   }, []);
 
-  const onSearchfilter = ({ target }) => debouncedFilter(target.value);
+  const onSearchfilter = ({ target }) => {
+    debouncedFilter(target.value);
+  };
 
   const onYearChange = (newYear) => {
     const currentDate = new Date();
