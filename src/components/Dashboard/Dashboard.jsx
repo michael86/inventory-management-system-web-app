@@ -26,9 +26,9 @@ const Dashboard = () => {
   const [month, setMonth] = useState(dUtils.getMonth());
 
   const debouncedFilter = useCallback((query) => {
-    console.log("erm");
-    debounce(async (query) => {
+    debounce(async () => {
       console.log("hereeeee");
+
       setSearchFilter(query);
     }, 500);
   }, []);

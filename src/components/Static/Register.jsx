@@ -16,11 +16,15 @@ const Register = () => {
     setShowPersonal(true);
   };
 
+  const onRegister = (payload) => {
+    console.log(payload);
+  };
+
   return (
     <>
       {type === undefined && <Intro onNext={onIntroNext} setType={setType} />}
       {type !== undefined && showPersonal && <Personal setShowPersonal={setShowPersonal} />}
-      {type === 1 && !showPersonal && <Company />}
+      {type === 1 && !showPersonal && <Company onRegister={onRegister} />}
     </>
   );
 };
