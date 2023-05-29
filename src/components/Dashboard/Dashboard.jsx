@@ -13,6 +13,7 @@ import { generateDataset, generateLabels } from "../../utils/charts";
 
 import { useagePlugins } from "./Schemas";
 import ValuePie from "../Charts/ValuePie";
+import { useSelector } from "react-redux";
 
 const Dashboard = () => {
   const [apiCalled, setApiCalled] = useState(false);
@@ -24,6 +25,8 @@ const Dashboard = () => {
   const [searchFilter, setSearchFilter] = useState("");
   const [year, setYear] = useState(dUtils.getYear());
   const [month, setMonth] = useState(dUtils.getMonth());
+
+  const company = useSelector((state) => state.company);
 
   const debouncedFilter = useCallback((query) => {
     debounce(async () => {
@@ -88,7 +91,7 @@ const Dashboard = () => {
     <>
       {!apiCalled && <Loader />}
 
-      {apiCalled && (
+      {apiCalled && company.name ? (
         <Row className="mx-4">
           <DashForm
             dateObject={dateObject}
@@ -119,6 +122,8 @@ const Dashboard = () => {
             />
           </Col>
         </Row>
+      ) : (
+        <p>Company not linked</p>
       )}
     </>
   );
