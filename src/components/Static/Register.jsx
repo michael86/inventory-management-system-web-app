@@ -2,13 +2,21 @@ import "../../styles/Register.css";
 import "../../styles/Accordion.css";
 
 import { useState } from "react";
-import { gsap } from "gsap";
+
 import Intro from "./register/Intro";
 import Personal from "./register/Personal";
 import Company from "./register/Company";
 import axios from "../../utils/axios";
+import { useDispatch } from "react-redux";
+import { setUser } from "../../reducers/userSlice";
+import { setCompany } from "../../reducers/companySlice";
+import { setStore } from "../../localStorage";
+import { useNavigate } from "react-router-dom";
+import { collapseTextChangeRangesAcrossMultipleVersions } from "typescript";
 
 const Register = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [accountType, setAccountType] = useState(undefined);
 
   const [personal, setPersonal] = useState({});
@@ -32,6 +40,32 @@ const Register = () => {
     const res = await axios.put("/account/register", {
       data: { ...personal, ...payload, accountType },
     });
+
+    switch (res.data.status) {
+      case 1:
+        console.log(res.data);
+        console.log(personal);
+        console.log(payload);
+        dispatch(
+          setUser(
+            accountType > 0
+              ? { ...personal, authenticated: true, token: res.data.token }
+              : { ...payload, authenticated: true, token: res.data.token }
+          )
+        );
+
+        dispatch(setCompany(accountType > 0 ? payload : {}));
+        setStore({ key: "token", data: res.data.token });
+
+        accountType > 0 && setStore({ key: "company", data: payload });
+        navigate("/dashboard");
+        break;
+      // case 2:
+      // setUserHasAccount(true);
+      // break;
+      default:
+        break;
+    }
   };
 
   return (

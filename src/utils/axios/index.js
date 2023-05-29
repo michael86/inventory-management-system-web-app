@@ -14,8 +14,8 @@ const instance = axios.create({
 instance.interceptors.request.use(function (config) {
   const { user } = store.getState((state) => state);
 
-  config.headers.token = user.token;
-  config.headers.email = user.email;
+  config.headers.token = getStore("token");
+  config.headers.email = user.email || "";
 
   return config;
 });
