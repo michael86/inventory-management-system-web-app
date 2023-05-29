@@ -4,7 +4,7 @@ import { faForward } from "@fortawesome/free-solid-svg-icons";
 
 import { Link } from "react-router-dom";
 
-import { Button, Form } from "react-bootstrap";
+import { Button, Form, Spinner } from "react-bootstrap";
 
 import Input from "../../Shared/Input";
 
@@ -15,7 +15,7 @@ import "../../../styles/Modal.css";
 import axios from "../../../utils/axios";
 import { gsap } from "gsap";
 
-const Personal = ({ setShowPersonal }) => {
+const Personal = ({ showSpinner, onNext, accountType }) => {
   const scope = useRef();
   const [errors, setErrors] = useState(false);
 
@@ -38,8 +38,24 @@ const Personal = ({ setShowPersonal }) => {
       return;
     }
 
-    res.data.invalid && setUserHasAccount(true);
-    !res.data.invalid && setShowPersonal(false);
+    if (res.data.invalid) {
+      setUserHasAccount(true);
+      return;
+    }
+
+    const form = scope.current.children[1];
+
+    //play anim to show company page
+    accountType > 0 &&
+      gsap.timeline().to(form.children, {
+        y: 100,
+        autoAlpha: 0,
+        stagger: 0.1,
+        onComplete: () => onNext(0, data),
+      });
+
+    //personal account so no need for anim, as spinner shows state
+    accountType === 0 && onNext(0, data);
   };
 
   const onInput = (e) => setErrors(validateInput(e, errors));
@@ -97,7 +113,11 @@ const Personal = ({ setShowPersonal }) => {
         )}
 
         <Button className="bg-transparent border-0 mx-auto d-block" type="submit">
-          <FontAwesomeIcon icon={faForward} className="register-next text-black" />
+          {!showSpinner ? (
+            <FontAwesomeIcon icon={faForward} className="register-next text-black" />
+          ) : (
+            <Spinner />
+          )}
         </Button>
       </Form>
     </div>

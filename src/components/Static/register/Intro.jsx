@@ -7,7 +7,7 @@ import { gsap } from "gsap";
 import { useDispatch } from "react-redux";
 import { setPopupScreen, setPopupText, togglePopup } from "../../../reducers/popupSlice";
 
-const Intro = ({ onNext, setType }) => {
+const Intro = ({ setAccountType }) => {
   const dispatch = useDispatch();
 
   const scope = useRef();
@@ -61,7 +61,7 @@ const Intro = ({ onNext, setType }) => {
       y: -500,
       autoAlpha: 0,
       duration: 0.2,
-      onComplete: () => setType(type),
+      onComplete: () => setAccountType(type),
     });
   };
 
@@ -95,11 +95,7 @@ const Intro = ({ onNext, setType }) => {
           If you're not sure.
         </p>
 
-        <FontAwesomeIcon
-          icon={faForward}
-          className="register-next"
-          onClick={() => onNext(getChoice())}
-        />
+        <FontAwesomeIcon icon={faForward} className="register-next" onClick={() => getChoice()} />
       </div>
     </div>
   );

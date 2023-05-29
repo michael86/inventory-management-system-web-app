@@ -4,7 +4,7 @@ import { faForward } from "@fortawesome/free-solid-svg-icons";
 
 import { Link } from "react-router-dom";
 
-import { Button, Form, Row } from "react-bootstrap";
+import { Button, Form, Row, Spinner } from "react-bootstrap";
 
 import Input from "../../Shared/Input";
 
@@ -15,7 +15,8 @@ import "../../../styles/Modal.css";
 import axios from "../../../utils/axios";
 import { gsap } from "gsap";
 
-const Company = ({ onRegister }) => {
+const Company = ({ onNext, showSpinner }) => {
+  console.log("showSpinner", showSpinner);
   const scope = useRef();
   const [errors, setErrors] = useState(false);
 
@@ -41,7 +42,7 @@ const Company = ({ onRegister }) => {
     }
 
     res.data.invalid && setcompanyExists(true);
-    !res.data.invalid && onRegister(false);
+    !res.data.invalid && onNext(1, data);
   };
 
   const onInput = (e) => setErrors(validateInput(e, errors));
@@ -88,7 +89,11 @@ const Company = ({ onRegister }) => {
         )}
 
         <Button className="bg-transparent border-0 mx-auto d-block" type="submit">
-          <FontAwesomeIcon icon={faForward} className="register-next text-black" />
+          {!showSpinner ? (
+            <FontAwesomeIcon icon={faForward} className="register-next text-black" />
+          ) : (
+            <Spinner />
+          )}
         </Button>
       </Form>
     </div>
