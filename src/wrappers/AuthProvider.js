@@ -30,11 +30,11 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const isAuth = async () => await isAuthenticated();
 
-    const setUserState = ({ token, email, company }) => {
+    const setUserState = ({ token, email }) => {
       dispatch(setUserAuthenticated(true));
       dispatch(setUserToken(token));
       dispatch(setUserEmail(email));
-      dispatch(setCompany(getStore("company")));
+      dispatch(setCompany(getStore("company") || {}));
     };
 
     isAuth().then((res) => {
