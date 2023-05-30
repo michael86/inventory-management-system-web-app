@@ -8,7 +8,7 @@ import { validateInput } from "../../../validation/Utils";
 
 import Header from "./Header";
 import Input from "../../Shared/Input";
-import { setUserAuthenticated, setUserEmail } from "../../../reducers/userSlice";
+import { setUserAuthenticated, setUserEmail, setUserRole } from "../../../reducers/userSlice";
 import axios from "../../../utils/axios";
 import { setCompany } from "../../../reducers/companySlice";
 import { setStore } from "../../../localStorage";
@@ -36,11 +36,14 @@ const Login = () => {
         dispatch(togglePopup());
         dispatch(setUserAuthenticated(true));
         dispatch(setUserEmail(email));
+        dispatch(setUserRole(res?.data?.user?.role || 0));
 
-        const { company_id, ...company } = res.data?.company;
+        if (res.data?.company) {
+          const { company_id, ...company } = res.data.company;
 
-        dispatch(setCompany(company));
-        setStore({ key: "company", data: company });
+          dispatch(setCompany(company));
+          setStore({ key: "company", data: company });
+        }
         navigate("/dashboard");
         break;
 

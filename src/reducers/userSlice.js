@@ -4,6 +4,7 @@ const initialState = {
   email: "",
   authenticated: false,
   token: "",
+  role: 0,
 };
 
 export const userSlice = createSlice({
@@ -25,6 +26,9 @@ export const userSlice = createSlice({
     setUserEmail: (state, { payload }) => {
       state.email = payload;
     },
+    setUserRole: (state, { payload }) => {
+      state.role = payload;
+    },
   },
 });
 
@@ -36,6 +40,7 @@ export const {
   setUserPassword,
   setUser,
   setUserToken,
+  setUserRole,
 } = userSlice.actions;
 
 export default userSlice.reducer;

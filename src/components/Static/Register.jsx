@@ -57,7 +57,18 @@ const Register = () => {
         dispatch(setCompany(accountType > 0 ? payload : {}));
         setStore({ key: "token", data: res.data.token });
 
-        accountType > 0 && setStore({ key: "company", data: payload });
+        if (accountType > 0) {
+          const data = {
+            name: payload.company,
+            address: payload.companyStreet,
+            city: payload.companyCity,
+            county: payload.companyCounty,
+            country: payload.companyCountry,
+            postcode: payload.companyPostcode,
+          };
+          setStore({ key: "company", data });
+          dispatch(setCompany(data));
+        }
         navigate("/dashboard");
         break;
       // case 2:

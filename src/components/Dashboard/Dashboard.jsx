@@ -28,6 +28,7 @@ const Dashboard = () => {
   const [month, setMonth] = useState(dUtils.getMonth());
 
   const company = useSelector((state) => state.company);
+  console.log(company);
 
   const debouncedFilter = useCallback((query) => {
     debounce(async () => {
@@ -92,7 +93,7 @@ const Dashboard = () => {
     <>
       {!apiCalled && <Loader />}
 
-      {apiCalled && company.name ? (
+      {apiCalled && company.name && (
         <Row className="mx-4">
           <DashForm
             dateObject={dateObject}
@@ -123,9 +124,9 @@ const Dashboard = () => {
             />
           </Col>
         </Row>
-      ) : (
-        <PersonalDashboard />
       )}
+
+      {apiCalled && !company.name && <PersonalDashboard />}
     </>
   );
 };
