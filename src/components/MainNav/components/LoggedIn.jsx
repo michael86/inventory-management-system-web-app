@@ -58,16 +58,19 @@ const LoggedIn = () => {
               View
             </Link>
           </NavDropdown>
-          <NavDropdown title="Users" id="offcanvasNavbarDropdown-expand-md" className="order-md-3">
-            <Link to="manage-users" className="dropdown-item">
-              Manage
-            </Link>
-            <NavDropdown.Divider />
-            <Link to="add-user" className="dropdown-item">
-              Add
-            </Link>
-          </NavDropdown>
         </>
+      )}
+
+      {user.role === 3 && (
+        <NavDropdown title="Users" id="offcanvasNavbarDropdown-expand-md" className="order-md-3">
+          <Link to="manage-users" className="dropdown-item">
+            Manage
+          </Link>
+          <NavDropdown.Divider />
+          <Link to="add-user" className="dropdown-item">
+            Add
+          </Link>
+        </NavDropdown>
       )}
 
       <NavDropdown

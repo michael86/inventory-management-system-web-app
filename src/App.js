@@ -18,6 +18,8 @@ import AddStock from "./components/Stock/AddStock";
 import ManageStock from "./components/Stock/ManageStock";
 import ForgotPassword from "./components/Account/ForgotPassword";
 import ResetPassword from "./components/Account/ResetPassword";
+import AddUser from "./components/Users/AddUser";
+import ManageUsers from "./components/Users/ManageUsers";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-image-lightbox/style.css";
@@ -36,6 +38,8 @@ const PriRoutes = [
   { path: "/generate-invoice", element: <GenerateInvoice /> },
   { path: "/manage-stock", element: <ManageStock /> },
   { path: "/add-stock", element: <AddStock /> },
+  { path: "/add-user", element: <AddUser /> },
+  { path: "/manage-users", element: <ManageUsers /> },
 ];
 
 function App() {
