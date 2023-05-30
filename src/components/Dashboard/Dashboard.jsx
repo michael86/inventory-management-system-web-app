@@ -14,6 +14,7 @@ import { generateDataset, generateLabels } from "../../utils/charts";
 import { useagePlugins } from "./Schemas";
 import ValuePie from "../Charts/ValuePie";
 import { useSelector } from "react-redux";
+import PersonalDashboard from "./components/PersonalDashboard";
 
 const Dashboard = () => {
   const [apiCalled, setApiCalled] = useState(false);
@@ -123,7 +124,7 @@ const Dashboard = () => {
           </Col>
         </Row>
       ) : (
-        <p>Company not linked</p>
+        <PersonalDashboard />
       )}
     </>
   );
