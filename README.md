@@ -1,6 +1,6 @@
 # Inventory management system
 
-This is a full stack project for the jump bootcamp. The aim is to create a full stack React app.
+A complete inventory management system built using React, Redux, and React Router Dom.
 
 ## Libaries & frameworks used.
 
@@ -11,17 +11,6 @@ This is a full stack project for the jump bootcamp. The aim is to create a full 
 5. React-Redux
 6. React-router-Dom
 7. FontAwesome
-
-## Notes:
-
-~~### Date object~~
-
-~~Because of the way history would be created, we never had a starting point to create the dateObject from, this meant it would be harder to fill out any empty months if there was not a history snapshot. We'd have had ot look into the future, tehn in the past.~~
-~~Due to this, if we create a snapshot in the history from the point of creation and then when editing, create a snapshot for the new values, we are now able to .sort() the history array and use the last snap shot for any empty months.~~
-
-### Dashboard
-
-~~pending manageStock.jsx~~
 
 ## To do:
 
@@ -64,7 +53,7 @@ Certain state will only be local storage (enabling dark mode and such)
 
 ### profile component
 
-- [ ] styling
+- [x] styling
 
 ### AddStock Component
 
@@ -84,7 +73,7 @@ this is going to be a headache for testing
 
 ### general
 
-- [ ] Create static pages
+- [x] Create static pages
 - [x] Create local storage wrapper (May be updated with more functionality in future)
 - [x] Create charts
 - [x] Add Charts to Dashboard
