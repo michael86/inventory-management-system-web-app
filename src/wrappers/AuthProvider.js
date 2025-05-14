@@ -49,7 +49,21 @@ const AuthProvider = ({ children }) => {
     });
   }, [dispatch]);
 
-  if (loader) return <h1>Loadign</h1>; //loader here;
+  if (loader)
+    return (
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignContent: "center",
+          justifyContent: "center",
+          textAlign: "center",
+        }}
+      >
+        <h1>Loading</h1>
+        <p>Please note, this may take a moment.</p>
+      </div>
+    );
 
   return children;
 };
